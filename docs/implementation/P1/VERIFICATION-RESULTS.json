@@ -1,0 +1,613 @@
+{
+  "stage": "P1",
+  "date": "2026-10-21",
+  "timezone": "America/New_York",
+  "status": "IMPLEMENTED_SCOPED_CHECKS_PASS_OWNER_REVIEW_PENDING",
+  "branch": "feature/p1-desktop-foundation",
+  "starting_sha": "b1c52948ebd1704533b2e106a5290efd4656c0b2",
+  "starting_remote_sha_verified": true,
+  "runtime_observed": {
+    "electron": "45.0.0",
+    "chromium": "156.0.8078.48",
+    "embeddedNode": "24.22.0",
+    "platform": "win32",
+    "arch": "x64",
+    "displays": [
+      {
+        "width": 1536,
+        "height": 864,
+        "scaleFactor": 1.25
+      }
+    ]
+  },
+  "host": {
+    "windows_build": "26200.9457",
+    "node": "25.9.0",
+    "npm": "11.12.1",
+    "powershell": "5.1.26100.9444"
+  },
+  "compatible_host_node_range": "^22.12.0 || >=24.0.0",
+  "pinned_runtime_dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "pinned_development_dependencies": {
+    "@playwright/test": "1.64.1",
+    "@testing-library/dom": "10.4.2",
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.8",
+    "@types/node": "25.9.9",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "5.2.0",
+    "axe-core": "4.14.0",
+    "electron": "45.0.0",
+    "electron-vite": "5.0.0",
+    "jsdom": "27.4.0",
+    "prettier": "3.9.10",
+    "typescript": "5.9.3",
+    "vite": "7.3.7",
+    "vitest": "4.1.12"
+  },
+  "commands": [
+    {
+      "command": "npm ci --offline --cache .cache/npm --no-fund",
+      "exit_code": 0,
+      "result": "PASS: 182 packages installed; official Electron cached installer completed"
+    },
+    {
+      "command": "npm run build",
+      "exit_code": 0,
+      "result": "PASS: typecheck and three build targets"
+    },
+    {
+      "command": "npm run test:electron",
+      "exit_code": 0,
+      "passed": 11,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0,
+      "duration_ms": 17424.75
+    },
+    {
+      "command": "npm test -- --reporter=default --reporter=json --outputFile=test-results/unit-results.json",
+      "exit_code": 0,
+      "passed": 26,
+      "failed": 0,
+      "files": 5
+    },
+    {
+      "command": "npm run format:check",
+      "exit_code": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "npm run dev -- --remoteDebuggingPort 9333",
+      "exit_code": 0,
+      "result": "PASS: real app opened, Agents navigation, screenshot, normal test-window closure"
+    }
+  ],
+  "unit_ui_cases": [
+    {
+      "file": "tests/unit/layout.test.ts",
+      "name": "NCD-01 protected-center fit policy protects the center at a fractional Windows DPI viewport width",
+      "status": "passed",
+      "duration_ms": 3.3168000000000575
+    },
+    {
+      "file": "tests/unit/layout.test.ts",
+      "name": "NCD-01 protected-center fit policy fits 1920px viewport without reducing center below 580",
+      "status": "passed",
+      "duration_ms": 1.0468000000000757
+    },
+    {
+      "file": "tests/unit/layout.test.ts",
+      "name": "NCD-01 protected-center fit policy fits 1366px viewport without reducing center below 580",
+      "status": "passed",
+      "duration_ms": 0.2885000000001128
+    },
+    {
+      "file": "tests/unit/layout.test.ts",
+      "name": "NCD-01 protected-center fit policy fits 1100px viewport without reducing center below 580",
+      "status": "passed",
+      "duration_ms": 0.17020000000002256
+    },
+    {
+      "file": "tests/unit/layout.test.ts",
+      "name": "NCD-01 protected-center fit policy fits 1000px viewport without reducing center below 580",
+      "status": "passed",
+      "duration_ms": 0.14939999999978681
+    },
+    {
+      "file": "tests/unit/layout.test.ts",
+      "name": "NCD-01 protected-center fit policy restores the actual Sidebar preference after closing Dock",
+      "status": "passed",
+      "duration_ms": 0.185799999999972
+    },
+    {
+      "file": "tests/unit/layout.test.ts",
+      "name": "NCD-01 protected-center fit policy hides panels when even the rail and minimum panel cannot fit",
+      "status": "passed",
+      "duration_ms": 0.15980000000013206
+    },
+    {
+      "file": "tests/unit/layout.test.ts",
+      "name": "NCD-01 protected-center fit policy clamps global preference to 320\u2013480 without rewriting it",
+      "status": "passed",
+      "duration_ms": 0.1451999999999316
+    },
+    {
+      "file": "tests/unit/security.test.ts",
+      "name": "document navigation boundary limits local assets to the decoded renderer root, rejecting traversal and encoded separators",
+      "status": "passed",
+      "duration_ms": 4.6521999999999935
+    },
+    {
+      "file": "tests/unit/security.test.ts",
+      "name": "document navigation boundary permits only the same entry document and local anchor",
+      "status": "passed",
+      "duration_ms": 0.9657999999999447
+    },
+    {
+      "file": "tests/unit/security.test.ts",
+      "name": "document navigation boundary does not admit another localhost origin or path in development",
+      "status": "passed",
+      "duration_ms": 0.7971999999999753
+    },
+    {
+      "file": "tests/unit/session.test.ts",
+      "name": "session-only drafts and page-local Dock ownership never discards text on route changes",
+      "status": "passed",
+      "duration_ms": 4.623199999999997
+    },
+    {
+      "file": "tests/unit/session.test.ts",
+      "name": "session-only drafts and page-local Dock ownership new drafts are empty with closed Dock; old unsent drafts stay recoverable",
+      "status": "passed",
+      "duration_ms": 2.447099999999864
+    },
+    {
+      "file": "tests/unit/session.test.ts",
+      "name": "session-only drafts and page-local Dock ownership repeated blank New Conversation clicks produce no history rows",
+      "status": "passed",
+      "duration_ms": 0.9349999999999454
+    },
+    {
+      "file": "tests/unit/session.test.ts",
+      "name": "session-only drafts and page-local Dock ownership Agents entry resets only the temporary Dock; returning to Chat restores its tab and visibility",
+      "status": "passed",
+      "duration_ms": 0.6109000000001288
+    },
+    {
+      "file": "tests/unit/session.test.ts",
+      "name": "session-only drafts and page-local Dock ownership Projects starts closed with Files selected; Settings cannot overwrite Chat",
+      "status": "passed",
+      "duration_ms": 0.5306000000000495
+    },
+    {
+      "file": "tests/unit/session.test.ts",
+      "name": "session-only drafts and page-local Dock ownership explicit Sidebar expansion closes a constrained Dock and preserves text",
+      "status": "passed",
+      "duration_ms": 0.4519999999999982
+    },
+    {
+      "file": "tests/unit/session.test.ts",
+      "name": "session-only drafts and page-local Dock ownership panel resizing is bounded and survives page navigation",
+      "status": "passed",
+      "duration_ms": 0.5016000000000531
+    },
+    {
+      "file": "tests/ui/app.test.tsx",
+      "name": "real UI interactions without a backend keeps an unsent draft through pages and never fakes message acceptance",
+      "status": "passed",
+      "duration_ms": 857.3742000000002
+    },
+    {
+      "file": "tests/ui/app.test.tsx",
+      "name": "real UI interactions without a backend maintains independent Dock state and supports keyboard resizing and tabs",
+      "status": "passed",
+      "duration_ms": 273.9042000000004
+    },
+    {
+      "file": "tests/ui/app.test.tsx",
+      "name": "real UI interactions without a backend opens Files from Projects in place and keeps future controls honestly disabled",
+      "status": "passed",
+      "duration_ms": 194.53430000000026
+    },
+    {
+      "file": "tests/ui/app.test.tsx",
+      "name": "real UI interactions without a backend switches session appearance and routes using keyboard only",
+      "status": "passed",
+      "duration_ms": 121.85359999999991
+    },
+    {
+      "file": "tests/ui/presentation.test.tsx",
+      "name": "isolated presentation fixtures \u2014 never live task evidence renders coding conversation cards, expansion and safe text",
+      "status": "passed",
+      "duration_ms": 248.57899999999995
+    },
+    {
+      "file": "tests/ui/presentation.test.tsx",
+      "name": "isolated presentation fixtures \u2014 never live task evidence keeps preview read-only and treats markup as text",
+      "status": "passed",
+      "duration_ms": 64.8101999999999
+    },
+    {
+      "file": "tests/ui/presentation.test.tsx",
+      "name": "isolated presentation fixtures \u2014 never live task evidence shows truthful unavailable preview: Binary file preview is unavailable.",
+      "status": "passed",
+      "duration_ms": 7.966599999999971
+    },
+    {
+      "file": "tests/ui/presentation.test.tsx",
+      "name": "isolated presentation fixtures \u2014 never live task evidence shows truthful unavailable preview: This file cannot be read.",
+      "status": "passed",
+      "duration_ms": 5.979799999999841
+    }
+  ],
+  "electron_cases": [
+    {
+      "file": "tests/electron/desktop.spec.ts",
+      "name": "P1-WIN: actual Windows startup, maximized window, isolated renderer and empty preload",
+      "status": "passed",
+      "duration_ms": 1841,
+      "retry": 0
+    },
+    {
+      "file": "tests/electron/desktop.spec.ts",
+      "name": "P1-SEC: external navigation, popup, provider network, local-file reads and inline code are blocked",
+      "status": "passed",
+      "duration_ms": 668,
+      "retry": 0
+    },
+    {
+      "file": "tests/electron/desktop.spec.ts",
+      "name": "P1-NAV: all pages, recoverable drafts and no fictitious history/task",
+      "status": "passed",
+      "duration_ms": 1245,
+      "retry": 0
+    },
+    {
+      "file": "tests/electron/desktop.spec.ts",
+      "name": "P1-DOCK: per-draft restoration, page-local resets, tabs, keyboard/pointer sizing and manual hide",
+      "status": "passed",
+      "duration_ms": 1867,
+      "retry": 0
+    },
+    {
+      "file": "tests/electron/desktop.spec.ts",
+      "name": "P1-FIT: actual Electron viewport fit at all approved CSS sizes and safe constrained fallback",
+      "status": "passed",
+      "duration_ms": 2126,
+      "retry": 0
+    },
+    {
+      "file": "tests/electron/desktop.spec.ts",
+      "name": "P1-A11Y: keyboard navigation, focus, reduced motion and automated accessibility on every page",
+      "status": "passed",
+      "duration_ms": 2100,
+      "retry": 0
+    },
+    {
+      "file": "tests/electron/desktop.spec.ts",
+      "name": "P1-DPI: Windows Electron forced device scale 1 with usable effective viewport",
+      "status": "passed",
+      "duration_ms": 1186,
+      "retry": 0
+    },
+    {
+      "file": "tests/electron/desktop.spec.ts",
+      "name": "P1-DPI: Windows Electron forced device scale 1.25 with usable effective viewport",
+      "status": "passed",
+      "duration_ms": 1169,
+      "retry": 0
+    },
+    {
+      "file": "tests/electron/desktop.spec.ts",
+      "name": "P1-DPI: Windows Electron forced device scale 1.5 with usable effective viewport",
+      "status": "passed",
+      "duration_ms": 1279,
+      "retry": 0
+    },
+    {
+      "file": "tests/electron/desktop.spec.ts",
+      "name": "P1-RELOAD: renderer reload does not claim restored messages, model or task execution",
+      "status": "passed",
+      "duration_ms": 852,
+      "retry": 0
+    },
+    {
+      "file": "tests/electron/development.spec.ts",
+      "name": "P1-DEV: development assets, nonce CSP and React load in an actual sandboxed Electron window",
+      "status": "passed",
+      "duration_ms": 2322,
+      "retry": 0
+    }
+  ],
+  "viewport_observations": [
+    {
+      "requested_css": {
+        "width": 1366,
+        "height": 768
+      },
+      "native_observation": {
+        "width": 1368,
+        "height": 768,
+        "devicePixelRatio": 1.25
+      },
+      "css_metrics_override_applied": true,
+      "device_scale_preserved": true,
+      "native_dimensions_needed_correction": true
+    },
+    {
+      "requested_css": {
+        "width": 1366,
+        "height": 768
+      },
+      "native_observation": {
+        "width": 1368,
+        "height": 768,
+        "devicePixelRatio": 1.25
+      },
+      "css_metrics_override_applied": true,
+      "device_scale_preserved": true,
+      "native_dimensions_needed_correction": true
+    },
+    {
+      "requested_css": {
+        "width": 1920,
+        "height": 1080
+      },
+      "native_observation": {
+        "width": 1920,
+        "height": 1080,
+        "devicePixelRatio": 1.25
+      },
+      "css_metrics_override_applied": true,
+      "device_scale_preserved": true,
+      "native_dimensions_needed_correction": false
+    },
+    {
+      "requested_css": {
+        "width": 1366,
+        "height": 768
+      },
+      "native_observation": {
+        "width": 1368,
+        "height": 768,
+        "devicePixelRatio": 1.25
+      },
+      "css_metrics_override_applied": true,
+      "device_scale_preserved": true,
+      "native_dimensions_needed_correction": true
+    },
+    {
+      "requested_css": {
+        "width": 1100,
+        "height": 700
+      },
+      "native_observation": {
+        "width": 1100,
+        "height": 700,
+        "devicePixelRatio": 1.25
+      },
+      "css_metrics_override_applied": true,
+      "device_scale_preserved": true,
+      "native_dimensions_needed_correction": false
+    },
+    {
+      "requested_css": {
+        "width": 1000,
+        "height": 600
+      },
+      "native_observation": {
+        "width": 1002,
+        "height": 602,
+        "devicePixelRatio": 1.25
+      },
+      "css_metrics_override_applied": true,
+      "device_scale_preserved": true,
+      "native_dimensions_needed_correction": true
+    },
+    {
+      "requested_css": {
+        "width": 980,
+        "height": 600
+      },
+      "native_observation": {
+        "width": 1002,
+        "height": 602,
+        "devicePixelRatio": 1.25
+      },
+      "css_metrics_override_applied": true,
+      "device_scale_preserved": true,
+      "native_dimensions_needed_correction": true
+    },
+    {
+      "requested_css": {
+        "width": 1366,
+        "height": 768
+      },
+      "native_observation": {
+        "width": 1368,
+        "height": 768,
+        "devicePixelRatio": 1.25
+      },
+      "css_metrics_override_applied": true,
+      "device_scale_preserved": true,
+      "native_dimensions_needed_correction": true
+    },
+    {
+      "requested_css": {
+        "width": 1100,
+        "height": 700
+      },
+      "native_observation": {
+        "width": 1100,
+        "height": 700,
+        "devicePixelRatio": 1
+      },
+      "css_metrics_override_applied": true,
+      "device_scale_preserved": true,
+      "native_dimensions_needed_correction": false
+    },
+    {
+      "requested_css": {
+        "width": 1100,
+        "height": 700
+      },
+      "native_observation": {
+        "width": 1100,
+        "height": 700,
+        "devicePixelRatio": 1.25
+      },
+      "css_metrics_override_applied": true,
+      "device_scale_preserved": true,
+      "native_dimensions_needed_correction": false
+    },
+    {
+      "requested_css": {
+        "width": 1100,
+        "height": 700
+      },
+      "native_observation": {
+        "width": 1100,
+        "height": 700,
+        "devicePixelRatio": 1.5
+      },
+      "css_metrics_override_applied": true,
+      "device_scale_preserved": true,
+      "native_dimensions_needed_correction": false
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/implementation/P1/screenshots/agents-page.png",
+      "bytes": 216635,
+      "sha256": "79ae4e633e11f045bd4fbc95b81196cbf9a70c31a3df7731864c51f60e6325d0",
+      "pixel_width": 1708,
+      "pixel_height": 960
+    },
+    {
+      "path": "docs/implementation/P1/screenshots/development-settings.png",
+      "bytes": 240538,
+      "sha256": "483783c47ed703ed64363e5611dc2557e629c06cbcb86ef75bbf809dc3b16aa8",
+      "pixel_width": 1920,
+      "pixel_height": 990
+    },
+    {
+      "path": "docs/implementation/P1/screenshots/home-1366.png",
+      "bytes": 279358,
+      "sha256": "696f513d59e5de0a38c6a6f6d6e7b6a1255a1c5eafe0da286ba694f2b8754305",
+      "pixel_width": 1708,
+      "pixel_height": 960
+    },
+    {
+      "path": "docs/implementation/P1/screenshots/home-agent-logs.png",
+      "bytes": 278404,
+      "sha256": "03a5a9a5460d49c3d17bc9978d380fdbc29c4468a7a7a4ffe45f7dc24bfa6dd6",
+      "pixel_width": 1708,
+      "pixel_height": 960
+    },
+    {
+      "path": "docs/implementation/P1/screenshots/home-page.png",
+      "bytes": 279385,
+      "sha256": "b428cb8d61401021a5a5dc7ab26a507516f48ac672b36f321f4ae7f9405fba50",
+      "pixel_width": 1708,
+      "pixel_height": 960
+    },
+    {
+      "path": "docs/implementation/P1/screenshots/layout-1000x600.png",
+      "bytes": 176658,
+      "sha256": "ff6367e1fd3aecb70b4a65371f77ebd48a4eabb442b09284a4fc393e44abc0e6",
+      "pixel_width": 1250,
+      "pixel_height": 750
+    },
+    {
+      "path": "docs/implementation/P1/screenshots/layout-1100x700.png",
+      "bytes": 198801,
+      "sha256": "e4f0091146ae5349ef5acf521f7b7aca224231adef34ca22c849355e339f8c16",
+      "pixel_width": 1375,
+      "pixel_height": 875
+    },
+    {
+      "path": "docs/implementation/P1/screenshots/layout-1366x768.png",
+      "bytes": 275824,
+      "sha256": "f20f6550b98723c363bf499fd6f5f65c9d97cf97af1f26982c31f06dc7c81ef1",
+      "pixel_width": 1708,
+      "pixel_height": 960
+    },
+    {
+      "path": "docs/implementation/P1/screenshots/layout-1920x1080.png",
+      "bytes": 328520,
+      "sha256": "3c660d076d231e325573c46bf95160c151817b051951ca9b09a1f4821cb31795",
+      "pixel_width": 2400,
+      "pixel_height": 1350
+    },
+    {
+      "path": "docs/implementation/P1/screenshots/native-maximized.png",
+      "bytes": 293677,
+      "sha256": "2225f29badb454abbb49adf34e6fd8f4ec8e153d8299a0a011bb092886b79a01",
+      "pixel_width": 1920,
+      "pixel_height": 990
+    },
+    {
+      "path": "docs/implementation/P1/screenshots/npm-dev-agents.png",
+      "bytes": 223594,
+      "sha256": "2332eb99f59ec92b3b104b50de2058435dff84f5bee927020e521f199c60687d",
+      "pixel_width": 1920,
+      "pixel_height": 990
+    },
+    {
+      "path": "docs/implementation/P1/screenshots/projects-page.png",
+      "bytes": 205124,
+      "sha256": "e4d0e07eae3321643c7055262b35f17bc185066ae94b692ff5c1b965cff0f06f",
+      "pixel_width": 1708,
+      "pixel_height": 960
+    },
+    {
+      "path": "docs/implementation/P1/screenshots/settings-page.png",
+      "bytes": 223955,
+      "sha256": "e3bf68900235b24f928918e673bb831c8034ca29507e4330c92314e6f17e09d4",
+      "pixel_width": 1708,
+      "pixel_height": 960
+    }
+  ],
+  "evidence_limits": {
+    "branding_and_reference_fidelity": "NOT_VERIFIED: missing owner reference images",
+    "native_windows_dpi_observed": 1.25,
+    "forced_device_scales_tested": [
+      1,
+      1.25,
+      1.5
+    ],
+    "actual_os_scale_changes_100_150": "NOT_RUN",
+    "secondary_monitor_move": "NOT_RUN: one display observed",
+    "manual_screen_reader": "NOT_RUN",
+    "gpu_profile": "NOT_RUN",
+    "real_engine_tasks_events_and_process_safety": "NOT_RUN",
+    "durable_state_ipc_bridge_file_broker": "NOT_IMPLEMENTED_P2_PLUS",
+    "full_IIS08_G0_G9": "NOT_RUN",
+    "distribution_packaging": "DEFERRED_P10"
+  },
+  "fixture_isolation": {
+    "production_renderer_marker_scan": "PASS",
+    "fixture_markers_found": 0,
+    "actual_agent_or_provider_calls": 0
+  },
+  "source_permissions": {
+    "engine_modified": false,
+    "frozen_documents_modified": false,
+    "main_merged": false,
+    "P2_started": false,
+    "global_tools_or_admin_changes": false
+  },
+  "prior_failures": "See IMPLEMENTATION-REPORT.md: test typing/viewport/native-DPI harness, explicit Electron installation, inherited Electron flag, fractional-center implementation deficit; all relevant final checks rerun and passed.",
+  "review": {
+    "self_review": "COMPLETE",
+    "independent_review": "NOT_RUN",
+    "owner_acceptance": "PENDING"
+  },
+  "commit_provenance": "See COMMIT-RECEIPT.md after implementation commit; final branch SHA in owner handoff."
+}

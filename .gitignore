@@ -1,6 +1,8 @@
 # Retain the original delivery locally; publish its verified extracted documents.
 /NEXT-CODE-DESKTOP-CODEX-HANDOFF-P0-*.zip
 node_modules/
+.cache/
+.test-profiles/
 out/
 dist/
 coverage/

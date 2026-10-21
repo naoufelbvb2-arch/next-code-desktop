@@ -1,11 +1,14 @@
-# P1 scope packet — implementation not authorized
+# P1 scope packet — authorized 2026-10-21; acceptance pending
 
-Prepared 2026-10-21. Owner decision: **PENDING**. Proposed branch:
+Prepared 2026-10-21. Owner explicitly approved this scope in the separate
+**P1 IMPLEMENTATION AUTHORIZATION**. Approved branch:
 `feature/p1-desktop-foundation`. Repository:
 `naoufelbvb2-arch/next-code-desktop`. Current immutable import baseline:
-`af682b74375a0b5827aa1fca0ff0815434803650`. Before creating the feature branch,
-record the exact owner-approved starting SHA; the separate bootstrap evidence
-branch is not implicitly merged.
+`af682b74375a0b5827aa1fca0ff0815434803650`. The owner selected starting commit
+`b1c52948ebd1704533b2e106a5290efd4656c0b2`, verified against the remote before
+branch creation. No bootstrap or P1 branch merge is authorized. The proposal
+below is retained as the scope baseline; see IMPLEMENTATION-REPORT.md for actual
+implementation, dependency refinements, observed tests and remaining limitations.
 
 Authority: NCD-04 §5.2, NCD-00, NCD-00-C01, NCD-01 §§2–13, NCD-02 A-01–A-06.
 This plan selects bounded implementation details; it changes no frozen contract.
@@ -149,5 +152,5 @@ engine modifications, global/Administrator installation, installer publication,
 merge or next-stage transition is included. Keep stage tests in isolated profiles;
 stop and report on failures without deleting user data or rewriting history.
 
-Owner must separately disposition P0 readiness and authorize P1. This document
-records a concrete request and does not grant that approval itself.
+The owner subsequently authorized P1 at the specified starting SHA. Stage
+acceptance, merge and transition to P2 remain separate pending decisions.

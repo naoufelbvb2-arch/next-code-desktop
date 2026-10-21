@@ -1,0 +1,58 @@
+import { describe, expect, it } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { App } from '../../renderer/App'
+
+describe('real UI interactions without a backend', () => {
+  it('keeps an unsent draft through pages and never fakes message acceptance', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+    await user.type(screen.getByRole('textbox', { name: 'Message' }), 'Investigate this idea')
+    expect(screen.getByRole('button', { name: 'Send message' })).toBeDisabled()
+    for (const name of ['Projects', 'Agents', 'Settings'])
+      await user.click(screen.getByRole('button', { name }))
+    await user.click(screen.getByRole('button', { name: /Open draft: Investigate/ }))
+    expect(screen.getByRole('textbox')).toHaveValue('Investigate this idea')
+    expect(screen.getByText('Unsent draft')).toBeInTheDocument()
+    expect(screen.getByText('No saved conversations yet')).toBeInTheDocument()
+  })
+  it('maintains independent Dock state and supports keyboard resizing and tabs', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+    await user.click(screen.getByRole('button', { name: 'Open Right Dock' }))
+    await user.click(screen.getByRole('tab', { name: 'Files' }))
+    const resize = screen.getByRole('separator', { name: 'Resize Right Dock' })
+    resize.focus()
+    await user.keyboard('{ArrowLeft}')
+    expect(resize).toHaveAttribute('aria-valuenow', '376')
+    await user.click(screen.getByRole('button', { name: 'Agents' }))
+    expect(screen.queryByRole('complementary', { name: 'Right Dock' })).not.toBeInTheDocument()
+    await user.click(screen.getByRole('button', { name: 'New Conversation' }))
+    expect(screen.queryByRole('complementary', { name: 'Right Dock' })).not.toBeInTheDocument()
+  })
+  it('opens Files from Projects in place and keeps future controls honestly disabled', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+    await user.click(screen.getByRole('button', { name: 'Projects' }))
+    expect(screen.getByRole('button', { name: 'Open project' })).toBeDisabled()
+    await user.click(screen.getByRole('button', { name: 'Open Files panel' }))
+    expect(screen.getByRole('tab', { name: 'Files' })).toHaveAttribute('aria-selected', 'true')
+    expect(screen.getByRole('heading', { name: 'Projects', level: 1 })).toBeInTheDocument()
+    await user.click(screen.getByRole('tab', { name: 'Terminal' }))
+    expect(screen.getByRole('button', { name: 'Interactive Shell' })).toBeDisabled()
+    expect(screen.getByText('No process connected')).toBeInTheDocument()
+  })
+  it('switches session appearance and routes using keyboard only', async () => {
+    const user = userEvent.setup()
+    const { container } = render(<App />)
+    screen.getByRole('button', { name: 'Settings' }).focus()
+    await user.keyboard('{Enter}')
+    const motion = screen.getByRole('switch', { name: 'Reduce motion' })
+    motion.focus()
+    await user.keyboard(' ')
+    expect(motion).toBeChecked()
+    expect(container.querySelector('.app')).toHaveClass('reduce-motion')
+    await user.click(screen.getByRole('switch', { name: 'Ambient light' }))
+    expect(container.querySelector('.app')).toHaveClass('no-ambient')
+  })
+})

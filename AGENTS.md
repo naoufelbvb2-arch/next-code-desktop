@@ -2,14 +2,16 @@
 
 ## Current authority
 
-The owner's 2026-10-21 MASTER IMPLEMENTATION HANDOFF authorizes **documentation
-bootstrap, a short local preflight, and preparation of a P1 scope packet only**.
-It explicitly authorizes the first documentary commit/push to an empty official
-Desktop remote. This later scoped instruction overrides the older read-only
-startup restrictions in the preserved handoff guidance for these operations only.
-**P1 coding is not authorized.** Stop at the P1 gate and request the owner's
-explicit approval after presenting concrete results and the proposed scope.
-Do not infer stage approval from documentation freeze, passing checks, or a plan.
+The owner's 2026-10-21 **P1 IMPLEMENTATION AUTHORIZATION** approves the P1 scope
+in `docs/implementation/P1/IMPLEMENTATION-PLAN.md`, starting at verified commit
+`b1c52948ebd1704533b2e106a5290efd4656c0b2` on
+`feature/p1-desktop-foundation`. Application files, project-local dependencies,
+Electron launch, scoped tests/fixes, evidence and feature-branch commits/pushes
+are authorized. Missing reference images do not block documented UI construction;
+branding fidelity remains PENDING/NOT_VERIFIED. This overrides the older startup
+restrictions within P1 only. **Stop after P1 for owner review.** No P2+, engine
+edits/execution, SQLite, real IPC/Python bridge, paid model calls, global system
+changes or merge into main. Passing tests does not grant acceptance or transition.
 
 ## References and precedence
 

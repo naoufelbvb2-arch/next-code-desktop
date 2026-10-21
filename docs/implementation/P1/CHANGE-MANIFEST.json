@@ -1,0 +1,405 @@
+{
+  "stage": "P1",
+  "starting_sha": "b1c52948ebd1704533b2e106a5290efd4656c0b2",
+  "branch": "feature/p1-desktop-foundation",
+  "manifest_exclusions": [
+    "docs/implementation/P1/CHANGE-MANIFEST.json (self)",
+    "docs/implementation/P1/COMMIT-RECEIPT.md (subsequent receipt)"
+  ],
+  "files": [
+    {
+      "path": ".gitignore",
+      "action": "modified",
+      "bytes": 326,
+      "sha256_working_bytes": "dea723988e15e082049a8bcc2fd4c73737da272076222f929656b533f93ed4a0",
+      "reason": "Pinned project-local dependency, build, test or formatting configuration"
+    },
+    {
+      "path": ".npmrc",
+      "action": "created",
+      "bytes": 35,
+      "sha256_working_bytes": "cde76ca04e048c3eba070a2c0dfcf5b723cf6014eab177157096b924f24ec4ca",
+      "reason": "Pinned project-local dependency, build, test or formatting configuration"
+    },
+    {
+      "path": ".prettierrc.json",
+      "action": "created",
+      "bytes": 91,
+      "sha256_working_bytes": "a55df59e012d84d8b0925731f2de55b22147481c9ea88b0d49595f70a53272d7",
+      "reason": "Pinned project-local dependency, build, test or formatting configuration"
+    },
+    {
+      "path": "AGENTS.md",
+      "action": "modified",
+      "bytes": 5801,
+      "sha256_working_bytes": "4d8dc16fc315cd483ce30e1dcfebf65afcd30f56ddef0d7a491f8b985c042fbc",
+      "reason": "Run instructions and current stage authority"
+    },
+    {
+      "path": "README.md",
+      "action": "modified",
+      "bytes": 2594,
+      "sha256_working_bytes": "7545af05c0bb2879a88bc503ded5e6ae77b83b2b309346d94dab543c6d4213e5",
+      "reason": "Run instructions and current stage authority"
+    },
+    {
+      "path": "docs/implementation/P1/IMPLEMENTATION-PLAN.md",
+      "action": "modified",
+      "bytes": 10759,
+      "sha256_working_bytes": "4f3fc255e3ed24956b0fdc41997d0574f1e86757023dfeddcd8997b4bb507de2",
+      "reason": "Stage-specific authorization, observed evidence or app screenshot"
+    },
+    {
+      "path": "docs/implementation/P1/IMPLEMENTATION-REPORT.md",
+      "action": "created",
+      "bytes": 14291,
+      "sha256_working_bytes": "ca21dd6a3eabe7c305b99218c0e703ee119c8456e44188a8ab9137c5b5fdf202",
+      "reason": "Stage-specific authorization, observed evidence or app screenshot"
+    },
+    {
+      "path": "docs/implementation/P1/VERIFICATION-RESULTS.json",
+      "action": "created",
+      "bytes": 19929,
+      "sha256_working_bytes": "18c55d66e191422d0ad7ddb88966da746623a9c65eb609122e06eb4962db1642",
+      "reason": "Stage-specific authorization, observed evidence or app screenshot"
+    },
+    {
+      "path": "docs/implementation/P1/screenshots/agents-page.png",
+      "action": "created",
+      "bytes": 216635,
+      "sha256_working_bytes": "79ae4e633e11f045bd4fbc95b81196cbf9a70c31a3df7731864c51f60e6325d0",
+      "reason": "Stage-specific authorization, observed evidence or app screenshot"
+    },
+    {
+      "path": "docs/implementation/P1/screenshots/development-settings.png",
+      "action": "created",
+      "bytes": 240538,
+      "sha256_working_bytes": "483783c47ed703ed64363e5611dc2557e629c06cbcb86ef75bbf809dc3b16aa8",
+      "reason": "Stage-specific authorization, observed evidence or app screenshot"
+    },
+    {
+      "path": "docs/implementation/P1/screenshots/home-1366.png",
+      "action": "created",
+      "bytes": 279358,
+      "sha256_working_bytes": "696f513d59e5de0a38c6a6f6d6e7b6a1255a1c5eafe0da286ba694f2b8754305",
+      "reason": "Stage-specific authorization, observed evidence or app screenshot"
+    },
+    {
+      "path": "docs/implementation/P1/screenshots/home-agent-logs.png",
+      "action": "created",
+      "bytes": 278404,
+      "sha256_working_bytes": "03a5a9a5460d49c3d17bc9978d380fdbc29c4468a7a7a4ffe45f7dc24bfa6dd6",
+      "reason": "Stage-specific authorization, observed evidence or app screenshot"
+    },
+    {
+      "path": "docs/implementation/P1/screenshots/home-page.png",
+      "action": "created",
+      "bytes": 279385,
+      "sha256_working_bytes": "b428cb8d61401021a5a5dc7ab26a507516f48ac672b36f321f4ae7f9405fba50",
+      "reason": "Stage-specific authorization, observed evidence or app screenshot"
+    },
+    {
+      "path": "docs/implementation/P1/screenshots/layout-1000x600.png",
+      "action": "created",
+      "bytes": 176658,
+      "sha256_working_bytes": "ff6367e1fd3aecb70b4a65371f77ebd48a4eabb442b09284a4fc393e44abc0e6",
+      "reason": "Stage-specific authorization, observed evidence or app screenshot"
+    },
+    {
+      "path": "docs/implementation/P1/screenshots/layout-1100x700.png",
+      "action": "created",
+      "bytes": 198801,
+      "sha256_working_bytes": "e4f0091146ae5349ef5acf521f7b7aca224231adef34ca22c849355e339f8c16",
+      "reason": "Stage-specific authorization, observed evidence or app screenshot"
+    },
+    {
+      "path": "docs/implementation/P1/screenshots/layout-1366x768.png",
+      "action": "created",
+      "bytes": 275824,
+      "sha256_working_bytes": "f20f6550b98723c363bf499fd6f5f65c9d97cf97af1f26982c31f06dc7c81ef1",
+      "reason": "Stage-specific authorization, observed evidence or app screenshot"
+    },
+    {
+      "path": "docs/implementation/P1/screenshots/layout-1920x1080.png",
+      "action": "created",
+      "bytes": 328520,
+      "sha256_working_bytes": "3c660d076d231e325573c46bf95160c151817b051951ca9b09a1f4821cb31795",
+      "reason": "Stage-specific authorization, observed evidence or app screenshot"
+    },
+    {
+      "path": "docs/implementation/P1/screenshots/native-maximized.png",
+      "action": "created",
+      "bytes": 293677,
+      "sha256_working_bytes": "2225f29badb454abbb49adf34e6fd8f4ec8e153d8299a0a011bb092886b79a01",
+      "reason": "Stage-specific authorization, observed evidence or app screenshot"
+    },
+    {
+      "path": "docs/implementation/P1/screenshots/npm-dev-agents.png",
+      "action": "created",
+      "bytes": 223594,
+      "sha256_working_bytes": "2332eb99f59ec92b3b104b50de2058435dff84f5bee927020e521f199c60687d",
+      "reason": "Stage-specific authorization, observed evidence or app screenshot"
+    },
+    {
+      "path": "docs/implementation/P1/screenshots/projects-page.png",
+      "action": "created",
+      "bytes": 205124,
+      "sha256_working_bytes": "e4d0e07eae3321643c7055262b35f17bc185066ae94b692ff5c1b965cff0f06f",
+      "reason": "Stage-specific authorization, observed evidence or app screenshot"
+    },
+    {
+      "path": "docs/implementation/P1/screenshots/settings-page.png",
+      "action": "created",
+      "bytes": 223955,
+      "sha256_working_bytes": "e3bf68900235b24f928918e673bb831c8034ca29507e4330c92314e6f17e09d4",
+      "reason": "Stage-specific authorization, observed evidence or app screenshot"
+    },
+    {
+      "path": "electron.vite.config.ts",
+      "action": "created",
+      "bytes": 1237,
+      "sha256_working_bytes": "5ccef2a13bb02d3d8d974ea02045d9d0449b2f3098f82809ef11417d85e29ea7",
+      "reason": "Pinned project-local dependency, build, test or formatting configuration"
+    },
+    {
+      "path": "electron/main/index.ts",
+      "action": "created",
+      "bytes": 2609,
+      "sha256_working_bytes": "edf95a75e55f3253b5e578bac19a00e2925c6792fb0122f754aca2b67a2bf2ba",
+      "reason": "P1 Electron lifecycle, security or development launcher"
+    },
+    {
+      "path": "electron/main/window-security.ts",
+      "action": "created",
+      "bytes": 2441,
+      "sha256_working_bytes": "363c03788da990151394458cca267b35f3cbb8aed8105368118e10c5579bb539",
+      "reason": "P1 Electron lifecycle, security or development launcher"
+    },
+    {
+      "path": "electron/preload/index.ts",
+      "action": "created",
+      "bytes": 82,
+      "sha256_working_bytes": "a0250335ab085b0c731dc66cdddae8be5d91642e9cc7abec280b4431ca1fe42d",
+      "reason": "P1 Electron lifecycle, security or development launcher"
+    },
+    {
+      "path": "electron/run.mjs",
+      "action": "created",
+      "bytes": 565,
+      "sha256_working_bytes": "e04c9a19b6a926b180b1301ea18f64bf900948ce049bfa4d04de03d8dced48eb",
+      "reason": "P1 Electron lifecycle, security or development launcher"
+    },
+    {
+      "path": "package-lock.json",
+      "action": "created",
+      "bytes": 130035,
+      "sha256_working_bytes": "2e348ab9da3312ba050f4cd8355d4360037c835f8fb4239520c8e500163906a7",
+      "reason": "Pinned project-local dependency, build, test or formatting configuration"
+    },
+    {
+      "path": "package.json",
+      "action": "created",
+      "bytes": 1608,
+      "sha256_working_bytes": "08843dadc2eac5eeec6f5f8bea154a644ab78b378c830f248217cf174f160c12",
+      "reason": "Pinned project-local dependency, build, test or formatting configuration"
+    },
+    {
+      "path": "playwright.config.ts",
+      "action": "created",
+      "bytes": 269,
+      "sha256_working_bytes": "847528eed75f27d6e76ece031da1ca9517b85cf0ac2f3d1d8de83863a5418177",
+      "reason": "Pinned project-local dependency, build, test or formatting configuration"
+    },
+    {
+      "path": "renderer/App.tsx",
+      "action": "created",
+      "bytes": 4783,
+      "sha256_working_bytes": "c2fe2cc0e7765784e7f76d971bc5249f676fe85fe629102c6f926c792eed8f0e",
+      "reason": "Frozen P1 UI, presentation or session layout state"
+    },
+    {
+      "path": "renderer/components/Composer.tsx",
+      "action": "created",
+      "bytes": 1848,
+      "sha256_working_bytes": "bf33f584ac051999c8c73f7990ec43363a5ede3f01bf82d02499308c051ea6d0",
+      "reason": "Frozen P1 UI, presentation or session layout state"
+    },
+    {
+      "path": "renderer/components/ConversationView.tsx",
+      "action": "created",
+      "bytes": 1410,
+      "sha256_working_bytes": "4a156d374068c5e0fefdc77b9f9ae0462dca6e8934051203a623893100979f06",
+      "reason": "Frozen P1 UI, presentation or session layout state"
+    },
+    {
+      "path": "renderer/components/EmptyState.tsx",
+      "action": "created",
+      "bytes": 480,
+      "sha256_working_bytes": "e368f59e8b08375502de6f2a7a7c2f3da6c2aac87d10a2a71fdb2a5d74c7b482",
+      "reason": "Frozen P1 UI, presentation or session layout state"
+    },
+    {
+      "path": "renderer/components/FilePreview.tsx",
+      "action": "created",
+      "bytes": 1206,
+      "sha256_working_bytes": "4e93bbe24a855a3147f078998a8d27a73476f87cf92abe9471fc49e7aa69d7b4",
+      "reason": "Frozen P1 UI, presentation or session layout state"
+    },
+    {
+      "path": "renderer/components/Icon.tsx",
+      "action": "created",
+      "bytes": 1264,
+      "sha256_working_bytes": "fc836b7aa85d30cc7ed303e2fd58845cd1d0ac5a19d24cdddedccb8b1cc7eee5",
+      "reason": "Frozen P1 UI, presentation or session layout state"
+    },
+    {
+      "path": "renderer/components/RightDock.tsx",
+      "action": "created",
+      "bytes": 4768,
+      "sha256_working_bytes": "ce20f0f49981a3e509517ca0165a8ae024f9cbaaa149cc2dfd436c76a6943628",
+      "reason": "Frozen P1 UI, presentation or session layout state"
+    },
+    {
+      "path": "renderer/components/Sidebar.tsx",
+      "action": "created",
+      "bytes": 3881,
+      "sha256_working_bytes": "bea9b9665016d4cf05034089cc6d129bb9ee3ebdb8b8db1e92fe830c4ddc74ff",
+      "reason": "Frozen P1 UI, presentation or session layout state"
+    },
+    {
+      "path": "renderer/index.html",
+      "action": "created",
+      "bytes": 627,
+      "sha256_working_bytes": "339b3f2a6bad28a90207f349c274dd3be078f954c0012d74eea8a3a1ab4dc01c",
+      "reason": "Frozen P1 UI, presentation or session layout state"
+    },
+    {
+      "path": "renderer/main.tsx",
+      "action": "created",
+      "bytes": 239,
+      "sha256_working_bytes": "ba90f8e49e2d3cc1b32a9472811646bedfd7863a88c4977497ca9589dae3701c",
+      "reason": "Frozen P1 UI, presentation or session layout state"
+    },
+    {
+      "path": "renderer/pages/Pages.tsx",
+      "action": "created",
+      "bytes": 6004,
+      "sha256_working_bytes": "b5ca7eb42bbd0da23cc0fb2b40465be6ed17986b157d888e64c0e6335b6577c8",
+      "reason": "Frozen P1 UI, presentation or session layout state"
+    },
+    {
+      "path": "renderer/state/layout.ts",
+      "action": "created",
+      "bytes": 1130,
+      "sha256_working_bytes": "a36aa613285a538216953ddcc9d7e8157093d661890978a673d1b7d4339d9d20",
+      "reason": "Frozen P1 UI, presentation or session layout state"
+    },
+    {
+      "path": "renderer/state/session.ts",
+      "action": "created",
+      "bytes": 3488,
+      "sha256_working_bytes": "eb32e10a68f6e4ec2e8bc5f5be32a868965638ef86f5d14bdf593240488da42c",
+      "reason": "Frozen P1 UI, presentation or session layout state"
+    },
+    {
+      "path": "renderer/styles/theme.css",
+      "action": "created",
+      "bytes": 10967,
+      "sha256_working_bytes": "4d230d4ff0d41ff7b74a29bc49bf1781390c1a9fd8a0e2f03186289f2a8a2d87",
+      "reason": "Frozen P1 UI, presentation or session layout state"
+    },
+    {
+      "path": "renderer/styles/workspace.css",
+      "action": "created",
+      "bytes": 8403,
+      "sha256_working_bytes": "79d96a3d8e7289d229b1adce80ed7018aca59925cd62fa3e8191ccf7d2d06ed5",
+      "reason": "Frozen P1 UI, presentation or session layout state"
+    },
+    {
+      "path": "tests/electron/desktop.spec.ts",
+      "action": "created",
+      "bytes": 17727,
+      "sha256_working_bytes": "4f615ac6881033ce3b904bf5da89392956116ee824edc17f306ce61961b32f4b",
+      "reason": "P1 scoped unit, UI, isolated fixture or actual Windows Electron verification"
+    },
+    {
+      "path": "tests/electron/development.spec.ts",
+      "action": "created",
+      "bytes": 2939,
+      "sha256_working_bytes": "20788353607378738c38f3d689ced8301ff4f444343f92c6f4bda8fba5d5bed2",
+      "reason": "P1 scoped unit, UI, isolated fixture or actual Windows Electron verification"
+    },
+    {
+      "path": "tests/fixtures/presentation.ts",
+      "action": "created",
+      "bytes": 717,
+      "sha256_working_bytes": "b991625175b19e3b40fc093f7be4e3034992477de4ed722abbb49d17097b213a",
+      "reason": "P1 scoped unit, UI, isolated fixture or actual Windows Electron verification"
+    },
+    {
+      "path": "tests/ui/app.test.tsx",
+      "action": "created",
+      "bytes": 3285,
+      "sha256_working_bytes": "6af345fd0bc626585b50d0358ee217029e86344632515e14394f76747ea267fb",
+      "reason": "P1 scoped unit, UI, isolated fixture or actual Windows Electron verification"
+    },
+    {
+      "path": "tests/ui/presentation.test.tsx",
+      "action": "created",
+      "bytes": 2235,
+      "sha256_working_bytes": "b9296620d919b4d32b21aebbb0a02bcf9e11b0b4aec5e372365ecbfd90ac92a0",
+      "reason": "P1 scoped unit, UI, isolated fixture or actual Windows Electron verification"
+    },
+    {
+      "path": "tests/ui/setup.ts",
+      "action": "created",
+      "bytes": 252,
+      "sha256_working_bytes": "f13b6401322a8f183246bb105d9c96232fa651dc48e2d44eebbb4318a48f277e",
+      "reason": "P1 scoped unit, UI, isolated fixture or actual Windows Electron verification"
+    },
+    {
+      "path": "tests/unit/layout.test.ts",
+      "action": "created",
+      "bytes": 1506,
+      "sha256_working_bytes": "39ad58a6def584ead5447b8b749650b1908c37f7984d87d47a2eb716c7a43477",
+      "reason": "P1 scoped unit, UI, isolated fixture or actual Windows Electron verification"
+    },
+    {
+      "path": "tests/unit/security.test.ts",
+      "action": "created",
+      "bytes": 1705,
+      "sha256_working_bytes": "cd6cadea85d7b426d177e67de97e18995d18b35c8e9c88c08955cc3e479ef019",
+      "reason": "P1 scoped unit, UI, isolated fixture or actual Windows Electron verification"
+    },
+    {
+      "path": "tests/unit/session.test.ts",
+      "action": "created",
+      "bytes": 3655,
+      "sha256_working_bytes": "773595b60ba0561d1619d458a85d17d4634093f53285b6108980315c48645453",
+      "reason": "P1 scoped unit, UI, isolated fixture or actual Windows Electron verification"
+    },
+    {
+      "path": "tsconfig.json",
+      "action": "created",
+      "bytes": 557,
+      "sha256_working_bytes": "932921f52113ca3eda2ec4a398708fbbbf8b9d919c539e5f001d9961d66e5cde",
+      "reason": "Pinned project-local dependency, build, test or formatting configuration"
+    },
+    {
+      "path": "vitest.config.ts",
+      "action": "created",
+      "bytes": 310,
+      "sha256_working_bytes": "b1360c1a5a3eba9f7c5aa6e3290bf8b5cfae20e830faced6574be30b5d011815",
+      "reason": "Pinned project-local dependency, build, test or formatting configuration"
+    }
+  ],
+  "files_listed": 55,
+  "deleted_files": [],
+  "public_release_pattern_scan": {
+    "files_scanned": 55,
+    "findings": 0
+  },
+  "immutable_engineering_changes": [],
+  "engine_changes": [],
+  "schema_migrations": []
+}
