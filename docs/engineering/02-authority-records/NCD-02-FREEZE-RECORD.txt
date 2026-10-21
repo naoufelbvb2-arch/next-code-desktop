@@ -1,0 +1,36 @@
+# NCD-02 — FROZEN v1.0 Architecture Approval Record
+
+> **Date:** 2026-10-18  
+> **Status:** OWNER APPROVED — ARCHITECTURE BASELINE FROZEN  
+> **Scope:** Documentation-only approval. **NO IMPLEMENTATION / ANTIGRAVITY AUTHORIZATION.**
+
+## Authority
+
+The owner expressly approved freezing `NCD-02-DESKTOP-ARCHITECTURE.md` following `NCD-02-FFR-01-ARCHITECTURE-REVIEW.md`. Architecture choices A-01–A-06 remain exactly as approved. Frozen NCD-00 (with NCD-00-C01 addendum) and NCD-01 are unaffected. No agent-repository changes or desktop implementation are authorized.
+
+## Approved decisions
+
+| Decision | Normative architectural baseline |
+|---|---|
+| A-01 | Electron desktop app (Windows), React + TypeScript renderer |
+| A-02 | Electron Main supervises Next Code task/process execution, independently of pages |
+| A-03 | Local supervised Python bridge via STDIO + JSON Lines; stdout protocol-only |
+| A-04 | Local SQLite stores desktop-owned state; `.agent_os` remains engine-owned |
+| A-05 | Window opens maximized on Windows, with adaptive layout |
+| A-06 | Local Python and separate original agent checkout during development; packaging later |
+
+## Review and integrity
+
+- Documentary cross-check: `NCD-02-FFR-01-ARCHITECTURE-REVIEW.md` — **PASS, documentation only**, not runtime verification.
+- Preserved exact pre-freeze candidate: `NCD-02-DESKTOP-ARCHITECTURE-v0.7-ARCHIVE.md`.
+- SHA-256 of v0.7 pre-freeze candidate: `f425f6149953f97c415e45427415f114a909f2241cbc4c86e4249f9206eda0a0`.
+- SHA-256 of FROZEN v1.0 baseline: `33ba1b578814e69f0d119504d5911c4432828973b447eb34c970869a6714169a`.
+- Freeze edits are administrative metadata, review state, change-control notice, and transition instructions only; normative architectural decisions were not changed.
+
+## Explicitly deferred
+
+NCD-03 must define reliable conversation/agent-session continuity, executable bridge message contracts, task acceptance and running states, event fidelity, concurrency, cancellation, shutdown/crash treatment, status reconciliation, agent logs and independent shell security. NCD-04 must define implementation sequencing, Windows DPI/viewport QA, dependencies, release packaging and clean-machine verification.
+
+## Change control
+
+Frozen architecture may only be altered through separately recorded owner-approved correction or successor baseline. A frozen specification is **not** permission to modify source repositories or execute Antigravity prompts.

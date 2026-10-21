@@ -1,0 +1,6 @@
+*.md text eol=lf
+*.py text eol=lf
+*.json text eol=lf
+# The delivery manifest authenticates exact bytes, including line endings.
+# Keep this override after generic text rules.
+/docs/engineering/** -text -filter -ident -working-tree-encoding

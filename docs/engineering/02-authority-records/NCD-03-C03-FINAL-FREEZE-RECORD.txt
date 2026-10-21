@@ -1,0 +1,41 @@
+# NEXT CODE DESKTOP — NCD-03 / C-03
+## Final Architecture Freeze Record
+
+**Status:** FINAL — FROZEN v1.0 (ARCHITECTURE)
+**Date:** 2026-10-19
+**Authority:** Explicit owner approval after FFR-01 and FFR-01-C01 documentary corrections.
+**Implementation authority:** NONE. No source changes, repository commits, execution instructions or deployment authorized.
+**Neutrality:** Independent of any particular external implementation tool or coding assistant.
+
+## 1. Frozen artifact and preservation
+
+- Canonical final contract: `NCD-03-C03-ELECTRON-PYTHON-INTEGRATION-CONTRACT.md`.
+- Preserved exact pre-freeze snapshot: `NCD-03-C03-ELECTRON-PYTHON-INTEGRATION-CONTRACT-v0.16-ARCHIVE.md`.
+- Pre-freeze draft SHA-256: `f79f84247292c771f15e04770b5f1971200b03710b090f30cdafdcbe026695d4`.
+- Frozen canonical contract SHA-256: **`dc48f1bf3612c0ec2c3f9e50660f504df9fcdd42401b0c9cd0204524a70356f2`**.
+- SHA-256 is the exact byte hash of the canonical Markdown file on disk when the freeze was made; this standalone record is not inserted into the contract after hashing.
+
+## 2. Completeness audit
+
+- **14/14 owner-approved decision sections:** C03-D1 through C03-D14 each present exactly once, each Option A.
+- **14/14 decision-log rows:** C03-D1 through C03-D14 each present exactly once with approved status.
+- **14/14 freeze-traceability rows:** final §22 maps each decision to its normative detailed section and the decision log.
+- **FFR-C03-F01 resolved:** the authoritative outer JSONL type discriminator is `type`; `payload.action` remains distinct.
+- **FFR-C03-F02 resolved:** obsolete claims of undecided approved options removed; deferred implementation mechanics kept open.
+- **Implementer neutrality:** no named external implementation agent, coding assistant or IDE appears in the frozen contract. Runtime/component names are permitted.
+- **No feature implementation claims:** checked no source edits or running application tests were performed as part of the documentation freeze.
+
+## 3. Frozen architecture, not frozen implementation mechanics
+
+The freeze adopts all fourteen previously agreed choices without introducing extra architectural decisions. Authoritative upstream contracts are NCD-00, NCD-01, NCD-02, NCD-03/C-01 and NCD-03/C-02, with their owner-approved dispositions. In particular C-02 FFR-R01 is deferred and this freeze does not add a universal LLM outbound gate.
+
+Subsequent work must specify and review exact wire types and limits, source-grounded event hooks, cancellation mechanics, SQLite layout, atomic Run Task and lock behavior, memory selection, provider/model configuration, file-broker limits, Windows packaging, and deterministic negative and failure-path tests. Such future details may not override the frozen architectural rules without explicit owner reopening.
+
+## 4. Freeze verification method
+
+- Compared canonical document's fourteen approved sections, fourteen decision-log rows and fourteen freeze-matrix rows by anchored ID patterns.
+- Inspected and reconciled status wording, freeze gate and first/last sections.
+- Scanned for implementation-assistant/editor brand mentions and for obsolete JSONL `kind` discriminator and pre-freeze status language.
+- Preserved previous draft as a separate immutable-by-process reference and recorded exact SHA-256 values.
+
+**Verdict: ARCHITECTURE FROZEN v1.0 — ALL 14 CHOICES PRESERVED — IMPLEMENTATION NOT AUTHORIZED.**

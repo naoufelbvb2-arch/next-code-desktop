@@ -1,0 +1,258 @@
+{
+  "bundle": "NEXT-CODE-DESKTOP-CODEX-HANDOFF",
+  "date": "2026-10-21",
+  "purpose": "Documentation plus read-only Codex P0-H02 startup",
+  "normative_count": 18,
+  "engine_sha_expected": "834d0ca62cc9b2c03e530bafe4090024d98f31d3",
+  "P0_H01": "CLOSED",
+  "P0_H02": "OPEN",
+  "P1": "NOT_AUTHORIZED",
+  "files": [
+    {
+      "path": "01-normative/NCD-00-PROJECT-SCOPE-OWNER-RATIFIED-REPRODUCTION.md",
+      "sha256": "dae00159f3b03381a42ceb95b97b4f7486ec67d8ed9c72535582db65813d0328",
+      "bytes": 35807,
+      "role": "owner-approved historical-digest reproduction"
+    },
+    {
+      "path": "01-normative/NCD-01-UI-UX-SPEC-OWNER-RATIFIED-REPRODUCTION.md",
+      "sha256": "5935c30bcd05337aab3a5f594a25f79f05abee547a0c55b408d4e563164df592",
+      "bytes": 36892,
+      "role": "owner-approved historical-digest reproduction"
+    },
+    {
+      "path": "01-normative/NCD-02-DESKTOP-ARCHITECTURE-OWNER-RATIFIED-REPRODUCTION.md",
+      "sha256": "33ba1b578814e69f0d119504d5911c4432828973b447eb34c970869a6714169a",
+      "bytes": 28915,
+      "role": "owner-approved historical-digest reproduction"
+    },
+    {
+      "path": "01-normative/NCD-03-C01-CONVERSATION-CONTEXT-CONTRACT-OWNER-RATIFIED-REPRODUCTION.md",
+      "sha256": "705cb2b4b63bc81e83a1328d130640f3a0783fc1265d4ad9bb89b216bbf85686",
+      "bytes": 22417,
+      "role": "owner-approved historical-digest reproduction"
+    },
+    {
+      "path": "01-normative/NCD-03-C02-DISCUSSION-ONLY-CONTRACT-OWNER-RATIFIED-REPRODUCTION.md",
+      "sha256": "5474cf3d196e5b4c4c0d6a1ff6cb21b6cc9e72a21e8b725734f30cafeac26812",
+      "bytes": 80180,
+      "role": "owner-approved historical-digest reproduction"
+    },
+    {
+      "path": "01-normative/NCD-03-C03-ELECTRON-PYTHON-INTEGRATION-CONTRACT-OWNER-RATIFIED-REPRODUCTION.md",
+      "sha256": "dc48f1bf3612c0ec2c3f9e50660f504df9fcdd42401b0c9cd0204524a70356f2",
+      "bytes": 97159,
+      "role": "owner-approved historical-digest reproduction"
+    },
+    {
+      "path": "01-normative/NCD-03-IIS-01-JSONL-PROTOCOL-SPECIFICATION-OWNER-RATIFIED-REPRODUCTION.md",
+      "sha256": "0b00943a3531f75c1addea106c5771a92fa45964bb1a53e93d3365b33247ff1f",
+      "bytes": 106316,
+      "role": "owner-approved historical-digest reproduction"
+    },
+    {
+      "path": "01-normative/NCD-03-IIS-02-ELECTRON-IPC-INTERFACE-SPECIFICATION-OWNER-RATIFIED-REPRODUCTION.md",
+      "sha256": "b2d487d77993d4c476bc507c7cf873838b1c0d57f29f5aa3aab389c71edc7a5e",
+      "bytes": 39138,
+      "role": "owner-approved historical-digest reproduction"
+    },
+    {
+      "path": "01-normative/NCD-00-C01-SIDEBAR-NAVIGATION-CLARIFICATION-OWNER-RATIFIED-REPRODUCTION.md",
+      "sha256": "f2eba660724aa03fa6192b0d82ebfe4f2a73c7b6afc899b67a6de12c1c889c78",
+      "bytes": 2850,
+      "role": "owner-approved new-digest sidebar reproduction"
+    },
+    {
+      "path": "01-normative/NCD-03-C02-C01-D7-CANDIDATE-PERSISTENCE-V1-DEFERRAL.md",
+      "sha256": "36ac863b426ea59b2e5fc8301291fcc75f499f6a016da685e9c9370f549f97fa",
+      "bytes": 5278,
+      "role": "frozen specification or approved narrow addendum"
+    },
+    {
+      "path": "01-normative/NCD-03-IIS-02-C01-CONVERSATION-READ-PROJECTIONS-ADDENDUM.md",
+      "sha256": "946cb7869ef90b95d615099e70ddbe036fe4d21249ba12fc8d2eb0fab56e0c62",
+      "bytes": 9257,
+      "role": "frozen specification or approved narrow addendum"
+    },
+    {
+      "path": "01-normative/NCD-03-IIS-03-PYTHON-PROCESS-SUPERVISOR-SPECIFICATION-v1.0-REISSUE-FROZEN.md",
+      "sha256": "d79d0f5a0960b64c7c806047407c7632d564c1cf4331ae7c5f185c0df129df48",
+      "bytes": 45676,
+      "role": "frozen specification or approved narrow addendum"
+    },
+    {
+      "path": "01-normative/NCD-03-IIS-04-SQLITE-DURABLE-STATE-SPECIFICATION.md",
+      "sha256": "870a5fbeaf96d3fbbede79408d02e539bef71411e1d40bfe3148ec0d7117e255",
+      "bytes": 56760,
+      "role": "frozen specification or approved narrow addendum"
+    },
+    {
+      "path": "01-normative/NCD-03-IIS-05-REAL-TIME-EVENTS-MISSION-CONTROL-SPECIFICATION.md",
+      "sha256": "9fb706925b205c842e90120930a8c8bc4c2d63789461f08478dbd1fff600c03e",
+      "bytes": 69193,
+      "role": "frozen specification or approved narrow addendum"
+    },
+    {
+      "path": "01-normative/NCD-03-IIS-06-DISCUSSION-MODEL-INTEGRATION-SPECIFICATION.md",
+      "sha256": "5103f735c785d2b8a4fd98e79feafa4525991b171ba9f18e9c11642a082d4440",
+      "bytes": 69848,
+      "role": "frozen specification or approved narrow addendum"
+    },
+    {
+      "path": "01-normative/NCD-03-IIS-07-PROJECT-FILE-BROKER-SPECIFICATION.md",
+      "sha256": "2fcf404d22e026a57fd95c70f73b741068834dc83883119f5182d77e988418e3",
+      "bytes": 71013,
+      "role": "frozen specification or approved narrow addendum"
+    },
+    {
+      "path": "01-normative/NCD-03-IIS-08-INTEGRATION-TESTING-ACCEPTANCE-SPECIFICATION.md",
+      "sha256": "99fd8f5f8b25d24d42518aa5d9183189f43e1ef09610389583d91917fb04e0fc",
+      "bytes": 61232,
+      "role": "frozen specification or approved narrow addendum"
+    },
+    {
+      "path": "01-normative/NCD-04-IMPLEMENTATION-AND-VERIFICATION-PLAN-v1.0-FROZEN.md",
+      "sha256": "f6fdb3819b40d32a63200265691494a7fbee4f1d2f8cfda45f8ef45e1ddbd9a9",
+      "bytes": 48789,
+      "role": "frozen specification or approved narrow addendum"
+    },
+    {
+      "path": "02-authority-records/NCD-01-FREEZE-RECORD.txt",
+      "sha256": "61010601b22e3a10105c68ea566f9aa9a6b32fb5628ade858c9e193caab7c647",
+      "bytes": 1801,
+      "role": "freeze/ratification record (some old records are extracted text projections)"
+    },
+    {
+      "path": "02-authority-records/NCD-02-FREEZE-RECORD.txt",
+      "sha256": "0ac322e9abee0c127bd0d1faef88848b62a68a12083a0da0df5c913dc4f7a9de",
+      "bytes": 2449,
+      "role": "freeze/ratification record (some old records are extracted text projections)"
+    },
+    {
+      "path": "02-authority-records/NCD-03-C01-FREEZE-RECORD.txt",
+      "sha256": "18abb38d9cc9ea2044c41fd6705a1b28ecbf7bde321fe9f1751ff82e9339dd41",
+      "bytes": 3023,
+      "role": "freeze/ratification record (some old records are extracted text projections)"
+    },
+    {
+      "path": "02-authority-records/NCD-03-C02-FINAL-FREEZE-RECORD.txt",
+      "sha256": "78000c491d3e00f18aa0ed6bdea0699a297a362e4e4366c3c0da5dd1b4d6c6d0",
+      "bytes": 4747,
+      "role": "freeze/ratification record (some old records are extracted text projections)"
+    },
+    {
+      "path": "02-authority-records/NCD-03-C03-FINAL-FREEZE-RECORD.txt",
+      "sha256": "e26801ba365aeb05612972336a3be2dd92a28c1453e4f48714a9ad37e521dd51",
+      "bytes": 3407,
+      "role": "freeze/ratification record (some old records are extracted text projections)"
+    },
+    {
+      "path": "02-authority-records/NCD-03-IIS-01-FINAL-FREEZE-RECORD.txt",
+      "sha256": "8fb9a6c4176c70e788282ac957306c685e904e0bab4058834a872351bc5f0b9c",
+      "bytes": 2194,
+      "role": "freeze/ratification record (some old records are extracted text projections)"
+    },
+    {
+      "path": "02-authority-records/NCD-03-IIS-02-FINAL-FREEZE-RECORD.txt",
+      "sha256": "c36bac5cc2873caddd25bd624f5b2c15610f6e314e83bdfb869ad1461545ca01",
+      "bytes": 2074,
+      "role": "freeze/ratification record (some old records are extracted text projections)"
+    },
+    {
+      "path": "02-authority-records/NCD-03-IIS-03-REISSUE-FINAL-FREEZE-RECORD.md",
+      "sha256": "d651c74d200323a0cf54d5036948c7009885257053813345128505a08622f219",
+      "bytes": 4624,
+      "role": "freeze/ratification record (some old records are extracted text projections)"
+    },
+    {
+      "path": "02-authority-records/NCD-03-IIS-04-FINAL-FREEZE-RECORD.md",
+      "sha256": "9b7f9d3b1c3267421e2cfda9d64cbbbe36f2be4b1b1e41238aca6f0394b6c4f4",
+      "bytes": 3464,
+      "role": "freeze/ratification record (some old records are extracted text projections)"
+    },
+    {
+      "path": "02-authority-records/NCD-03-IIS-05-FINAL-FREEZE-RECORD.md",
+      "sha256": "f04ad17522638dbd4e940d7616db2a45038fe8d30cf3047175f15b15a13e6ff7",
+      "bytes": 4777,
+      "role": "freeze/ratification record (some old records are extracted text projections)"
+    },
+    {
+      "path": "02-authority-records/NCD-03-IIS-06-FINAL-FREEZE-RECORD.md",
+      "sha256": "5a76db02cfe481b7f7357837e7251949a52c8c4aacecff0270eb1793cb2ffb5d",
+      "bytes": 4190,
+      "role": "freeze/ratification record (some old records are extracted text projections)"
+    },
+    {
+      "path": "02-authority-records/NCD-03-IIS-07-FINAL-FREEZE-RECORD.md",
+      "sha256": "e3d5ca50af928d062017d40ded9d4aaad5a401c8a617660ba2fe7e3461977b60",
+      "bytes": 4129,
+      "role": "freeze/ratification record (some old records are extracted text projections)"
+    },
+    {
+      "path": "02-authority-records/NCD-03-IIS-08-FINAL-FREEZE-RECORD.md",
+      "sha256": "443e796c1987f480041493c29c7531c9a0a4304d77d91d05fd2fc1594b602f32",
+      "bytes": 4613,
+      "role": "freeze/ratification record (some old records are extracted text projections)"
+    },
+    {
+      "path": "02-authority-records/NCD-04-FINAL-FREEZE-RECORD.md",
+      "sha256": "2c06a6fb1f35fcd5cb2628271a78b0ce6d2e2d7be322f848498a9df136574cd3",
+      "bytes": 4309,
+      "role": "freeze/ratification record (some old records are extracted text projections)"
+    },
+    {
+      "path": "02-authority-records/NCD-04-P0-H01-C01-OWNER-RATIFICATION-RECORD.md",
+      "sha256": "9d1923c7dca92abc46db5ccf4db77dd1ace85c27524b9fc00c4dbf7d4e65c16a",
+      "bytes": 5011,
+      "role": "freeze/ratification record (some old records are extracted text projections)"
+    },
+    {
+      "path": "02-authority-records/NCD-FCCR-01-C01-IIS03-REISSUE-CLOSURE.md",
+      "sha256": "79f6fab3915e5530af24fda7c40244c76209b4b995f678d854de91fc9dd51ef2",
+      "bytes": 4343,
+      "role": "freeze/ratification record (some old records are extracted text projections)"
+    },
+    {
+      "path": "03-status-and-audit/NCD-04-P0-C01-POST-RATIFICATION-STATUS.md",
+      "sha256": "f85f2130e842275dfcda48e70e61918f37eae036b23efa889d7837a6f1a533fc",
+      "bytes": 1893,
+      "role": "historical audit evidence (later C01 supersedes original open H01 status)"
+    },
+    {
+      "path": "03-status-and-audit/NCD-04-P0-BASELINE-AND-SOURCE-AUDIT-REPORT.md",
+      "sha256": "978c696959a0e16c9e63bc24cb4f10e2ca1ee5802096353ecbe328a869018e8e",
+      "bytes": 14302,
+      "role": "historical audit evidence (later C01 supersedes original open H01 status)"
+    },
+    {
+      "path": "03-status-and-audit/NCD-04-P0-H01-C01-APPROVED-BASELINE-MANIFEST.json",
+      "sha256": "e7ebbc26b4fa4742edd34cf6199d91461951792c7d5be270da7b2d52e811afa5",
+      "bytes": 8075,
+      "role": "historical audit evidence (later C01 supersedes original open H01 status)"
+    },
+    {
+      "path": "03-status-and-audit/NCD-FCCR-01-FINAL-CROSS-CONTRACT-REVIEW.md",
+      "sha256": "522035c48641baaf826e12a2efe49ac0363865f5170ffc5b8a44a9d1fd604de7",
+      "bytes": 15463,
+      "role": "historical audit evidence (later C01 supersedes original open H01 status)"
+    },
+    {
+      "path": "03-status-and-audit/NCD-04-FFR-01-CONSOLIDATED-REVIEW.md",
+      "sha256": "06f307c3b12051fbf2ebdbcd947f420fb69348a70385eb65cd60eaf25a42d8ba",
+      "bytes": 11780,
+      "role": "historical audit evidence (later C01 supersedes original open H01 status)"
+    },
+    {
+      "path": "README-CODEX-HANDOFF.md",
+      "sha256": "5748ac3ab7392173fadd51e6ae3cb1caa2f36f7b1d7d480af7464020c947c725",
+      "bytes": 3668,
+      "role": "handoff guidance only; not normative contract"
+    },
+    {
+      "path": "START-CODEX-P0-H02.md",
+      "sha256": "eb77f1b33c5c075e57cea125659a040cbf0bf7cd34d1a671b2ee3078d028c266",
+      "bytes": 3037,
+      "role": "handoff guidance only; not normative contract"
+    }
+  ]
+}

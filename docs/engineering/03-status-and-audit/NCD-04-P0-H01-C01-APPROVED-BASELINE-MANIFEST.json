@@ -1,0 +1,143 @@
+{
+  "title": "Next Code Desktop — P0 N04-H01 owner-ratified reference reproductions",
+  "effective_date": "2026-10-21",
+  "state": "APPROVED_DOCUMENTARY_REPRODUCTIONS__NOT_HISTORIC_ORIGINALS",
+  "owner_authorization": "اجل اوافق على الاعتماد",
+  "owner_authorization_context": "Affirmative response to the explicit approval question for the eight SHA-256 matching baseline reproductions and separate NCD-00-C01 Sidebar addendum reproduction.",
+  "audit_method": "Recompute SHA-256 over exact ZIP entry bytes and approved copies; assert exact equality to pre-existing historical digest for each of eight; assert extracted projection bytes plus exactly LF (0A) equals approved candidate; separately check Sidebar new candidate digest.",
+  "body_text_edits": "NONE",
+  "original_historic_source_files_authenticated": false,
+  "eight_contracts": [
+    {
+      "contract_id": "NCD-00",
+      "source_projection": "NCD-00-PROJECT-SCOPE.txt",
+      "candidate_archive_entry": "P0-H01-CANDIDATES/NCD-00-PROJECT-SCOPE-RECONSTITUTED-CANDIDATE.md",
+      "approved_filename": "NCD-00-PROJECT-SCOPE-OWNER-RATIFIED-REPRODUCTION.md",
+      "sha256": "dae00159f3b03381a42ceb95b97b4f7486ec67d8ed9c72535582db65813d0328",
+      "historical_registered_sha256": "dae00159f3b03381a42ceb95b97b4f7486ec67d8ed9c72535582db65813d0328",
+      "bytes": 35807,
+      "digest_status": "MATCH_REGISTERED_HISTORICAL_DIGEST",
+      "raw_original_authenticated": false,
+      "approval": "OWNER_RATIFIED_2026-10-21"
+    },
+    {
+      "contract_id": "NCD-01",
+      "source_projection": "NCD-01-UI-UX-SPEC.txt",
+      "candidate_archive_entry": "P0-H01-CANDIDATES/NCD-01-UI-UX-SPEC-RECONSTITUTED-CANDIDATE.md",
+      "approved_filename": "NCD-01-UI-UX-SPEC-OWNER-RATIFIED-REPRODUCTION.md",
+      "sha256": "5935c30bcd05337aab3a5f594a25f79f05abee547a0c55b408d4e563164df592",
+      "historical_registered_sha256": "5935c30bcd05337aab3a5f594a25f79f05abee547a0c55b408d4e563164df592",
+      "bytes": 36892,
+      "digest_status": "MATCH_REGISTERED_HISTORICAL_DIGEST",
+      "raw_original_authenticated": false,
+      "approval": "OWNER_RATIFIED_2026-10-21"
+    },
+    {
+      "contract_id": "NCD-02",
+      "source_projection": "NCD-02-DESKTOP-ARCHITECTURE.txt",
+      "candidate_archive_entry": "P0-H01-CANDIDATES/NCD-02-DESKTOP-ARCHITECTURE-RECONSTITUTED-CANDIDATE.md",
+      "approved_filename": "NCD-02-DESKTOP-ARCHITECTURE-OWNER-RATIFIED-REPRODUCTION.md",
+      "sha256": "33ba1b578814e69f0d119504d5911c4432828973b447eb34c970869a6714169a",
+      "historical_registered_sha256": "33ba1b578814e69f0d119504d5911c4432828973b447eb34c970869a6714169a",
+      "bytes": 28915,
+      "digest_status": "MATCH_REGISTERED_HISTORICAL_DIGEST",
+      "raw_original_authenticated": false,
+      "approval": "OWNER_RATIFIED_2026-10-21"
+    },
+    {
+      "contract_id": "C-01",
+      "source_projection": "NCD-03-C01-CONVERSATION-CONTEXT-CONTRACT.txt",
+      "candidate_archive_entry": "P0-H01-CANDIDATES/NCD-03-C01-CONVERSATION-CONTEXT-CONTRACT-RECONSTITUTED-CANDIDATE.md",
+      "approved_filename": "NCD-03-C01-CONVERSATION-CONTEXT-CONTRACT-OWNER-RATIFIED-REPRODUCTION.md",
+      "sha256": "705cb2b4b63bc81e83a1328d130640f3a0783fc1265d4ad9bb89b216bbf85686",
+      "historical_registered_sha256": "705cb2b4b63bc81e83a1328d130640f3a0783fc1265d4ad9bb89b216bbf85686",
+      "bytes": 22417,
+      "digest_status": "MATCH_REGISTERED_HISTORICAL_DIGEST",
+      "raw_original_authenticated": false,
+      "approval": "OWNER_RATIFIED_2026-10-21"
+    },
+    {
+      "contract_id": "C-02",
+      "source_projection": "NCD-03-C02-DISCUSSION-ONLY-CONTRACT.txt",
+      "candidate_archive_entry": "P0-H01-CANDIDATES/NCD-03-C02-DISCUSSION-ONLY-CONTRACT-RECONSTITUTED-CANDIDATE.md",
+      "approved_filename": "NCD-03-C02-DISCUSSION-ONLY-CONTRACT-OWNER-RATIFIED-REPRODUCTION.md",
+      "sha256": "5474cf3d196e5b4c4c0d6a1ff6cb21b6cc9e72a21e8b725734f30cafeac26812",
+      "historical_registered_sha256": "5474cf3d196e5b4c4c0d6a1ff6cb21b6cc9e72a21e8b725734f30cafeac26812",
+      "bytes": 80180,
+      "digest_status": "MATCH_REGISTERED_HISTORICAL_DIGEST",
+      "raw_original_authenticated": false,
+      "approval": "OWNER_RATIFIED_2026-10-21"
+    },
+    {
+      "contract_id": "C-03",
+      "source_projection": "NCD-03-C03-ELECTRON-PYTHON-INTEGRATION-CONTRACT.txt",
+      "candidate_archive_entry": "P0-H01-CANDIDATES/NCD-03-C03-ELECTRON-PYTHON-INTEGRATION-CONTRACT-RECONSTITUTED-CANDIDATE.md",
+      "approved_filename": "NCD-03-C03-ELECTRON-PYTHON-INTEGRATION-CONTRACT-OWNER-RATIFIED-REPRODUCTION.md",
+      "sha256": "dc48f1bf3612c0ec2c3f9e50660f504df9fcdd42401b0c9cd0204524a70356f2",
+      "historical_registered_sha256": "dc48f1bf3612c0ec2c3f9e50660f504df9fcdd42401b0c9cd0204524a70356f2",
+      "bytes": 97159,
+      "digest_status": "MATCH_REGISTERED_HISTORICAL_DIGEST",
+      "raw_original_authenticated": false,
+      "approval": "OWNER_RATIFIED_2026-10-21"
+    },
+    {
+      "contract_id": "IIS-01",
+      "source_projection": "NCD-03-IIS-01-JSONL-PROTOCOL-SPECIFICATION.txt",
+      "candidate_archive_entry": "P0-H01-CANDIDATES/NCD-03-IIS-01-JSONL-PROTOCOL-SPECIFICATION-RECONSTITUTED-CANDIDATE.md",
+      "approved_filename": "NCD-03-IIS-01-JSONL-PROTOCOL-SPECIFICATION-OWNER-RATIFIED-REPRODUCTION.md",
+      "sha256": "0b00943a3531f75c1addea106c5771a92fa45964bb1a53e93d3365b33247ff1f",
+      "historical_registered_sha256": "0b00943a3531f75c1addea106c5771a92fa45964bb1a53e93d3365b33247ff1f",
+      "bytes": 106316,
+      "digest_status": "MATCH_REGISTERED_HISTORICAL_DIGEST",
+      "raw_original_authenticated": false,
+      "approval": "OWNER_RATIFIED_2026-10-21"
+    },
+    {
+      "contract_id": "IIS-02",
+      "source_projection": "NCD-03-IIS-02-ELECTRON-IPC-INTERFACE-SPECIFICATION.txt",
+      "candidate_archive_entry": "P0-H01-CANDIDATES/NCD-03-IIS-02-ELECTRON-IPC-INTERFACE-SPECIFICATION-RECONSTITUTED-CANDIDATE.md",
+      "approved_filename": "NCD-03-IIS-02-ELECTRON-IPC-INTERFACE-SPECIFICATION-OWNER-RATIFIED-REPRODUCTION.md",
+      "sha256": "b2d487d77993d4c476bc507c7cf873838b1c0d57f29f5aa3aab389c71edc7a5e",
+      "historical_registered_sha256": "b2d487d77993d4c476bc507c7cf873838b1c0d57f29f5aa3aab389c71edc7a5e",
+      "bytes": 39138,
+      "digest_status": "MATCH_REGISTERED_HISTORICAL_DIGEST",
+      "raw_original_authenticated": false,
+      "approval": "OWNER_RATIFIED_2026-10-21"
+    }
+  ],
+  "sidebar_addendum": {
+    "contract_id": "NCD-00-C01",
+    "source_projection": "NCD-00-C01-SIDEBAR-NAVIGATION-CLARIFICATION.txt",
+    "candidate_archive_entry": "P0-H01-CANDIDATES/NCD-00-C01-SIDEBAR-NAVIGATION-CLARIFICATION-DEPENDENCY-CANDIDATE.md",
+    "approved_filename": "NCD-00-C01-SIDEBAR-NAVIGATION-CLARIFICATION-OWNER-RATIFIED-REPRODUCTION.md",
+    "sha256": "f2eba660724aa03fa6192b0d82ebfe4f2a73c7b6afc899b67a6de12c1c889c78",
+    "historical_registered_sha256": null,
+    "bytes": 2850,
+    "digest_status": "NEW_OWNER_APPROVED_PROSPECTIVE_DIGEST_ONLY",
+    "raw_original_authenticated": false,
+    "approval": "SEPARATELY_OWNER_RATIFIED_2026-10-21"
+  },
+  "normative_precedence": [
+    "NCD-00-C01 narrow Sidebar clarification",
+    "IIS-02-C01 approved read projections addendum",
+    "C-02-C01 approved v1 candidate-deferral addendum",
+    "IIS-03 v1.0 REISSUE frozen specification",
+    "All previously frozen NCD/IIS contracts retain authority under their explicit addendum precedence"
+  ],
+  "p0_disposition": {
+    "N04-H01": "CLOSED_BY_OWNER_RATIFIED_REPRODUCTIONS",
+    "P0-H02": "OPEN_LOCAL_WINDOWS_AND_WORKTREE_EVIDENCE_NOT_OBTAINED",
+    "P0_STAGE_EXIT": "NOT_YET_COMPLETE",
+    "IIS08_G0": "NOT_RUN",
+    "P1_AUTHORIZATION": "NONE",
+    "ENGINE_MODIFICATION_AUTHORIZATION": "NONE"
+  },
+  "preserved_historic_review_records": [
+    "NCD-04-P0-BASELINE-AND-SOURCE-AUDIT-REPORT.md",
+    "NCD-04-P0-H01-EXACT-DIGEST-RECONSTRUCTION-REVIEW.md",
+    "NCD-04-P0-H01-CANDIDATE-MANIFEST.json",
+    "NCD-FCCR-01-FINAL-CROSS-CONTRACT-REVIEW.md",
+    "NCD-FCCR-01-C01-IIS03-REISSUE-CLOSURE.md"
+  ],
+  "authoritative_approval_record": "NCD-04-P0-H01-C01-OWNER-RATIFICATION-RECORD.md"
+}

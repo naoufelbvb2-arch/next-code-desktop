@@ -1,0 +1,31 @@
+# NCD-01 — FROZEN v1.0 Approval Record
+
+> **Date:** 2026-10-18  
+> **Status:** OWNER APPROVED — UI/UX BASELINE FROZEN  
+> **Scope:** Documentation-only; **NO IMPLEMENTATION AUTHORIZATION**.
+
+## Authority
+
+The owner explicitly approved freezing `NCD-01-UI-UX-SPEC.md` as **FROZEN — UI/UX Baseline v1.0** and moving to NCD-02. All nine decisions (D-UI-01–D-UI-09) stand, including user navigation with task execution continuing, the intelligent Right Dock, New Conversation, and Agent Mission Control.
+
+## Review trail
+
+- `NCD-01-FFR-01-REVIEW.md` — initial findings.
+- `NCD-01-FFR-01-CORRECTION-VERIFICATION.md` — R-01, R-02, R-03.
+- `NCD-01-FFR-02-FINAL-VERIFICATION.md` — R-04, R-05, 15/15 documentary consistency checks; **PASS for documentation only**.
+- `NCD-00-C01-SIDEBAR-NAVIGATION-CLARIFICATION.md` — narrow controlled addendum, original NCD-00 untouched.
+- `NCD-01-UI-UX-SPEC-v0.3-ARCHIVE.md` — exact pre-freeze review candidate.
+
+## Integrity references
+
+| Artifact | SHA-256 |
+|---|---|
+| NCD-00 original frozen v1.0 | `dae00159f3b03381a42ceb95b97b4f7486ec67d8ed9c72535582db65813d0328` |
+| NCD-01 v0.3 review candidate archive | `435d5d4d75ea03a0073c1ac75a13bffff59bd220fa3a76f647df176768a31642` |
+| NCD-01 v1.0 frozen baseline | `5935c30bcd05337aab3a5f594a25f79f05abee547a0c55b408d4e563164df592` |
+
+Only metadata, approval references and consolidation history were updated when freezing NCD-01. No normative UI design decision was changed.
+
+## Change control
+
+Changes to frozen NCD-01 behavior require an explicit, separately approved correction or new baseline version. NCD-02/NCD-03 may define implementation details but must not weaken or silently override the approved UI behaviors. Review/approval of specifications is not authorization for Antigravity to implement.

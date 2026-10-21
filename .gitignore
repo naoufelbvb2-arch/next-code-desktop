@@ -1,0 +1,21 @@
+# Retain the original delivery locally; publish its verified extracted documents.
+/NEXT-CODE-DESKTOP-CODEX-HANDOFF-P0-*.zip
+node_modules/
+out/
+dist/
+coverage/
+test-results/
+playwright-report/
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.sqlite
+*.sqlite3
+*.db
+*.db-wal
+*.db-shm

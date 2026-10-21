@@ -1,0 +1,32 @@
+# NCD-03 / IIS-01 — Final Freeze Record
+
+**Date:** 2026-10-20  
+**Status:** **FROZEN v1.0 — IMPLEMENTATION INTERFACE DESIGN**  
+**Document:** `NCD-03-IIS-01-JSONL-PROTOCOL-SPECIFICATION.md`  
+**SHA-256 (UTF-8 file bytes):** `0b00943a3531f75c1addea106c5771a92fa45964bb1a53e93d3365b33247ff1f`  
+**Size:** 106,316 bytes  
+**Last prefreeze version:** `NCD-03-IIS-01-JSONL-PROTOCOL-SPECIFICATION-v0.14-ARCHIVE.md`  
+**Archive SHA-256:** `02ccab9dc9419446f8acb78a6d1a483ce936028751a988cde88dd412b9c38682`  
+**Review:** `NCD-03-IIS-01-FFR-01-C01-FINAL-REVIEW.md`.
+
+## Authority and accepted scope
+
+- Owner-approved architecture: NCD-02, C-01, C-02, C-03 retained unchanged.
+- Individually approved IIS01-D1–D12: no redesign.
+- IIS01-D13–D15: consolidated technical schema, resource caps and conformance plan frozen as corrected following owner's instruction to review/freeze and progress, not retroactively presented as earlier separate approvals.
+- Five envelope types and exactly five approved protocol request actions; strict closed schema, one-way READY, provenance-verified per-task event stream, Main-owned SQLite durable replay without Python durable ACK/replay; finite flow control.
+- Tool/IDE-agnostic document. No speculative multi-agent hosting platform.
+
+## Documentary validation result
+
+**14/14 static checks PASS** and **16/16 synthetic positive JSONL sample messages parsed and checked** across two scoped connections. The checks are document/sample validation only. No executable code integration tests, security penetration tests or performance measurements were performed as part of the freeze. Runtime success is **not** claimed.
+
+## Outstanding for implementation contracts
+
+- Electron restricted Preload/Renderer IPC interface (IIS-02).
+- Process supervision and cooperative cancellation instrumentation (IIS-03).
+- Actual SQLite schema/migrations/lease ownership (IIS-04).
+- Renderer event subscriptions and recovery (IIS-05).
+- Actual Discussion / ModelGateway selection, context, file broker and test implementations (IIS-06..IIS-08).
+
+**Implementation authorization:** NONE. This document is a frozen design handoff, not permission to change the Next Code repository.

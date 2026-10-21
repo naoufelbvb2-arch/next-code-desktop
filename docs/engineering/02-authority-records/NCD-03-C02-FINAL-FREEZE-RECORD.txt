@@ -1,0 +1,67 @@
+# NEXT CODE DESKTOP — NCD-03 / C-02
+## Final Architecture Freeze Record — v1.0
+
+**Freeze date:** 2026-10-19
+**Authority:** Owner explicitly approved final C-02 freeze and required every approved point to be retained.
+**Decision:** **FROZEN v1.0 — ARCHITECTURE ONLY**.
+**Implementation:** NOT AUTHORIZED by this record.
+
+## 1. Frozen artifact and evidence
+
+- Canonical frozen file: `NCD-03-C02-DISCUSSION-ONLY-CONTRACT.md`
+- Canonical SHA-256 (UTF-8 bytes): `5474cf3d196e5b4c4c0d6a1ff6cb21b6cc9e72a21e8b725734f30cafeac26812`
+- Frozen file length: 630 lines; 80180 bytes.
+- Archived accepted draft: `NCD-03-C02-DISCUSSION-ONLY-CONTRACT-v0.20-ARCHIVE.md` (SHA-256 `2468af1b36d6ed42dd76b52fc44966f695ae620073947c977092532986809401`).
+- Normative original decisions appear in Sections 2–18; owner dispositions R01–R03 in Sections 18A–18C; decision log in Section 20; freeze traceability in Section 21.
+- Relevant review: `NCD-03-C02-FFR-01-C01-CORRECTED-ARCHITECTURE-REVIEW.md` (coherence PASS, design-only).
+
+## 2. Exhaustive approved-decision coverage
+
+| Decision | Approved selection | Frozen contract section | Decision log | Traceability |
+|---|---|---|---|---|
+| C02-D1 | **Option A** | PRESENT | PRESENT | PRESENT |
+| C02-D2 | **Option C** | PRESENT | PRESENT | PRESENT |
+| C02-D3 | **Option A** | PRESENT | PRESENT | PRESENT |
+| C02-D4 | **Option A** | PRESENT | PRESENT | PRESENT |
+| C02-D5 | **Option A** | PRESENT | PRESENT | PRESENT |
+| C02-D6 | **Option A** | PRESENT | PRESENT | PRESENT |
+| C02-D7 | **Option A** | PRESENT | PRESENT | PRESENT |
+| C02-D8 | **Option A** | PRESENT | PRESENT | PRESENT |
+| C02-D9 | **Option A** | PRESENT | PRESENT | PRESENT |
+| C02-D10 | **Option A** | PRESENT | PRESENT | PRESENT |
+| C02-D11 | **Option A** | PRESENT | PRESENT | PRESENT |
+| C02-D12 | **Option B** | PRESENT | PRESENT | PRESENT |
+| C02-D13 | **Option A** | PRESENT | PRESENT | PRESENT |
+| C02-D14 | **Option A** | PRESENT | PRESENT | PRESENT |
+| C02-D15 | **Option A** | PRESENT | PRESENT | PRESENT |
+| C02-D16 | **Option A** | PRESENT | PRESENT | PRESENT |
+| C02-D17 | **Option A** | PRESENT | PRESENT | PRESENT |
+
+**Check:** 17/17 detailed approval sections PASS; 17/17 decision-log rows PASS; 17/17 freeze matrix rows PASS. Selections: A × 15, B × 1 (D12), C × 1 (D2). No approved architectural option changed.
+
+## 3. FFR-01 dispositions — no false closure
+
+| Finding | Result | Implementation interpretation |
+|---|---|---|
+| FFR-R01 | **DEFERRED BY OWNER** | Universal outbound LLM egress gate not adopted now; residual disclosure risk noted. **D15/D16 consent and file protection remain approved and obligatory.** |
+| FFR-R02 | **APPROVED (architecture)** | Exact decision identity/content/revision must be linked to explicit persisted user approval; semantic verification and schema/tests pending. |
+| FFR-R03 | **APPROVED — Option A (architecture)** | Application-level discussion capability separation; **NOT** a proven Windows sandbox; verification pending. |
+
+## 4. Freeze quality and scope
+
+- Prior owner choices preserved: D2 **Hybrid C**, D12 **broad text B**, D1/D3–D11/D13–D17 **A**.
+- Canonical architecture remains separate discussion path, Electron Main/SQLite conversation memory authority, exact single-use Run Task approval, budget-aware hybrid memory, broker-only staged project inspection, source-scoped provider consent, sensitive-content scanning, bounded truthful progress.
+- No claimed end-to-end provider or token accounting, OS-enforced sandbox, comprehensive secret detection, or production-grade integration without tests.
+- Editorial-only freeze consistency repairs: status/date/footer wording, historical R01 note contextualization, and an inaccurate reference to “sixteen other” choices removed without changing semantics.
+- All numeric budget thresholds, detailed contracts, process/bridge protocol, cancel/streaming, persistence schemas, security and user-visible feedback require subsequent design and testing.
+
+## 5. Automated textual checks and limitations
+
+- Found 17 detailed decision headings; each has an approved `Selected: Option` matching the decision record.
+- Found 17 decision log rows, and added 17 final-freeze traceability rows.
+- Balanced Markdown fenced-code delimiters and no contradictory active-document `DRAFT`/`NOT FROZEN` status.
+- This is a **document completeness/consistency audit**, not a functional test or proof that future code enforces the decisions.
+
+## 6. Next authorized stage
+
+**NCD-03 continuation:** create and separately approve the typed integration/verification contracts (Discussion Service + Electron bridge + broker/provider/consent + lifecycle) before issuing Antigravity instructions. C-02 code changes are **not yet authorized**.

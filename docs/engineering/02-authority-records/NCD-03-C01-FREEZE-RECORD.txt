@@ -1,0 +1,32 @@
+# NCD-03 / C-01 — FROZEN v1.0 Design Contract Approval Record
+
+> **Date:** 2026-10-18  
+> **Status:** OWNER APPROVED — DESIGN CONTRACT FROZEN v1.0  
+> **Scope:** Documentation baseline only; **NO CODE / ANTIGRAVITY IMPLEMENTATION AUTHORIZED.**  
+> **Target engine:** `naoufelbvb2-arch/next-code` at `ccb250cf57fa404a06b86ab5d39da5fe56487c84`
+
+## Approval authority
+
+The owner explicitly approved the final freeze of `NCD-03-C01-CONVERSATION-CONTEXT-CONTRACT.md` following the design-only **PASS** in `NCD-03-C01-FFR-01-PRE-FREEZE-REVIEW.md`. This freezes the **Option B minimal optional context** architectural contract and C01-D1–D4 as reviewed. It does not freeze all NCD-03 or supersede NCD-00, NCD-01 or NCD-02.
+
+## Normative decisions
+
+| ID | Approved decision |
+|---|---|
+| C01-D1 | Limited same-conversation, same-workspace prior task references, selected historical messages and advisory preferences; exclude unverified modified-file lists, previous authority/checkpoints, and unrelated workspace data. |
+| C01-D2 | Typed input model in `architect/contracts.py`, prompt rendering in `architect/prompts.py`, and no persistent conversation data in Blackboard; import-cycle gate remains. |
+| C01-D3 | Advisory preferences are non-binding; mandatory restrictions require deterministic enforcement, else block affected execution. Enforcement contract is deferred. |
+| C01-D4 | Initial test maxima: 3 prior tasks, 6 prior messages, 5 preferences and 3,000 rendered characters. Whole-record omission, no arbitrary slicing. Token-budget validation remains required. |
+
+## Review evidence and reservations
+
+- `NCD-03-C01-FFR-01-PRE-FREEZE-REVIEW.md`: **PASS — design coherence**, not code execution or security validation.
+- Archived exact pre-freeze candidate: `NCD-03-C01-CONVERSATION-CONTEXT-CONTRACT-v0.5-ARCHIVE.md`.
+- SHA-256 of Draft v0.5 archive: `4c67a8c1aa49d6e0bf06bb3772614f81a6ca6b0c9ce81627624e2a3f6cfa8aef`.
+- SHA-256 of frozen contract: `705cb2b4b63bc81e83a1328d130640f3a0783fc1265d4ad9bb89b216bbf85686`.
+- Freeze edits: status/authorization, freeze governance, and administrative alignment of two pre-freeze budget-test timing sentences with the pre-implementation acceptance gate documented in FFR-01. Approved data scope, numbers, architectural ownership, and safeguards are unchanged.
+- Unverified: runtime Python import compatibility, token budgets, cross-workspace protection, prompt-injection regressions, and all implementation acceptance gates. Nothing has been executed or modified in the Next Code engine repository by this documentary freeze.
+
+## Deferred work and control
+
+Discussion-only chat routing, mandatory restriction enforcement, JSONL transport, events, execution concurrency/cancellation, recovery, and authoritative modified-files reporting remain separately scoped in NCD-03. Any change to this frozen contract requires a tracked, explicitly owner-approved correction or successor version. **A separate owner approval is required before any Antigravity implementation task.**

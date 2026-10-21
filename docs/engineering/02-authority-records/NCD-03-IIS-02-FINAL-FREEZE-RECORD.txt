@@ -1,0 +1,33 @@
+# NEXT CODE DESKTOP — NCD-03 / IIS-02
+## FINAL FREEZE RECORD — v1.0
+
+**Status:** FROZEN v1.0 — DESIGN ONLY  
+**Date:** 2026-10-20  
+**Owner authorization:** User expressly accepted consolidated IIS-02 v0.2 corrections and directed: “نكمل التجميد وننتقل إلى IIS-03”.  
+**Implementation authorization:** NONE.
+
+### Artifact integrity
+
+- Canonical file: `NCD-03-IIS-02-ELECTRON-IPC-INTERFACE-SPECIFICATION.md`
+- Pre-freeze archive: `NCD-03-IIS-02-ELECTRON-IPC-INTERFACE-SPECIFICATION-v0.2-ARCHIVE.md`
+- SHA-256 (canonical UTF-8 exact bytes): `b2d487d77993d4c476bc507c7cf873838b1c0d57f29f5aa3aab389c71edc7a5e`
+- Public Promise methods: **23**, unique.
+- Closed typed notification subscriptions: **3**.
+- Consolidated findings IIS02-R01 through IIS02-R06: **documentary corrected and owner approved as one group**.
+
+### Mandatory invariants retained
+
+1. React Renderer may invoke only explicitly exposed Preload APIs. Electron Main revalidates identity, scope and arguments.
+2. Python JSONL IIS-01 remains separate and unchanged. No new sixth wire type or command.
+3. Only explicit Run Task, via Main-issued project/conversation/goal-bound proposal, admits coding tasks. No Discussion execution authority.
+4. Committed SQLite facts are the source of UI replay; errors/uncertainty are not guessed into success.
+5. Disclosure challenge/consent/revocation from C02-D15 stays scoped. The separately owner-deferred broad FFR-R01 egress gate is **not** reinstated.
+6. Renderer route changes and reload do not silently cancel, duplicate or restart tasks; client mutation IDs are durably scoped beyond ephemeral window instances.
+7. Specifications remain neutral to external coding agents and IDEs.
+
+### Review status
+
+- **Documentary freeze:** PASS.
+- **Runtime / Electron / SQLite / Python / Windows conformance:** NOT EXECUTED; required later.
+- **Changes to GitHub/source code:** NONE.
+- **Follow-up:** IIS-03 Python Process Supervisor, then IIS-04–08 implementation interface specs, independent owner review and separate implementation authorization.
