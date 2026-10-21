@@ -1,0 +1,237 @@
+{
+  "stage": "P2",
+  "starting_sha": "eec8781960d168af1a9c41ad4115201bab032b3d",
+  "branch": "feature/p2-ipc-protocol",
+  "manifest_exclusions": [
+    "docs/implementation/P2/CHANGE-MANIFEST.json",
+    "docs/implementation/P2/COMMIT-RECEIPT.md"
+  ],
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "action": "modified",
+      "bytes": 5890,
+      "sha256_working_bytes": "818b2c14b34efae1fa5c7c7c0b297ed42894f4dc4edea6b3c51d1fa305f35da0",
+      "reason": "Current stage authority, run guidance, pinned local dependency or build/type/format configuration"
+    },
+    {
+      "path": "README.md",
+      "action": "modified",
+      "bytes": 3346,
+      "sha256_working_bytes": "6ed3592bc79346349a56e1bfa9ce58d9b88aee1e2ba3825743fbc826a85b9966",
+      "reason": "Current stage authority, run guidance, pinned local dependency or build/type/format configuration"
+    },
+    {
+      "path": "contracts/common.ts",
+      "action": "created",
+      "bytes": 4026,
+      "sha256_working_bytes": "50d66d84db26e3021945b11f3cd4f497d4a8bb87b1cdbebdffc78897da631573",
+      "reason": "P2 closed typed IPC and JSONL schemas, parsing, identity and resource validation"
+    },
+    {
+      "path": "contracts/ipc-dtos.ts",
+      "action": "created",
+      "bytes": 7881,
+      "sha256_working_bytes": "d0b135dd168db5e1105f80003b1e9575d49b2805d664f1ad39e65af87ed5e218",
+      "reason": "P2 closed typed IPC and JSONL schemas, parsing, identity and resource validation"
+    },
+    {
+      "path": "contracts/ipc.ts",
+      "action": "created",
+      "bytes": 8815,
+      "sha256_working_bytes": "721631cf390a2309232f6259314bead489b8ca53be2c87d1dcc0cd0468eefe02",
+      "reason": "P2 closed typed IPC and JSONL schemas, parsing, identity and resource validation"
+    },
+    {
+      "path": "contracts/jsonl.ts",
+      "action": "created",
+      "bytes": 18369,
+      "sha256_working_bytes": "d7f5f7b9607dd5d9b454b93b665956f7ed42dbca42da80999bf08b5f1ab6ad56",
+      "reason": "P2 closed typed IPC and JSONL schemas, parsing, identity and resource validation"
+    },
+    {
+      "path": "contracts/wire-schema.ts",
+      "action": "created",
+      "bytes": 8501,
+      "sha256_working_bytes": "f9c69365f49a6fe9b722653e740cc31a9f39b8f5387cf88ab169cbbfde289c65",
+      "reason": "P2 closed typed IPC and JSONL schemas, parsing, identity and resource validation"
+    },
+    {
+      "path": "docs/implementation/P1/OWNER-ACCEPTANCE.md",
+      "action": "created",
+      "bytes": 1077,
+      "sha256_working_bytes": "fd006665c06c378d70e67ec2ae53d9c685414dee240bafa881a710edf73c7fc7",
+      "reason": "Owner acceptance or phase-scoped implementation and verification evidence"
+    },
+    {
+      "path": "docs/implementation/P2/IMPLEMENTATION-PLAN.md",
+      "action": "created",
+      "bytes": 3756,
+      "sha256_working_bytes": "83086913dc4a61f213bed6dc69b99f2ac626c28b149976c0c1c881b589f94e07",
+      "reason": "Owner acceptance or phase-scoped implementation and verification evidence"
+    },
+    {
+      "path": "docs/implementation/P2/IMPLEMENTATION-REPORT.md",
+      "action": "created",
+      "bytes": 13087,
+      "sha256_working_bytes": "247790d5c8e28512d391c342a7a77e42ffe3ed088f3cccc69e7db777d1f42e62",
+      "reason": "Owner acceptance or phase-scoped implementation and verification evidence"
+    },
+    {
+      "path": "docs/implementation/P2/VERIFICATION-RESULTS.json",
+      "action": "created",
+      "bytes": 46856,
+      "sha256_working_bytes": "be68974e6d0e04d6fe0764bd36d7b47cd4e856250e863d542efc8f1a622ad2d1",
+      "reason": "Owner acceptance or phase-scoped implementation and verification evidence"
+    },
+    {
+      "path": "electron.vite.config.ts",
+      "action": "modified",
+      "bytes": 1269,
+      "sha256_working_bytes": "77667a71461ddb973d2beedb6031d3204c68a9eada1990dbbdde10342e1b7343",
+      "reason": "Current stage authority, run guidance, pinned local dependency or build/type/format configuration"
+    },
+    {
+      "path": "electron/main/index.ts",
+      "action": "modified",
+      "bytes": 2711,
+      "sha256_working_bytes": "b79a31116c7b7e7a52dc1349d8bdffe207210147e9bc00fcb458a454332fdb67",
+      "reason": "Restricted Preload API or trusted Main IPC boundary"
+    },
+    {
+      "path": "electron/main/ipc-boundary.ts",
+      "action": "created",
+      "bytes": 4763,
+      "sha256_working_bytes": "4a9dc5aeea2fd17404618b22a52aaefe8abf903e9eafd6d36d5a18bdf4593962",
+      "reason": "Restricted Preload API or trusted Main IPC boundary"
+    },
+    {
+      "path": "electron/main/ipc.ts",
+      "action": "created",
+      "bytes": 1842,
+      "sha256_working_bytes": "c534e43d58a85dbe46be593520cbea28b08b9d84b735cea1711d19a4045da103",
+      "reason": "Restricted Preload API or trusted Main IPC boundary"
+    },
+    {
+      "path": "electron/preload/facade.ts",
+      "action": "created",
+      "bytes": 6297,
+      "sha256_working_bytes": "9af479952ef5f055a23b969c0c40e8c095471c665aeef342b7b817f92a3a8dcf",
+      "reason": "Restricted Preload API or trusted Main IPC boundary"
+    },
+    {
+      "path": "electron/preload/index.ts",
+      "action": "modified",
+      "bytes": 254,
+      "sha256_working_bytes": "60267fe2321214d14c869b64ef7265f57baf91d7fa9d6c8a6cc3fbeca2ea73f3",
+      "reason": "Restricted Preload API or trusted Main IPC boundary"
+    },
+    {
+      "path": "package-lock.json",
+      "action": "modified",
+      "bytes": 130411,
+      "sha256_working_bytes": "d8325ad26b3c2644eaf9304783a7ce532c0278b2dbcd60aab9a7b13af63b070c",
+      "reason": "Current stage authority, run guidance, pinned local dependency or build/type/format configuration"
+    },
+    {
+      "path": "package.json",
+      "action": "modified",
+      "bytes": 1648,
+      "sha256_working_bytes": "67a65ed9e9f9acaee4524670865c8ea19580e0c3629e7db97fd731ffe4499f1d",
+      "reason": "Current stage authority, run guidance, pinned local dependency or build/type/format configuration"
+    },
+    {
+      "path": "renderer/next-code.d.ts",
+      "action": "created",
+      "bytes": 135,
+      "sha256_working_bytes": "bdc941d37fd903b83a39d293e0de593642f5f488d4e45594705b42ae1e176581",
+      "reason": "Typed Renderer declaration only; no UI behavior or appearance changes"
+    },
+    {
+      "path": "tests/electron/desktop.spec.ts",
+      "action": "modified",
+      "bytes": 17795,
+      "sha256_working_bytes": "42975664c8ed01f239790581353ac96a5e625b23f88c9c2ac69205b2e0be67d6",
+      "reason": "Isolated P2 conformance/adversarial evidence or P1 regression adjustment"
+    },
+    {
+      "path": "tests/electron/development.spec.ts",
+      "action": "modified",
+      "bytes": 4389,
+      "sha256_working_bytes": "760b8fc0020cdf6827816b4636270555f6d067379c6837fd76ab0a59572d39b3",
+      "reason": "Isolated P2 conformance/adversarial evidence or P1 regression adjustment"
+    },
+    {
+      "path": "tests/electron/ipc.spec.ts",
+      "action": "created",
+      "bytes": 8802,
+      "sha256_working_bytes": "075785f747fa06872b07d46b7e028d8bf17db0c6b7dc6c2371d97142be329f75",
+      "reason": "Isolated P2 conformance/adversarial evidence or P1 regression adjustment"
+    },
+    {
+      "path": "tests/fixtures/attacker-preload.cjs",
+      "action": "created",
+      "bytes": 253,
+      "sha256_working_bytes": "8c163d491320e71ef7d5bc3cf48dcfa8dc3e5f9d1bcf67c610ab48b935ae7a13",
+      "reason": "Isolated P2 conformance/adversarial evidence or P1 regression adjustment"
+    },
+    {
+      "path": "tests/fixtures/ipc.ts",
+      "action": "created",
+      "bytes": 2641,
+      "sha256_working_bytes": "31a6e7e2503d917967a50fedc09a799605b294941e00b76952fc3208d6a80a86",
+      "reason": "Isolated P2 conformance/adversarial evidence or P1 regression adjustment"
+    },
+    {
+      "path": "tests/fixtures/protocol_peer.py",
+      "action": "created",
+      "bytes": 11043,
+      "sha256_working_bytes": "1ac58097eba2f3edd7ba792d806f43c83eafedc45ac53051336c3282dc9a937d",
+      "reason": "Isolated P2 conformance/adversarial evidence or P1 regression adjustment"
+    },
+    {
+      "path": "tests/fixtures/wire.ts",
+      "action": "created",
+      "bytes": 8518,
+      "sha256_working_bytes": "22d02780fc9b96fb6390f313af875b1c9e2deec9b0e030ed1dc7fd7dcbb8f47e",
+      "reason": "Isolated P2 conformance/adversarial evidence or P1 regression adjustment"
+    },
+    {
+      "path": "tests/unit/ipc.test.ts",
+      "action": "created",
+      "bytes": 13090,
+      "sha256_working_bytes": "790a910ce6317652bba357998b951d98c6eef8f0698b4caab5f99a4856acc0f5",
+      "reason": "Isolated P2 conformance/adversarial evidence or P1 regression adjustment"
+    },
+    {
+      "path": "tests/unit/jsonl.test.ts",
+      "action": "created",
+      "bytes": 15556,
+      "sha256_working_bytes": "2f967edc0647ea47f72c0d53d3afb12d2e13bb7101236bc08bf99a7d6973ad85",
+      "reason": "Isolated P2 conformance/adversarial evidence or P1 regression adjustment"
+    },
+    {
+      "path": "tests/unit/python-parity.test.ts",
+      "action": "created",
+      "bytes": 1814,
+      "sha256_working_bytes": "e55086a2e020062dd60103962e131b21669a195d7453cd97ebaf83b2e71116ea",
+      "reason": "Isolated P2 conformance/adversarial evidence or P1 regression adjustment"
+    },
+    {
+      "path": "tsconfig.json",
+      "action": "modified",
+      "bytes": 570,
+      "sha256_working_bytes": "44ce331240bb04f3cc465be8176265e14df54ac09c64f909920c9942358502ba",
+      "reason": "Current stage authority, run guidance, pinned local dependency or build/type/format configuration"
+    }
+  ],
+  "scope_review": "PASS; exact allowed paths, no deletions/frozen edits or known credential/private-path patterns; production source has no fixture imports",
+  "not_in_git": [
+    "node_modules/",
+    ".cache/",
+    ".test-profiles/",
+    "out/",
+    "test-results/",
+    "original delivery ZIP"
+  ]
+}

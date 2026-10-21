@@ -1,2 +1,6 @@
-// P1 deliberately exposes no privileged surface. IIS-02 belongs to P2.
-export {}
+import { contextBridge, ipcRenderer } from 'electron'
+import { createFacade } from './facade'
+
+const { api, dispose } = createFacade(ipcRenderer)
+contextBridge.exposeInMainWorld('nextCode', api)
+window.addEventListener('unload', dispose, { once: true })

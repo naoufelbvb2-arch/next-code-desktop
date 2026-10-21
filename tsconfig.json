@@ -15,5 +15,5 @@
     "skipLibCheck": true,
     "types": ["node", "vite/client", "vitest/globals", "@testing-library/jest-dom"]
   },
-  "include": ["electron", "renderer", "tests", "*.config.ts"]
+  "include": ["contracts", "electron", "renderer", "tests", "*.config.ts"]
 }

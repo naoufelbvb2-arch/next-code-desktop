@@ -2,6 +2,7 @@ import { app, BrowserWindow, Menu, screen, session } from 'electron'
 import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { protectSession, protectWindow } from './window-security'
+import { registerIpc, allowIpcWindow } from './ipc'
 
 app.enableSandbox()
 
@@ -38,6 +39,7 @@ async function createWindow(): Promise<void> {
     }
   })
   protectWindow(window, entry)
+  allowIpcWindow(window, entry)
   window.once('ready-to-show', () => {
     // The 1000×600 CSS floor passed P1 viewport QA. Measure native chrome rather
     // than assuming physical pixels equal CSS pixels at fractional Windows DPI.
@@ -58,6 +60,7 @@ app
   .whenReady()
   .then(async () => {
     Menu.setApplicationMenu(null)
+    registerIpc()
     await createWindow()
     app.on('activate', () => {
       if (BrowserWindow.getAllWindows().length === 0) void createWindow()

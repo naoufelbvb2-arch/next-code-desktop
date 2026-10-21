@@ -2,16 +2,17 @@
 
 ## Current authority
 
-The owner's 2026-10-21 **P1 IMPLEMENTATION AUTHORIZATION** approves the P1 scope
-in `docs/implementation/P1/IMPLEMENTATION-PLAN.md`, starting at verified commit
-`b1c52948ebd1704533b2e106a5290efd4656c0b2` on
-`feature/p1-desktop-foundation`. Application files, project-local dependencies,
-Electron launch, scoped tests/fixes, evidence and feature-branch commits/pushes
-are authorized. Missing reference images do not block documented UI construction;
-branding fidelity remains PENDING/NOT_VERIFIED. This overrides the older startup
-restrictions within P1 only. **Stop after P1 for owner review.** No P2+, engine
-edits/execution, SQLite, real IPC/Python bridge, paid model calls, global system
-changes or merge into main. Passing tests does not grant acceptance or transition.
+The owner's **P1 ACCEPTANCE & P2 IMPLEMENTATION AUTHORIZATION** accepts P1's
+proven functional scope for progression; visual sign-off is deferred until after
+P1–P9. See `docs/implementation/P1/OWNER-ACCEPTANCE.md`. Do not polish aesthetics;
+fix functional/security/use-blocking issues when necessary. P2 is authorized on
+`feature/p2-ipc-protocol` from locally/remotely verified P1 SHA
+`eec8781960d168af1a9c41ad4115201bab032b3d`: exact typed 23+3 IPC, Main trust and
+validation boundary, closed IIS-01 framing/serialization, isolated simulators,
+tests/fixes, stage documentation, commits and branch pushes. Later-stage methods
+must fail closed with official errors. No SQLite, real Python supervisor, LLM,
+project broker reads, AgentOS tasks, fabricated events, engine edits, installer,
+global system changes, merge into main or P3. **Stop at P2 owner review.**
 
 ## References and precedence
 

@@ -13,7 +13,8 @@ import { createServer } from 'node:http'
 import { createRequire } from 'node:module'
 
 const require = createRequire(import.meta.url)
-const screenshots = resolve('docs/implementation/P1/screenshots')
+// Regression reruns must not overwrite accepted P1 evidence.
+const screenshots = resolve('test-results/p1-regression-screenshots')
 const viewportSessions = new WeakMap<Page, CDPSession>()
 mkdirSync(screenshots, { recursive: true })
 
@@ -91,7 +92,7 @@ async function contentSize(app: ElectronApplication, page: Page, width: number, 
   await expect.poll(() => page.evaluate(() => [innerWidth, innerHeight])).toEqual([width, height])
 }
 
-test('P1-WIN: actual Windows startup, maximized window, isolated renderer and empty preload', async () => {
+test('P1-WIN: actual Windows startup, maximized window, isolated renderer and restricted preload', async () => {
   const { app, page } = await launch()
   try {
     expect(await app.evaluate(() => process.platform)).toBe('win32')
@@ -129,7 +130,7 @@ test('P1-WIN: actual Windows startup, maximized window, isolated renderer and em
     ).toEqual({
       require: 'undefined',
       process: 'undefined',
-      nextCode: 'undefined',
+      nextCode: 'object',
       ipcRenderer: 'undefined'
     })
     const versions = await app.evaluate(({ screen }) => ({

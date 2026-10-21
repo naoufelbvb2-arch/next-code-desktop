@@ -1,0 +1,1196 @@
+{
+  "stage": "P2",
+  "date": "2026-10-21",
+  "timezone": "America/New_York",
+  "status": "IMPLEMENTED_SCOPED_CHECKS_PASS_OWNER_REVIEW_PENDING",
+  "branch": "feature/p2-ipc-protocol",
+  "starting_sha": "eec8781960d168af1a9c41ad4115201bab032b3d",
+  "starting_local_clean_and_remote_matched": true,
+  "main_unchanged_sha": "af682b74375a0b5827aa1fca0ff0815434803650",
+  "runtime_observed": {
+    "electron": "45.0.0",
+    "chromium": "156.0.8078.48",
+    "embeddedNode": "24.22.0",
+    "platform": "win32",
+    "arch": "x64",
+    "displays": [
+      {
+        "width": 1536,
+        "height": 864,
+        "scaleFactor": 1.25
+      }
+    ]
+  },
+  "host": {
+    "node": "25.9.0",
+    "npm": "11.12.1",
+    "python_fixture_peer": "3.14.4"
+  },
+  "dependencies": {
+    "added_exact_runtime": {
+      "zod": "4.6.7"
+    },
+    "lockfile": "package-lock.json",
+    "existing_pins_changed": false,
+    "preload_bundles_zod": true,
+    "npm_audit_vulnerabilities_at_install": 0
+  },
+  "commands": [
+    {
+      "command": "npm install --save-exact zod@4.6.7 --cache .cache/npm --no-fund",
+      "exit_code": 0,
+      "result": "PASS; local dependency only"
+    },
+    {
+      "command": "npm run build",
+      "exit_code": 0,
+      "result": "PASS; TypeScript and three build targets",
+      "warnings": [
+        "Two third-party Zod PURE-comment annotation warnings"
+      ]
+    },
+    {
+      "command": "npm test -- --reporter=default --reporter=json --outputFile=.cache/p2-unit-results.json",
+      "exit_code": 0,
+      "passed": 165,
+      "failed": 0,
+      "skipped": 0,
+      "files": 8
+    },
+    {
+      "command": "npm run test:electron",
+      "exit_code": 0,
+      "passed": 14,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0,
+      "duration_ms": 41448.052
+    },
+    {
+      "command": "npm run format:check",
+      "exit_code": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "python -X utf8 docs/implementation/P0/verify_delivery.py --git-ref HEAD --archive <retained-delivery-zip>",
+      "exit_code": 0,
+      "result": "PASS; 42 delivery files / 41 payloads / 18 normative; working bytes, Git blobs and archive match"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "PASS"
+    }
+  ],
+  "counts": {
+    "unit_ui_passed": 165,
+    "unit_ui_failed": 0,
+    "unit_ui_skipped": 0,
+    "electron_passed": 14,
+    "electron_failed": 0,
+    "electron_skipped": 0,
+    "final_total_passed": 179,
+    "final_total_failed": 0,
+    "p1_regression_unit_ui_passed": 26,
+    "p1_regression_electron_passed": 11,
+    "p1_regression_failed": 0,
+    "p2_unit_contract_passed": 139,
+    "p2_electron_passed": 3,
+    "planned_p2_cases_not_run": 0,
+    "later_stage_not_run_groups": 6,
+    "later_stage_individual_test_count": null,
+    "later_stage_individual_test_count_note": "Groups are not an invented count of all future IIS-08 cases."
+  },
+  "unit_ui": [
+    {
+      "file": "tests/ui/app.test.tsx",
+      "cases": [
+        {
+          "name": "real UI interactions without a backend keeps an unsent draft through pages and never fakes message acceptance",
+          "status": "passed",
+          "duration_ms": 1523.5411000000004
+        },
+        {
+          "name": "real UI interactions without a backend maintains independent Dock state and supports keyboard resizing and tabs",
+          "status": "passed",
+          "duration_ms": 580.7987000000003
+        },
+        {
+          "name": "real UI interactions without a backend opens Files from Projects in place and keeps future controls honestly disabled",
+          "status": "passed",
+          "duration_ms": 484.9188000000004
+        },
+        {
+          "name": "real UI interactions without a backend switches session appearance and routes using keyboard only",
+          "status": "passed",
+          "duration_ms": 362.22729999999956
+        }
+      ]
+    },
+    {
+      "file": "tests/ui/presentation.test.tsx",
+      "cases": [
+        {
+          "name": "isolated presentation fixtures — never live task evidence renders coding conversation cards, expansion and safe text",
+          "status": "passed",
+          "duration_ms": 538.2822999999999
+        },
+        {
+          "name": "isolated presentation fixtures — never live task evidence keeps preview read-only and treats markup as text",
+          "status": "passed",
+          "duration_ms": 107.87779999999975
+        },
+        {
+          "name": "isolated presentation fixtures — never live task evidence shows truthful unavailable preview: Binary file preview is unavailable.",
+          "status": "passed",
+          "duration_ms": 30.47069999999985
+        },
+        {
+          "name": "isolated presentation fixtures — never live task evidence shows truthful unavailable preview: This file cannot be read.",
+          "status": "passed",
+          "duration_ms": 24.924700000000485
+        }
+      ]
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "cases": [
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main has precisely the independent 23-method and three-subscription register",
+          "status": "passed",
+          "duration_ms": 12.763300000000072
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main app.bootstrap: validated known input reaches Main and returns an official unready error",
+          "status": "passed",
+          "duration_ms": 3.634999999999991
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main app.bootstrap: malformed payload never becomes success",
+          "status": "passed",
+          "duration_ms": 2.557800000000043
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main projects.listRecent: validated known input reaches Main and returns an official unready error",
+          "status": "passed",
+          "duration_ms": 1.2235000000000582
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main projects.listRecent: malformed payload never becomes success",
+          "status": "passed",
+          "duration_ms": 1.2191000000000258
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main projects.choose: validated known input reaches Main and returns an official unready error",
+          "status": "passed",
+          "duration_ms": 1.1398999999998978
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main projects.choose: malformed payload never becomes success",
+          "status": "passed",
+          "duration_ms": 0.9936000000000149
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main projects.select: validated known input reaches Main and returns an official unready error",
+          "status": "passed",
+          "duration_ms": 5.897399999999834
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main projects.select: malformed payload never becomes success",
+          "status": "passed",
+          "duration_ms": 1.3514000000000124
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main projects.listFiles: validated known input reaches Main and returns an official unready error",
+          "status": "passed",
+          "duration_ms": 5.750699999999824
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main projects.listFiles: malformed payload never becomes success",
+          "status": "passed",
+          "duration_ms": 1.020100000000184
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main projects.previewFile: validated known input reaches Main and returns an official unready error",
+          "status": "passed",
+          "duration_ms": 3.9596999999998843
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main projects.previewFile: malformed payload never becomes success",
+          "status": "passed",
+          "duration_ms": 1.2509000000000015
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main conversations.list: validated known input reaches Main and returns an official unready error",
+          "status": "passed",
+          "duration_ms": 2.2343000000000757
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main conversations.list: malformed payload never becomes success",
+          "status": "passed",
+          "duration_ms": 0.7518999999999778
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main conversations.read: validated known input reaches Main and returns an official unready error",
+          "status": "passed",
+          "duration_ms": 1.7508000000000266
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main conversations.read: malformed payload never becomes success",
+          "status": "passed",
+          "duration_ms": 1.1474000000000615
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main conversations.saveDockState: validated known input reaches Main and returns an official unready error",
+          "status": "passed",
+          "duration_ms": 4.928900000000112
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main conversations.saveDockState: malformed payload never becomes success",
+          "status": "passed",
+          "duration_ms": 1.3717999999998938
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main conversations.sendMessage: validated known input reaches Main and returns an official unready error",
+          "status": "passed",
+          "duration_ms": 3.190599999999904
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main conversations.sendMessage: malformed payload never becomes success",
+          "status": "passed",
+          "duration_ms": 1.463700000000017
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main models.list: validated known input reaches Main and returns an official unready error",
+          "status": "passed",
+          "duration_ms": 1.039700000000039
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main models.list: malformed payload never becomes success",
+          "status": "passed",
+          "duration_ms": 0.6955000000000382
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main models.setDiscussionPreference: validated known input reaches Main and returns an official unready error",
+          "status": "passed",
+          "duration_ms": 1.3432000000000244
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main models.setDiscussionPreference: malformed payload never becomes success",
+          "status": "passed",
+          "duration_ms": 0.9970000000000709
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main disclosures.list: validated known input reaches Main and returns an official unready error",
+          "status": "passed",
+          "duration_ms": 0.9162999999998647
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main disclosures.list: malformed payload never becomes success",
+          "status": "passed",
+          "duration_ms": 0.8297000000000025
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main disclosures.respond: validated known input reaches Main and returns an official unready error",
+          "status": "passed",
+          "duration_ms": 2.7014999999998963
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main disclosures.respond: malformed payload never becomes success",
+          "status": "passed",
+          "duration_ms": 0.9175999999999931
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main disclosures.revoke: validated known input reaches Main and returns an official unready error",
+          "status": "passed",
+          "duration_ms": 1.6686999999999443
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main disclosures.revoke: malformed payload never becomes success",
+          "status": "passed",
+          "duration_ms": 0.8307999999999538
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main proposals.confirmRun: validated known input reaches Main and returns an official unready error",
+          "status": "passed",
+          "duration_ms": 1.773600000000215
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main proposals.confirmRun: malformed payload never becomes success",
+          "status": "passed",
+          "duration_ms": 0.8996999999999389
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main tasks.read: validated known input reaches Main and returns an official unready error",
+          "status": "passed",
+          "duration_ms": 1.6228000000000975
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main tasks.read: malformed payload never becomes success",
+          "status": "passed",
+          "duration_ms": 0.7386999999998807
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main tasks.list: validated known input reaches Main and returns an official unready error",
+          "status": "passed",
+          "duration_ms": 1.6403999999999996
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main tasks.list: malformed payload never becomes success",
+          "status": "passed",
+          "duration_ms": 0.6945000000000618
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main tasks.cancel: validated known input reaches Main and returns an official unready error",
+          "status": "passed",
+          "duration_ms": 0.8950999999999567
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main tasks.cancel: malformed payload never becomes success",
+          "status": "passed",
+          "duration_ms": 1.812400000000025
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main tasks.readEvents: validated known input reaches Main and returns an official unready error",
+          "status": "passed",
+          "duration_ms": 3.3561999999999443
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main tasks.readEvents: malformed payload never becomes success",
+          "status": "passed",
+          "duration_ms": 0.6979000000001179
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main tasks.readDiagnostics: validated known input reaches Main and returns an official unready error",
+          "status": "passed",
+          "duration_ms": 1.9994999999998981
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main tasks.readDiagnostics: malformed payload never becomes success",
+          "status": "passed",
+          "duration_ms": 0.9876999999999043
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main preferences.get: validated known input reaches Main and returns an official unready error",
+          "status": "passed",
+          "duration_ms": 1.0702000000001135
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main preferences.get: malformed payload never becomes success",
+          "status": "passed",
+          "duration_ms": 0.748600000000124
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main preferences.update: validated known input reaches Main and returns an official unready error",
+          "status": "passed",
+          "duration_ms": 2.579300000000103
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main preferences.update: malformed payload never becomes success",
+          "status": "passed",
+          "duration_ms": 3.106899999999996
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main rejects unknown channels, multiple arguments, foreign frames, and callers that lose trust",
+          "status": "passed",
+          "duration_ms": 1.687800000000152
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main measures Unicode code points and rejects extra authority / path / enum / page fields",
+          "status": "passed",
+          "duration_ms": 12.8442
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main rejects cycles, accessors and non-JSON objects before expensive schema work",
+          "status": "passed",
+          "duration_ms": 9.296599999999899
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main facade enforces arity, fixed argument adapters and sanitized transport errors",
+          "status": "passed",
+          "duration_ms": 7.309299999999894
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main bounds aggregate serialized work and rejects array subclasses or hidden properties",
+          "status": "passed",
+          "duration_ms": 16.82030000000009
+        },
+        {
+          "name": "IIS-02 exact restricted surface and fail-closed Main acceptance is persisted-only and errors are the fixed 17 UI values",
+          "status": "passed",
+          "duration_ms": 10.9070999999999
+        },
+        {
+          "name": "IIS-02-C01 required closed projections, not a new public operation preserves required nulls and empty proposal fields",
+          "status": "passed",
+          "duration_ms": 3.012499999999818
+        },
+        {
+          "name": "IIS-02-C01 required closed projections, not a new public operation rejects foreign proposal / user turn, excess proposals and nonexistent retry controls",
+          "status": "passed",
+          "duration_ms": 4.325799999999845
+        },
+        {
+          "name": "three subscriptions: Main authority, sanitation and lifecycle delivers typed scoped projections only, isolates callbacks, and safely unregisters",
+          "status": "passed",
+          "duration_ms": 20.004500000000007
+        },
+        {
+          "name": "three subscriptions: Main authority, sanitation and lifecycle defaults unavailable scoped stores to denied, rechecks permissions, and disposes on reload",
+          "status": "passed",
+          "duration_ms": 2.856700000000046
+        },
+        {
+          "name": "three subscriptions: Main authority, sanitation and lifecycle bounds listeners, validates input, and never exposes raw Electron event objects",
+          "status": "passed",
+          "duration_ms": 10.62720000000013
+        }
+      ]
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "cases": [
+        {
+          "name": "IIS-01 closed framing and schema vectors normative fixture 1",
+          "status": "passed",
+          "duration_ms": 19.26650000000018
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors normative fixture 2",
+          "status": "passed",
+          "duration_ms": 11.298000000000002
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors normative fixture 3",
+          "status": "passed",
+          "duration_ms": 3.886600000000044
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors normative fixture 4",
+          "status": "passed",
+          "duration_ms": 8.468699999999899
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors normative fixture 5",
+          "status": "passed",
+          "duration_ms": 6.48700000000008
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors normative fixture 6",
+          "status": "passed",
+          "duration_ms": 4.102300000000014
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors normative fixture 7",
+          "status": "passed",
+          "duration_ms": 1.5830000000000837
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors normative fixture 8",
+          "status": "passed",
+          "duration_ms": 4.473599999999806
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors normative fixture 9",
+          "status": "passed",
+          "duration_ms": 3.3596000000000004
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors normative fixture 10",
+          "status": "passed",
+          "duration_ms": 1.7980000000000018
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors normative fixture 11",
+          "status": "passed",
+          "duration_ms": 3.376700000000028
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors normative fixture 12",
+          "status": "passed",
+          "duration_ms": 1.3426999999999225
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors normative fixture 13",
+          "status": "passed",
+          "duration_ms": 3.8988999999999123
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors normative fixture 14",
+          "status": "passed",
+          "duration_ms": 1.7087999999998829
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors normative fixture 15",
+          "status": "passed",
+          "duration_ms": 2.3787999999999556
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors normative fixture 16",
+          "status": "passed",
+          "duration_ms": 6.573100000000068
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors failed native outcome preserves its actual phase",
+          "status": "passed",
+          "duration_ms": 0.8916999999999007
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors extra root key",
+          "status": "passed",
+          "duration_ms": 1.2912999999998647
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors missing root field",
+          "status": "passed",
+          "duration_ms": 0.8716999999999189
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors boolean version",
+          "status": "passed",
+          "duration_ms": 0.7643000000000484
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors string version",
+          "status": "passed",
+          "duration_ms": 0.9655999999999949
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors unknown version",
+          "status": "passed",
+          "duration_ms": 0.7016000000000986
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors unknown type",
+          "status": "passed",
+          "duration_ms": 0.7981999999999516
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors invalid ID",
+          "status": "passed",
+          "duration_ms": 0.9420000000000073
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors non-null ready correlation",
+          "status": "passed",
+          "duration_ms": 0.8042000000000371
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors extra ready payload",
+          "status": "passed",
+          "duration_ms": 0.8728000000000975
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors unknown role",
+          "status": "passed",
+          "duration_ms": 1.5908999999999196
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors unknown action",
+          "status": "passed",
+          "duration_ms": 0.8811000000000604
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors task.cancel extra PID",
+          "status": "passed",
+          "duration_ms": 1.9067000000000007
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors read unsafe metadata",
+          "status": "passed",
+          "duration_ms": 0.7792999999999211
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors read fractional lines",
+          "status": "passed",
+          "duration_ms": 0.7321999999999207
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors read too many lines",
+          "status": "passed",
+          "duration_ms": 1.7960000000000491
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors read traversal",
+          "status": "passed",
+          "duration_ms": 1.607300000000123
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors discovery excessive depth",
+          "status": "passed",
+          "duration_ms": 1.4809999999999945
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors boolean sequence",
+          "status": "passed",
+          "duration_ms": 1.2456999999999425
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors source label forgery",
+          "status": "passed",
+          "duration_ms": 0.9681000000000495
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors unknown event",
+          "status": "passed",
+          "duration_ms": 0.8155000000001564
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors unknown worker role",
+          "status": "passed",
+          "duration_ms": 2.191100000000006
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors event/outside ID collision",
+          "status": "passed",
+          "duration_ms": 0.7476000000001477
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors unpaired surrogate",
+          "status": "passed",
+          "duration_ms": 1.0119999999999436
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors oversized text",
+          "status": "passed",
+          "duration_ms": 12.123399999999947
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors accepted result must be null",
+          "status": "passed",
+          "duration_ms": 2.857099999999946
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors unknown error code",
+          "status": "passed",
+          "duration_ms": 3.454300000000103
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors duplicate root key",
+          "status": "passed",
+          "duration_ms": 0.7079000000001088
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors escaped duplicate key",
+          "status": "passed",
+          "duration_ms": 0.44280000000003383
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors integer lexeme float",
+          "status": "passed",
+          "duration_ms": 0.5492000000001553
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors integer lexeme exponent",
+          "status": "passed",
+          "duration_ms": 0.5434999999999945
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors nonfinite value",
+          "status": "passed",
+          "duration_ms": 0.4837999999999738
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors missing LF",
+          "status": "passed",
+          "duration_ms": 0.37419999999997344
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors CRLF",
+          "status": "passed",
+          "duration_ms": 0.4552000000001044
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors BOM",
+          "status": "passed",
+          "duration_ms": 0.4067999999999756
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors stdout chatter",
+          "status": "passed",
+          "duration_ms": 0.38279999999986103
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors blank line",
+          "status": "passed",
+          "duration_ms": 0.3786000000000058
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors trailing garbage",
+          "status": "passed",
+          "duration_ms": 0.3525999999999385
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors invalid UTF-8",
+          "status": "passed",
+          "duration_ms": 0.41150000000016007
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors record exact hard cap",
+          "status": "passed",
+          "duration_ms": 5.193899999999985
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors record above hard cap",
+          "status": "passed",
+          "duration_ms": 0.7035000000000764
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors Unicode within code-point cap",
+          "status": "passed",
+          "duration_ms": 6.361900000000105
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors has exactly five types, five actions and nine event names",
+          "status": "passed",
+          "duration_ms": 21.276000000000067
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors roundtrips every canonical fixture with exactly five root keys and one LF",
+          "status": "passed",
+          "duration_ms": 26.066800000000057
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors handles multibyte characters split at every byte without decoding partial UTF-8",
+          "status": "passed",
+          "duration_ms": 4.5914000000000215
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors bounds partial data, the first-byte deadline, EOF and records per push",
+          "status": "passed",
+          "duration_ms": 64.25679999999988
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors never interprets stderr, including otherwise valid event or READY JSON",
+          "status": "passed",
+          "duration_ms": 2.264699999999948
+        },
+        {
+          "name": "IIS-01 closed framing and schema vectors bounds outbound/event queues by both records and bytes, with finite pressure",
+          "status": "passed",
+          "duration_ms": 20.940999999999804
+        },
+        {
+          "name": "IIS-01 connection-bound state, identity and capabilities accepts both normative fixture streams under isolated trusted authorization callbacks",
+          "status": "passed",
+          "duration_ms": 15.137300000000096
+        },
+        {
+          "name": "IIS-01 connection-bound state, identity and capabilities gates discussion on a single assigned READY, fresh process and deadline",
+          "status": "passed",
+          "duration_ms": 2.6386999999999716
+        },
+        {
+          "name": "IIS-01 connection-bound state, identity and capabilities gates coding_task on a single assigned READY, fresh process and deadline",
+          "status": "passed",
+          "duration_ms": 1.6003000000000611
+        },
+        {
+          "name": "IIS-01 connection-bound state, identity and capabilities uses a shared ID set in both directions and refuses stale/orphan correlations",
+          "status": "passed",
+          "duration_ms": 1.8121000000001004
+        },
+        {
+          "name": "IIS-01 connection-bound state, identity and capabilities requires explicit trusted execution admission and exact task/workspace binding",
+          "status": "passed",
+          "duration_ms": 3.0539000000001124
+        },
+        {
+          "name": "IIS-01 connection-bound state, identity and capabilities refuses cross-role actions and wrong directions",
+          "status": "passed",
+          "duration_ms": 1.7853000000000065
+        },
+        {
+          "name": "IIS-01 connection-bound state, identity and capabilities binds broker reads to an active discussion and a trusted broker check",
+          "status": "passed",
+          "duration_ms": 3.3395000000000437
+        },
+        {
+          "name": "IIS-01 connection-bound state, identity and capabilities reserves a cancellation slot while execute is pending; acknowledgment is not a terminal event",
+          "status": "passed",
+          "duration_ms": 2.0698999999999614
+        },
+        {
+          "name": "IIS-01 connection-bound state, identity and capabilities distinguishes acceptance, actual start and a terminal observation without claiming durability",
+          "status": "passed",
+          "duration_ms": 4.258199999999988
+        },
+        {
+          "name": "IIS-01 connection-bound state, identity and capabilities rejects duplicate acceptance and completed task.execute responses",
+          "status": "passed",
+          "duration_ms": 2.521400000000085
+        },
+        {
+          "name": "IIS-01 connection-bound state, identity and capabilities detects gaps and conflicting duplicates, deduplicating semantically equal events",
+          "status": "passed",
+          "duration_ms": 5.140999999999622
+        },
+        {
+          "name": "IIS-01 connection-bound state, identity and capabilities limits general inflight requests while keeping a fresh connection independent",
+          "status": "passed",
+          "duration_ms": 4.843600000000151
+        },
+        {
+          "name": "IIS-01 connection-bound state, identity and capabilities enforces broker and discussion deadlines without starting a process or retry",
+          "status": "passed",
+          "duration_ms": 4.466199999999844
+        },
+        {
+          "name": "IIS-01 connection-bound state, identity and capabilities rejects ordinary rejection after execute admission and never turns it into task finality",
+          "status": "passed",
+          "duration_ms": 1.9728000000000065
+        },
+        {
+          "name": "IIS-01 connection-bound state, identity and capabilities validates excerpt result hash against the emitted UTF-8 content",
+          "status": "passed",
+          "duration_ms": 2.6797999999998865
+        },
+        {
+          "name": "IIS-01 connection-bound state, identity and capabilities does not add task retry, heartbeat or replay actions",
+          "status": "passed",
+          "duration_ms": 1.902299999999741
+        }
+      ]
+    },
+    {
+      "file": "tests/unit/layout.test.ts",
+      "cases": [
+        {
+          "name": "NCD-01 protected-center fit policy protects the center at a fractional Windows DPI viewport width",
+          "status": "passed",
+          "duration_ms": 5.831899999999678
+        },
+        {
+          "name": "NCD-01 protected-center fit policy fits 1920px viewport without reducing center below 580",
+          "status": "passed",
+          "duration_ms": 3.059400000000096
+        },
+        {
+          "name": "NCD-01 protected-center fit policy fits 1366px viewport without reducing center below 580",
+          "status": "passed",
+          "duration_ms": 2.018899999999576
+        },
+        {
+          "name": "NCD-01 protected-center fit policy fits 1100px viewport without reducing center below 580",
+          "status": "passed",
+          "duration_ms": 0.8550999999997657
+        },
+        {
+          "name": "NCD-01 protected-center fit policy fits 1000px viewport without reducing center below 580",
+          "status": "passed",
+          "duration_ms": 1.0552000000002408
+        },
+        {
+          "name": "NCD-01 protected-center fit policy restores the actual Sidebar preference after closing Dock",
+          "status": "passed",
+          "duration_ms": 1.0118999999999687
+        },
+        {
+          "name": "NCD-01 protected-center fit policy hides panels when even the rail and minimum panel cannot fit",
+          "status": "passed",
+          "duration_ms": 0.9411999999997533
+        },
+        {
+          "name": "NCD-01 protected-center fit policy clamps global preference to 320–480 without rewriting it",
+          "status": "passed",
+          "duration_ms": 1.1541000000001986
+        }
+      ]
+    },
+    {
+      "file": "tests/unit/python-parity.test.ts",
+      "cases": [
+        {
+          "name": "independent Python fixture peer and TypeScript agree on every positive/negative schema vector",
+          "status": "passed",
+          "duration_ms": 380.7253999999998
+        }
+      ]
+    },
+    {
+      "file": "tests/unit/security.test.ts",
+      "cases": [
+        {
+          "name": "document navigation boundary limits local assets to the decoded renderer root, rejecting traversal and encoded separators",
+          "status": "passed",
+          "duration_ms": 12.537800000000061
+        },
+        {
+          "name": "document navigation boundary permits only the same entry document and local anchor",
+          "status": "passed",
+          "duration_ms": 2.2140999999996893
+        },
+        {
+          "name": "document navigation boundary does not admit another localhost origin or path in development",
+          "status": "passed",
+          "duration_ms": 1.222899999999754
+        }
+      ]
+    },
+    {
+      "file": "tests/unit/session.test.ts",
+      "cases": [
+        {
+          "name": "session-only drafts and page-local Dock ownership never discards text on route changes",
+          "status": "passed",
+          "duration_ms": 12.509099999999762
+        },
+        {
+          "name": "session-only drafts and page-local Dock ownership new drafts are empty with closed Dock; old unsent drafts stay recoverable",
+          "status": "passed",
+          "duration_ms": 4.306599999999889
+        },
+        {
+          "name": "session-only drafts and page-local Dock ownership repeated blank New Conversation clicks produce no history rows",
+          "status": "passed",
+          "duration_ms": 1.7682999999997264
+        },
+        {
+          "name": "session-only drafts and page-local Dock ownership Agents entry resets only the temporary Dock; returning to Chat restores its tab and visibility",
+          "status": "passed",
+          "duration_ms": 1.129699999999957
+        },
+        {
+          "name": "session-only drafts and page-local Dock ownership Projects starts closed with Files selected; Settings cannot overwrite Chat",
+          "status": "passed",
+          "duration_ms": 0.9411000000000058
+        },
+        {
+          "name": "session-only drafts and page-local Dock ownership explicit Sidebar expansion closes a constrained Dock and preserves text",
+          "status": "passed",
+          "duration_ms": 0.7832000000003063
+        },
+        {
+          "name": "session-only drafts and page-local Dock ownership panel resizing is bounded and survives page navigation",
+          "status": "passed",
+          "duration_ms": 0.6498999999998887
+        }
+      ]
+    }
+  ],
+  "windows_electron": [
+    {
+      "name": "P1-WIN: actual Windows startup, maximized window, isolated renderer and restricted preload",
+      "file": "desktop.spec.ts",
+      "line": 95,
+      "status": "passed",
+      "attempts": 1,
+      "duration_ms": 3281
+    },
+    {
+      "name": "P1-SEC: external navigation, popup, provider network, local-file reads and inline code are blocked",
+      "file": "desktop.spec.ts",
+      "line": 155,
+      "status": "passed",
+      "attempts": 1,
+      "duration_ms": 1586
+    },
+    {
+      "name": "P1-NAV: all pages, recoverable drafts and no fictitious history/task",
+      "file": "desktop.spec.ts",
+      "line": 229,
+      "status": "passed",
+      "attempts": 1,
+      "duration_ms": 2804
+    },
+    {
+      "name": "P1-DOCK: per-draft restoration, page-local resets, tabs, keyboard/pointer sizing and manual hide",
+      "file": "desktop.spec.ts",
+      "line": 258,
+      "status": "passed",
+      "attempts": 1,
+      "duration_ms": 3877
+    },
+    {
+      "name": "P1-FIT: actual Electron viewport fit at all approved CSS sizes and safe constrained fallback",
+      "file": "desktop.spec.ts",
+      "line": 301,
+      "status": "passed",
+      "attempts": 1,
+      "duration_ms": 4763
+    },
+    {
+      "name": "P1-A11Y: keyboard navigation, focus, reduced motion and automated accessibility on every page",
+      "file": "desktop.spec.ts",
+      "line": 338,
+      "status": "passed",
+      "attempts": 1,
+      "duration_ms": 4966
+    },
+    {
+      "name": "P1-DPI: Windows Electron forced device scale 1 with usable effective viewport",
+      "file": "desktop.spec.ts",
+      "line": 400,
+      "status": "passed",
+      "attempts": 1,
+      "duration_ms": 2908
+    },
+    {
+      "name": "P1-DPI: Windows Electron forced device scale 1.25 with usable effective viewport",
+      "file": "desktop.spec.ts",
+      "line": 400,
+      "status": "passed",
+      "attempts": 1,
+      "duration_ms": 2816
+    },
+    {
+      "name": "P1-DPI: Windows Electron forced device scale 1.5 with usable effective viewport",
+      "file": "desktop.spec.ts",
+      "line": 400,
+      "status": "passed",
+      "attempts": 1,
+      "duration_ms": 3126
+    },
+    {
+      "name": "P1-RELOAD: renderer reload does not claim restored messages, model or task execution",
+      "file": "desktop.spec.ts",
+      "line": 417,
+      "status": "passed",
+      "attempts": 1,
+      "duration_ms": 1650
+    },
+    {
+      "name": "P1-DEV: development assets, nonce CSP and React load in an actual sandboxed Electron window",
+      "file": "development.spec.ts",
+      "line": 7,
+      "status": "passed",
+      "attempts": 1,
+      "duration_ms": 2881
+    },
+    {
+      "name": "P2-WIN: exact 23+3 facade, all valid methods fail closed through real IPC",
+      "file": "ipc.spec.ts",
+      "line": 24,
+      "status": "passed",
+      "attempts": 1,
+      "duration_ms": 1533
+    },
+    {
+      "name": "P2-WIN: real unregistered webContents and unknown channel are rejected",
+      "file": "ipc.spec.ts",
+      "line": 124,
+      "status": "passed",
+      "attempts": 1,
+      "duration_ms": 1711
+    },
+    {
+      "name": "P2-WIN: typed subscriptions filter invalid updates, isolate callbacks and safely unsubscribe/reload",
+      "file": "ipc.spec.ts",
+      "line": 168,
+      "status": "passed",
+      "attempts": 1,
+      "duration_ms": 1678
+    }
+  ],
+  "schema_peer": {
+    "kind": "isolated stdlib-only Python subprocess",
+    "engine_imported": false,
+    "valid_invalid_schema_parity": "PASS",
+    "normative_stream_count": 2,
+    "normative_frame_count": 16,
+    "note": "Examples extracted directly from frozen IIS-01 section 18; phase-scoped schema evidence, not actual-engine conformance."
+  },
+  "fixture_source_sha256": {
+    "tests/fixtures/wire.ts": "22d02780fc9b96fb6390f313af875b1c9e2deec9b0e030ed1dc7fd7dcbb8f47e",
+    "tests/fixtures/ipc.ts": "31a6e7e2503d917967a50fedc09a799605b294941e00b76952fc3208d6a80a86",
+    "tests/fixtures/protocol_peer.py": "1ac58097eba2f3edd7ba792d806f43c83eafedc45ac53051336c3282dc9a937d",
+    "tests/fixtures/attacker-preload.cjs": "8c163d491320e71ef7d5bc3cf48dcfa8dc3e5f9d1bcf67c610ab48b935ae7a13",
+    "docs/engineering/01-normative/NCD-03-IIS-01-JSONL-PROTOCOL-SPECIFICATION-OWNER-RATIFIED-REPRODUCTION.md": "0b00943a3531f75c1addea106c5771a92fa45964bb1a53e93d3365b33247ff1f"
+  },
+  "development_server_observation": {
+    "reusedExistingServer": true,
+    "entrySourceVerified": true
+  },
+  "earlier_failures": [
+    {
+      "test": "P1-DEV",
+      "result": "First run: 13 passed, 1 failed",
+      "cause": "Existing app dev server occupied port 5173",
+      "resolution": "Verify entry-source match and reuse server without stopping it; final run passes. No production security change."
+    }
+  ],
+  "delivery_verification": {
+    "status": "PASS",
+    "delivery_files": 42,
+    "payload_files": 41,
+    "normative_files": 18,
+    "manifest_sha256": "16aadd64d5a256330df0b1cf05106c300df394835e40037c5925073247c1c4c5",
+    "git_blobs": "PASS",
+    "archive": "PASS"
+  },
+  "public_release_review": {
+    "status": "PASS",
+    "scope": "Only P2 paths and P1 owner acceptance; no frozen-document edits, deletions, secrets or private/local artifacts. Manifest checked before commit.",
+    "engine_read_only": true,
+    "engine_clean_sha": "834d0ca62cc9b2c03e530bafe4090024d98f31d3"
+  },
+  "not_run": [
+    {
+      "id": "P3_DURABLE_STATE",
+      "status": "NOT_RUN",
+      "reason": "SQLite, transactions, durable deduplication and C01 authoritative read selection are not implemented in P2."
+    },
+    {
+      "id": "P4_REAL_SUPERVISOR",
+      "status": "NOT_RUN",
+      "reason": "No real bridge/supervisor, process crash/restart, pipe backpressure or OS cleanup."
+    },
+    {
+      "id": "P5_PROVIDER",
+      "status": "NOT_RUN",
+      "reason": "No provider or live model calls."
+    },
+    {
+      "id": "P6_FILE_BROKER",
+      "status": "NOT_RUN",
+      "reason": "No project access or Windows handle/TOCTOU/sensitive-source checks."
+    },
+    {
+      "id": "P7_P8_REAL_TASK_EVENTS",
+      "status": "NOT_RUN",
+      "reason": "No AgentOS, cancellation/lease safety, real Mission Control history or durable replay."
+    },
+    {
+      "id": "P9_P10_FULL_INTEGRATION_PACKAGE",
+      "status": "NOT_RUN",
+      "reason": "Full IIS-08 development/packaged gates need later authorization and dependencies."
+    }
+  ],
+  "p1_deferred": [
+    {
+      "case": "VISUAL_REFERENCE_FIDELITY",
+      "status": "DEFERRED_NOT_VERIFIED",
+      "reason": "Owner defers visual signoff until after P1-P9; references absent."
+    },
+    {
+      "case": "MANUAL_SCREEN_READER",
+      "status": "NOT_RUN"
+    },
+    {
+      "case": "SECONDARY_MONITOR",
+      "status": "NOT_RUN"
+    },
+    {
+      "case": "ACTUAL_OS_100_150_PERCENT_SCALE_CHANGES",
+      "status": "NOT_RUN"
+    }
+  ],
+  "gates": {
+    "G1": "P2_SUBSET_PASS_FULL_GATE_NOT_RUN",
+    "G0_G2_G3_G4_G5_G6_G7_G8_G9": "NOT_CLAIMED",
+    "owner_acceptance": "PENDING",
+    "merge_main": "NOT_AUTHORIZED",
+    "P3": "NOT_AUTHORIZED"
+  },
+  "independent_external_review": "NOT_PERFORMED",
+  "permission_accounting": {
+    "authorized": "Local installs, build/tests, isolated fixture peers and Windows Electron, feature-branch commits/push",
+    "no_engine_modification": true,
+    "no_real_engine_run": true,
+    "no_paid_llm": true,
+    "no_database": true,
+    "no_file_broker": true,
+    "no_global_settings": true,
+    "no_administrator_install": true
+  }
+}

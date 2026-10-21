@@ -16,13 +16,14 @@
     "build": "npm run typecheck && electron-vite build",
     "test": "vitest run",
     "test:electron": "playwright test",
-    "format": "prettier --write electron renderer tests *.config.ts tsconfig.json package.json .prettierrc.json",
-    "format:check": "prettier --check electron renderer tests *.config.ts tsconfig.json package.json .prettierrc.json",
+    "format": "prettier --write contracts electron renderer tests *.config.ts tsconfig.json package.json .prettierrc.json",
+    "format:check": "prettier --check contracts electron renderer tests *.config.ts tsconfig.json package.json .prettierrc.json",
     "verify:docs": "python docs/implementation/P0/verify_delivery.py --git-ref HEAD"
   },
   "dependencies": {
     "react": "19.3.1",
-    "react-dom": "19.3.1"
+    "react-dom": "19.3.1",
+    "zod": "4.6.7"
   },
   "devDependencies": {
     "@playwright/test": "1.64.1",

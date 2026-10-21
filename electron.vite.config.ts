@@ -9,6 +9,7 @@ export default defineConfig(({ command }) => {
     main: { build: { rollupOptions: { input: resolve('electron/main/index.ts') } } },
     preload: {
       build: {
+        externalizeDeps: false,
         rollupOptions: {
           input: resolve('electron/preload/index.ts'),
           output: { format: 'cjs', entryFileNames: 'index.cjs' }
