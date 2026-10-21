@@ -1,0 +1,160 @@
+{
+  "date": "2026-10-21",
+  "timezone": "America/New_York",
+  "scope": "Documentation bootstrap + short preflight + P1 preparation only",
+  "delivery": {
+    "status": "PASS",
+    "delivery_files": 42,
+    "manifest_payload_files": 41,
+    "normative_files": 18,
+    "manifest_sha256": "16aadd64d5a256330df0b1cf05106c300df394835e40037c5925073247c1c4c5",
+    "git_blobs": "PASS",
+    "archive_comparison": "PASS",
+    "archive_sha256": "13aaa01ab4a0364e719d639c686a8b203e103ec6d90c46705b50df4eb3850ebe",
+    "original_zip_retained": true,
+    "normative_bytes_modified": false
+  },
+  "initial_import": {
+    "sha": "af682b74375a0b5827aa1fca0ff0815434803650",
+    "branch": "main",
+    "files": 46,
+    "push": "PASS",
+    "remote_main_sha_observed": "af682b74375a0b5827aa1fca0ff0815434803650"
+  },
+  "followup_branch": "docs/bootstrap-preparation",
+  "environment": {
+    "windows_display_version": "25H2",
+    "windows_build": "26200.9457",
+    "architecture": "X64",
+    "powershell": "5.1.26100.9444",
+    "git": "2.54.0.windows.1",
+    "node": "25.9.0",
+    "npm": "11.12.1",
+    "python": "3.14.4",
+    "application_build": "NOT_RUN",
+    "engine_import": "NOT_RUN",
+    "installed_distribution_metadata": {
+      "pydantic": "2.13.3",
+      "httpx": "0.28.1",
+      "psutil": "7.2.2",
+      "pytest": "9.0.3",
+      "pytest-asyncio": "1.4.0"
+    }
+  },
+  "engine": {
+    "origin": "https://github.com/naoufelbvb2-arch/next-code.git",
+    "branch": "main",
+    "head": "834d0ca62cc9b2c03e530bafe4090024d98f31d3",
+    "remote_main_sha_observed": "834d0ca62cc9b2c03e530bafe4090024d98f31d3",
+    "tracked_changes": 0,
+    "untracked_entries": 0,
+    "source_observations": [
+      {
+        "path": "agent_os.py",
+        "working_bytes_sha256": "3af9a100878e54979faa6204afe21b56956307b280791b59ff998d9f2f9b924a",
+        "head_blob_sha256": "a134d24a22a33e93e065f5656530d859ecb49a607f4632839ffde159e3672c32",
+        "raw_bytes_equal": false,
+        "matches_after_crlf_lf_comparison": true
+      },
+      {
+        "path": "architect/contracts.py",
+        "working_bytes_sha256": "1783b61b0112d7310aa74bcc940b4e6832f4daf8432881958e95d0219f26ca81",
+        "head_blob_sha256": "137e707a4b3ce61565ef936507d6de8621201c15eb80a6e57c0150bc9389c22c",
+        "raw_bytes_equal": false,
+        "matches_after_crlf_lf_comparison": true
+      },
+      {
+        "path": "architect/lead_loop.py",
+        "working_bytes_sha256": "750a5913fe8878a43a231c77748cff043275d575b2b42d4e39f81c33f03f5232",
+        "head_blob_sha256": "545635caa8779ee4c02678d3803e8006605f559ba5dc349e975fad69f31aef4c",
+        "raw_bytes_equal": false,
+        "matches_after_crlf_lf_comparison": true
+      },
+      {
+        "path": "squad/dispatcher.py",
+        "working_bytes_sha256": "4222f2aa34d5d557c119782ee23381b5fae497e0555fdc94f939e9ae7bec5c90",
+        "head_blob_sha256": "c1705b384bdecb8b3166bc088fb152201ac850b976539e66e1d463b4c26fb735",
+        "raw_bytes_equal": false,
+        "matches_after_crlf_lf_comparison": true
+      },
+      {
+        "path": "kernel/gateway/router.py",
+        "working_bytes_sha256": "df0cd166b20cab15734f48945248edda936e367eab6a409b5441b32db39b80ae",
+        "head_blob_sha256": "df0cd166b20cab15734f48945248edda936e367eab6a409b5441b32db39b80ae",
+        "raw_bytes_equal": true,
+        "matches_after_crlf_lf_comparison": true
+      },
+      {
+        "path": "kernel/gateway/openai_compat.py",
+        "working_bytes_sha256": "dd6848b1d869fb6719db1ccd7f6a5e50673b4335ad576c9592e944ce2d28f1e0",
+        "head_blob_sha256": "dd6848b1d869fb6719db1ccd7f6a5e50673b4335ad576c9592e944ce2d28f1e0",
+        "raw_bytes_equal": true,
+        "matches_after_crlf_lf_comparison": true
+      },
+      {
+        "path": "kernel/tools/shell.py",
+        "working_bytes_sha256": "9dc1282b75a62bf2b6a9f7053568a182e82deaf7a6247ce2bd797959338bdf4f",
+        "head_blob_sha256": "9dc1282b75a62bf2b6a9f7053568a182e82deaf7a6247ce2bd797959338bdf4f",
+        "raw_bytes_equal": true,
+        "matches_after_crlf_lf_comparison": true
+      },
+      {
+        "path": "kernel/checkpoint.py",
+        "working_bytes_sha256": "e5073b2c3e9703e3f9833603541eb5b89b0ae3b0c18ed4258afee69f56813f8a",
+        "head_blob_sha256": "e5073b2c3e9703e3f9833603541eb5b89b0ae3b0c18ed4258afee69f56813f8a",
+        "raw_bytes_equal": true,
+        "matches_after_crlf_lf_comparison": true
+      },
+      {
+        "path": "pyproject.toml",
+        "working_bytes_sha256": "612eadb902cee62bd2741eaaa71333678a3272abd76d691faf0a7206835bc6fb",
+        "head_blob_sha256": "612eadb902cee62bd2741eaaa71333678a3272abd76d691faf0a7206835bc6fb",
+        "raw_bytes_equal": true,
+        "matches_after_crlf_lf_comparison": true
+      }
+    ],
+    "execution": "NOT_RUN",
+    "cooperative_cancel": "NOT_VERIFIED",
+    "desktop_events": "NOT_VERIFIED"
+  },
+  "checks": {
+    "delivery_verifier_command": [
+      "python",
+      "-X",
+      "utf8",
+      "docs/implementation/P0/verify_delivery.py",
+      "--git-ref",
+      "main",
+      "--archive",
+      "NEXT-CODE-DESKTOP-CODEX-HANDOFF-P0-2026-10-21(1).zip"
+    ],
+    "unrestricted_initial_diff_check": "FAIL: inherited Markdown whitespace in immutable delivery; preserved",
+    "justified_equivalent": "PASS: manifest/blob byte checks plus diff --check excluding immutable delivery",
+    "initial_publication_pattern_scan": {
+      "files": 46,
+      "findings": 0
+    },
+    "engine_raw_blob_comparison": "Initial strict equality failed because checkout CRLF differs from Git LF; subsequent comparison records both hashes and verifies line-ending-only differences; engine git status is clean. No engine bytes changed.",
+    "new_dependencies": []
+  },
+  "gates": {
+    "N04-H01": "CLOSED_BY_PRIOR_OWNER_ADOPTION",
+    "P0_H02": "PARTIAL_LOCAL_OBSERVATIONS_RECORDED",
+    "P0_exit": "OWNER_DISPOSITION_PENDING",
+    "P1": "NOT_AUTHORIZED",
+    "IIS08_G0_G9": "NOT_RUN",
+    "P10": "DEFERRED"
+  },
+  "issues": [
+    {
+      "id": "VISUAL-INPUT-01",
+      "status": "OPEN",
+      "description": "Two visual reference images named in NCD-01 were not delivered; full visual sign-off awaits inputs/review."
+    },
+    {
+      "id": "ENV-01",
+      "status": "NOT_VERIFIED",
+      "description": "Application build and engine runtime compatibility have not been tested."
+    }
+  ]
+}
