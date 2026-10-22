@@ -11,12 +11,20 @@ export function Sidebar({
   state,
   compact,
   dispatch,
-  onToggle
+  onToggle,
+  history = [],
+  onConversation,
+  projectName,
+  discussionReady = false
 }: {
   state: SessionState
   compact: boolean
   dispatch: Dispatch<Action>
   onToggle: () => void
+  history?: { conversationId: string; title: string }[]
+  onConversation?: (id: string) => void
+  projectName?: string
+  discussionReady?: boolean
 }) {
   const drafts = state.drafts.filter((d) => d.text.trim())
   const navigate = (page: Page) => dispatch({ type: 'navigate', page })
@@ -66,10 +74,23 @@ export function Sidebar({
       </nav>
       <div className="sidebar-history">
         <p className="section-label">Recent conversations</p>
-        <div className="history-empty">
-          <Icon name="clock" size={17} />
-          <span>No saved conversations yet</span>
-        </div>
+        {history.length === 0 && (
+          <div className="history-empty">
+            <Icon name="clock" size={17} />
+            <span>No saved conversations yet</span>
+          </div>
+        )}
+        {history.map((item) => (
+          <button
+            className="draft-item"
+            key={item.conversationId}
+            title={item.title}
+            onClick={() => onConversation?.(item.conversationId)}
+          >
+            <Icon name="message" size={16} />
+            <span>{item.title}</span>
+          </button>
+        ))}
         {drafts.length > 0 && (
           <div className="draft-list">
             <p className="section-label">Drafts · this session</p>
@@ -100,14 +121,16 @@ export function Sidebar({
             <Icon name="folder" />
           </span>
           <span className="project-copy">
-            <strong>No project selected</strong>
+            <strong>{projectName ?? 'No project selected'}</strong>
             <small>Local workspace</small>
           </span>
           <Icon name="chevron" size={14} />
         </button>
         <div className="connection-label">
           <span className="status-dot" />
-          <span>Engine not connected</span>
+          <span>
+            {discussionReady ? 'Discussion ready · coding unavailable' : 'Engine not connected'}
+          </span>
         </div>
       </div>
     </aside>

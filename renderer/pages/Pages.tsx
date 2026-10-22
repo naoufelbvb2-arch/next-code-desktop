@@ -1,8 +1,16 @@
 import { EmptyState } from '../components/EmptyState'
 import { Icon } from '../components/Icon'
-import { Composer } from '../components/Composer'
+import { Composer, type DiscussionComposer } from '../components/Composer'
 
-export function ChatPage({ text, onChange }: { text: string; onChange: (text: string) => void }) {
+export function ChatPage({
+  text,
+  onChange,
+  discussion
+}: {
+  text: string
+  onChange: (text: string) => void
+  discussion?: DiscussionComposer
+}) {
   return (
     <div className="home-page">
       <div className="home-center">
@@ -11,13 +19,23 @@ export function ChatPage({ text, onChange }: { text: string; onChange: (text: st
           <h1>Next Code</h1>
           <p className="hero-subtitle">A little space for your next big idea.</p>
         </div>
-        <Composer text={text} onChange={onChange} />
+        <Composer text={text} onChange={onChange} discussion={discussion} />
       </div>
       <p className="home-bottom">Your workspace. Your conversation. Your next step.</p>
     </div>
   )
 }
-export function ProjectsPage({ openFiles }: { openFiles: () => void }) {
+export function ProjectsPage({
+  openFiles,
+  choose,
+  projects,
+  select
+}: {
+  openFiles: () => void
+  choose?: () => void
+  projects?: { projectId: string; displayName: string }[]
+  select?: (id: string) => void
+}) {
   return (
     <div className="page-content">
       <div className="page-intro">
@@ -29,19 +47,42 @@ export function ProjectsPage({ openFiles }: { openFiles: () => void }) {
         <h2>Local projects</h2>
         <button
           className="secondary-button"
-          disabled
-          title="Project registration is not available yet"
+          disabled={!choose}
+          onClick={choose}
+          title={
+            choose
+              ? 'Choose a project folder; files remain unavailable'
+              : 'Project registration is not available yet'
+          }
         >
           <Icon name="plus" size={16} />
           Open project
         </button>
       </div>
       <div className="surface-card project-empty">
-        <EmptyState icon="folder" title="No project selected">
+        {projects?.map((project) => (
+          <button
+            className="text-button"
+            key={project.projectId}
+            onClick={() => select?.(project.projectId)}
+          >
+            {project.displayName}
+          </button>
+        ))}
+        <EmptyState
+          icon="folder"
+          title={projects?.length ? 'Discussion workspaces' : 'No project selected'}
+        >
           <p>
-            Your projects stay on your computer.
-            <br />
-            Project selection and file access are not available yet.
+            {projects?.length ? (
+              'Choose a registered workspace for text discussion. Project file access remains unavailable.'
+            ) : (
+              <>
+                Your projects stay on your computer.
+                <br />
+                Project selection and file access are not available yet.
+              </>
+            )}
           </p>
         </EmptyState>
         <button className="text-button" onClick={openFiles}>

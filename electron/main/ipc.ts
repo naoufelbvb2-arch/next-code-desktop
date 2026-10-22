@@ -2,7 +2,7 @@ import { ipcMain, type BrowserWindow } from 'electron'
 import { IPC, PUSH, type Method, type PushKind } from '../../contracts/ipc'
 import { isAllowedDocument } from './window-security'
 import { IpcBoundary, type Caller } from './ipc-boundary'
-import { dispatchStorage } from './storage/runtime'
+import { dispatchStorage, authorizedConversation } from './storage/runtime'
 
 const windows = new Map<number, { window: BrowserWindow; entry: string }>()
 export const ipcBoundary = new IpcBoundary(
@@ -18,7 +18,9 @@ export const ipcBoundary = new IpcBoundary(
       isAllowedDocument(contents.mainFrame.url, allowed.entry)
     )
   },
-  undefined,
+  (_event, kind, id) =>
+    (kind === 'runtime' && id === null) ||
+    (kind === 'conversation' && !!id && authorizedConversation(id)),
   dispatchStorage
 )
 

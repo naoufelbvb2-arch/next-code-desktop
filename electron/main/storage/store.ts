@@ -843,6 +843,31 @@ export class DurableStore extends DatabaseCore {
         refuse('NOT_AUTHORIZED')
       let reply: string | null = null
       if (value.ok) {
+        const original = this.get(
+          "SELECT content FROM messages WHERE message_id=? AND role='user'",
+          a.user_message_id
+        )
+        const explicit =
+          typeof original?.content === 'string'
+            ? /^(?:I approve: |أوافق: )([^\r\n]{1,2048})$/u.exec(original.content)?.[1]
+            : undefined
+        if (
+          explicit &&
+          !this.get(
+            'SELECT decision_id FROM approved_decisions WHERE approval_message_id=?',
+            a.user_message_id
+          )
+        ) {
+          this.evidence('decision', proof)
+          this.run(
+            'INSERT INTO approved_decisions VALUES(?,?,?,?,?)',
+            newMessageId(),
+            a.conversation_id,
+            explicit,
+            a.user_message_id,
+            this.timestamp()
+          )
+        }
         reply = newMessageId()
         this.run(
           "INSERT INTO messages(message_id,conversation_id,role,content,created_at,delivery_state,selected_model_id) VALUES(?,?,'assistant',?,?,'persisted',NULL)",
@@ -1514,12 +1539,19 @@ export class DurableStore extends DatabaseCore {
       })
     )
   }
-  context(scope: Scope, conversationId: string) {
+  context(scope: Scope, conversationId: string, beforeMessageId?: string) {
     return this.snapshot(() => {
       const c = this.conversation(scope, conversationId)
       const messages = this.all(
-        'SELECT message_id,role,content FROM messages WHERE conversation_id=? ORDER BY message_ordinal DESC LIMIT 20',
-        conversationId
+        'SELECT message_id,role,content FROM messages WHERE conversation_id=? AND message_ordinal < ? ORDER BY message_ordinal DESC LIMIT 20',
+        conversationId,
+        beforeMessageId
+          ? (this.get(
+              'SELECT message_ordinal FROM messages WHERE message_id=? AND conversation_id=?',
+              beforeMessageId,
+              conversationId
+            )?.message_ordinal ?? refuse('NOT_AUTHORIZED'))
+          : Number.MAX_SAFE_INTEGER
       )
         .reverse()
         .map((m) => ({ message_id: m.message_id, role: m.role, text: m.content }))
@@ -1570,5 +1602,62 @@ export class DurableStore extends DatabaseCore {
       ).map((t) => this.taskSummary(t)),
       uiPreferences: this.preferences()
     })
+  }
+  projectBinding(projectId: string) {
+    const row =
+      this.get('SELECT * FROM projects WHERE project_id=?', this.parse(ID, projectId)) ??
+      refuse('NOT_FOUND')
+    return {
+      scope: { projectId, workspaceKey: row.canonical_workspace_key as string },
+      root: row.canonical_root as string
+    }
+  }
+  conversationBinding(conversationId: string) {
+    const row =
+      this.get(
+        'SELECT project_id FROM conversations WHERE conversation_id=?',
+        this.parse(ID, conversationId)
+      ) ?? refuse('NOT_FOUND')
+    return this.projectBinding(row.project_id)
+  }
+  discussionTurn(scope: Scope, userMessageId: string) {
+    const row =
+      this.get(
+        "SELECT m.*,t.status,t.model_id FROM messages m JOIN discussion_turns t ON t.user_message_id=m.message_id WHERE m.message_id=? AND m.role='user'",
+        this.parse(ID, userMessageId)
+      ) ?? refuse('NOT_FOUND')
+    this.conversation(scope, row.conversation_id)
+    return {
+      messageId: userMessageId,
+      conversationId: row.conversation_id as string,
+      text: row.content as string,
+      modelId: row.model_id as string,
+      status: row.status as string
+    }
+  }
+  failPendingDiscussion(
+    scope: Scope,
+    userMessageId: string,
+    code: dto.UiErrorCode,
+    proof: unknown
+  ) {
+    this.evidence('discussion_result', proof)
+    const turn = this.discussionTurn(scope, userMessageId)
+    this.transaction('T5.preissue_failure', () =>
+      this.run(
+        "UPDATE discussion_turns SET status='failed',last_error_code=? WHERE user_message_id=? AND status='pending'",
+        code,
+        userMessageId
+      )
+    )
+    this.changed(turn.conversationId)
+  }
+  abandonPendingDiscussion(proof: unknown) {
+    this.evidence('discussion_result', proof)
+    this.transaction('T5.restart_pending', () =>
+      this.run(
+        "UPDATE discussion_turns SET status='unknown',last_error_code='RUNTIME_NOT_READY' WHERE status='pending'"
+      )
+    )
   }
 }

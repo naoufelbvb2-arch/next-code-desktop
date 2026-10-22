@@ -2,19 +2,21 @@
 
 ## Current authority
 
-The owner's separate **P3 OFFICIAL ACCEPTANCE & P4 FULL IMPLEMENTATION
-AUTHORIZATION (2026-10-21)** accepts P3 at
-`3da419be3eef270ee72dbc5336258b509dd98a09`. Its acceptance record was separately
-committed/pushed on P3 at `8c9bc7d4dabe408a0663183690fc00ae3e0e29b9`;
-`feature/p4-python-supervisor` starts there. Implement P4 Main-owned Python
-runtime resolution, private stdio supervision, lifecycle/READY, bounded queues,
-diagnostic redaction, cancellation and verified Windows process-tree containment,
-P3 integration, real isolated Python/Windows tests, documentation and normal
-feature-branch publication. Coding simulators are test-only with isolated stores;
-never expose them to Renderer or production ledgers. Future authorities deny by
-default. P1 visual signoff remains deferred. No aesthetic redesign, engine
-changes/execution, LLM/provider calls, project-source reads, real task/events,
-installer, global system changes, main merge or P5–P8. **Stop at P4 owner review.**
+The owner's **P5 FULL IMPLEMENTATION & LIVE DEEPSEEK TESTING** authorization
+(2026-10-22) accepts P4 at `b321bdc64be55a8bfc75e3de043b7ff79a8ab207`.
+P4 acceptance was separately published at
+`c27adc7ad4a1850dc3f8b3f229af1d557050aa66`; P5 starts there on
+`feature/p5-discussion-models`. Implement real discussion through the existing
+read-only engine ModelGateway, explicit DeepSeek Flash route, isolated local
+Python dependencies, T1/T5 persistence, model registry/context and existing React
+UI. At most TEN short live API requests, no automatic HTTP/provider/structured
+retries; reserve/count calls before issue. Local owner key stays in ignored
+storage and trusted Discussion environment only, never argv/IPC/SQLite/Git/logs.
+Use fixtures for broad QA. Project root selection metadata may establish the
+required conversation scope; no project-source reads/disclosure or P6 broker.
+No aesthetic redesign, engine modification, AgentOS/Workers/coding tasks,
+installer/global/admin changes, main merge or P6. P1 visual signoff remains
+deferred. **Stop at P5 owner review.**
 
 ## References and precedence
 

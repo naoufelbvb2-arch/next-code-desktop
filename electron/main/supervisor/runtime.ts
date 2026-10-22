@@ -11,7 +11,19 @@ export class RuntimeError extends Error {
 }
 const sha = z.string().regex(/^[a-f0-9]{64}$/)
 const configSchema = z
-  .object({ pythonPath: z.string().min(1).max(1024), pythonSha256: sha })
+  .object({
+    pythonPath: z.string().min(1).max(1024),
+    pythonSha256: sha,
+    discussion: z
+      .object({
+        engineRoot: z.string().max(1024),
+        sitePackages: z.string().max(1024),
+        secretFile: z.string().max(1024),
+        budgetFile: z.string().max(1024)
+      })
+      .strict()
+      .optional()
+  })
   .strict()
 const manifestSchema = z
   .object({
@@ -35,6 +47,7 @@ export interface VerifiedRuntime {
   readonly bridgeSha256: string
   readonly version: readonly number[]
   readonly env: Record<string, string>
+  readonly discussion?: { engineRoot: string; sitePackages: string; budgetFile: string }
 }
 export function digestFile(path: string): string {
   const size = statSync(path).size
@@ -116,7 +129,7 @@ export async function resolveRuntime(
     const manifestPath = join(bridgeDirectory, 'compatibility.json')
     if (statSync(manifestPath).size > 4096) throw new RuntimeError()
     const manifest = manifestSchema.parse(JSON.parse(readFileSync(manifestPath, 'utf8')))
-    const bridge = realpathSync(join(bridgeDirectory, manifest.bridgeFile))
+    let bridge = realpathSync(join(bridgeDirectory, manifest.bridgeFile))
     if (
       dirname(bridge) !== realpathSync(bridgeDirectory) ||
       digestFile(bridge) !== manifest.bridgeSha256
@@ -124,6 +137,39 @@ export async function resolveRuntime(
       throw new RuntimeError()
     const env = baselineEnvironment(),
       cwd = dirname(bridge)
+    let selectedBridgeSha = manifest.bridgeSha256
+    if (config.discussion) {
+      const settings = config.discussion
+      for (const path of Object.values(settings)) if (!isAbsolute(path)) throw new RuntimeError()
+      const compatibility = JSON.parse(
+        readFileSync(join(bridgeDirectory, 'gateway-compatibility.json'), 'utf8')
+      )
+      if (
+        compatibility.protocol !== 1 ||
+        compatibility.engineRevision !== '834d0ca62cc9b2c03e530bafe4090024d98f31d3' ||
+        compatibility.model !== 'deepseek-flash' ||
+        compatibility.destination !== 'https://api.deepseek.com/chat/completions'
+      )
+        throw new RuntimeError()
+      for (const [path, hash] of Object.entries(compatibility.engineFiles)) {
+        if (
+          !/^kernel\/[a-z_/]+\.py$/.test(path) ||
+          digestFile(join(settings.engineRoot, path)) !== hash
+        )
+          throw new RuntimeError()
+      }
+      for (const [path, hash] of Object.entries(compatibility.bridgeFiles)) {
+        if (!/^[a-z_]+\.py$/.test(path) || digestFile(join(bridgeDirectory, path)) !== hash)
+          throw new RuntimeError()
+      }
+      bridge = realpathSync(join(bridgeDirectory, 'discussion_bridge.py'))
+      selectedBridgeSha = compatibility.bridgeFiles['discussion_bridge.py']
+      env.NCD_DISCUSSION_CONFIG = JSON.stringify({
+        engineRoot: realpathSync(settings.engineRoot),
+        sitePackages: realpathSync(settings.sitePackages),
+        budgetFile: settings.budgetFile
+      })
+    }
     const version = JSON.parse(
       (
         await probe({
@@ -149,16 +195,44 @@ export async function resolveRuntime(
     )
     if (
       JSON.stringify(description) !==
-      JSON.stringify({ protocol: 1, roles: ['discussion'], provider: false, engine: false })
+      JSON.stringify(
+        config.discussion
+          ? {
+              protocol: 1,
+              roles: ['discussion'],
+              provider: true,
+              engine: true,
+              model: 'deepseek-flash',
+              destination: 'https://api.deepseek.com/chat/completions'
+            }
+          : { protocol: 1, roles: ['discussion'], provider: false, engine: false }
+      )
     )
       throw new RuntimeError()
+    if (config.discussion) {
+      if (statSync(config.discussion.secretFile).size > 1024) throw new RuntimeError()
+      const secret = /^DEEPSEEK_API_KEY=(sk-[A-Za-z0-9_-]+)\r?\n?$/.exec(
+        readFileSync(config.discussion.secretFile, 'utf8')
+      )?.[1]
+      if (!secret) throw new RuntimeError()
+      env.DEEPSEEK_API_KEY = secret
+    }
     return Object.freeze({
       executable,
       executableSha256: config.pythonSha256,
       bridge,
-      bridgeSha256: manifest.bridgeSha256,
+      bridgeSha256: selectedBridgeSha,
       version: Object.freeze(version),
-      env: Object.freeze(env)
+      env: Object.freeze(env),
+      ...(config.discussion
+        ? {
+            discussion: {
+              engineRoot: config.discussion.engineRoot,
+              sitePackages: config.discussion.sitePackages,
+              budgetFile: config.discussion.budgetFile
+            }
+          }
+        : {})
     })
   } catch {
     throw new RuntimeError()

@@ -1,0 +1,26 @@
+{
+  "protocol": 1,
+  "engineRevision": "834d0ca62cc9b2c03e530bafe4090024d98f31d3",
+  "model": "deepseek-flash",
+  "providerKey": "deepseek_official_v1",
+  "destination": "https://api.deepseek.com/chat/completions",
+  "outputTokens": 256,
+  "engineFiles": {
+    "kernel/__init__.py": "41c2987e91cf81dc932c71413405330ca5d5af4038d2accf42dfd65ef30c1529",
+    "kernel/config.py": "f37add09a4320bab48de75b388a3a59626b037cd957e3e82cf1a3e2bf8e43056",
+    "kernel/schemas.py": "37977befae5a74d56fe08aa5df39d456fa071ad90db2908fd2c71d4a07bc7fbe",
+    "kernel/exceptions.py": "1147151615e83cd9ff4dcbfc9cca71173f20cee1c9a2377c067ec65a534be691",
+    "kernel/guard.py": "90d4772c9846c0783f9f3852d0c72135a7928edb67cc3f652247cba6c5ad2db7",
+    "kernel/checkpoint.py": "e5073b2c3e9703e3f9833603541eb5b89b0ae3b0c18ed4258afee69f56813f8a",
+    "kernel/gateway/__init__.py": "12c16a6f07b471f34660620d372308cce6fdf4b802989c1d589262c239c95796",
+    "kernel/gateway/base.py": "91981ac78fbbfabf1f81223048d1297290474d29d14426a6758741e6875f6b5d",
+    "kernel/gateway/router.py": "df0cd166b20cab15734f48945248edda936e367eab6a409b5441b32db39b80ae",
+    "kernel/gateway/openai_compat.py": "dd6848b1d869fb6719db1ccd7f6a5e50673b4335ad576c9592e944ce2d28f1e0",
+    "kernel/gateway/ledger.py": "b63b36d27b0443d6a4e4adcf5967f15ee3063db64e625cd307b55d1812fc33eb"
+  },
+  "bridgeFiles": {
+    "desktop_bridge.py": "9d612e05c8a38733dc1cf2fa81cc72ff21391937590afa430ab22bc82e54933e",
+    "discussion_bridge.py": "8a4eca8879688945819f60887602876e078d6844d830d8c380fc5065b84453ea",
+    "gateway_adapter.py": "4f3f563949b9e40e2b846747240940c2921db5da38a96f5603a0cc87c0fc6282"
+  }
+}

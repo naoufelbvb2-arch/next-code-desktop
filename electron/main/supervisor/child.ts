@@ -231,9 +231,14 @@ export class SupervisedChild extends EventEmitter {
     this.flush()
     return id
   }
-  request(action: WireAction, input: Record<string, unknown>): Promise<WireMessage> {
+  request(
+    action: WireAction,
+    input: Record<string, unknown>,
+    onIssued?: (id: string) => void
+  ): Promise<WireMessage> {
     // Native reads complete asynchronously, after this waiter is installed.
     const id = this.send(action, input)
+    onIssued?.(id)
     return new Promise((resolve, reject) => this.waiters.set(id, { resolve, reject }))
   }
   private flush() {

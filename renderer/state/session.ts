@@ -42,7 +42,9 @@ export type Action =
   | { type: 'newDraft' }
   | { type: 'selectDraft'; id: number }
   | { type: 'editDraft'; text: string }
+  | { type: 'acceptDraft'; id: number; text: string }
   | { type: 'dock'; open?: boolean; tab?: DockTab }
+  | { type: 'restoreChatDock'; dock: DockState }
   | { type: 'sidebar'; collapsed: boolean; closeDock?: boolean }
   | { type: 'width'; width: number }
   | { type: 'motion'; reduced: boolean }
@@ -55,6 +57,20 @@ export const currentDock = (state: SessionState) =>
 
 export function sessionReducer(state: SessionState, action: Action): SessionState {
   switch (action.type) {
+    case 'acceptDraft':
+      return {
+        ...state,
+        drafts: state.drafts.map((draft) =>
+          draft.id === action.id && draft.text === action.text ? { ...draft, text: '' } : draft
+        )
+      }
+    case 'restoreChatDock':
+      return {
+        ...state,
+        drafts: state.drafts.map((draft) =>
+          draft.id === state.activeDraft ? { ...draft, dock: action.dock } : draft
+        )
+      }
     case 'navigate':
       return {
         ...state,

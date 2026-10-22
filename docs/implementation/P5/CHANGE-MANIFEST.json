@@ -1,0 +1,192 @@
+{
+  "phase": "P5",
+  "startingCommit": "c27adc7ad4a1850dc3f8b3f229af1d557050aa66",
+  "branch": "feature/p5-discussion-models",
+  "hash": "SHA-256 of exact working bytes; staged blobs independently compared before commit",
+  "exclusions": [
+    "This manifest cannot authenticate itself",
+    "COMMIT-RECEIPT.md is a later documentation-only commit referring to the source SHA"
+  ],
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 6098,
+      "sha256": "283c891c2830f904fb074c3e9575d53a81aef1b248404b310b835193a381d3ae"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7231,
+      "sha256": "a7ec5f61cc9229a752ed487923ee4bc7a55c9b4835916d784021e8d892cc20f9"
+    },
+    {
+      "path": "bridge/discussion_bridge.py",
+      "bytes": 3352,
+      "sha256": "8a4eca8879688945819f60887602876e078d6844d830d8c380fc5065b84453ea"
+    },
+    {
+      "path": "bridge/gateway-compatibility.json",
+      "bytes": 1637,
+      "sha256": "b7c9af855d427db3cb6ee7a1fe99f1fd046fec21c4ed66060aef4faf2a92e131"
+    },
+    {
+      "path": "bridge/gateway_adapter.py",
+      "bytes": 10783,
+      "sha256": "4f3f563949b9e40e2b846747240940c2921db5da38a96f5603a0cc87c0fc6282"
+    },
+    {
+      "path": "bridge/requirements-p5-win32.lock",
+      "bytes": 1152,
+      "sha256": "0b22c8a85426ecf2546aa79e5c30ee898653ff7a70368db79f2299ff21ca55d7"
+    },
+    {
+      "path": "bridge/requirements-p5.txt",
+      "bytes": 200,
+      "sha256": "b3d69ece7294567cdc32deda358fedb9eefe7fd1af23649afcaba6207d552c70"
+    },
+    {
+      "path": "docs/implementation/P5/IMPLEMENTATION-PLAN.md",
+      "bytes": 2682,
+      "sha256": "9d53f0eb62aeb3d98540c7119b16d852d3185a1c10e01c8834f009e501b82b1f"
+    },
+    {
+      "path": "docs/implementation/P5/IMPLEMENTATION-REPORT.md",
+      "bytes": 13042,
+      "sha256": "575b532729a36d269278f5e824a6f79e5b065bcb0a20e5ee1c44928176e25c75"
+    },
+    {
+      "path": "docs/implementation/P5/VERIFICATION-RESULTS.json",
+      "bytes": 82578,
+      "sha256": "c5489fc7e57e328ca7b0ae75c08858d693b6e1a6d2f7b43cd38232616fb91173"
+    },
+    {
+      "path": "docs/implementation/P5/screenshots/live-discussion.png",
+      "bytes": 298492,
+      "sha256": "6b6e5ab2457b8057682605e959c0eea15dd8b8ebfac015ea11f394d3840a799d"
+    },
+    {
+      "path": "electron/main/discussion/service.ts",
+      "bytes": 11739,
+      "sha256": "b00d9c220d32226794256f0acac987d12e55eafe026716aebdda2cc6a0652961"
+    },
+    {
+      "path": "electron/main/index.ts",
+      "bytes": 5816,
+      "sha256": "7162fcd1c69d69bff63d72a4024530d67cf2423c9cb7cd3e646f09e2ac89a804"
+    },
+    {
+      "path": "electron/main/ipc.ts",
+      "bytes": 2099,
+      "sha256": "30afafeede70fa6a5c35505e3da554b87a9442f1a5a0e08553035dc0786ca5cc"
+    },
+    {
+      "path": "electron/main/storage/runtime.ts",
+      "bytes": 2310,
+      "sha256": "2552f93a3a23a848c8ee3bbadcedcbfd628a02c579b180bee29c68faa2a49251"
+    },
+    {
+      "path": "electron/main/storage/store.ts",
+      "bytes": 61389,
+      "sha256": "cbc8611a0b34aa2d3f202254f24d32df6d9f6273d6b14cf43ec5722279b62325"
+    },
+    {
+      "path": "electron/main/supervisor/application.ts",
+      "bytes": 1540,
+      "sha256": "7c65136df28a716163d30362fcbcc36af187823d171165bf4e657bb0b2e2e4c6"
+    },
+    {
+      "path": "electron/main/supervisor/child.ts",
+      "bytes": 11338,
+      "sha256": "47db5b90801aa3835bed8688024d6ca9d1fc92fa9aea972a569842a1942e13ad"
+    },
+    {
+      "path": "electron/main/supervisor/runtime.ts",
+      "bytes": 8644,
+      "sha256": "03f427f27c3feb2d5ed13a66e61bf6a6b25858a846b0de115eebb5b0632ecc8e"
+    },
+    {
+      "path": "package.json",
+      "bytes": 1755,
+      "sha256": "56d29ae91cbf6d3e97e98fa88047ab461f9691e51b15eb0dc4057ed6dc4954aa"
+    },
+    {
+      "path": "playwright.live.config.ts",
+      "bytes": 243,
+      "sha256": "fba8ad422a07b9ae817e666097c68a6ba470fea0b21958e27b3f171c46310c6a"
+    },
+    {
+      "path": "renderer/App.tsx",
+      "bytes": 9077,
+      "sha256": "902e6ccae6f274f530d7d81b901fd8ffec3343bab7e2f6e25fb5f2c1555b05e2"
+    },
+    {
+      "path": "renderer/components/Composer.tsx",
+      "bytes": 3622,
+      "sha256": "b6042f0ee16a9e6d68ab43176908056247ab934511f7d2f5028210ab8d9bc839"
+    },
+    {
+      "path": "renderer/components/Sidebar.tsx",
+      "bytes": 4615,
+      "sha256": "f6cdd2655e29bd35d79eab69dd934b3f7e280da9a76a6853ef030fa9202b3165"
+    },
+    {
+      "path": "renderer/pages/Pages.tsx",
+      "bytes": 6970,
+      "sha256": "fbe2d7a67c5108cbb4b57287c6b69b2de48b27131bdd65f6a4d5ed8eec435987"
+    },
+    {
+      "path": "renderer/state/discussion.ts",
+      "bytes": 6081,
+      "sha256": "ad3bbf11379afbaf7b7397e6b654a058b12278687ee37b569e662da4cd6eb95a"
+    },
+    {
+      "path": "renderer/state/session.ts",
+      "bytes": 4012,
+      "sha256": "258ede6178bce4884539c29b396ff3d3bed95908fd9cdea75582924f9957491f"
+    },
+    {
+      "path": "tests/fixtures/discussion.ts",
+      "bytes": 3309,
+      "sha256": "a6579d19e20a721d20ff9f561907cddd7171e2f81bf640d94226bababee46002"
+    },
+    {
+      "path": "tests/live/deepseek.spec.ts",
+      "bytes": 5784,
+      "sha256": "c5b05be7210ff1a0f98e0cae908a51ddbe02a3fa2935e71e44a9e2e07d36dafd"
+    },
+    {
+      "path": "tests/live/restore.spec.ts",
+      "bytes": 2288,
+      "sha256": "02a7711e42dbdfc4fd0a0c2e01ac7707e7efb130702cbc94ac77c70d0f489a4b"
+    },
+    {
+      "path": "tests/python/test_discussion.py",
+      "bytes": 6215,
+      "sha256": "13193edf88253a34f519d6706ee5e43f060821cddbb0563fcaa7b27b077df4fb"
+    },
+    {
+      "path": "tests/ui/discussion.test.tsx",
+      "bytes": 7576,
+      "sha256": "47744f5b04c8b42db051d094d816fe100821d20374d1022ce21730668b49b1d0"
+    },
+    {
+      "path": "tests/unit/discussion.test.ts",
+      "bytes": 14772,
+      "sha256": "b28eede4e933450919a677977bedd2f973e5cba0849fad33151e75d37dc80315"
+    }
+  ],
+  "unchanged": [
+    "All imported docs/engineering bytes",
+    "contracts public IPC/JSONL schemas",
+    "SQLite migrations and 22-table schema",
+    "package-lock.json",
+    "Separate original next-code checkout"
+  ],
+  "privateIgnored": [
+    ".env.local",
+    ".venv/",
+    ".cache/",
+    ".test-profiles/",
+    "out/",
+    "test-results/"
+  ]
+}

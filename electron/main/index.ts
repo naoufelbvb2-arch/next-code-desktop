@@ -1,10 +1,12 @@
 import { app, BrowserWindow, Menu, screen, session, dialog } from 'electron'
 import { join } from 'node:path'
+import { existsSync, readFileSync, statSync } from 'node:fs'
 import { pathToFileURL } from 'node:url'
 import { protectSession, protectWindow } from './window-security'
-import { registerIpc, allowIpcWindow } from './ipc'
+import { registerIpc, allowIpcWindow, ipcBoundary } from './ipc'
 import { openStorage, closeStorage } from './storage/runtime'
 import { openSupervisor, closeSupervisor, hasActiveCodingTask } from './supervisor/application'
+import type { PythonSupervisor } from './supervisor/supervisor'
 
 app.enableSandbox()
 
@@ -65,10 +67,42 @@ app
   .then(async () => {
     if (!ownsInstance) return
     Menu.setApplicationMenu(null)
-    openStorage(join(app.getPath('userData'), 'desktop-state.sqlite3'))
+    const userData = app.getPath('userData'),
+      bridgeDirectory = join(import.meta.dirname, '../../bridge')
+    let runtimeConfig = join(userData, 'python-runtime.json')
+    const localConfig = join(import.meta.dirname, '../../.cache/p5-runtime.json')
+    // Explicit owner-created development config. Isolated test profiles never
+    // inherit it or the owner's credential, avoiding accidental live QA calls.
+    if (!profile && !app.isPackaged && !existsSync(runtimeConfig) && existsSync(localConfig))
+      runtimeConfig = localConfig
+    let discussionEnabled = false
+    try {
+      discussionEnabled =
+        statSync(runtimeConfig).size <= 4096 &&
+        !!JSON.parse(readFileSync(runtimeConfig, 'utf8')).discussion
+    } catch {}
+    let activeSupervisor: PythonSupervisor | undefined
+    openStorage(join(userData, 'desktop-state.sqlite3'), {
+      enabled: discussionEnabled,
+      ensure: () =>
+        activeSupervisor?.ensureDiscussionReady() ?? Promise.reject(new Error('RUNTIME_NOT_READY')),
+      available: () => !!activeSupervisor?.discussion?.connection.state.ready,
+      choose: async () => {
+        const selection = await dialog.showOpenDialog({
+          title: 'Choose discussion project (files remain unavailable)',
+          properties: ['openDirectory']
+        })
+        return selection.canceled ? null : (selection.filePaths[0] ?? null)
+      },
+      notify: (kind, id, update) => {
+        ipcBoundary.publish(kind, id, update)
+      }
+    })
     registerIpc()
     await createWindow()
-    openSupervisor(app.getPath('userData'), join(import.meta.dirname, '../../bridge'))
+    openSupervisor(userData, bridgeDirectory, runtimeConfig, (supervisor, runtime) => {
+      if (runtime.discussion) activeSupervisor = supervisor
+    })
     app.on('activate', () => {
       if (BrowserWindow.getAllWindows().length === 0) void createWindow()
     })
