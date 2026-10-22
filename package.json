@@ -21,6 +21,7 @@
     "verify:docs": "python docs/implementation/P0/verify_delivery.py --git-ref HEAD"
   },
   "dependencies": {
+    "koffi": "3.3.3",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "zod": "4.6.7"

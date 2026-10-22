@@ -482,6 +482,59 @@ export class DurableStore extends DatabaseCore {
       )
     })
   }
+  // Internal Main-only process handoff. Read committed admission/slot/lease
+  // together immediately before launch; never accept a Renderer task record.
+  supervisionAdmission(scope: Scope, taskId: string, proof: unknown) {
+    this.evidence('supervise', proof)
+    return this.transaction('T3.supervision_read', () => {
+      const project = this.project(scope, true),
+        task = this.task(scope, taskId)
+      const lease = this.get(
+        'SELECT * FROM workspace_writer_leases WHERE task_id=? AND workspace_key=?',
+        taskId,
+        scope.workspaceKey
+      )
+      const slot = this.get('SELECT task_id FROM active_coding_slot WHERE slot_id=1')
+      const proposal = this.get(
+        'SELECT * FROM task_proposals WHERE proposal_id=?',
+        task.proposal_id
+      )
+      if (
+        task.state !== 'starting' ||
+        task.cleanup_state !== 'unverified' ||
+        lease?.lease_state !== 'active' ||
+        slot?.task_id !== taskId ||
+        proposal?.consumed_task_id !== taskId ||
+        proposal.state !== 'consumed' ||
+        proposal.exact_goal !== task.exact_goal ||
+        proposal.conversation_id !== task.conversation_id
+      )
+        refuse('TASK_UNKNOWN')
+      return Object.freeze({
+        taskId,
+        conversationId: task.conversation_id as string,
+        taskGoal: task.exact_goal as string,
+        workspaceRoot: project.canonical_root as string,
+        workspaceKey: scope.workspaceKey
+      })
+    })
+  }
+  markProcessUncertain(scope: Scope, taskId: string, proof: unknown): void {
+    this.evidence('supervise', proof)
+    this.transaction('T3.process_uncertain', () => {
+      this.task(scope, taskId)
+      this.run(
+        "UPDATE tasks SET state='needs_reconciliation',cleanup_state='blocked',updated_at=? WHERE task_id=? AND cleanup_state NOT LIKE 'verified_%'",
+        this.timestamp(),
+        taskId
+      )
+      this.run(
+        "UPDATE workspace_writer_leases SET lease_state='blocked' WHERE task_id=? AND workspace_key=?",
+        taskId,
+        scope.workspaceKey
+      )
+    })
+  }
   preferences() {
     const row = this.get("SELECT safe_json FROM ui_preferences WHERE preference_scope='display'")
     return row ? this.decode(dto.UiPreferences, row.safe_json) : dto.UiPreferences.parse(defaults)

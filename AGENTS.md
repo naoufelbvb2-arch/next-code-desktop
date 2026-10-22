@@ -2,18 +2,19 @@
 
 ## Current authority
 
-The owner's separate **P3 IMPLEMENTATION AUTHORIZATION (2026-10-21)** accepts
-P2 at `56d3060c7b2ca8e705429863561604d586474fb5` for phase progression.
-`docs/implementation/P2/OWNER-ACCEPTANCE.md` was committed/pushed on P2 first;
-P3 starts at verified `02ffcf7e7c2554d7dbdf6c5023f105a437bd8dbc` on
-`feature/p3-sqlite-durable-state`. Implement Main-owned SQLite's exact 22 tables,
-forward migrations, WAL backup/restore, T1–T6 primitives, bounded scoped reads,
-safe IPC wiring, isolated actual database/fault/concurrency/Windows tests,
-documentation and normal feature-branch commits/pushes. Future authorities deny
-by default; no fake production records. P1 visual signoff remains deferred until
-after P1–P9. No aesthetic redesign, engine changes/execution, real supervisor,
-LLM/provider calls, project-source reads, real task/events, installer, global
-system changes, main merge or P4. **Stop at P3 owner review.**
+The owner's separate **P3 OFFICIAL ACCEPTANCE & P4 FULL IMPLEMENTATION
+AUTHORIZATION (2026-10-21)** accepts P3 at
+`3da419be3eef270ee72dbc5336258b509dd98a09`. Its acceptance record was separately
+committed/pushed on P3 at `8c9bc7d4dabe408a0663183690fc00ae3e0e29b9`;
+`feature/p4-python-supervisor` starts there. Implement P4 Main-owned Python
+runtime resolution, private stdio supervision, lifecycle/READY, bounded queues,
+diagnostic redaction, cancellation and verified Windows process-tree containment,
+P3 integration, real isolated Python/Windows tests, documentation and normal
+feature-branch publication. Coding simulators are test-only with isolated stores;
+never expose them to Renderer or production ledgers. Future authorities deny by
+default. P1 visual signoff remains deferred. No aesthetic redesign, engine
+changes/execution, LLM/provider calls, project-source reads, real task/events,
+installer, global system changes, main merge or P5–P8. **Stop at P4 owner review.**
 
 ## References and precedence
 

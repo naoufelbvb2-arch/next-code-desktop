@@ -1,0 +1,128 @@
+{
+  "phase": "P4",
+  "branch": "feature/p4-python-supervisor",
+  "baseCommit": "8c9bc7d4dabe408a0663183690fc00ae3e0e29b9",
+  "scope": "Reviewed P4 source/evidence paths. Excludes this manifest and later COMMIT-RECEIPT.md; P3 acceptance was separately published first.",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "change": "MODIFIED",
+      "bytes": 6009,
+      "sha256": "a28f2df537d50e07698dec01f1c4187e67b0fe11198121798f86e45e2a31de01"
+    },
+    {
+      "path": "README.md",
+      "change": "MODIFIED",
+      "bytes": 5401,
+      "sha256": "2ef1542aa766163a83f8de30ca1b313a994c6ad7806e3b2b54a3a17dfa6696ef"
+    },
+    {
+      "path": "bridge/compatibility.json",
+      "change": "ADDED",
+      "bytes": 318,
+      "sha256": "1ed18e3723861a4710789639bed0c5bd2b6bc5a4588ae2bd31fd6857cf16eec2"
+    },
+    {
+      "path": "bridge/desktop_bridge.py",
+      "change": "ADDED",
+      "bytes": 8257,
+      "sha256": "9d612e05c8a38733dc1cf2fa81cc72ff21391937590afa430ab22bc82e54933e"
+    },
+    {
+      "path": "docs/implementation/P4/IMPLEMENTATION-PLAN.md",
+      "change": "ADDED",
+      "bytes": 4595,
+      "sha256": "29e2662ed037b4bc3b7303cedd6cd767311aab8add0838bff78e5a23e0526611"
+    },
+    {
+      "path": "docs/implementation/P4/IMPLEMENTATION-REPORT.md",
+      "change": "ADDED",
+      "bytes": 14360,
+      "sha256": "c6f6b4af376afa97f4be59d475a04ba5558bea2e242814b0db4da8734bab9c47"
+    },
+    {
+      "path": "docs/implementation/P4/VERIFICATION-RESULTS.json",
+      "change": "ADDED",
+      "bytes": 72551,
+      "sha256": "6cfc2cfa2a0bcfda33539ed3a656dc277c2bbebdbeb7fb62fa34d08d274833b8"
+    },
+    {
+      "path": "electron/main/index.ts",
+      "change": "MODIFIED",
+      "bytes": 4197,
+      "sha256": "5fb17c57445fa5e48b0bec1ecb57eae8a42e80ba0d8ac261fc974971c4efd187"
+    },
+    {
+      "path": "electron/main/storage/store.ts",
+      "change": "MODIFIED",
+      "bytes": 58256,
+      "sha256": "466fc2508afd991e9fccf6651fb281a3219d5e56660b433e3acb38bfba1312cf"
+    },
+    {
+      "path": "electron/main/supervisor/application.ts",
+      "change": "ADDED",
+      "bytes": 1333,
+      "sha256": "a3665aecd92ea372b1ef45731c284cd257b745de0880be5606639de8cffb8014"
+    },
+    {
+      "path": "electron/main/supervisor/child.ts",
+      "change": "ADDED",
+      "bytes": 11270,
+      "sha256": "957bd333aa53c0e4595f14d4921a7d17bbfddb5802eb6c5b32ddc617a5f87033"
+    },
+    {
+      "path": "electron/main/supervisor/runtime.ts",
+      "change": "ADDED",
+      "bytes": 5869,
+      "sha256": "51cdfa8fae2c97819f8676cb7f4a4889cefe9d5d875b18f55470d18e2798df52"
+    },
+    {
+      "path": "electron/main/supervisor/supervisor.ts",
+      "change": "ADDED",
+      "bytes": 8522,
+      "sha256": "27531e78ee916c2c1b1bc59e9fa6840b85f899d8e1b82fea8bb5c87695750ee1"
+    },
+    {
+      "path": "electron/main/supervisor/windows-process.ts",
+      "change": "ADDED",
+      "bytes": 11174,
+      "sha256": "ba365b6db2a1242cb87dce123ddb66f89c5c3ccf3342eb7d100572b2a1be6f63"
+    },
+    {
+      "path": "package-lock.json",
+      "change": "MODIFIED",
+      "bytes": 141956,
+      "sha256": "d2eaa362ac169ae7100ce8740d8143c180efe82eec00ffdfdacbcdfaeb429370"
+    },
+    {
+      "path": "package.json",
+      "change": "MODIFIED",
+      "bytes": 1684,
+      "sha256": "960c0fb6c9e60730bd1fe724255f924fb19dab28ab111d7d4b2a87f4bbff7edb"
+    },
+    {
+      "path": "tests/electron/supervisor.spec.ts",
+      "change": "ADDED",
+      "bytes": 7658,
+      "sha256": "b95bf3215671c1e4eece6c1087f47ec86302ccdbc5cbfbe43b73861165bf04d5"
+    },
+    {
+      "path": "tests/fixtures/supervision.ts",
+      "change": "ADDED",
+      "bytes": 6942,
+      "sha256": "486add08ca0acd03c6a359ebde3be868d89224263961d7950a6f8739b6181c3b"
+    },
+    {
+      "path": "tests/fixtures/supervisor_peer.py",
+      "change": "ADDED",
+      "bytes": 5310,
+      "sha256": "7ebb2ac990e45c4823f461e385e23d07550b92269f0f4ae7a003a2451e2835f5"
+    },
+    {
+      "path": "tests/unit/supervisor.test.ts",
+      "change": "ADDED",
+      "bytes": 23676,
+      "sha256": "86450f2ee7901dbae25f7b1a16f603d852fa80b74b8ad464cf4ce7d22df9ab42"
+    }
+  ]
+}

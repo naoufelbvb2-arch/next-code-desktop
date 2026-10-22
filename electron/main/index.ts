@@ -1,9 +1,10 @@
-import { app, BrowserWindow, Menu, screen, session } from 'electron'
+import { app, BrowserWindow, Menu, screen, session, dialog } from 'electron'
 import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { protectSession, protectWindow } from './window-security'
 import { registerIpc, allowIpcWindow } from './ipc'
 import { openStorage, closeStorage } from './storage/runtime'
+import { openSupervisor, closeSupervisor, hasActiveCodingTask } from './supervisor/application'
 
 app.enableSandbox()
 
@@ -67,6 +68,7 @@ app
     openStorage(join(app.getPath('userData'), 'desktop-state.sqlite3'))
     registerIpc()
     await createWindow()
+    openSupervisor(app.getPath('userData'), join(import.meta.dirname, '../../bridge'))
     app.on('activate', () => {
       if (BrowserWindow.getAllWindows().length === 0) void createWindow()
     })
@@ -77,6 +79,42 @@ app
   })
 
 app.on('window-all-closed', () => app.quit())
+let quitConfirmed = false
+let cleaningUp = false
+app.on('before-quit', (event) => {
+  if (quitConfirmed) return
+  event.preventDefault()
+  if (cleaningUp) return
+  if (hasActiveCodingTask()) {
+    const choice = dialog.showMessageBoxSync({
+      type: 'warning',
+      title: 'Active coding task',
+      message:
+        'A coding task is still active. Quitting requests cancellation and may leave workspace changes requiring review.',
+      buttons: ['Wait', 'Cancel task and quit'],
+      defaultId: 0,
+      cancelId: 0
+    })
+    if (choice !== 1) return
+  }
+  cleaningUp = true
+  void closeSupervisor()
+    .then((verified) => {
+      if (!verified)
+        dialog.showMessageBoxSync({
+          type: 'warning',
+          title: 'Cleanup unverified',
+          message:
+            'Process cleanup could not be verified. The workspace remains blocked for reconciliation.'
+        })
+      quitConfirmed = true
+      app.quit()
+    })
+    .catch(() => {
+      quitConfirmed = true
+      app.quit()
+    })
+})
 app.on('will-quit', closeStorage)
 app.on('web-contents-created', (_event, contents) => {
   contents.on('will-attach-webview', (event) => event.preventDefault())

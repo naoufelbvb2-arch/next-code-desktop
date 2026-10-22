@@ -1,0 +1,11 @@
+{
+  "protocol": 1,
+  "pythonMinimum": [3, 11],
+  "bridgeFile": "desktop_bridge.py",
+  "bridgeSha256": "9d612e05c8a38733dc1cf2fa81cc72ff21391937590afa430ab22bc82e54933e",
+  "mode": "discussion_no_provider",
+  "engine": {
+    "required": false,
+    "compatibleRevision": "834d0ca62cc9b2c03e530bafe4090024d98f31d3"
+  }
+}

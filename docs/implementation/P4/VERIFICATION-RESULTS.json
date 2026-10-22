@@ -1,0 +1,1843 @@
+{
+  "phase": "P4",
+  "status": "READY_FOR_OWNER_REVIEW_PROCESS_SUBSET",
+  "authorizationDate": "2026-10-21",
+  "verificationDate": "2026-10-22",
+  "timezone": "America/New_York",
+  "repository": "https://github.com/naoufelbvb2-arch/next-code-desktop",
+  "branch": "feature/p4-python-supervisor",
+  "acceptedP3": "3da419be3eef270ee72dbc5336258b509dd98a09",
+  "acceptanceCommitAndP4Base": "8c9bc7d4dabe408a0663183690fc00ae3e0e29b9",
+  "environment": {
+    "platform": "Windows x64",
+    "hostNode": "25.9.0",
+    "npm": "11.12.1",
+    "python": "3.14.4",
+    "electron": "45.0.0",
+    "electronNode": "24.22.0",
+    "electronSQLite": "3.53.4",
+    "koffi": "3.3.3"
+  },
+  "totals": {
+    "pass": 277,
+    "fail": 0,
+    "skipped": 0,
+    "unitAndUI": 257,
+    "windowsElectron": 20,
+    "inheritedP1P2P3": 232,
+    "newP4": 45,
+    "newP4UnitProcess": 42,
+    "newP4WindowsElectron": 3,
+    "notRunGroups": 7,
+    "notVerifiedGroups": 1
+  },
+  "deadlines": {
+    "actualWallClockCancellationMs": 15000,
+    "readyMs": 30000,
+    "partialFrameMs": 15000,
+    "brokerMs": 30000,
+    "discussionMs": 300000,
+    "saturationMs": 30000,
+    "note": "READY/partial/broker/discussion/saturation use advanced monotonic clocks attached to real live owned Python children. Full cancellation grace also runs in wall-clock time."
+  },
+  "commands": [
+    {
+      "command": "npm test -- --reporter=default --reporter=json --outputFile=.cache/p4-unit-results.json",
+      "status": "PASS",
+      "cases": 257
+    },
+    {
+      "command": "npm run test:electron",
+      "status": "PASS",
+      "cases": 20
+    },
+    {
+      "command": "npm run build",
+      "status": "PASS",
+      "includes": "TypeScript"
+    },
+    {
+      "command": "npm run format:check",
+      "status": "PASS"
+    },
+    {
+      "command": "npm exec -- prettier --check bridge/compatibility.json",
+      "status": "PASS"
+    },
+    {
+      "command": "python -I -S -m py_compile bridge/desktop_bridge.py tests/fixtures/supervisor_peer.py",
+      "status": "PASS"
+    },
+    {
+      "command": "python -X utf8 docs/implementation/P0/verify_delivery.py --git-ref HEAD --archive <retained-delivery-archive>",
+      "status": "PASS",
+      "deliveredFiles": 42,
+      "authenticatedPayloadFiles": 41,
+      "normativeFiles": 18,
+      "workingTree": true,
+      "gitBlobs": true,
+      "originalArchive": true,
+      "manifestSha256": "16aadd64d5a256330df0b1cf05106c300df394835e40037c5925073247c1c4c5"
+    }
+  ],
+  "scope": {
+    "engineExecuted": false,
+    "engineModified": false,
+    "providerCalled": false,
+    "projectSourcesRead": false,
+    "productionSimulatorSelectable": false,
+    "simulatorInNormalProductionLedger": false,
+    "schemaChanged": false,
+    "frozenDocumentsChanged": false,
+    "mainMerged": false,
+    "p5Started": false,
+    "fullIIS08AcceptanceClaimed": false
+  },
+  "windowsCleanup": {
+    "strategy": "Main-owned non-inheritable Windows Job; suspended direct CreateProcessW, handle allowlist, assign before ResumeThread, kill-on-close; no breakaway flags",
+    "nativeTreeStop": "PASS",
+    "primaryExitWithLiveDescendantsObserved": "PASS",
+    "mainAbruptTerminationViaCreationMatchedHandle": "PASS",
+    "childAndGrandchildHeldHandlesSignalExit": "PASS",
+    "sameSQLiteLedgerRecoversNeedsReconciliationWithoutReplay": "PASS",
+    "lossOfJobEvidencePreservesLease": "PASS",
+    "workspaceSafety": "Independent fixture verifier only; no actual project-safety claim"
+  },
+  "dependencies": {
+    "added": "koffi@3.3.3",
+    "newLockedPackagesIncludingPlatformOptionals": 21,
+    "changedExistingDependencyEntries": 0,
+    "globalChanges": false,
+    "independentVulnerabilityAudit": "NOT_RUN"
+  },
+  "earlierAttempts": [
+    {
+      "finding": "Five initial process failures: strict proof fixture shape and console-host membership assumptions",
+      "resolution": "Per-kind exact proof shapes and observed contained console process; final suite PASS"
+    },
+    {
+      "finding": "Integration/unknown-handle tests timed out while shutdown re-waited for completed cleanup",
+      "resolution": "Preserve cleanup result including false/UNVERIFIED; final suite PASS"
+    },
+    {
+      "finding": "Early Main-crash harness signals/orderly process.exit and teardown timed out; one overlapping failed run collided with ignored artifacts",
+      "resolution": "Serialize final suite; terminate the held actual Main OS handle only after matching its creation identity; both descendants independently observed stopped"
+    },
+    {
+      "finding": "Prettier initially flagged one new file",
+      "resolution": "Formatted and full format check PASS"
+    },
+    {
+      "finding": "Automatic approval review service usage limit prevented one test invocation",
+      "resolution": "No execution or bypass then; same approval route succeeded after owner continue"
+    }
+  ],
+  "deferred": [
+    {
+      "id": "P4-D01",
+      "status": "NOT_RUN",
+      "scope": "Actual AgentOS execute/cancel/event hooks, checkpoints and real workspace reconciliation; P7/P8"
+    },
+    {
+      "id": "P4-D02",
+      "status": "NOT_RUN",
+      "scope": "Actual providers/model registry/credentials/token budgets and live Discussion; P5"
+    },
+    {
+      "id": "P4-D03",
+      "status": "NOT_RUN",
+      "scope": "Real Windows project alias/junction/handle/source-disclosure proof; P6"
+    },
+    {
+      "id": "P4-D04",
+      "status": "NOT_RUN",
+      "scope": "Active real-task quit confirmation/rollback; physical Windows logoff/system shutdown"
+    },
+    {
+      "id": "P4-D05",
+      "status": "NOT_RUN",
+      "scope": "Installed Python <3.11, Windows ARM64/x86, missing native binding and OS privilege-failure matrix"
+    },
+    {
+      "id": "P4-D06",
+      "status": "NOT_RUN",
+      "scope": "Packaged assets/bundled Python/installer/signing/clean-machine; P10"
+    },
+    {
+      "id": "P4-D07",
+      "status": "NOT_RUN",
+      "scope": "Full IIS-08 G0-G9 and independent external review; phase gates retain owner disposition"
+    },
+    {
+      "id": "P1-VISUAL",
+      "status": "NOT_VERIFIED",
+      "scope": "Reference-image visual matching deferred; no aesthetic changes"
+    }
+  ],
+  "unitAndProcessCases": [
+    {
+      "file": "tests/ui/app.test.tsx",
+      "name": "real UI interactions without a backend keeps an unsent draft through pages and never fakes message acceptance",
+      "status": "PASS",
+      "durationMs": 1153.63
+    },
+    {
+      "file": "tests/ui/app.test.tsx",
+      "name": "real UI interactions without a backend maintains independent Dock state and supports keyboard resizing and tabs",
+      "status": "PASS",
+      "durationMs": 381.32
+    },
+    {
+      "file": "tests/ui/app.test.tsx",
+      "name": "real UI interactions without a backend opens Files from Projects in place and keeps future controls honestly disabled",
+      "status": "PASS",
+      "durationMs": 302.48
+    },
+    {
+      "file": "tests/ui/app.test.tsx",
+      "name": "real UI interactions without a backend switches session appearance and routes using keyboard only",
+      "status": "PASS",
+      "durationMs": 210.64
+    },
+    {
+      "file": "tests/ui/presentation.test.tsx",
+      "name": "isolated presentation fixtures — never live task evidence renders coding conversation cards, expansion and safe text",
+      "status": "PASS",
+      "durationMs": 353.94
+    },
+    {
+      "file": "tests/ui/presentation.test.tsx",
+      "name": "isolated presentation fixtures — never live task evidence keeps preview read-only and treats markup as text",
+      "status": "PASS",
+      "durationMs": 53.52
+    },
+    {
+      "file": "tests/ui/presentation.test.tsx",
+      "name": "isolated presentation fixtures — never live task evidence shows truthful unavailable preview: Binary file preview is unavailable.",
+      "status": "PASS",
+      "durationMs": 21.58
+    },
+    {
+      "file": "tests/ui/presentation.test.tsx",
+      "name": "isolated presentation fixtures — never live task evidence shows truthful unavailable preview: This file cannot be read.",
+      "status": "PASS",
+      "durationMs": 16.07
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main has precisely the independent 23-method and three-subscription register",
+      "status": "PASS",
+      "durationMs": 6.63
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main app.bootstrap: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "durationMs": 1.87
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main app.bootstrap: malformed payload never becomes success",
+      "status": "PASS",
+      "durationMs": 1.41
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main projects.listRecent: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "durationMs": 0.68
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main projects.listRecent: malformed payload never becomes success",
+      "status": "PASS",
+      "durationMs": 0.59
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main projects.choose: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "durationMs": 0.69
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main projects.choose: malformed payload never becomes success",
+      "status": "PASS",
+      "durationMs": 0.61
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main projects.select: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "durationMs": 2.95
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main projects.select: malformed payload never becomes success",
+      "status": "PASS",
+      "durationMs": 0.6
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main projects.listFiles: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "durationMs": 2.71
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main projects.listFiles: malformed payload never becomes success",
+      "status": "PASS",
+      "durationMs": 0.69
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main projects.previewFile: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "durationMs": 2.55
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main projects.previewFile: malformed payload never becomes success",
+      "status": "PASS",
+      "durationMs": 0.56
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main conversations.list: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "durationMs": 1.2
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main conversations.list: malformed payload never becomes success",
+      "status": "PASS",
+      "durationMs": 0.49
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main conversations.read: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "durationMs": 1.27
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main conversations.read: malformed payload never becomes success",
+      "status": "PASS",
+      "durationMs": 0.44
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main conversations.saveDockState: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "durationMs": 2.45
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main conversations.saveDockState: malformed payload never becomes success",
+      "status": "PASS",
+      "durationMs": 0.53
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main conversations.sendMessage: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "durationMs": 1.78
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main conversations.sendMessage: malformed payload never becomes success",
+      "status": "PASS",
+      "durationMs": 0.62
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main models.list: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "durationMs": 0.46
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main models.list: malformed payload never becomes success",
+      "status": "PASS",
+      "durationMs": 0.35
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main models.setDiscussionPreference: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "durationMs": 0.96
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main models.setDiscussionPreference: malformed payload never becomes success",
+      "status": "PASS",
+      "durationMs": 0.39
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main disclosures.list: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "durationMs": 0.52
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main disclosures.list: malformed payload never becomes success",
+      "status": "PASS",
+      "durationMs": 0.42
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main disclosures.respond: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "durationMs": 0.92
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main disclosures.respond: malformed payload never becomes success",
+      "status": "PASS",
+      "durationMs": 0.37
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main disclosures.revoke: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "durationMs": 1.02
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main disclosures.revoke: malformed payload never becomes success",
+      "status": "PASS",
+      "durationMs": 0.38
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main proposals.confirmRun: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "durationMs": 1.04
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main proposals.confirmRun: malformed payload never becomes success",
+      "status": "PASS",
+      "durationMs": 0.59
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main tasks.read: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "durationMs": 0.89
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main tasks.read: malformed payload never becomes success",
+      "status": "PASS",
+      "durationMs": 0.53
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main tasks.list: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "durationMs": 1.1
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main tasks.list: malformed payload never becomes success",
+      "status": "PASS",
+      "durationMs": 0.47
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main tasks.cancel: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "durationMs": 0.72
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main tasks.cancel: malformed payload never becomes success",
+      "status": "PASS",
+      "durationMs": 0.53
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main tasks.readEvents: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "durationMs": 1.05
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main tasks.readEvents: malformed payload never becomes success",
+      "status": "PASS",
+      "durationMs": 0.54
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main tasks.readDiagnostics: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "durationMs": 0.97
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main tasks.readDiagnostics: malformed payload never becomes success",
+      "status": "PASS",
+      "durationMs": 0.38
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main preferences.get: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "durationMs": 0.3
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main preferences.get: malformed payload never becomes success",
+      "status": "PASS",
+      "durationMs": 0.35
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main preferences.update: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "durationMs": 1.12
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main preferences.update: malformed payload never becomes success",
+      "status": "PASS",
+      "durationMs": 0.66
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main rejects unknown channels, multiple arguments, foreign frames, and callers that lose trust",
+      "status": "PASS",
+      "durationMs": 1.61
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main measures Unicode code points and rejects extra authority / path / enum / page fields",
+      "status": "PASS",
+      "durationMs": 20.52
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main rejects cycles, accessors and non-JSON objects before expensive schema work",
+      "status": "PASS",
+      "durationMs": 5.19
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main facade enforces arity, fixed argument adapters and sanitized transport errors",
+      "status": "PASS",
+      "durationMs": 5.38
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main bounds aggregate serialized work and rejects array subclasses or hidden properties",
+      "status": "PASS",
+      "durationMs": 19.73
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main acceptance is persisted-only and errors are the fixed 17 UI values",
+      "status": "PASS",
+      "durationMs": 11.18
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02-C01 required closed projections, not a new public operation preserves required nulls and empty proposal fields",
+      "status": "PASS",
+      "durationMs": 10.07
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02-C01 required closed projections, not a new public operation rejects foreign proposal / user turn, excess proposals and nonexistent retry controls",
+      "status": "PASS",
+      "durationMs": 7.01
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "three subscriptions: Main authority, sanitation and lifecycle delivers typed scoped projections only, isolates callbacks, and safely unregisters",
+      "status": "PASS",
+      "durationMs": 25.37
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "three subscriptions: Main authority, sanitation and lifecycle defaults unavailable scoped stores to denied, rechecks permissions, and disposes on reload",
+      "status": "PASS",
+      "durationMs": 5.04
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "three subscriptions: Main authority, sanitation and lifecycle bounds listeners, validates input, and never exposes raw Electron event objects",
+      "status": "PASS",
+      "durationMs": 10.72
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 1",
+      "status": "PASS",
+      "durationMs": 11.66
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 2",
+      "status": "PASS",
+      "durationMs": 7.89
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 3",
+      "status": "PASS",
+      "durationMs": 3.1
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 4",
+      "status": "PASS",
+      "durationMs": 6.72
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 5",
+      "status": "PASS",
+      "durationMs": 3.37
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 6",
+      "status": "PASS",
+      "durationMs": 3.19
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 7",
+      "status": "PASS",
+      "durationMs": 1.6
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 8",
+      "status": "PASS",
+      "durationMs": 4.2
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 9",
+      "status": "PASS",
+      "durationMs": 2.3
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 10",
+      "status": "PASS",
+      "durationMs": 2.78
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 11",
+      "status": "PASS",
+      "durationMs": 3.47
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 12",
+      "status": "PASS",
+      "durationMs": 0.91
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 13",
+      "status": "PASS",
+      "durationMs": 3.58
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 14",
+      "status": "PASS",
+      "durationMs": 1.76
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 15",
+      "status": "PASS",
+      "durationMs": 2.87
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 16",
+      "status": "PASS",
+      "durationMs": 4.25
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors failed native outcome preserves its actual phase",
+      "status": "PASS",
+      "durationMs": 0.93
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors extra root key",
+      "status": "PASS",
+      "durationMs": 1.62
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors missing root field",
+      "status": "PASS",
+      "durationMs": 0.96
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors boolean version",
+      "status": "PASS",
+      "durationMs": 0.9
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors string version",
+      "status": "PASS",
+      "durationMs": 0.85
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors unknown version",
+      "status": "PASS",
+      "durationMs": 0.66
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors unknown type",
+      "status": "PASS",
+      "durationMs": 0.63
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors invalid ID",
+      "status": "PASS",
+      "durationMs": 0.71
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors non-null ready correlation",
+      "status": "PASS",
+      "durationMs": 0.76
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors extra ready payload",
+      "status": "PASS",
+      "durationMs": 0.61
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors unknown role",
+      "status": "PASS",
+      "durationMs": 0.63
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors unknown action",
+      "status": "PASS",
+      "durationMs": 1.25
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors task.cancel extra PID",
+      "status": "PASS",
+      "durationMs": 0.98
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors read unsafe metadata",
+      "status": "PASS",
+      "durationMs": 0.73
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors read fractional lines",
+      "status": "PASS",
+      "durationMs": 0.39
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors read too many lines",
+      "status": "PASS",
+      "durationMs": 2.73
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors read traversal",
+      "status": "PASS",
+      "durationMs": 0.99
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors discovery excessive depth",
+      "status": "PASS",
+      "durationMs": 1.16
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors boolean sequence",
+      "status": "PASS",
+      "durationMs": 0.76
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors source label forgery",
+      "status": "PASS",
+      "durationMs": 0.77
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors unknown event",
+      "status": "PASS",
+      "durationMs": 0.91
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors unknown worker role",
+      "status": "PASS",
+      "durationMs": 5.12
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors event/outside ID collision",
+      "status": "PASS",
+      "durationMs": 3.11
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors unpaired surrogate",
+      "status": "PASS",
+      "durationMs": 1.53
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors oversized text",
+      "status": "PASS",
+      "durationMs": 14.36
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors accepted result must be null",
+      "status": "PASS",
+      "durationMs": 4.86
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors unknown error code",
+      "status": "PASS",
+      "durationMs": 2.46
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors duplicate root key",
+      "status": "PASS",
+      "durationMs": 0.57
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors escaped duplicate key",
+      "status": "PASS",
+      "durationMs": 0.32
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors integer lexeme float",
+      "status": "PASS",
+      "durationMs": 0.7
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors integer lexeme exponent",
+      "status": "PASS",
+      "durationMs": 0.79
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors nonfinite value",
+      "status": "PASS",
+      "durationMs": 0.38
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors missing LF",
+      "status": "PASS",
+      "durationMs": 1.08
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors CRLF",
+      "status": "PASS",
+      "durationMs": 0.63
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors BOM",
+      "status": "PASS",
+      "durationMs": 1.44
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors stdout chatter",
+      "status": "PASS",
+      "durationMs": 0.48
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors blank line",
+      "status": "PASS",
+      "durationMs": 0.32
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors trailing garbage",
+      "status": "PASS",
+      "durationMs": 0.67
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors invalid UTF-8",
+      "status": "PASS",
+      "durationMs": 0.62
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors record exact hard cap",
+      "status": "PASS",
+      "durationMs": 8.81
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors record above hard cap",
+      "status": "PASS",
+      "durationMs": 0.57
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors Unicode within code-point cap",
+      "status": "PASS",
+      "durationMs": 11.85
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors has exactly five types, five actions and nine event names",
+      "status": "PASS",
+      "durationMs": 24.48
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors roundtrips every canonical fixture with exactly five root keys and one LF",
+      "status": "PASS",
+      "durationMs": 31.13
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors handles multibyte characters split at every byte without decoding partial UTF-8",
+      "status": "PASS",
+      "durationMs": 2.52
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors bounds partial data, the first-byte deadline, EOF and records per push",
+      "status": "PASS",
+      "durationMs": 56.97
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors never interprets stderr, including otherwise valid event or READY JSON",
+      "status": "PASS",
+      "durationMs": 1.89
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors bounds outbound/event queues by both records and bytes, with finite pressure",
+      "status": "PASS",
+      "durationMs": 24.94
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities accepts both normative fixture streams under isolated trusted authorization callbacks",
+      "status": "PASS",
+      "durationMs": 17.79
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities gates discussion on a single assigned READY, fresh process and deadline",
+      "status": "PASS",
+      "durationMs": 6.33
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities gates coding_task on a single assigned READY, fresh process and deadline",
+      "status": "PASS",
+      "durationMs": 1.12
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities uses a shared ID set in both directions and refuses stale/orphan correlations",
+      "status": "PASS",
+      "durationMs": 1.18
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities requires explicit trusted execution admission and exact task/workspace binding",
+      "status": "PASS",
+      "durationMs": 1.63
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities refuses cross-role actions and wrong directions",
+      "status": "PASS",
+      "durationMs": 4.88
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities binds broker reads to an active discussion and a trusted broker check",
+      "status": "PASS",
+      "durationMs": 10.78
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities reserves a cancellation slot while execute is pending; acknowledgment is not a terminal event",
+      "status": "PASS",
+      "durationMs": 5.3
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities distinguishes acceptance, actual start and a terminal observation without claiming durability",
+      "status": "PASS",
+      "durationMs": 2.54
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities rejects duplicate acceptance and completed task.execute responses",
+      "status": "PASS",
+      "durationMs": 1.54
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities detects gaps and conflicting duplicates, deduplicating semantically equal events",
+      "status": "PASS",
+      "durationMs": 4.75
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities limits general inflight requests while keeping a fresh connection independent",
+      "status": "PASS",
+      "durationMs": 3.29
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities enforces broker and discussion deadlines without starting a process or retry",
+      "status": "PASS",
+      "durationMs": 4.23
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities rejects ordinary rejection after execute admission and never turns it into task finality",
+      "status": "PASS",
+      "durationMs": 3.15
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities validates excerpt result hash against the emitted UTF-8 content",
+      "status": "PASS",
+      "durationMs": 1.34
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities does not add task retry, heartbeat or replay actions",
+      "status": "PASS",
+      "durationMs": 1.06
+    },
+    {
+      "file": "tests/unit/layout.test.ts",
+      "name": "NCD-01 protected-center fit policy protects the center at a fractional Windows DPI viewport width",
+      "status": "PASS",
+      "durationMs": 3.78
+    },
+    {
+      "file": "tests/unit/layout.test.ts",
+      "name": "NCD-01 protected-center fit policy fits 1920px viewport without reducing center below 580",
+      "status": "PASS",
+      "durationMs": 2.25
+    },
+    {
+      "file": "tests/unit/layout.test.ts",
+      "name": "NCD-01 protected-center fit policy fits 1366px viewport without reducing center below 580",
+      "status": "PASS",
+      "durationMs": 0.76
+    },
+    {
+      "file": "tests/unit/layout.test.ts",
+      "name": "NCD-01 protected-center fit policy fits 1100px viewport without reducing center below 580",
+      "status": "PASS",
+      "durationMs": 0.38
+    },
+    {
+      "file": "tests/unit/layout.test.ts",
+      "name": "NCD-01 protected-center fit policy fits 1000px viewport without reducing center below 580",
+      "status": "PASS",
+      "durationMs": 0.38
+    },
+    {
+      "file": "tests/unit/layout.test.ts",
+      "name": "NCD-01 protected-center fit policy restores the actual Sidebar preference after closing Dock",
+      "status": "PASS",
+      "durationMs": 0.45
+    },
+    {
+      "file": "tests/unit/layout.test.ts",
+      "name": "NCD-01 protected-center fit policy hides panels when even the rail and minimum panel cannot fit",
+      "status": "PASS",
+      "durationMs": 0.44
+    },
+    {
+      "file": "tests/unit/layout.test.ts",
+      "name": "NCD-01 protected-center fit policy clamps global preference to 320–480 without rewriting it",
+      "status": "PASS",
+      "durationMs": 0.35
+    },
+    {
+      "file": "tests/unit/python-parity.test.ts",
+      "name": "independent Python fixture peer and TypeScript agree on every positive/negative schema vector",
+      "status": "PASS",
+      "durationMs": 365.74
+    },
+    {
+      "file": "tests/unit/security.test.ts",
+      "name": "document navigation boundary limits local assets to the decoded renderer root, rejecting traversal and encoded separators",
+      "status": "PASS",
+      "durationMs": 5.12
+    },
+    {
+      "file": "tests/unit/security.test.ts",
+      "name": "document navigation boundary permits only the same entry document and local anchor",
+      "status": "PASS",
+      "durationMs": 1.31
+    },
+    {
+      "file": "tests/unit/security.test.ts",
+      "name": "document navigation boundary does not admit another localhost origin or path in development",
+      "status": "PASS",
+      "durationMs": 0.67
+    },
+    {
+      "file": "tests/unit/session.test.ts",
+      "name": "session-only drafts and page-local Dock ownership never discards text on route changes",
+      "status": "PASS",
+      "durationMs": 5.05
+    },
+    {
+      "file": "tests/unit/session.test.ts",
+      "name": "session-only drafts and page-local Dock ownership new drafts are empty with closed Dock; old unsent drafts stay recoverable",
+      "status": "PASS",
+      "durationMs": 2.92
+    },
+    {
+      "file": "tests/unit/session.test.ts",
+      "name": "session-only drafts and page-local Dock ownership repeated blank New Conversation clicks produce no history rows",
+      "status": "PASS",
+      "durationMs": 1.09
+    },
+    {
+      "file": "tests/unit/session.test.ts",
+      "name": "session-only drafts and page-local Dock ownership Agents entry resets only the temporary Dock; returning to Chat restores its tab and visibility",
+      "status": "PASS",
+      "durationMs": 0.71
+    },
+    {
+      "file": "tests/unit/session.test.ts",
+      "name": "session-only drafts and page-local Dock ownership Projects starts closed with Files selected; Settings cannot overwrite Chat",
+      "status": "PASS",
+      "durationMs": 0.68
+    },
+    {
+      "file": "tests/unit/session.test.ts",
+      "name": "session-only drafts and page-local Dock ownership explicit Sidebar expansion closes a constrained Dock and preserves text",
+      "status": "PASS",
+      "durationMs": 0.48
+    },
+    {
+      "file": "tests/unit/session.test.ts",
+      "name": "session-only drafts and page-local Dock ownership panel resizing is bounded and survives page navigation",
+      "status": "PASS",
+      "durationMs": 0.4
+    },
+    {
+      "file": "tests/unit/storage-concurrency.test.ts",
+      "name": "P3 real competing SQLite connections and transaction interruption six simultaneous identical first-send clicks produce one original result",
+      "status": "PASS",
+      "durationMs": 667.23
+    },
+    {
+      "file": "tests/unit/storage-concurrency.test.ts",
+      "name": "P3 real competing SQLite connections and transaction interruption a racing changed payload under one mutation ID is rejected without a duplicate",
+      "status": "PASS",
+      "durationMs": 174.94
+    },
+    {
+      "file": "tests/unit/storage-concurrency.test.ts",
+      "name": "P3 real competing SQLite connections and transaction interruption competing Run requests consume one proposal and reserve one global writer",
+      "status": "PASS",
+      "durationMs": 259.09
+    },
+    {
+      "file": "tests/unit/storage-concurrency.test.ts",
+      "name": "P3 real competing SQLite connections and transaction interruption concurrent distinct admissions preserve 1+20 capacity and do not consume the rejected proposal",
+      "status": "PASS",
+      "durationMs": 987.04
+    },
+    {
+      "file": "tests/unit/storage-concurrency.test.ts",
+      "name": "P3 real competing SQLite connections and transaction interruption queued cancel racing reservation cannot become a never-started cancelled task with a writer lease",
+      "status": "PASS",
+      "durationMs": 186.33
+    },
+    {
+      "file": "tests/unit/storage-concurrency.test.ts",
+      "name": "P3 real competing SQLite connections and transaction interruption real SQLITE_BUSY waits the bounded 5000ms then fails without an accepted mutation",
+      "status": "PASS",
+      "durationMs": 5592.42
+    },
+    {
+      "file": "tests/unit/storage-concurrency.test.ts",
+      "name": "P3 real competing SQLite connections and transaction interruption isolated connection exit before COMMIT rolls back, while post-COMMIT restart preserves original receipt",
+      "status": "PASS",
+      "durationMs": 307.76
+    },
+    {
+      "file": "tests/unit/storage-concurrency.test.ts",
+      "name": "P3 real competing SQLite connections and transaction interruption actual isolated Node process exits before/after COMMIT preserve rollback versus original durable acceptance",
+      "status": "PASS",
+      "durationMs": 355.49
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 schema, migration and actual WAL backup/restore matches all 22 frozen table names and exact column sets, not merely a local schema mirror",
+      "status": "PASS",
+      "durationMs": 91.31
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 schema, migration and actual WAL backup/restore preserves monotonic message ordinals after deleting the maximum unreferenced row and restarting",
+      "status": "PASS",
+      "durationMs": 87.05
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 schema, migration and actual WAL backup/restore enforces FK/closed roles, immutable messages/receipts, scope and partial unique indexes",
+      "status": "PASS",
+      "durationMs": 55.01
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 schema, migration and actual WAL backup/restore fails closed on newer without resetting the file",
+      "status": "PASS",
+      "durationMs": 1162.95
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 schema, migration and actual WAL backup/restore fails closed on checksum without resetting the file",
+      "status": "PASS",
+      "durationMs": 818.96
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 schema, migration and actual WAL backup/restore fails closed on DDL drift without resetting the file",
+      "status": "PASS",
+      "durationMs": 714.53
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 schema, migration and actual WAL backup/restore fails closed on corruption without resetting the file",
+      "status": "PASS",
+      "durationMs": 29.33
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 schema, migration and actual WAL backup/restore rolls failed fresh migration back and refuses silent recreation on next open",
+      "status": "PASS",
+      "durationMs": 15.77
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 schema, migration and actual WAL backup/restore native online backup includes uncheckpointed WAL data and restore verifies schema and contents",
+      "status": "PASS",
+      "durationMs": 83.21
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T1 original receipts, faults and P2 readiness a structurally valid but invalid closed DB preference does not become defaults or caller success",
+      "status": "PASS",
+      "durationMs": 27.77
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T1 original receipts, faults and P2 readiness original receipt replay does not depend on later model/runtime availability",
+      "status": "PASS",
+      "durationMs": 37.39
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T1 original receipts, faults and P2 readiness duplicate first sends and restart return one original acceptance; window identity is absent",
+      "status": "PASS",
+      "durationMs": 35.53
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T1 original receipts, faults and P2 readiness changed text/model/project/mutation operation cannot reuse a receipt",
+      "status": "PASS",
+      "durationMs": 34.95
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T1 original receipts, faults and P2 readiness commit-fault rollback returns no acceptance, creates no conversation and sends no hint",
+      "status": "PASS",
+      "durationMs": 21.94
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T1 original receipts, faults and P2 readiness model validation and canonical workspace verification are required; default policy grants no authority",
+      "status": "PASS",
+      "durationMs": 31.27
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T1 original receipts, faults and P2 readiness real SQLITE_FULL rolls back first-send with no receipt or notification",
+      "status": "PASS",
+      "durationMs": 25.61
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T2/T3 capacity, canonical identity, cancellation and recovery valid foreign-project proposals/conversations cannot authorize admission or a writer",
+      "status": "PASS",
+      "durationMs": 28.1
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T2/T3 capacity, canonical identity, cancellation and recovery physical task admission ordinals remain monotonic after retiring the maximum fixture row",
+      "status": "PASS",
+      "durationMs": 50.83
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T2/T3 capacity, canonical identity, cancellation and recovery consumes once and replays the original admission snapshot after state changes and restart",
+      "status": "PASS",
+      "durationMs": 51.0
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T2/T3 capacity, canonical identity, cancellation and recovery enforces 1+20, leaves the 21st queued proposal available and gives queued tasks no writer lease",
+      "status": "PASS",
+      "durationMs": 112.43
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T2/T3 capacity, canonical identity, cancellation and recovery proposal expiry and rollback never consume an approval",
+      "status": "PASS",
+      "durationMs": 51.45
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T2/T3 capacity, canonical identity, cancellation and recovery canonical aliases use one project/lane; blocked writer survives restart and timeout",
+      "status": "PASS",
+      "durationMs": 35.34
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T2/T3 capacity, canonical identity, cancellation and recovery FIFO reservation skips cancelled work; cleanup atomically releases lease and slot only with verified evidence",
+      "status": "PASS",
+      "durationMs": 43.95
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T4 exact committed events and persistent uncertainty canonical event bytes and digest match an independently generated Python golden fixture",
+      "status": "PASS",
+      "durationMs": 0.65
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T4 exact committed events and persistent uncertainty commits before notification, deduplicates reordered payload keys and replays committed evidence",
+      "status": "PASS",
+      "durationMs": 58.19
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T4 exact committed events and persistent uncertainty preserves sparse sequence gaps; filling them does not downgrade sticky conflict across restart",
+      "status": "PASS",
+      "durationMs": 63.23
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T4 exact committed events and persistent uncertainty detects reused event ID at another sequence, rejects foreign sessions/role/schema and defaults deny",
+      "status": "PASS",
+      "durationMs": 36.88
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T4 exact committed events and persistent uncertainty terminal outcome is separate from cleanup; late cancel does not erase it, no second terminal is accepted",
+      "status": "PASS",
+      "durationMs": 33.1
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T4 exact committed events and persistent uncertainty T4 commit failure emits no notification and leaves no event/stream advancement",
+      "status": "PASS",
+      "durationMs": 36.81
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T5 per-attempt lineage, summaries, decisions and C01 projections persists real-attempt structures and safe answer atomically without invoking a provider",
+      "status": "PASS",
+      "durationMs": 37.5
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T5 per-attempt lineage, summaries, decisions and C01 projections rejects foreign/missing/empty source sets and ambiguous or assistant-role approval",
+      "status": "PASS",
+      "durationMs": 33.98
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T5 per-attempt lineage, summaries, decisions and C01 projections crash recovery marks issued attempt unknown and never silently reissues; retry lineage remains same-turn",
+      "status": "PASS",
+      "durationMs": 33.93
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T5 per-attempt lineage, summaries, decisions and C01 projections model/provider mismatch and failed result never erase a durable user message",
+      "status": "PASS",
+      "durationMs": 32.06
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T5 per-attempt lineage, summaries, decisions and C01 projections C01 proposal cap, TTL, scope and turn projections survive restart, with no fabricated attempts",
+      "status": "PASS",
+      "durationMs": 92.3
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T6 consent, inspections, scoped paging and presentation persisted model preference never supplies a fallback for a different message model",
+      "status": "PASS",
+      "durationMs": 37.37
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T6 consent, inspections, scoped paging and presentation a legal maximum-size DB message/proposal page remains within the explicit bounded IPC response budget",
+      "status": "PASS",
+      "durationMs": 535.42
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T6 consent, inspections, scoped paging and presentation grants exact scope, replays original consent snapshot after revoke, and blocks future source release",
+      "status": "PASS",
+      "durationMs": 31.23
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T6 consent, inspections, scoped paging and presentation denies forged, expired, wrong-provider/class/project challenges and leaves no synthetic grant",
+      "status": "PASS",
+      "durationMs": 25.91
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T6 consent, inspections, scoped paging and presentation explicit deny creates no grant; failed T6 commit does not consume the challenge",
+      "status": "PASS",
+      "durationMs": 54.48
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T6 consent, inspections, scoped paging and presentation counts committed unique subject/page evidence, rejects conflicts and stores hashes instead of sensitive paths",
+      "status": "PASS",
+      "durationMs": 36.13
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T6 consent, inspections, scoped paging and presentation scopes Dock receipts and persists safe preferences without affecting tasks, with stable original snapshots",
+      "status": "PASS",
+      "durationMs": 41.28
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T6 consent, inspections, scoped paging and presentation default 40/max 100 pagination uses ordinal cursors, rejects tampering/query scope and stale process cursors",
+      "status": "PASS",
+      "durationMs": 114.26
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-R01 explicit pinned interpreter, real isolated version/bridge probes and environment allowlist",
+      "status": "PASS",
+      "durationMs": 685.97
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-R02 missing configuration, PATH command, wrong digest and missing executable fail closed",
+      "status": "PASS",
+      "durationMs": 18.88
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-R03 incompatible or changed bridge manifest is rejected without executing it",
+      "status": "PASS",
+      "durationMs": 19.23
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-L01 actual READY, independent process identity and truthful provider unavailable",
+      "status": "PASS",
+      "durationMs": 788.33
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer before_ready fails safely",
+      "status": "PASS",
+      "durationMs": 272.72
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer wrong_role fails safely",
+      "status": "PASS",
+      "durationMs": 236.17
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer duplicate_ready fails safely",
+      "status": "PASS",
+      "durationMs": 276.45
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer invalid_utf8 fails safely",
+      "status": "PASS",
+      "durationMs": 241.75
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer chatter fails safely",
+      "status": "PASS",
+      "durationMs": 198.42
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer oversize fails safely",
+      "status": "PASS",
+      "durationMs": 215.86
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer duplicate_keys fails safely",
+      "status": "PASS",
+      "durationMs": 199.68
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer bad_version fails safely",
+      "status": "PASS",
+      "durationMs": 192.68
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer wrong_action fails safely",
+      "status": "PASS",
+      "durationMs": 201.62
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer wrong_correlation fails safely",
+      "status": "PASS",
+      "durationMs": 211.01
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P02 exact READY 30s and partial-frame 15s deadlines on live isolated children with advanced monotonic clocks",
+      "status": "PASS",
+      "durationMs": 225.8
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P03 request fault duplicate_id does not replay or accept foreign results",
+      "status": "PASS",
+      "durationMs": 173.55
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P03 request fault foreign_final does not replay or accept foreign results",
+      "status": "PASS",
+      "durationMs": 178.87
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P03 request fault disconnect does not replay or accept foreign results",
+      "status": "PASS",
+      "durationMs": 184.68
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-S01 raw stderr secrets/paths/pretend completion never enter wire or retained diagnostics",
+      "status": "PASS",
+      "durationMs": 227.34
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P04 discussion requests serialize per conversation, cap at 16 and expire at 300s without replay",
+      "status": "PASS",
+      "durationMs": 200.57
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-L02 bounded Discussion starts use 1/2/4s schedule, each session is fresh, then unavailable",
+      "status": "PASS",
+      "durationMs": 781.02
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-L03 one long-lived Discussion per Main, concurrent ensure shares the same child and new Main has fresh identity",
+      "status": "PASS",
+      "durationMs": 454.06
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-C01 coding simulator accepts one execute, responsive reserved cancel under load, no fabricated terminal event",
+      "status": "PASS",
+      "durationMs": 491.08
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-C02 full 15-second graceful window, acknowledgement is not stop; forced Job termination is not cancellation evidence",
+      "status": "PASS",
+      "durationMs": 15224.44
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-W01 suspended launch Job contains child and grandchild, direct parent exit does not prove descendants stopped",
+      "status": "PASS",
+      "durationMs": 545.11
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-D01 DB commit gates launch, replay cannot spawn twice, cancel/exit retains lease until independent workspace proof",
+      "status": "PASS",
+      "durationMs": 886.3
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-D02 missing/queued/cancelled admission never spawns; production has no coding launch capability",
+      "status": "PASS",
+      "durationMs": 767.9
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-D03 verified Job plus independent synthetic workspace proof allows interrupted cleanup without invented outcome",
+      "status": "PASS",
+      "durationMs": 439.61
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-Q01 finite queue bytes/count and sustained 30s pressure use existing P2 limits",
+      "status": "PASS",
+      "durationMs": 11.68
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P05 child-originated broker request is denied by default and bounded at 30 seconds with explicit fixture scope",
+      "status": "PASS",
+      "durationMs": 375.89
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-L04 Discussion restart after ambiguous disconnect is separate from coding and never replays a turn",
+      "status": "PASS",
+      "durationMs": 717.72
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-Q02 actual Python event pressure against stalled persistence stays bounded and fails on saturation deadline",
+      "status": "PASS",
+      "durationMs": 4372.01
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-D04 loss of Job query evidence is UNVERIFIED and never releases the durable lease even with workspace proof",
+      "status": "PASS",
+      "durationMs": 475.02
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-D05 persistence handler failure faults transport and never treats an uncommitted event as success",
+      "status": "PASS",
+      "durationMs": 167.9
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-PY01 production Python independently rejects task_action without engine/provider or database",
+      "status": "PASS",
+      "durationMs": 499.68
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-PY01 production Python independently rejects duplicate_keys without engine/provider or database",
+      "status": "PASS",
+      "durationMs": 500.37
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-PY01 production Python independently rejects invalid_utf8 without engine/provider or database",
+      "status": "PASS",
+      "durationMs": 592.73
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-PY01 production Python independently rejects lone_surrogate without engine/provider or database",
+      "status": "PASS",
+      "durationMs": 594.32
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-PY01 production Python independently rejects unknown_field without engine/provider or database",
+      "status": "PASS",
+      "durationMs": 493.42
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-PY01 production Python independently rejects float_version without engine/provider or database",
+      "status": "PASS",
+      "durationMs": 593.79
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-PY01 production Python independently rejects context_over_budget without engine/provider or database",
+      "status": "PASS",
+      "durationMs": 604.57
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-PY02 production Python refuses duplicate request identity instead of repeating a provider attempt",
+      "status": "PASS",
+      "durationMs": 594.08
+    }
+  ],
+  "actualWindowsElectronCases": [
+    {
+      "file": "desktop.spec.ts",
+      "name": "P1-WIN: actual Windows startup, maximized window, isolated renderer and restricted preload",
+      "status": "PASS",
+      "durationMs": 1512
+    },
+    {
+      "file": "desktop.spec.ts",
+      "name": "P1-SEC: external navigation, popup, provider network, local-file reads and inline code are blocked",
+      "status": "PASS",
+      "durationMs": 826
+    },
+    {
+      "file": "desktop.spec.ts",
+      "name": "P1-NAV: all pages, recoverable drafts and no fictitious history/task",
+      "status": "PASS",
+      "durationMs": 1519
+    },
+    {
+      "file": "desktop.spec.ts",
+      "name": "P1-DOCK: per-draft restoration, page-local resets, tabs, keyboard/pointer sizing and manual hide",
+      "status": "PASS",
+      "durationMs": 2110
+    },
+    {
+      "file": "desktop.spec.ts",
+      "name": "P1-FIT: actual Electron viewport fit at all approved CSS sizes and safe constrained fallback",
+      "status": "PASS",
+      "durationMs": 2537
+    },
+    {
+      "file": "desktop.spec.ts",
+      "name": "P1-A11Y: keyboard navigation, focus, reduced motion and automated accessibility on every page",
+      "status": "PASS",
+      "durationMs": 2398
+    },
+    {
+      "file": "desktop.spec.ts",
+      "name": "P1-DPI: Windows Electron forced device scale 1 with usable effective viewport",
+      "status": "PASS",
+      "durationMs": 1325
+    },
+    {
+      "file": "desktop.spec.ts",
+      "name": "P1-DPI: Windows Electron forced device scale 1.25 with usable effective viewport",
+      "status": "PASS",
+      "durationMs": 1333
+    },
+    {
+      "file": "desktop.spec.ts",
+      "name": "P1-DPI: Windows Electron forced device scale 1.5 with usable effective viewport",
+      "status": "PASS",
+      "durationMs": 1480
+    },
+    {
+      "file": "desktop.spec.ts",
+      "name": "P1-RELOAD: renderer reload does not claim restored messages, model or task execution",
+      "status": "PASS",
+      "durationMs": 991
+    },
+    {
+      "file": "development.spec.ts",
+      "name": "P1-DEV: development assets, nonce CSP and React load in an actual sandboxed Electron window",
+      "status": "PASS",
+      "durationMs": 1497
+    },
+    {
+      "file": "ipc.spec.ts",
+      "name": "P2-WIN: exact 23+3 facade; P3-backed methods and remaining fail-closed methods use real IPC",
+      "status": "PASS",
+      "durationMs": 955
+    },
+    {
+      "file": "ipc.spec.ts",
+      "name": "P2-WIN: real unregistered webContents and unknown channel are rejected",
+      "status": "PASS",
+      "durationMs": 903
+    },
+    {
+      "file": "ipc.spec.ts",
+      "name": "P2-WIN: typed subscriptions filter invalid updates, isolate callbacks and safely unsubscribe/reload",
+      "status": "PASS",
+      "durationMs": 862
+    },
+    {
+      "file": "storage.spec.ts",
+      "name": "P3-WIN: actual Electron Main uses built-in SQLite, 22-table production schema and durable safe preferences across restart",
+      "status": "PASS",
+      "durationMs": 1650
+    },
+    {
+      "file": "storage.spec.ts",
+      "name": "P3-WIN: corrupt user-profile database fails closed without reset while the P1 interface opens",
+      "status": "PASS",
+      "durationMs": 737
+    },
+    {
+      "file": "storage.spec.ts",
+      "name": "P3-WIN: isolated Main-only T1-T6 fixture, C01 read projection and native WAL backup/restore; no Renderer fixture records",
+      "status": "PASS",
+      "durationMs": 1038
+    },
+    {
+      "file": "supervisor.spec.ts",
+      "name": "P4-WIN01: real Electron Main Node-API/Job/Discussion bridge, Renderer reload keeps the same owned session and has no process authority",
+      "status": "PASS",
+      "durationMs": 2119
+    },
+    {
+      "file": "supervisor.spec.ts",
+      "name": "P4-WIN02: missing Python configuration leaves actual local preferences and interface available; no simulator in production history",
+      "status": "PASS",
+      "durationMs": 895
+    },
+    {
+      "file": "supervisor.spec.ts",
+      "name": "P4-WIN03: forced real Main death closes its Job, stops child/grandchild, and next Main recovers durable uncertainty without replay or lease release",
+      "status": "PASS",
+      "durationMs": 2776
+    }
+  ]
+}
