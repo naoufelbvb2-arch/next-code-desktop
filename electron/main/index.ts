@@ -3,12 +3,15 @@ import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { protectSession, protectWindow } from './window-security'
 import { registerIpc, allowIpcWindow } from './ipc'
+import { openStorage, closeStorage } from './storage/runtime'
 
 app.enableSandbox()
 
 // An optional isolated profile is used by the Electron test runner only.
 const profile = process.argv.find((arg) => arg.startsWith('--p1-test-profile='))
 if (profile) app.setPath('userData', profile.slice('--p1-test-profile='.length))
+const ownsInstance = app.requestSingleInstanceLock()
+if (!ownsInstance) app.quit()
 
 async function createWindow(): Promise<void> {
   const developmentUrl = process.env.ELECTRON_RENDERER_URL
@@ -59,7 +62,9 @@ async function createWindow(): Promise<void> {
 app
   .whenReady()
   .then(async () => {
+    if (!ownsInstance) return
     Menu.setApplicationMenu(null)
+    openStorage(join(app.getPath('userData'), 'desktop-state.sqlite3'))
     registerIpc()
     await createWindow()
     app.on('activate', () => {
@@ -72,6 +77,7 @@ app
   })
 
 app.on('window-all-closed', () => app.quit())
+app.on('will-quit', closeStorage)
 app.on('web-contents-created', (_event, contents) => {
   contents.on('will-attach-webview', (event) => event.preventDefault())
 })

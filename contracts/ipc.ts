@@ -2,6 +2,10 @@ import { z } from 'zod'
 import { ID, Cursor, UInt, object, text, RelativePath, FilePath } from './common'
 import * as dto from './ipc-dtos'
 
+// Local transport budget, not a new frozen interface limit. A legal 100-message
+// DB page plus 40 full-size C01 proposals can exceed P2's 1 MiB stub-era budget.
+export const IPC_RESPONSE_BYTES = 16 * 1024 * 1024
+
 const page = { cursor: Cursor.optional(), limit: dto.PageLimit.optional() }
 const range = object({ startLine: UInt.min(1), endLine: UInt.min(1) }).refine(
   (v) => v.endLine >= v.startLine && v.endLine - v.startLine < 200

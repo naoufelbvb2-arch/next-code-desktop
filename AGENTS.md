@@ -2,17 +2,18 @@
 
 ## Current authority
 
-The owner's **P1 ACCEPTANCE & P2 IMPLEMENTATION AUTHORIZATION** accepts P1's
-proven functional scope for progression; visual sign-off is deferred until after
-P1–P9. See `docs/implementation/P1/OWNER-ACCEPTANCE.md`. Do not polish aesthetics;
-fix functional/security/use-blocking issues when necessary. P2 is authorized on
-`feature/p2-ipc-protocol` from locally/remotely verified P1 SHA
-`eec8781960d168af1a9c41ad4115201bab032b3d`: exact typed 23+3 IPC, Main trust and
-validation boundary, closed IIS-01 framing/serialization, isolated simulators,
-tests/fixes, stage documentation, commits and branch pushes. Later-stage methods
-must fail closed with official errors. No SQLite, real Python supervisor, LLM,
-project broker reads, AgentOS tasks, fabricated events, engine edits, installer,
-global system changes, merge into main or P3. **Stop at P2 owner review.**
+The owner's separate **P3 IMPLEMENTATION AUTHORIZATION (2026-10-21)** accepts
+P2 at `56d3060c7b2ca8e705429863561604d586474fb5` for phase progression.
+`docs/implementation/P2/OWNER-ACCEPTANCE.md` was committed/pushed on P2 first;
+P3 starts at verified `02ffcf7e7c2554d7dbdf6c5023f105a437bd8dbc` on
+`feature/p3-sqlite-durable-state`. Implement Main-owned SQLite's exact 22 tables,
+forward migrations, WAL backup/restore, T1–T6 primitives, bounded scoped reads,
+safe IPC wiring, isolated actual database/fault/concurrency/Windows tests,
+documentation and normal feature-branch commits/pushes. Future authorities deny
+by default; no fake production records. P1 visual signoff remains deferred until
+after P1–P9. No aesthetic redesign, engine changes/execution, real supervisor,
+LLM/provider calls, project-source reads, real task/events, installer, global
+system changes, main merge or P4. **Stop at P3 owner review.**
 
 ## References and precedence
 

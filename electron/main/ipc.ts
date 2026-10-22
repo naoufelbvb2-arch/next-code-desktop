@@ -2,20 +2,25 @@ import { ipcMain, type BrowserWindow } from 'electron'
 import { IPC, PUSH, type Method, type PushKind } from '../../contracts/ipc'
 import { isAllowedDocument } from './window-security'
 import { IpcBoundary, type Caller } from './ipc-boundary'
+import { dispatchStorage } from './storage/runtime'
 
 const windows = new Map<number, { window: BrowserWindow; entry: string }>()
-export const ipcBoundary = new IpcBoundary((event) => {
-  const allowed = windows.get(event.sender.id)
-  if (!allowed || allowed.window.isDestroyed() || event.sender.isDestroyed()) return false
-  const contents = allowed.window.webContents
-  return (
-    contents === event.sender &&
-    event.senderFrame === contents.mainFrame &&
-    !contents.mainFrame.detached &&
-    isAllowedDocument(contents.getURL(), allowed.entry) &&
-    isAllowedDocument(contents.mainFrame.url, allowed.entry)
-  )
-})
+export const ipcBoundary = new IpcBoundary(
+  (event) => {
+    const allowed = windows.get(event.sender.id)
+    if (!allowed || allowed.window.isDestroyed() || event.sender.isDestroyed()) return false
+    const contents = allowed.window.webContents
+    return (
+      contents === event.sender &&
+      event.senderFrame === contents.mainFrame &&
+      !contents.mainFrame.detached &&
+      isAllowedDocument(contents.getURL(), allowed.entry) &&
+      isAllowedDocument(contents.mainFrame.url, allowed.entry)
+    )
+  },
+  undefined,
+  dispatchStorage
+)
 
 export function registerIpc(): void {
   for (const method of Object.keys(IPC) as Method[]) {

@@ -1,6 +1,7 @@
 import { assertJsonValue } from '../../contracts/common'
 import {
   IPC,
+  IPC_RESPONSE_BYTES,
   PUSH,
   SubscriptionControl,
   failure,
@@ -21,6 +22,11 @@ export interface Caller {
 }
 export type TrustCheck = (event: Caller) => boolean
 export type ScopeCheck = (event: Caller, kind: PushKind, scopeId: string | null) => boolean
+export type Dispatch = (
+  method: Method,
+  input: unknown,
+  event: Caller
+) => Promise<IpcResult<unknown>> | IpcResult<unknown>
 interface Subscription {
   event: Caller
   kind: PushKind
@@ -31,7 +37,8 @@ export class IpcBoundary {
   constructor(
     private readonly trusted: TrustCheck,
     private readonly authorizedScope: ScopeCheck = (_event, kind, scope) =>
-      kind === 'runtime' && scope === null
+      kind === 'runtime' && scope === null,
+    private readonly dispatch?: Dispatch
   ) {}
 
   async invoke(channel: string, event: Caller, args: unknown[]): Promise<IpcResult<unknown>> {
@@ -41,8 +48,15 @@ export class IpcBoundary {
       if (!method || args.length !== 1) return failure('BAD_INPUT')
       assertJsonValue(args[0])
       if (!IPC[method].input.safeParse(args[0]).success) return failure('BAD_INPUT')
-      // Every P3–P8 dependency remains unavailable. No fake rows, picker result,
-      // preference commit, task admission or successful cancel is synthesized.
+      if (this.dispatch) {
+        try {
+          return validateResult(method, await this.dispatch(method, args[0], event))
+        } catch {
+          return failure('INTERNAL_ERROR')
+        }
+      }
+      // No dependency is inferred from a declared method. Missing services stay
+      // explicitly unavailable, including isolated P2 boundary fixtures.
       return failure('RUNTIME_NOT_READY')
     } catch (error) {
       return failure(
@@ -124,7 +138,7 @@ export class IpcBoundary {
 // helper to manufacture a success; fixture tests exercise the success schemas.
 export function validateResult<M extends Method>(method: M, result: unknown): IpcResult<unknown> {
   try {
-    assertJsonValue(result, 1048576)
+    assertJsonValue(result, IPC_RESPONSE_BYTES)
     return ipcResult(IPC[method].output).parse(result)
   } catch {
     return failure('INTERNAL_ERROR')

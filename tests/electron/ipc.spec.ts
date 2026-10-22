@@ -21,7 +21,7 @@ async function launch() {
   return { app, page }
 }
 
-test('P2-WIN: exact 23+3 facade, all valid methods fail closed through real IPC', async () => {
+test('P2-WIN: exact 23+3 facade; P3-backed methods and remaining fail-closed methods use real IPC', async () => {
   const { app, page } = await launch()
   try {
     const methods = Object.keys(ipcInputs).sort()
@@ -66,7 +66,18 @@ test('P2-WIN: exact 23+3 facade, all valid methods fail closed through real IPC'
       return results
     }, ipcInputs)
     expect(results).toHaveLength(23)
-    for (const result of results)
+    const backed = new Set([
+      'app.bootstrap',
+      'projects.listRecent',
+      'preferences.get',
+      'preferences.update'
+    ])
+    const ordered = Object.keys(ipcInputs)
+    for (const [index, result] of results.entries()) {
+      if (backed.has(ordered[index])) {
+        expect(result).toMatchObject({ ok: true })
+        continue
+      }
       expect(result).toEqual({
         ok: false,
         error: {
@@ -75,6 +86,7 @@ test('P2-WIN: exact 23+3 facade, all valid methods fail closed through real IPC'
           retryable: false
         }
       })
+    }
     expect(
       await page.evaluate(async () => ({
         invalid: await window.nextCode.tasks.read('../escape'),
@@ -224,7 +236,7 @@ test('P2-WIN: typed subscriptions filter invalid updates, isolate callbacks and 
     expect(await page.evaluate(() => (window as any).received)).toHaveLength(1)
     await page.reload()
     await expect(page.getByRole('textbox', { name: 'Message' })).toBeVisible()
-    expect((await page.evaluate(() => window.nextCode.app.bootstrap())).ok).toBe(false)
+    expect((await page.evaluate(() => window.nextCode.app.bootstrap())).ok).toBe(true)
     expect(await page.evaluate(() => typeof (window as any).received)).toBe('undefined')
   } finally {
     await app.close()

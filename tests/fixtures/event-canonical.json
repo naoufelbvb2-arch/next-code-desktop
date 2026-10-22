@@ -1,0 +1,16 @@
+{
+  "origin": "Independent Python stdlib json.dumps sort_keys=True, ensure_ascii=False, compact separators; UTF-8 SHA-256. Synthetic IIS-01 event payload only.",
+  "payload": {
+    "name": "task.progress",
+    "data": {
+      "task_id": "task_001",
+      "event_id": "event_002",
+      "sequence": 2,
+      "source": "agent_os",
+      "phase": "VERIFYING",
+      "detail": "Synthetic \"quote\" \\ path 😀"
+    }
+  },
+  "canonical_utf8": "{\"data\":{\"detail\":\"Synthetic \\\"quote\\\" \\\\ path 😀\",\"event_id\":\"event_002\",\"phase\":\"VERIFYING\",\"sequence\":2,\"source\":\"agent_os\",\"task_id\":\"task_001\"},\"name\":\"task.progress\"}",
+  "sha256": "171d39282f21daedf03fb9d96ec81f875458cecfdea4c2048005152bceea9657"
+}

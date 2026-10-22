@@ -1,0 +1,191 @@
+{
+  "stage": "P3",
+  "original_accepted_p2_sha": "56d3060c7b2ca8e705429863561604d586474fb5",
+  "starting_sha": "02ffcf7e7c2554d7dbdf6c5023f105a437bd8dbc",
+  "branch": "feature/p3-sqlite-durable-state",
+  "manifest_exclusions": [
+    "docs/implementation/P3/CHANGE-MANIFEST.json",
+    "docs/implementation/P3/COMMIT-RECEIPT.md"
+  ],
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "action": "modified",
+      "bytes": 5946,
+      "sha256_working_bytes": "9d94e0d61d6df0606b0315fab7bd4924b0cbad5d1760dbf401dd389963c6a6fc",
+      "reason": "Current stage authority, truthful run guide or pinned local test dependency/compatible Node floor"
+    },
+    {
+      "path": "README.md",
+      "action": "modified",
+      "bytes": 4461,
+      "sha256_working_bytes": "8936296f538ab87b89ce464ad930cc2eb1ea8f49ec7dc96af37d039b78e93b18",
+      "reason": "Current stage authority, truthful run guide or pinned local test dependency/compatible Node floor"
+    },
+    {
+      "path": "contracts/ipc.ts",
+      "action": "modified",
+      "bytes": 9030,
+      "sha256_working_bytes": "fcac894c28a429024c754f6f4ea3e11196c55963200612d71cedbc8391d1fa9e",
+      "reason": "One shared finite local response budget for legal typed DB/C01 pages; no public API or frozen limit change"
+    },
+    {
+      "path": "docs/implementation/P3/IMPLEMENTATION-PLAN.md",
+      "action": "created",
+      "bytes": 4991,
+      "sha256_working_bytes": "5432b1d3cfbca5f186a734e351cc7297d5b5155945f384d282b3bbef67472c2e",
+      "reason": "P3 stage scope, actual schema/evidence, results and reviewed implementation report"
+    },
+    {
+      "path": "docs/implementation/P3/IMPLEMENTATION-REPORT.md",
+      "action": "created",
+      "bytes": 15885,
+      "sha256_working_bytes": "a785ed7cc1e36dd4153e82cdafed4f829e61e4029727664551797192dc412b2c",
+      "reason": "P3 stage scope, actual schema/evidence, results and reviewed implementation report"
+    },
+    {
+      "path": "docs/implementation/P3/SCHEMA-EVIDENCE.json",
+      "action": "created",
+      "bytes": 45255,
+      "sha256_working_bytes": "0b6c09971ab81215e3a1bdd0ceaa3c48b00687ac67646e89f7449e235b6cf3a0",
+      "reason": "P3 stage scope, actual schema/evidence, results and reviewed implementation report"
+    },
+    {
+      "path": "docs/implementation/P3/VERIFICATION-RESULTS.json",
+      "action": "created",
+      "bytes": 66293,
+      "sha256_working_bytes": "d025baa47021cd0ccad35c561e2d3d27ca681694d778ff59f5a3492a748bf375",
+      "reason": "P3 stage scope, actual schema/evidence, results and reviewed implementation report"
+    },
+    {
+      "path": "electron/main/index.ts",
+      "action": "modified",
+      "bytes": 2992,
+      "sha256_working_bytes": "791f5fac361d81f1727f6222abffe2eda3542fe1f6e6202ceeb460065e6590da",
+      "reason": "Single Main owner, storage lifecycle and validated output dispatch for four real DB-backed methods"
+    },
+    {
+      "path": "electron/main/ipc-boundary.ts",
+      "action": "modified",
+      "bytes": 5165,
+      "sha256_working_bytes": "10892bdb1c5b139e61f2b4ee36e30ac365b1b5355a8663f63a4f0d07689592a6",
+      "reason": "Single Main owner, storage lifecycle and validated output dispatch for four real DB-backed methods"
+    },
+    {
+      "path": "electron/main/ipc.ts",
+      "action": "modified",
+      "bytes": 1952,
+      "sha256_working_bytes": "d4744650d4c47650ecb86d0eafa02bd5d3ffbdd57d1d275eae74ef8e47781a61",
+      "reason": "Single Main owner, storage lifecycle and validated output dispatch for four real DB-backed methods"
+    },
+    {
+      "path": "electron/main/storage/database.ts",
+      "action": "created",
+      "bytes": 6412,
+      "sha256_working_bytes": "a8e28fdd339972ad1762cd219b806a319be3a4344eef0723e0a131aa182c7269",
+      "reason": "IIS-04 exact schema, Main-owned lifecycle/transactions/scoped reads or narrow production readiness"
+    },
+    {
+      "path": "electron/main/storage/runtime.ts",
+      "action": "created",
+      "bytes": 1466,
+      "sha256_working_bytes": "6154f2b267611d927c00b686f81757c9ac2253d94e7619df09fe471b3ed4ad51",
+      "reason": "IIS-04 exact schema, Main-owned lifecycle/transactions/scoped reads or narrow production readiness"
+    },
+    {
+      "path": "electron/main/storage/schema.ts",
+      "action": "created",
+      "bytes": 21254,
+      "sha256_working_bytes": "d6fdaf69265c8f80c755270aada0a8000a9e4fb73ddbd8804a7ef566e12e2cc1",
+      "reason": "IIS-04 exact schema, Main-owned lifecycle/transactions/scoped reads or narrow production readiness"
+    },
+    {
+      "path": "electron/main/storage/store.ts",
+      "action": "created",
+      "bytes": 56194,
+      "sha256_working_bytes": "6f2988d07a2a8bc4136c2fe9affe732af4b68ed58f057a68cf267f99df4e9ca0",
+      "reason": "IIS-04 exact schema, Main-owned lifecycle/transactions/scoped reads or narrow production readiness"
+    },
+    {
+      "path": "electron/preload/facade.ts",
+      "action": "modified",
+      "bytes": 6342,
+      "sha256_working_bytes": "9d927231e82e221c8a357491fe3a24e0021cd1c31272bd7b7f08f181dc1d7332",
+      "reason": "One shared finite local response budget for legal typed DB/C01 pages; no public API or frozen limit change"
+    },
+    {
+      "path": "package-lock.json",
+      "action": "modified",
+      "bytes": 130429,
+      "sha256_working_bytes": "91b490f2b106a6d9227332127426580aa259b7f53177a74580b47bec7a26a8b0",
+      "reason": "Current stage authority, truthful run guide or pinned local test dependency/compatible Node floor"
+    },
+    {
+      "path": "package.json",
+      "action": "modified",
+      "bytes": 1662,
+      "sha256_working_bytes": "5a324d446747611a8047ec13eee4cc0a7b08958f15714f589e7b86db4acf38bf",
+      "reason": "Current stage authority, truthful run guide or pinned local test dependency/compatible Node floor"
+    },
+    {
+      "path": "tests/electron/ipc.spec.ts",
+      "action": "modified",
+      "bytes": 9145,
+      "sha256_working_bytes": "7a9ee0b167b5ed09b51b2e94315a0082b738abf5f8908d6d485d604bb0c020dc",
+      "reason": "Actual isolated SQLite/Windows conformance/fault/concurrency evidence or authorized P2 regression adaptation"
+    },
+    {
+      "path": "tests/electron/storage.spec.ts",
+      "action": "created",
+      "bytes": 8623,
+      "sha256_working_bytes": "ddd32a1fe65279c6fd886e4d12f86146bee1dbda45078e9ce816c87c094dad5c",
+      "reason": "Actual isolated SQLite/Windows conformance/fault/concurrency evidence or authorized P2 regression adaptation"
+    },
+    {
+      "path": "tests/fixtures/event-canonical.json",
+      "action": "created",
+      "bytes": 732,
+      "sha256_working_bytes": "4aa34e5242ca95b44a97b26921a7633722ae117f671b92af9524d6462c739981",
+      "reason": "Actual isolated SQLite/Windows conformance/fault/concurrency evidence or authorized P2 regression adaptation"
+    },
+    {
+      "path": "tests/fixtures/storage-peer.ts",
+      "action": "created",
+      "bytes": 1554,
+      "sha256_working_bytes": "4f9f6e08e1acee4f6f44ab0f61ccfd7cd14104ac63ec54b74021fb7b757d16b2",
+      "reason": "Actual isolated SQLite/Windows conformance/fault/concurrency evidence or authorized P2 regression adaptation"
+    },
+    {
+      "path": "tests/fixtures/storage.ts",
+      "action": "created",
+      "bytes": 3037,
+      "sha256_working_bytes": "5991f08f41966abdf66e454a896eaf7f192a8234a977b65220d74a08f68e48a4",
+      "reason": "Actual isolated SQLite/Windows conformance/fault/concurrency evidence or authorized P2 regression adaptation"
+    },
+    {
+      "path": "tests/unit/storage-concurrency.test.ts",
+      "action": "created",
+      "bytes": 9421,
+      "sha256_working_bytes": "ec135c68127cfaea08d9e95cf11403b03ca71193b4b4125c8d17c1b530468470",
+      "reason": "Actual isolated SQLite/Windows conformance/fault/concurrency evidence or authorized P2 regression adaptation"
+    },
+    {
+      "path": "tests/unit/storage.test.ts",
+      "action": "created",
+      "bytes": 44053,
+      "sha256_working_bytes": "41344f3bc41900f432dee5e00ed9359adf482033076b0f92a1d09b24886ccdff",
+      "reason": "Actual isolated SQLite/Windows conformance/fault/concurrency evidence or authorized P2 regression adaptation"
+    }
+  ],
+  "release_review": "PASS; exact authorized paths; no deletions/frozen edits/known credential or private-machine-path patterns; no fixture imports or markers in production bundles",
+  "not_in_git": [
+    "*.sqlite3 and WAL/SHM/backup fixture files",
+    ".test-profiles/",
+    ".cache/",
+    "node_modules/",
+    "out/",
+    "test-results/",
+    "original delivery ZIP"
+  ],
+  "owner_acceptance_provenance": "P2 acceptance record already published in parent 02ffcf7; not a P3 code change"
+}

@@ -1,5 +1,13 @@
 import { ID, object, assertJsonValue } from '../../contracts/common'
-import { IPC, PUSH, failure, type Method, type NextCode, type PushKind } from '../../contracts/ipc'
+import {
+  IPC,
+  IPC_RESPONSE_BYTES,
+  PUSH,
+  failure,
+  type Method,
+  type NextCode,
+  type PushKind
+} from '../../contracts/ipc'
 import { ipcResult } from '../../contracts/ipc-dtos'
 
 export interface PreloadTransport {
@@ -25,7 +33,7 @@ export function createFacade(transport: PreloadTransport) {
         } catch {
           return failure('INTERNAL_ERROR')
         }
-        assertJsonValue(result, 1048576)
+        assertJsonValue(result, IPC_RESPONSE_BYTES)
         return ipcResult(IPC[method].output).safeParse(result).success
           ? result
           : failure('INTERNAL_ERROR')
