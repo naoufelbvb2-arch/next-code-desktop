@@ -12,6 +12,8 @@ import type { SupervisedChild } from '../supervisor/child'
 import { FileBroker, SOURCE_DESTINATION } from '../broker/service'
 import { BrokerError } from '../broker/policy'
 import type { BrokerPool } from '../broker/pool'
+import { CodingService } from '../coding/service'
+import { CodingUnavailable, CODING_BLOCKED_MESSAGE } from '../coding/gate'
 
 export const DISCUSSION_MODEL = 'deepseek-flash'
 export const DISCUSSION_PROVIDER = 'deepseek_official_v1'
@@ -39,6 +41,7 @@ interface Options {
 export class DiscussionService {
   readonly store: DurableStore
   readonly broker?: FileBroker
+  readonly coding: CodingService
   private readonly nativeVerified = new Set<string>()
   private readonly proof = Object.freeze({ ref: randomBytes(24).toString('hex') })
   private selectedProjectId: string | null = null
@@ -54,6 +57,9 @@ export class DiscussionService {
       'discussion_result',
       'context_budget_summary',
       'decision',
+      'run',
+      'cancel',
+      'supervise',
       'disclosure',
       'consent_response',
       'consent_revoke',
@@ -98,6 +104,16 @@ export class DiscussionService {
           }
         }
       })
+    this.coding = new CodingService({
+      store: this.store,
+      proof: this.proof,
+      scope: () => this.scope(),
+      verify: async (scope, operation) => {
+        if (!this.broker || !scope.workspaceKey.startsWith('win32-v1_'))
+          throw new StoreError('WORKSPACE_UNAVAILABLE')
+        return this.broker.withRoot(scope, operation)
+      }
+    })
     // Restore only an actually registered root, never invent a synthetic project.
     for (const project of this.store.projects()) {
       try {
@@ -143,6 +159,11 @@ export class DiscussionService {
       const data = await this.operation(method, input, sender)
       return { ok: true, data }
     } catch (error) {
+      if (error instanceof CodingUnavailable)
+        return {
+          ok: false,
+          error: { code: 'RUNTIME_NOT_READY', message: CODING_BLOCKED_MESSAGE, retryable: false }
+        }
       if (error instanceof BrokerError)
         return failure(
           error.code === 'STALE_SOURCE'
@@ -155,6 +176,10 @@ export class DiscussionService {
     }
   }
   private async operation(method: Method, input: unknown, sender: number): Promise<unknown> {
+    // Legacy isolated P5 profiles have no native file/task integration. Keep
+    // those surfaces closed; normal P6/P7 startup supplies the native broker.
+    if ((method === 'proposals.confirmRun' || method.startsWith('tasks.')) && !this.broker)
+      throw new StoreError('RUNTIME_NOT_READY')
     if (method === 'app.bootstrap')
       return {
         ...this.store.bootstrap(),
@@ -235,6 +260,16 @@ export class DiscussionService {
             availability: this.options.available() ? 'available' : 'unavailable'
           }
         ]
+      case 'proposals.confirmRun':
+        return this.coding.confirm(input as Input<'proposals.confirmRun'>)
+      case 'tasks.read':
+        return this.coding.read((input as Input<'tasks.read'>).taskId)
+      case 'tasks.list':
+        return this.coding.list(input as Input<'tasks.list'>)
+      case 'tasks.readEvents':
+        return this.coding.events(input as Input<'tasks.readEvents'>)
+      case 'tasks.cancel':
+        return this.coding.cancel((input as Input<'tasks.cancel'>).taskId)
       case 'models.setDiscussionPreference':
         return this.store.setDiscussionPreference(
           (input as Input<'models.setDiscussionPreference'>).modelId,
@@ -405,6 +440,7 @@ export class DiscussionService {
   }
   close() {
     this.closing = true
+    this.coding.close()
     this.broker?.close()
     this.store.close()
   }

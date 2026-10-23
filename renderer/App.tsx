@@ -16,6 +16,7 @@ import { useDiscussion } from './state/discussion'
 import { Composer } from './components/Composer'
 import { ConversationView } from './components/ConversationView'
 import { DisclosureControls } from './components/DisclosureControls'
+import { TaskControls } from './components/TaskControls'
 
 const titles = {
   chat: 'New conversation',
@@ -185,6 +186,10 @@ export function App() {
                       discussion={composer}
                     />
                   }
+                />
+                <TaskControls
+                  key={discussion.conversation.conversation.conversationId}
+                  conversation={discussion.conversation}
                 />
                 {discussion.conversation.discussionTurns.some((turn) =>
                   ['pending', 'issued'].includes(turn.status)

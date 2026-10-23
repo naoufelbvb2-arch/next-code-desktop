@@ -1,0 +1,127 @@
+{
+  "phase": "P7",
+  "startingCommit": "06221d81ce96d82434ec2d8d76ab172355ba60a1",
+  "branch": "feature/p7-real-coding-execution",
+  "hash": "SHA-256 of exact working bytes, independently compare every staged blob before commit",
+  "exclusions": [
+    "This manifest cannot authenticate itself",
+    "COMMIT-RECEIPT.md is a later documentation-only commit referring to the source SHA"
+  ],
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 6553,
+      "sha256": "bea6e098886991db7427617840e555a061f7bfdc44d8af9f0a4d49a1275dd3cd"
+    },
+    {
+      "path": "README.md",
+      "bytes": 9927,
+      "sha256": "59f7c58e3716c55aa5a46e4e9c50dc5988f6a0216967c8cda96181032776e191"
+    },
+    {
+      "path": "bridge/coding_bridge.py",
+      "bytes": 1216,
+      "sha256": "6072a12dfb6a2bb5de8193f79260d9a024f559709808dfb7b7c77b69a8c791f1"
+    },
+    {
+      "path": "bridge/engine_compatibility.py",
+      "bytes": 4012,
+      "sha256": "9a7c6358b955b8c329b2b2af111f85e40cda9b55698ab8a28832290faa2bcbdf"
+    },
+    {
+      "path": "docs/implementation/P7/ENGINE-CHANGE-REQUEST.md",
+      "bytes": 5686,
+      "sha256": "aa204edbd0b2b2791474ca6cf42fdba724315490878832eb3c1f779fb2523d30"
+    },
+    {
+      "path": "docs/implementation/P7/ENGINE-COMPATIBILITY-REPORT.md",
+      "bytes": 4711,
+      "sha256": "cdd476150f70193ad83299e651af5c02c28cb3493f7c742d037450cc47ae1996"
+    },
+    {
+      "path": "docs/implementation/P7/IMPLEMENTATION-PLAN.md",
+      "bytes": 3292,
+      "sha256": "af78d761fa9833b285232b2d4cb91e33f5fe9aa8168b46012ffecf76d48374ac"
+    },
+    {
+      "path": "docs/implementation/P7/IMPLEMENTATION-REPORT.md",
+      "bytes": 9788,
+      "sha256": "9089b6e7d11dab1db91ad0c6abe97f6772f4778cdcea7c998ab730b015e7e300"
+    },
+    {
+      "path": "docs/implementation/P7/VERIFICATION-RESULTS.json",
+      "bytes": 103656,
+      "sha256": "dbfc02430f09a8054074493ffcabed28fe6f18b80dbbb15416937b3bbfe77bef"
+    },
+    {
+      "path": "electron/main/coding/gate.ts",
+      "bytes": 580,
+      "sha256": "ba9b4f664018b9e17fa06e97b5c308ca683401ce6e1eaad3cc6beff5413c8e39"
+    },
+    {
+      "path": "electron/main/coding/service.ts",
+      "bytes": 3962,
+      "sha256": "b8f41780068d3ad58ffc728b087b35e03fd232f21ba7e66e4e5f2876072c92a7"
+    },
+    {
+      "path": "electron/main/discussion/service.ts",
+      "bytes": 17204,
+      "sha256": "307c756ca722e7529856ad91fdfe7daffa5150cf2839bedb71a94eebb0855f5d"
+    },
+    {
+      "path": "electron/main/ipc.ts",
+      "bytes": 2170,
+      "sha256": "a733f005ac75078e1c4468f989b8520fba9f1de56b0c43f456d1661e441de603"
+    },
+    {
+      "path": "electron/main/storage/runtime.ts",
+      "bytes": 2891,
+      "sha256": "63c50f1292cb27bcb4b4607c86795e0110331134dda7bb0bad52056444288dfc"
+    },
+    {
+      "path": "electron/main/storage/store.ts",
+      "bytes": 69766,
+      "sha256": "040daa6cc594dfedbd0cd7a4335c9f91fdb4f2cefd36f3249d26e6eb9cf6889c"
+    },
+    {
+      "path": "renderer/App.tsx",
+      "bytes": 9708,
+      "sha256": "2fd7eec1ab730344f8aa816d45417695ba6d94dea313c30ce48c870eb54720e4"
+    },
+    {
+      "path": "renderer/components/TaskControls.tsx",
+      "bytes": 5938,
+      "sha256": "48d8c411c46c48ef95102b6e5b54416d4e30a2429d6346fd5b1ad7a5eea50902"
+    },
+    {
+      "path": "tests/electron/coding.spec.ts",
+      "bytes": 3282,
+      "sha256": "8d08a96285db58fbf66d2529a80704087c00b6bdb0f41c5d94460cbacd6bade6"
+    },
+    {
+      "path": "tests/fixtures/coding-main.ts",
+      "bytes": 4372,
+      "sha256": "a097b7bab20e027097bd6e7978c7a1f65c769856a594cf064911f3d9aed460e4"
+    },
+    {
+      "path": "tests/fixtures/discussion_proposal_peer.py",
+      "bytes": 1423,
+      "sha256": "2c53120c16297904570b9b50b65abbd63ccb2b2c19284fa5e6bbdaa62c06322a"
+    },
+    {
+      "path": "tests/python/test_coding_gate.py",
+      "bytes": 3457,
+      "sha256": "30513bbce21f3264c8de1265efe5c59c988e813f434d193c4bf10ab1a6b54886"
+    },
+    {
+      "path": "tests/ui/coding.test.tsx",
+      "bytes": 4477,
+      "sha256": "25477a9710d9b5edd4f843557309c99213902575c37f25737625d2986db2b027"
+    },
+    {
+      "path": "tests/unit/coding.test.ts",
+      "bytes": 11435,
+      "sha256": "180b6ae78339d0dbba307b814aabf14900aaa9f3faf60fd1ac7aa17645ee6727"
+    }
+  ]
+}

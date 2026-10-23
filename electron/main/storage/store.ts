@@ -12,7 +12,7 @@ import {
 import { IPC, IPC_RESPONSE_BYTES, type Input, type Method } from '../../../contracts/ipc'
 import * as dto from '../../../contracts/ipc-dtos'
 import { canonicalJson, validateWire, newMessageId } from '../../../contracts/jsonl'
-import { ContextV1, responseResults } from '../../../contracts/wire-schema'
+import { ContextV1, responseResults, ConversationContext } from '../../../contracts/wire-schema'
 import { DatabaseCore, refuse, sha256, type DatabaseOptions, type Row } from './database'
 
 export type Scope = { projectId: string; workspaceKey: string }
@@ -270,7 +270,12 @@ export class DurableStore extends DatabaseCore {
     this.changed(conversationId)
     return id
   }
-  admit(scope: Scope, input: Input<'proposals.confirmRun'>, proof: unknown) {
+  admit(
+    scope: Scope,
+    input: Input<'proposals.confirmRun'>,
+    proof: unknown,
+    onCommitted?: (admission: z.infer<typeof dto.TaskAdmissionView>) => void
+  ) {
     this.evidence('run', proof)
     const value = this.parse(IPC['proposals.confirmRun'].input, input)
     let changed = false
@@ -335,7 +340,10 @@ export class DurableStore extends DatabaseCore {
       changed = true
       return admitted
     })
-    if (changed) this.changed(result.conversationId)
+    if (changed) {
+      this.changed(result.conversationId)
+      onCommitted?.(result)
+    }
     return result
   }
   private reserve(taskId: string, key: string, now: string) {
@@ -1619,6 +1627,85 @@ export class DurableStore extends DatabaseCore {
       scope: { projectId, workspaceKey: row.canonical_workspace_key as string },
       root: row.canonical_root as string
     }
+  }
+  proposalBinding(proposalId: string) {
+    const row =
+      this.get(
+        'SELECT project_id,conversation_id,canonical_workspace_key FROM task_proposals WHERE proposal_id=?',
+        this.parse(ID, proposalId)
+      ) ?? refuse('NOT_AUTHORIZED')
+    const binding = this.projectBinding(row.project_id)
+    if (binding.scope.workspaceKey !== row.canonical_workspace_key) refuse('WORKSPACE_UNAVAILABLE')
+    this.conversation(binding.scope, row.conversation_id)
+    return { ...binding, conversationId: row.conversation_id as string }
+  }
+  admissionReceipt(scope: Scope, input: Input<'proposals.confirmRun'>, proof: unknown) {
+    this.evidence('run', proof)
+    this.project(scope)
+    const value = this.parse(IPC['proposals.confirmRun'].input, input),
+      prior = this.receipt('proposals.confirmRun', scope, value).previous
+    return prior ? dto.TaskAdmissionView.parse(prior) : null
+  }
+  taskHint(scope: Scope, taskId: string) {
+    const task = this.readTask(scope, taskId)
+    this.hint('task', taskId, { type: 'TaskStateChanged', task })
+    this.changed(task.conversationId)
+  }
+  codingContext(scope: Scope, taskId: string) {
+    return this.snapshot(() => {
+      const task = this.task(scope, taskId),
+        project = this.project(scope)
+      const recent = this.all(
+        'SELECT role,content FROM messages WHERE conversation_id=? ORDER BY message_ordinal DESC LIMIT 30',
+        task.conversation_id
+      )
+        .filter(
+          (row) =>
+            ['user', 'assistant'].includes(row.role) &&
+            Array.from(row.content as string).length <= 1000 &&
+            row.content.length > 0
+        )
+        .slice(0, 6)
+        .reverse()
+        .map((row) => ({ role: row.role, content: row.content }))
+      const prior = this.all(
+        "SELECT * FROM tasks WHERE conversation_id=? AND project_id=? AND workspace_key=? AND task_id<>? AND engine_outcome_json IS NOT NULL AND cleanup_state LIKE 'verified_%' AND state IN ('completed','failed') ORDER BY admission_order DESC LIMIT 20",
+        task.conversation_id,
+        scope.projectId,
+        scope.workspaceKey,
+        taskId
+      )
+        .flatMap((row) => {
+          const outcome = this.decode(dto.TaskView.shape.outcome, row.engine_outcome_json)
+          if (
+            !outcome ||
+            outcome.task_id !== row.task_id ||
+            Array.from(row.exact_goal as string).length > 500 ||
+            !outcome.summary ||
+            Array.from(outcome.summary).length > 1000
+          )
+            return []
+          return [
+            {
+              task_id: row.task_id,
+              task_goal: row.exact_goal,
+              success: outcome.success,
+              final_phase: outcome.final_phase,
+              summary: outcome.summary
+            }
+          ]
+        })
+        .slice(0, 3)
+        .reverse()
+      return ConversationContext.parse({
+        schema_version: 1,
+        conversation_id: task.conversation_id,
+        workspace_root: project.canonical_root,
+        prior_tasks: prior,
+        recent_messages: recent,
+        advisory_preferences: []
+      })
+    })
   }
   workspaceAvailable(scope: Scope) {
     return !!this.project(scope).available

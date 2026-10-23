@@ -104,8 +104,22 @@ enumeration or a successful local Discussion pipe handoff, not provider receipt
 or complete project comprehension. Python separation is application-level, not
 a Windows OS sandbox. See P6 evidence for the exact limits and unrun cases.
 
-**P1–P5 are owner accepted (P1 visual signoff deferred). P6 stops at owner review;
-no main merge, P7, coding task or installer is authorized.**
+P7 adds exact-goal proposal cards, explicit **Run Task**, scoped task reads and
+durable cancellation intent. Real coding remains disabled: the inspected engine
+has no approved task-start observer or cooperative cancellation contract. Clicking
+Run Task reports this gate without consuming the proposal, admitting a task or
+launching a Coding child. Existing committed admission receipts are historical
+responses and never replay a task after restart. AgentOS is never called by the
+Discussion service or Renderer. Full Mission Control remains outside P7.
+
+**P1–P5 are accepted; P6 is conditionally accepted with G6 PARTIAL (P1 visual
+signoff deferred). P7 independent Desktop work stops at the required engine gate:
+G4 BLOCKED. No engine edit, paid test, main merge, P8/P9 or installer is authorized.**
+
+- [P7 implementation and actual disposition](docs/implementation/P7/IMPLEMENTATION-REPORT.md)
+- [P7 engine compatibility gate](docs/implementation/P7/ENGINE-COMPATIBILITY-REPORT.md)
+- [Required separate engine change approval](docs/implementation/P7/ENGINE-CHANGE-REQUEST.md)
+- [P7 verification results](docs/implementation/P7/VERIFICATION-RESULTS.json)
 
 - [P6 implementation report](docs/implementation/P6/IMPLEMENTATION-REPORT.md)
 - [P6 Windows security evidence](docs/implementation/P6/WINDOWS-SECURITY-EVIDENCE.md)

@@ -50,6 +50,9 @@ export function closeStorage() {
 export function authorizedConversation(id: string): boolean {
   return discussion?.authorizedConversation(id) ?? false
 }
+export function authorizedTask(id: string): boolean {
+  return !!discussion?.broker && discussion.coding.authorized(id)
+}
 export const discussionBroker = {
   authorize: (session: string, input: Record<string, unknown>) =>
     discussion?.broker?.allows(session, input) ?? false,

@@ -2,22 +2,25 @@
 
 ## Current authority
 
-The owner's **P6 FULL IMPLEMENTATION AUTHORIZATION** (2026-10-22) officially
-accepts P5 at `7f7456254bb9f08e25526754782909b1f8153148`, preserving its partial
-and deferred cases. P5 acceptance was separately published at
-`51c50d98dbbeb5ae9c582011441fe283f5d5ce63`; P6 starts there on
-`feature/p6-project-file-broker`. Implement IIS-07 FROZEN v1.0's Main-owned
-read-only File Broker, shared Renderer/Discussion policy with separate authority,
-proven native Windows handle containment, bounded workers/queues, safe complete
-screening, exact active-parent binding, T6 consent and HMAC inspection evidence.
-Use isolated synthetic Windows attack fixtures; never real private user files
-for security tests. No additional paid DeepSeek calls or actual external project
-source disclosure. Local API/HMAC keys stay ignored and out of IPC/SQL/Git/logs.
-No new public IPC/wire shape/action/table, engine changes, shell/file writes,
-AgentOS/Workers/coding, aesthetic redesign, global/admin changes, installer,
-main merge or P7/P8. Unproven containment must fail closed and have a precise
-narrow change proposal; never substitute a weak production read. P1 visual
-signoff remains deferred. **Stop at P6 owner review.**
+The owner's **P7 REAL CODING EXECUTION** authorization conditionally accepts P6
+at `579a4048c65f3b147a5c147453dcdd4ee18f4a40`. Preserve 432 PASS/one Windows
+NOT_RUN, IIS-07 44 PASS/10 PARTIAL/2 NOT_RUN and G6 PARTIAL. P6 acceptance was
+separately published at `06221d81ce96d82434ec2d8d76ab172355ba60a1`; P7 starts
+there on `feature/p7-real-coding-execution`. First inspect the separate original
+engine read-only for real start/TaskOutcome/cancellation/descendant ownership
+capabilities. Do not infer engine events from text, ACKs, Futures or process exit.
+Implement safe independent Main-only explicit Run Task/T2 admission, scoped reads,
+durable cancellation, UI and tests within the fixed public/schema contracts.
+One active coding task globally plus at most 20 queued, no automatic re-execution,
+no writer release without actual outcome/OS cleanup/workspace safety evidence.
+If required engine hooks are absent, G4 is BLOCKED: keep production coding closed,
+document a narrow ENGINE-CHANGE-REQUEST and complete independent Desktop work.
+Engine source edits require separate owner approval. Real AgentOS tests require a
+separately isolated synthetic workspace outside both repos and a proven gate;
+no paid provider calls or real-user project tasks are authorized. Preserve keys,
+frozen documents and the 23+3 IPC/5 wire actions/types/22-table inventory. No
+aesthetic redesign, global/admin changes, main merge, P8/P9 or installer. P1 visual
+signoff remains deferred. **Stop at P7 owner review or the required engine gate.**
 
 ## References and precedence
 
