@@ -2,21 +2,22 @@
 
 ## Current authority
 
-The owner's **P5 FULL IMPLEMENTATION & LIVE DEEPSEEK TESTING** authorization
-(2026-10-22) accepts P4 at `b321bdc64be55a8bfc75e3de043b7ff79a8ab207`.
-P4 acceptance was separately published at
-`c27adc7ad4a1850dc3f8b3f229af1d557050aa66`; P5 starts there on
-`feature/p5-discussion-models`. Implement real discussion through the existing
-read-only engine ModelGateway, explicit DeepSeek Flash route, isolated local
-Python dependencies, T1/T5 persistence, model registry/context and existing React
-UI. At most TEN short live API requests, no automatic HTTP/provider/structured
-retries; reserve/count calls before issue. Local owner key stays in ignored
-storage and trusted Discussion environment only, never argv/IPC/SQLite/Git/logs.
-Use fixtures for broad QA. Project root selection metadata may establish the
-required conversation scope; no project-source reads/disclosure or P6 broker.
-No aesthetic redesign, engine modification, AgentOS/Workers/coding tasks,
-installer/global/admin changes, main merge or P6. P1 visual signoff remains
-deferred. **Stop at P5 owner review.**
+The owner's **P6 FULL IMPLEMENTATION AUTHORIZATION** (2026-10-22) officially
+accepts P5 at `7f7456254bb9f08e25526754782909b1f8153148`, preserving its partial
+and deferred cases. P5 acceptance was separately published at
+`51c50d98dbbeb5ae9c582011441fe283f5d5ce63`; P6 starts there on
+`feature/p6-project-file-broker`. Implement IIS-07 FROZEN v1.0's Main-owned
+read-only File Broker, shared Renderer/Discussion policy with separate authority,
+proven native Windows handle containment, bounded workers/queues, safe complete
+screening, exact active-parent binding, T6 consent and HMAC inspection evidence.
+Use isolated synthetic Windows attack fixtures; never real private user files
+for security tests. No additional paid DeepSeek calls or actual external project
+source disclosure. Local API/HMAC keys stay ignored and out of IPC/SQL/Git/logs.
+No new public IPC/wire shape/action/table, engine changes, shell/file writes,
+AgentOS/Workers/coding, aesthetic redesign, global/admin changes, installer,
+main merge or P7/P8. Unproven containment must fail closed and have a precise
+narrow change proposal; never substitute a weak production read. P1 visual
+signoff remains deferred. **Stop at P6 owner review.**
 
 ## References and precedence
 

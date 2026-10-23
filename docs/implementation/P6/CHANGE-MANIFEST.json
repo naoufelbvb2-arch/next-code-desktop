@@ -1,0 +1,222 @@
+{
+  "phase": "P6",
+  "startingCommit": "51c50d98dbbeb5ae9c582011441fe283f5d5ce63",
+  "branch": "feature/p6-project-file-broker",
+  "hash": "SHA-256 of exact working bytes; compare every staged blob before commit",
+  "exclusions": [
+    "This manifest cannot authenticate itself",
+    "COMMIT-RECEIPT.md is a later separate documentation-only commit referring to the actual source SHA"
+  ],
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 6232,
+      "sha256": "6e89179e5c71a911cab4e87e4059d89af6d44ea6a66b532d0cc99c682c4f6c61"
+    },
+    {
+      "path": "README.md",
+      "bytes": 8914,
+      "sha256": "0fe1f10b59e25f7d979bfc7b085c8b717328e14b2ef844cb50758d0efaa46b6e"
+    },
+    {
+      "path": "bridge/broker_client.py",
+      "bytes": 6927,
+      "sha256": "d59c9bd91ba704461f4cae22d3837280f8a846939fbf41a44ebf1698b36eb13a"
+    },
+    {
+      "path": "bridge/discussion_bridge.py",
+      "bytes": 4258,
+      "sha256": "fd9fec532d6103d3a272d7293d5f5a5f4210da373fa539fd9b17ed459195ed8e"
+    },
+    {
+      "path": "bridge/gateway-compatibility.json",
+      "bytes": 1729,
+      "sha256": "a758d5e955f253556f337174e3fca81baf2e28df0534e4afe1a9ffebac9ca827"
+    },
+    {
+      "path": "bridge/gateway_adapter.py",
+      "bytes": 11620,
+      "sha256": "d266caef623da11603cb8c0d5c915259a3c0999d5ab5e74801c829a69f29207d"
+    },
+    {
+      "path": "docs/implementation/P6/IMPLEMENTATION-PLAN.md",
+      "bytes": 3793,
+      "sha256": "09de3b9416f445e9cc73faba29f2e1b39c2f235cf25c307d7475e41ee7be9dab"
+    },
+    {
+      "path": "docs/implementation/P6/IMPLEMENTATION-REPORT.md",
+      "bytes": 10940,
+      "sha256": "3bca8e66969fcb4fd2c79ce06ba51b1cecdb6815aa64cb01e2ace9bec97dc9b6"
+    },
+    {
+      "path": "docs/implementation/P6/VERIFICATION-RESULTS.json",
+      "bytes": 103425,
+      "sha256": "8a3dcc2364d14c7c4ae76f5be6e4f21595fb6f636fc5251dd11b634648920527"
+    },
+    {
+      "path": "docs/implementation/P6/WINDOWS-SECURITY-EVIDENCE.md",
+      "bytes": 6908,
+      "sha256": "6e4a96cde28ee24433e1639ea64e4fbcebf9992700994392ffd0b57937855756"
+    },
+    {
+      "path": "electron.vite.config.ts",
+      "bytes": 1416,
+      "sha256": "4da2d95b4cf1ab74ae674c3d49ea5dc9eb26acce60fbc905b4f504988c350572"
+    },
+    {
+      "path": "electron/main/broker/policy.ts",
+      "bytes": 5765,
+      "sha256": "4bef207f406fa65ecbd44049136f1b2f95e8a5e90030d6a19fbf80152a9474d6"
+    },
+    {
+      "path": "electron/main/broker/pool.ts",
+      "bytes": 6386,
+      "sha256": "a395e04bb8b2f832cdb6e0739ea6b2f35e8b8db88ca43a2dbeb38cdfbb0bcb78"
+    },
+    {
+      "path": "electron/main/broker/service.ts",
+      "bytes": 23139,
+      "sha256": "5741d6969b3dee1b22d0196e1c55f8ac929a6f8394727b79b9a52797aaaf8567"
+    },
+    {
+      "path": "electron/main/broker/windows-files.ts",
+      "bytes": 11365,
+      "sha256": "581db587d8cd7e3332145e2dc1c0debbdfc15a0e08176046dc3a57f6f4724857"
+    },
+    {
+      "path": "electron/main/broker/work.ts",
+      "bytes": 5988,
+      "sha256": "8e88a7d7fc6fc1f989b4f5223f2528bfa2ff3b7a57ccee73209c08966b100301"
+    },
+    {
+      "path": "electron/main/broker/worker.ts",
+      "bytes": 956,
+      "sha256": "2d10f97916bfc40e030f5e14c37e9e19eafcbc8cc421f4debc95ee92a4078e21"
+    },
+    {
+      "path": "electron/main/discussion/service.ts",
+      "bytes": 15626,
+      "sha256": "576f5f2f6b0177d65e96096f554f1ed1487aa1591cd872b0caa934da435fe67f"
+    },
+    {
+      "path": "electron/main/index.ts",
+      "bytes": 6201,
+      "sha256": "9e6f7b8995f07d21f3a7fe7f913052613fb570eea3a30eed72635373feac9f7c"
+    },
+    {
+      "path": "electron/main/storage/runtime.ts",
+      "bytes": 2769,
+      "sha256": "8ccb6e22a5459610e2fcbcc8ccadc4678ea16ee233c64d382993cd50fa6bbfee"
+    },
+    {
+      "path": "electron/main/storage/store.ts",
+      "bytes": 66495,
+      "sha256": "afbbc75a24509949f205ce77c74772e8c058e57f2ec65e330858ada0d2e8bb43"
+    },
+    {
+      "path": "electron/main/supervisor/application.ts",
+      "bytes": 1641,
+      "sha256": "09b0d0ed88694a041fd2ba71b6c691944fdde795db69ba033a893d57fcfae70e"
+    },
+    {
+      "path": "electron/main/supervisor/child.ts",
+      "bytes": 13984,
+      "sha256": "7e117fd9aebcc6770c9e34d6e4bb57bb0b3064e6095705354f8799e08987f90d"
+    },
+    {
+      "path": "electron/main/supervisor/runtime.ts",
+      "bytes": 8684,
+      "sha256": "c7f9ef0a90460722b14f2a86cfb8c076e004c88abdb23760fbff7b31760a01a9"
+    },
+    {
+      "path": "electron/main/supervisor/supervisor.ts",
+      "bytes": 9184,
+      "sha256": "91306229e47d743638ab5933a9197bb1aa6af03185a94b04281aeb75dd0e2816"
+    },
+    {
+      "path": "playwright.live.config.ts",
+      "bytes": 281,
+      "sha256": "ae871b6fce2009ac41528fcb54c30cb15107eb5d96c0a0d449735ba839e9eaf7"
+    },
+    {
+      "path": "renderer/App.tsx",
+      "bytes": 9469,
+      "sha256": "0fe1fc73bf7daa3ae72db0b50242e9f2e2a964f50f0b5f666ef4e978d262c52f"
+    },
+    {
+      "path": "renderer/components/Composer.tsx",
+      "bytes": 3630,
+      "sha256": "cd3e1511d141cb89f9d60c83615222cdda8545c2f6a8a32a5301265109e43833"
+    },
+    {
+      "path": "renderer/components/DisclosureControls.tsx",
+      "bytes": 4313,
+      "sha256": "c3f31af5e9bcbc654b38e7b534be16aab49bae42df3b37a68e21fa136c2fba60"
+    },
+    {
+      "path": "renderer/components/FilesBrowser.tsx",
+      "bytes": 5188,
+      "sha256": "02ec6c1b519e24f13c5f5d91c7f5f7d912282f01dcde06ddbf42ae10f587a252"
+    },
+    {
+      "path": "renderer/components/RightDock.tsx",
+      "bytes": 4982,
+      "sha256": "0f0acdee93cda3bdb03e4ebd1dda15e3a22e0ce5da9c726118559c41b2b9ad99"
+    },
+    {
+      "path": "renderer/pages/Pages.tsx",
+      "bytes": 7075,
+      "sha256": "9738be49884821d22c73580d2afa6b3697b72c9731a89a5a8ca7ad8e9f5fb489"
+    },
+    {
+      "path": "tests/electron/broker.spec.ts",
+      "bytes": 8397,
+      "sha256": "ef393212d8c2951b9f8b6473bf5a1f422b0c8b1bea7d2eb1bcb3a84a1f5bc045"
+    },
+    {
+      "path": "tests/fixtures/broker-main.ts",
+      "bytes": 6865,
+      "sha256": "8e03cf25be614cf7602eec076eda1836d5e290de2f5e7cd24e2e78ca37930f2a"
+    },
+    {
+      "path": "tests/fixtures/broker.ts",
+      "bytes": 6863,
+      "sha256": "a59e5b41d78cfc8c197e54aae02a8c798019e9da342a0b56a83c41a001c5997c"
+    },
+    {
+      "path": "tests/fixtures/discussion_broker_peer.py",
+      "bytes": 1996,
+      "sha256": "d63d7af196e9cb93d957c069b735ee8a4a4c779714fbfee001a6c4cafabafade"
+    },
+    {
+      "path": "tests/python/test_broker.py",
+      "bytes": 5559,
+      "sha256": "39d8e68bbfaaf0d1f9f53069c25ef6b1f3454ac599734dcb8b2410174871b6fe"
+    },
+    {
+      "path": "tests/ui/broker.test.tsx",
+      "bytes": 4421,
+      "sha256": "75d2f494d48128633894f15702d3b63e9edb07504c714775f93273c37f785ebe"
+    },
+    {
+      "path": "tests/unit/broker-limits.test.ts",
+      "bytes": 10738,
+      "sha256": "248fb2edcf76dcbd0c12bbd7d672f3d0c2a3ff4a24e126b6bc11a8787259fd8b"
+    },
+    {
+      "path": "tests/unit/broker-policy.test.ts",
+      "bytes": 5967,
+      "sha256": "a93dd5bdb66da44878466f7b135738c88d571b613abe6675a5d96e39dc0e5aed"
+    },
+    {
+      "path": "tests/unit/broker-service.test.ts",
+      "bytes": 11530,
+      "sha256": "faf318c7f91cf56fea1953864520f1bff909bef7cac6db54895e5953213b28e6"
+    },
+    {
+      "path": "tests/unit/broker-windows.test.ts",
+      "bytes": 8967,
+      "sha256": "ea180536cffb19bdf72122f00abba6c228da13f53ed1a55489fcd8cf098c472b"
+    }
+  ]
+}

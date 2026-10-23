@@ -51,7 +51,7 @@ export function ProjectsPage({
           onClick={choose}
           title={
             choose
-              ? 'Choose a project folder; files remain unavailable'
+              ? 'Choose a project folder for read-only browsing'
               : 'Project registration is not available yet'
           }
         >
@@ -75,7 +75,7 @@ export function ProjectsPage({
         >
           <p>
             {projects?.length ? (
-              'Choose a registered workspace for text discussion. Project file access remains unavailable.'
+              'Choose a registered workspace for discussion and safe read-only file previews.'
             ) : (
               <>
                 Your projects stay on your computer.
@@ -92,7 +92,9 @@ export function ProjectsPage({
       </div>
       <p className="page-footnote">
         <Icon name="lock" size={14} />
-        No project files are being read or modified.
+        {projects?.length
+          ? 'File previews are read-only. Source sharing requires separate permission.'
+          : 'No project files are being read or modified.'}
       </p>
     </div>
   )

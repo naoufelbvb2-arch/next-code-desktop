@@ -6,7 +6,16 @@ import { randomBytes } from 'node:crypto'
 export default defineConfig(({ command }) => {
   const nonce = randomBytes(24).toString('base64')
   return {
-    main: { build: { rollupOptions: { input: resolve('electron/main/index.ts') } } },
+    main: {
+      build: {
+        rollupOptions: {
+          input: {
+            index: resolve('electron/main/index.ts'),
+            'broker-worker': resolve('electron/main/broker/worker.ts')
+          }
+        }
+      }
+    },
     preload: {
       build: {
         externalizeDeps: false,

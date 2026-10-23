@@ -4,7 +4,7 @@ import { existsSync, readFileSync, statSync } from 'node:fs'
 import { pathToFileURL } from 'node:url'
 import { protectSession, protectWindow } from './window-security'
 import { registerIpc, allowIpcWindow, ipcBoundary } from './ipc'
-import { openStorage, closeStorage } from './storage/runtime'
+import { openStorage, closeStorage, discussionBroker } from './storage/runtime'
 import { openSupervisor, closeSupervisor, hasActiveCodingTask } from './supervisor/application'
 import type { PythonSupervisor } from './supervisor/supervisor'
 
@@ -75,21 +75,26 @@ app
     // inherit it or the owner's credential, avoiding accidental live QA calls.
     if (!profile && !app.isPackaged && !existsSync(runtimeConfig) && existsSync(localConfig))
       runtimeConfig = localConfig
-    let discussionEnabled = false
+    let discussionEnabled = false,
+      fileBrokerEnabled = !profile
     try {
       discussionEnabled =
         statSync(runtimeConfig).size <= 4096 &&
         !!JSON.parse(readFileSync(runtimeConfig, 'utf8')).discussion
+      fileBrokerEnabled ||= JSON.parse(readFileSync(runtimeConfig, 'utf8')).fileBroker === true
     } catch {}
     let activeSupervisor: PythonSupervisor | undefined
     openStorage(join(userData, 'desktop-state.sqlite3'), {
-      enabled: discussionEnabled,
+      enabled: discussionEnabled || fileBrokerEnabled,
+      brokerDirectory: fileBrokerEnabled ? userData : undefined,
       ensure: () =>
         activeSupervisor?.ensureDiscussionReady() ?? Promise.reject(new Error('RUNTIME_NOT_READY')),
       available: () => !!activeSupervisor?.discussion?.connection.state.ready,
       choose: async () => {
         const selection = await dialog.showOpenDialog({
-          title: 'Choose discussion project (files remain unavailable)',
+          title: fileBrokerEnabled
+            ? 'Choose project for safe read-only browsing'
+            : 'Choose discussion project (files remain unavailable)',
           properties: ['openDirectory']
         })
         return selection.canceled ? null : (selection.filePaths[0] ?? null)
@@ -100,9 +105,15 @@ app
     })
     registerIpc()
     await createWindow()
-    openSupervisor(userData, bridgeDirectory, runtimeConfig, (supervisor, runtime) => {
-      if (runtime.discussion) activeSupervisor = supervisor
-    })
+    openSupervisor(
+      userData,
+      bridgeDirectory,
+      runtimeConfig,
+      (supervisor, runtime) => {
+        if (runtime.discussion) activeSupervisor = supervisor
+      },
+      discussionBroker
+    )
     app.on('activate', () => {
       if (BrowserWindow.getAllWindows().length === 0) void createWindow()
     })

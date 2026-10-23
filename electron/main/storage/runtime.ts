@@ -21,6 +21,7 @@ export function openStorage(
     available: () => boolean
     choose: () => Promise<string | null>
     notify: (kind: 'task' | 'conversation', id: string, update: unknown) => void
+    brokerDirectory?: string
   }
 ) {
   try {
@@ -49,11 +50,19 @@ export function closeStorage() {
 export function authorizedConversation(id: string): boolean {
   return discussion?.authorizedConversation(id) ?? false
 }
+export const discussionBroker = {
+  authorize: (session: string, input: Record<string, unknown>) =>
+    discussion?.broker?.allows(session, input) ?? false,
+  frame: (child: SupervisedChild, frame: import('../../../contracts/wire-schema').WireMessage) =>
+    discussion?.broker?.frame(child, frame),
+  ended: (session: string) => discussion?.broker?.endedSession(session)
+}
 export function dispatchStorage(
   method: Method,
-  input: unknown
+  input: unknown,
+  event?: { sender: { id: number } }
 ): IpcResult<unknown> | Promise<IpcResult<unknown>> {
-  if (discussion) return discussion.dispatch(method, input)
+  if (discussion) return discussion.dispatch(method, input, event?.sender.id)
   if (!backed.has(method)) return failure('RUNTIME_NOT_READY')
   if (!store) return failure('DATABASE_UNAVAILABLE')
   try {

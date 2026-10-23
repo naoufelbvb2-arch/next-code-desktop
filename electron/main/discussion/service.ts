@@ -9,6 +9,9 @@ import { failure } from '../../../contracts/ipc'
 import type { IpcResult } from '../../../contracts/ipc-dtos'
 import { responseResults } from '../../../contracts/wire-schema'
 import type { SupervisedChild } from '../supervisor/child'
+import { FileBroker, SOURCE_DESTINATION } from '../broker/service'
+import { BrokerError } from '../broker/policy'
+import type { BrokerPool } from '../broker/pool'
 
 export const DISCUSSION_MODEL = 'deepseek-flash'
 export const DISCUSSION_PROVIDER = 'deepseek_official_v1'
@@ -30,9 +33,13 @@ interface Options {
   choose: () => Promise<string | null>
   notify?: (kind: 'task' | 'conversation', scopeId: string, update: unknown) => void
   database?: Omit<StoreOptions, 'policy' | 'notify'>
+  brokerDirectory?: string
+  brokerPool?: BrokerPool
 }
 export class DiscussionService {
   readonly store: DurableStore
+  readonly broker?: FileBroker
+  private readonly nativeVerified = new Set<string>()
   private readonly proof = Object.freeze({ ref: randomBytes(24).toString('hex') })
   private selectedProjectId: string | null = null
   private readonly queued = new Set<string>()
@@ -46,13 +53,19 @@ export class DiscussionService {
       'attempt',
       'discussion_result',
       'context_budget_summary',
-      'decision'
+      'decision',
+      'disclosure',
+      'consent_response',
+      'consent_revoke',
+      'inspection',
+      'inspection_observation'
     ])
     this.store = new DurableStore(options.path, {
       ...options.database,
       notify: options.notify,
       policy: {
         workspace: (p) => {
+          if (p.workspaceKey.startsWith('win32-v1_')) return this.nativeVerified.has(p.workspaceKey)
           try {
             const actual = rootIdentity(p.canonicalRoot)
             return actual.key === p.workspaceKey
@@ -70,6 +83,21 @@ export class DiscussionService {
     })
     this.store.recoverAfterRestart()
     this.store.abandonPendingDiscussion(this.proof)
+    if (options.brokerDirectory)
+      this.broker = new FileBroker({
+        directory: options.brokerDirectory,
+        store: this.store,
+        proof: this.proof,
+        pool: options.brokerPool,
+        verified: (key, operation) => {
+          this.nativeVerified.add(key)
+          try {
+            return operation()
+          } finally {
+            this.nativeVerified.delete(key)
+          }
+        }
+      })
     // Restore only an actually registered root, never invent a synthetic project.
     for (const project of this.store.projects()) {
       try {
@@ -79,16 +107,22 @@ export class DiscussionService {
     }
   }
   private select(projectId: string) {
-    const binding = this.store.projectBinding(projectId),
-      actual = rootIdentity(binding.root)
-    if (actual.key !== binding.scope.workspaceKey) throw new StoreError('WORKSPACE_UNAVAILABLE')
+    const binding = this.store.projectBinding(projectId)
+    if (
+      !binding.scope.workspaceKey.startsWith('win32-v1_') &&
+      rootIdentity(binding.root).key !== binding.scope.workspaceKey
+    )
+      throw new StoreError('WORKSPACE_UNAVAILABLE')
     this.selectedProjectId = projectId
     return this.store.projects().find((p) => p.projectId === projectId)!
   }
   private scope(projectId = this.selectedProjectId): Scope {
     if (!projectId || projectId !== this.selectedProjectId) throw new StoreError('NOT_AUTHORIZED')
     const binding = this.store.projectBinding(projectId)
-    if (rootIdentity(binding.root).key !== binding.scope.workspaceKey)
+    if (
+      !binding.scope.workspaceKey.startsWith('win32-v1_') &&
+      rootIdentity(binding.root).key !== binding.scope.workspaceKey
+    )
       throw new StoreError('WORKSPACE_UNAVAILABLE')
     return binding.scope
   }
@@ -104,15 +138,23 @@ export class DiscussionService {
     if (binding.scope.projectId !== this.scope().projectId) throw new StoreError('NOT_AUTHORIZED')
     return binding.scope
   }
-  async dispatch(method: Method, input: unknown): Promise<IpcResult<unknown>> {
+  async dispatch(method: Method, input: unknown, sender = 0): Promise<IpcResult<unknown>> {
     try {
-      const data = await this.operation(method, input)
+      const data = await this.operation(method, input, sender)
       return { ok: true, data }
     } catch (error) {
+      if (error instanceof BrokerError)
+        return failure(
+          error.code === 'STALE_SOURCE'
+            ? 'SOURCE_STALE'
+            : error.code === 'WORKSPACE_MISMATCH' || error.code === 'BROKER_IO_ERROR'
+              ? 'WORKSPACE_UNAVAILABLE'
+              : error.code
+        )
       return failure(error instanceof StoreError ? error.code : 'INTERNAL_ERROR')
     }
   }
-  private async operation(method: Method, input: unknown): Promise<unknown> {
+  private async operation(method: Method, input: unknown, sender: number): Promise<unknown> {
     if (method === 'app.bootstrap')
       return {
         ...this.store.bootstrap(),
@@ -130,7 +172,7 @@ export class DiscussionService {
       case 'projects.choose': {
         const chosen = await this.options.choose()
         if (!chosen) return null
-        const identity = rootIdentity(chosen),
+        const identity = this.broker ? await this.broker.register(chosen) : rootIdentity(chosen),
           projectId = this.store.registerProject(
             {
               workspaceKey: identity.key,
@@ -141,8 +183,48 @@ export class DiscussionService {
           )
         return this.select(projectId)
       }
-      case 'projects.select':
-        return this.select((input as Input<'projects.select'>).projectId)
+      case 'projects.select': {
+        const id = (input as Input<'projects.select'>).projectId,
+          scope = this.store.projectBinding(id).scope
+        return this.broker && scope.workspaceKey.startsWith('win32-v1_')
+          ? this.broker.withRoot(scope, () => this.select(id))
+          : this.select(id)
+      }
+      case 'projects.listFiles': {
+        if (!this.broker) throw new StoreError('RUNTIME_NOT_READY')
+        const value = input as Input<'projects.listFiles'>
+        this.scope(value.projectId)
+        return this.broker.local(
+          value.projectId,
+          value.relativeDir,
+          value.cursor,
+          value.limit,
+          undefined,
+          sender
+        )
+      }
+      case 'projects.previewFile': {
+        if (!this.broker) throw new StoreError('RUNTIME_NOT_READY')
+        const value = input as Input<'projects.previewFile'>
+        this.scope(value.projectId)
+        return this.broker.local(
+          value.projectId,
+          value.relativePath,
+          undefined,
+          undefined,
+          value.range,
+          sender
+        )
+      }
+      case 'disclosures.list':
+        if (!this.broker) throw new StoreError('RUNTIME_NOT_READY')
+        return this.broker.disclosures((input as Input<'disclosures.list'>).projectId)
+      case 'disclosures.respond':
+        if (!this.broker) throw new StoreError('RUNTIME_NOT_READY')
+        return this.broker.respond(input as Input<'disclosures.respond'>)
+      case 'disclosures.revoke':
+        if (!this.broker) throw new StoreError('RUNTIME_NOT_READY')
+        return this.broker.revoke(input as Input<'disclosures.revoke'>)
       case 'models.list':
         return [
           {
@@ -182,11 +264,16 @@ export class DiscussionService {
       case 'conversations.sendMessage': {
         const value = input as Input<'conversations.sendMessage'>,
           scope = value.conversationId ? this.conversationScope(value.conversationId) : this.scope()
-        const result = this.store.sendMessage(scope, value)
-        const turn = this.store.discussionTurn(scope, result.messageId)
-        if (turn.status === 'pending' && !this.queued.has(result.messageId))
-          this.enqueue(scope, turn)
-        return result
+        const accept = () => {
+          const result = this.store.sendMessage(scope, value)
+          const turn = this.store.discussionTurn(scope, result.messageId)
+          if (turn.status === 'pending' && !this.queued.has(result.messageId))
+            this.enqueue(scope, turn)
+          return result
+        }
+        return this.broker && scope.workspaceKey.startsWith('win32-v1_')
+          ? this.broker.withRoot(scope, accept)
+          : accept()
       }
       default:
         throw new StoreError('RUNTIME_NOT_READY')
@@ -213,7 +300,7 @@ export class DiscussionService {
     void work.catch(() => {})
   }
   private async deliver(scope: Scope, turn: ReturnType<DurableStore['discussionTurn']>) {
-    let attempt: string | undefined, session: string | undefined
+    let attempt: string | undefined, session: string | undefined, issued: string | undefined
     try {
       if (this.closing) throw new StoreError('RUNTIME_NOT_READY')
       const child = await this.options.ensure()
@@ -234,7 +321,6 @@ export class DiscussionService {
         { providerKey: DISCUSSION_PROVIDER, processSessionRef: session, retryOf: null },
         this.proof
       )
-      let issued: string | undefined
       const frame = await child.request(
         'discussion.send',
         {
@@ -247,6 +333,19 @@ export class DiscussionService {
         },
         (id) => {
           issued = id
+          if (this.broker)
+            this.broker.bind({
+              session: session!,
+              wire: id,
+              conversation: turn.conversationId,
+              scope,
+              root: this.store.projectBinding(scope.projectId).root,
+              model: turn.modelId,
+              provider: DISCUSSION_PROVIDER,
+              destination: SOURCE_DESTINATION,
+              attempt: attempt!,
+              child
+            })
         }
       )
       if (child.sessionId !== session || frame.correlation_id !== issued)
@@ -272,7 +371,11 @@ export class DiscussionService {
           new Set(item.source_message_ids).size === item.source_message_ids.length &&
           item.source_message_ids.every((id) => visible.has(id))
       )
-      this.store.finishAttempt(scope, attempt, session, { ok: true, result }, this.proof)
+      const finish = () =>
+        this.store.finishAttempt(scope, attempt!, session!, { ok: true, result }, this.proof)
+      if (this.broker && scope.workspaceKey.startsWith('win32-v1_'))
+        await this.broker.withRoot(scope, finish)
+      else finish()
     } catch (error) {
       try {
         if (attempt && session)
@@ -293,6 +396,8 @@ export class DiscussionService {
       } catch {
         /* A failed DB commit is not replaced with an optimistic answer. */
       }
+    } finally {
+      if (issued) this.broker?.end(issued)
     }
   }
   async idle() {
@@ -300,6 +405,7 @@ export class DiscussionService {
   }
   close() {
     this.closing = true
+    this.broker?.close()
     this.store.close()
   }
 }

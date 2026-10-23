@@ -14,6 +14,7 @@ const configSchema = z
   .object({
     pythonPath: z.string().min(1).max(1024),
     pythonSha256: sha,
+    fileBroker: z.boolean().optional(),
     discussion: z
       .object({
         engineRoot: z.string().max(1024),

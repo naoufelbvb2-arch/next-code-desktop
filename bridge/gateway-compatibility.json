@@ -20,7 +20,8 @@
   },
   "bridgeFiles": {
     "desktop_bridge.py": "9d612e05c8a38733dc1cf2fa81cc72ff21391937590afa430ab22bc82e54933e",
-    "discussion_bridge.py": "8a4eca8879688945819f60887602876e078d6844d830d8c380fc5065b84453ea",
-    "gateway_adapter.py": "4f3f563949b9e40e2b846747240940c2921db5da38a96f5603a0cc87c0fc6282"
+    "discussion_bridge.py": "fd9fec532d6103d3a272d7293d5f5a5f4210da373fa539fd9b17ed459195ed8e",
+    "gateway_adapter.py": "d266caef623da11603cb8c0d5c915259a3c0999d5ab5e74801c829a69f29207d",
+    "broker_client.py": "d59c9bd91ba704461f4cae22d3837280f8a846939fbf41a44ebf1698b36eb13a"
   }
 }

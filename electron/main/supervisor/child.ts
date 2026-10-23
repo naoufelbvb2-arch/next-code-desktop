@@ -12,6 +12,7 @@ import {
   type ConnectionOptions
 } from '../../../contracts/jsonl'
 import type { WireMessage, WireAction } from '../../../contracts/wire-schema'
+import { WIRE_ERRORS } from '../../../contracts/wire-schema'
 import { WindowsProcess, WindowsLaunchError, type LaunchSpec } from './windows-process'
 
 export type ChildState =
@@ -57,6 +58,13 @@ export class SupervisedChild extends EventEmitter {
   private exitObservedAt: number | null = null
   private launchCleanupVerified = false
   private readonly turns = new Map<string, string>()
+  private readonly brokerWrites = new Map<
+    string,
+    {
+      prepare: () => { bytes: Buffer; released: boolean }
+      done: (error: Error | null, released: boolean) => void
+    }
+  >()
   private readonly waiters = new Map<
     string,
     { resolve: (frame: WireMessage) => void; reject: (error: Error) => void }
@@ -186,7 +194,11 @@ export class SupervisedChild extends EventEmitter {
       this.fault(new ProtocolError('INTERNAL_FAILURE'))
     }
   }
-  send(action: WireAction, input: Record<string, unknown>): string {
+  send(
+    action: WireAction,
+    input: Record<string, unknown>,
+    onIssued?: (id: string) => void
+  ): string {
     if (
       !this.connection.state.ready ||
       this.stopped ||
@@ -228,6 +240,7 @@ export class SupervisedChild extends EventEmitter {
       this.cancelAt = this.now()
       this.transition('CANCEL_REQUESTED')
     } else this.transition('BUSY')
+    onIssued?.(id)
     this.flush()
     return id
   }
@@ -237,17 +250,81 @@ export class SupervisedChild extends EventEmitter {
     onIssued?: (id: string) => void
   ): Promise<WireMessage> {
     // Native reads complete asynchronously, after this waiter is installed.
-    const id = this.send(action, input)
-    onIssued?.(id)
+    const id = this.send(action, input, onIssued)
     return new Promise((resolve, reject) => this.waiters.set(id, { resolve, reject }))
+  }
+  replyBroker(
+    correlation: string,
+    result: unknown,
+    code: string | null = null,
+    beforeWrite = () => {}
+  ): Promise<boolean> {
+    if (this.stopped || this.lastError || !this.process || this.outgoing.size >= 255)
+      return Promise.reject(new ProtocolError('INVALID_STATE'))
+    const id = newMessageId()
+    const frame = (errorCode: string | null) => ({
+      version: 1,
+      type: 'response',
+      message_id: id,
+      correlation_id: correlation,
+      payload: {
+        status: errorCode ? 'rejected' : 'completed',
+        result: errorCode ? null : result,
+        reason: errorCode
+          ? { code: errorCode, message: 'Project access was denied or is unavailable.' }
+          : null
+      }
+    })
+    return new Promise((resolve, reject) => {
+      this.brokerWrites.set(id, {
+        prepare: () => {
+          let denial = code
+          if (!denial)
+            try {
+              beforeWrite()
+            } catch (error) {
+              const code = error && typeof error === 'object' && 'code' in error ? error.code : null
+              denial = WIRE_ERRORS.find((value) => value === code) ?? 'NOT_AUTHORIZED'
+            }
+          const message = frame(denial),
+            bytes = serializeWire(message)
+          this.connection.observe('main-to-child', message, this.now())
+          return { bytes, released: !denial }
+        },
+        done: (error, released) => (error ? reject(error) : resolve(released))
+      })
+      if (!this.outgoing.offer(serializeWire(frame(code)), this.now())) {
+        this.brokerWrites.delete(id)
+        reject(new ProtocolError('RESOURCE_LIMIT'))
+        return
+      }
+      this.flush()
+    })
   }
   private flush() {
     if (this.writing || this.stopped || this.lastError) return
-    const bytes = this.outgoing.take()
+    let bytes = this.outgoing.take()
     if (!bytes) return
+    const id = JSON.parse(bytes.toString('utf8')).message_id as string,
+      hook = this.brokerWrites.get(id)
+    let released = false
+    try {
+      if (hook) {
+        const prepared = hook.prepare()
+        bytes = prepared.bytes
+        released = prepared.released
+      }
+    } catch (error) {
+      this.brokerWrites.delete(id)
+      hook?.done(error as Error, false)
+      this.fault(error)
+      return
+    }
     this.writing = true
     this.process?.stdin.write(bytes, (error) => {
       this.writing = false
+      this.brokerWrites.delete(id)
+      hook?.done(error ?? null, released && !error)
       if (error) this.fault(error)
       else this.flush()
     })
@@ -270,6 +347,9 @@ export class SupervisedChild extends EventEmitter {
     }
   }
   private rejectPending() {
+    for (const hook of this.brokerWrites.values())
+      hook.done(new ProtocolError('INTERNAL_FAILURE'), false)
+    this.brokerWrites.clear()
     for (const waiter of this.waiters.values()) waiter.reject(new ProtocolError('INTERNAL_FAILURE'))
     this.waiters.clear()
     this.turns.clear()

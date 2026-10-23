@@ -12,7 +12,8 @@ export function openSupervisor(
   profileDirectory: string,
   bridgeDirectory: string,
   configPath?: string,
-  onReady?: (supervisor: PythonSupervisor, runtime: VerifiedRuntime) => void
+  onReady?: (supervisor: PythonSupervisor, runtime: VerifiedRuntime) => void,
+  discussionBroker?: import('./supervisor').SupervisorOptions['discussionBroker']
 ): void {
   startup = (async () => {
     try {
@@ -21,7 +22,7 @@ export function openSupervisor(
         bridgeDirectory
       )
       if (stopping) return
-      supervisor = new PythonSupervisor({ runtime })
+      supervisor = new PythonSupervisor({ runtime, discussionBroker })
       await supervisor.ensureDiscussionReady()
       onReady?.(supervisor, runtime)
     } catch {

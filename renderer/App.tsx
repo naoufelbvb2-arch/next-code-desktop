@@ -15,6 +15,7 @@ import { fitLayout } from './state/layout'
 import { useDiscussion } from './state/discussion'
 import { Composer } from './components/Composer'
 import { ConversationView } from './components/ConversationView'
+import { DisclosureControls } from './components/DisclosureControls'
 
 const titles = {
   chat: 'New conversation',
@@ -164,6 +165,13 @@ export function App() {
             )}
             {state.page === 'chat' && discussion.conversation && (
               <>
+                {discussion.project && (
+                  <DisclosureControls
+                    key={discussion.project.projectId}
+                    project={discussion.project}
+                    conversation={discussion.conversation}
+                  />
+                )}
                 <ConversationView
                   messages={discussion.conversation.messages.map((message) => ({
                     id: message.messageId,
@@ -227,6 +235,7 @@ export function App() {
         </main>
         {layout.dockVisible && (
           <RightDock
+            project={discussion.project}
             tab={dock.tab}
             width={layout.dock}
             onTab={(tab) => dispatch({ type: 'dock', tab })}

@@ -6,7 +6,7 @@ Dedicated Windows desktop interface for the existing
 P1 provides a runnable Electron + React + TypeScript interface: Home/composer,
 Projects, independent Agents page, Settings, collapsible Sidebar and resizable
 Terminal/Files Dock. Drafts and appearance state stay in the current session.
-Project file access, coding and Interactive Shell remain unavailable.
+Coding and Interactive Shell remain unavailable.
 P2 adds the exact typed `window.nextCode` facade (23 Promise methods and three
 subscriptions), a trusted Main IPC boundary and closed standalone JSONL protocol
 validators. P3 adds Main-owned SQLite with 22 tables, migrations, WAL-consistent
@@ -16,9 +16,10 @@ database state. P4 adds an actual Main-owned Python process supervisor. P5 conne
 the existing conversation UI to the read-only engine's `ModelGateway` and
 `OpenAICompatibleProvider`, with an explicit DeepSeek Flash route. Messages commit
 before network issue; validated replies commit before display. Conversation
-history survives restart. Twelve existing methods now have trusted implementations;
-the remaining eleven fail closed. No coding task, worker or project-source broker
-is enabled. Coding simulation is confined to isolated tests.
+history survives restart. P6 adds native Windows read-only file browsing/preview,
+scoped Discussion discovery/read, explicit source-sharing consent and durable
+inspection evidence. Seventeen existing methods now have trusted implementations;
+the remaining six fail closed. Coding simulation is confined to isolated tests.
 
 Run locally on Windows with Node.js 24+ (tested host: 25.9.0 / npm 11.12.1):
 
@@ -52,8 +53,17 @@ SQLite uses Electron's embedded Node runtime and lives at
 Invalid or newer databases fail closed and are never silently recreated. There
 is no backup/SQL endpoint in Renderer; recovery APIs are private to Main.
 The current local workspace already has an ignored development runtime configured.
-Run `npm run dev`, choose a discussion project directory (root identity only; files
-stay unavailable), explicitly select **DeepSeek Flash**, and send a message.
+Run `npm run dev` and explicitly choose a project directory. Open **Files** in the
+Right Dock for local read-only browsing and safe text excerpts; this does not
+contact a provider. Rechoose legacy P5 project folders to register the stronger
+native identity; old conversations remain historical and are never rebound.
+With the separately configured Discussion runtime, select **DeepSeek Flash** and
+send a message. `/inspect` requests a bounded root inventory and at most two
+relevant files; `/read relative/path` requests one excerpt. The first external
+source request requires **Allow source sharing** on a Main-issued challenge,
+then a new user message. **Revoke source sharing** stops future handoffs, but
+cannot recall bytes already released. Neither source intent nor local preview
+grants external consent. No paid calls or external source disclosures ran in P6.
 Previously selected model preference and committed conversations persist; unsent
 drafts remain session-only. The trial permits ten short requests in total, of which
 two were used for verification. Requests, including uncertain failures, reserve
@@ -86,8 +96,21 @@ Do not rerun it as routine regression. `tests/live/restore.spec.ts` only reads a
 existing isolated live ledger and verifies restart without making a provider call.
 The approved visual reference images are still missing: text titles reserve the
 brand positions; no replacement logo is claimed. Visual fidelity is NOT_VERIFIED.
-**P1–P4 are owner accepted (P1 visual signoff deferred). P5 stops at owner review;
-no main merge, P6, coding task or installer is authorized.**
+The file broker supports Windows x64 NTFS and fails closed for unsupported native
+identity/alias/reparse conditions. Strict decoding and whole-file scanning cover
+eligible text up to 8 MiB; larger/uncertain/sensitive files are denied. Secret
+detection has false positives and false negatives. Inspection counts prove local
+enumeration or a successful local Discussion pipe handoff, not provider receipt
+or complete project comprehension. Python separation is application-level, not
+a Windows OS sandbox. See P6 evidence for the exact limits and unrun cases.
+
+**P1–P5 are owner accepted (P1 visual signoff deferred). P6 stops at owner review;
+no main merge, P7, coding task or installer is authorized.**
+
+- [P6 implementation report](docs/implementation/P6/IMPLEMENTATION-REPORT.md)
+- [P6 Windows security evidence](docs/implementation/P6/WINDOWS-SECURITY-EVIDENCE.md)
+- [P6 actual verification and 56-case disposition](docs/implementation/P6/VERIFICATION-RESULTS.json)
+- [P5 official owner acceptance](docs/implementation/P5/OWNER-ACCEPTANCE.md)
 
 - [P5 implementation report and runtime setup](docs/implementation/P5/IMPLEMENTATION-REPORT.md)
 - [P5 actual verification results and 52-case mapping](docs/implementation/P5/VERIFICATION-RESULTS.json)

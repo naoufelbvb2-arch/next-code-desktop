@@ -171,7 +171,15 @@ export class DurableStore extends DatabaseCore {
         'SELECT * FROM projects WHERE canonical_workspace_key=?',
         p.workspaceKey
       )
-      if (existing) return existing.project_id as string
+      if (existing) {
+        // Only explicit native-verified folder registration can reactivate it.
+        this.run(
+          'UPDATE projects SET available=1,last_opened_at=? WHERE project_id=?',
+          this.timestamp(),
+          existing.project_id
+        )
+        return existing.project_id as string
+      }
       const id = newMessageId()
       this.run(
         'INSERT INTO projects VALUES(?,?,?,?,?,1)',
@@ -1611,6 +1619,154 @@ export class DurableStore extends DatabaseCore {
       scope: { projectId, workspaceKey: row.canonical_workspace_key as string },
       root: row.canonical_root as string
     }
+  }
+  workspaceAvailable(scope: Scope) {
+    return !!this.project(scope).available
+  }
+  markWorkspaceUnavailable(scope: Scope, proof: unknown) {
+    this.evidence('project', proof)
+    this.transaction('project.unavailable', () => {
+      this.project(scope)
+      this.run(
+        'UPDATE projects SET available=0 WHERE project_id=? AND canonical_workspace_key=?',
+        scope.projectId,
+        scope.workspaceKey
+      )
+    })
+  }
+  activeDiscussionBinding(
+    scope: Scope,
+    attemptId: string,
+    conversationId: string,
+    session: string,
+    model: string,
+    provider: string
+  ) {
+    this.conversation(scope, conversationId)
+    return !!this.get(
+      "SELECT a.attempt_id FROM discussion_attempts a JOIN discussion_turns t ON t.user_message_id=a.user_message_id WHERE a.attempt_id=? AND a.process_session_ref=? AND a.model_id=? AND a.effective_provider_key=? AND a.status='issued' AND t.status='issued' AND t.conversation_id=?",
+      this.parse(ID, attemptId),
+      session,
+      model,
+      provider,
+      conversationId
+    )
+  }
+  challengeBinding(id: string) {
+    const row =
+      this.get(
+        'SELECT project_id,effective_provider_key,disclosure_class FROM disclosure_challenges WHERE challenge_id=?',
+        this.parse(ID, id)
+      ) ?? refuse('NOT_FOUND')
+    return {
+      ...this.projectBinding(row.project_id),
+      providerKey: row.effective_provider_key as string,
+      disclosureClass: row.disclosure_class as string
+    }
+  }
+  consentBinding(id: string) {
+    const row =
+      this.get(
+        'SELECT project_id FROM disclosure_consents WHERE consent_id=?',
+        this.parse(ID, id)
+      ) ?? refuse('NOT_FOUND')
+    return this.projectBinding(row.project_id)
+  }
+  ensureSourceChallenge(
+    scope: Scope,
+    providerKey: string,
+    disclosureClass: string,
+    proof: unknown
+  ) {
+    this.evidence('disclosure', proof)
+    const existing = this.get(
+      "SELECT challenge_id FROM disclosure_challenges WHERE project_id=? AND workspace_key=? AND effective_provider_key=? AND disclosure_class=? AND state='pending' AND expires_at>? LIMIT 1",
+      scope.projectId,
+      scope.workspaceKey,
+      providerKey,
+      disclosureClass,
+      this.timestamp()
+    )
+    return (
+      existing?.challenge_id ??
+      this.createChallenge(
+        scope,
+        {
+          providerKey,
+          disclosureClass,
+          scopeDescription:
+            'Allow screened project source excerpts to the verified DeepSeek API destination for this project. Previously released data cannot be recalled.'
+        },
+        proof
+      )
+    )
+  }
+  conversationHint(conversationId: string) {
+    this.changed(conversationId)
+  }
+  inspectionState(
+    scope: Scope,
+    id: string,
+    state: z.infer<typeof dto.ProjectInspectionView>['state'],
+    note: string,
+    proof: unknown
+  ) {
+    this.evidence('inspection', proof)
+    this.parse(dto.ProjectInspectionView.shape.state, state)
+    this.parse(text(2048), note)
+    const cid = this.transaction('inspection.state', () => {
+      this.project(scope)
+      const row =
+        this.get(
+          'SELECT conversation_id FROM project_inspections WHERE inspection_id=? AND project_id=?',
+          this.parse(ID, id),
+          scope.projectId
+        ) ?? refuse('NOT_FOUND')
+      this.run(
+        'UPDATE project_inspections SET state=?,coverage_note=?,evidence_revision=evidence_revision+1,updated_at=? WHERE inspection_id=?',
+        state,
+        note,
+        this.timestamp(),
+        id
+      )
+      return row.conversation_id as string
+    })
+    this.changed(cid)
+  }
+  closeHistoricalInspections(proof: unknown) {
+    this.evidence('inspection', proof)
+    this.transaction('inspection.recovery', () =>
+      this.run(
+        "UPDATE project_inspections SET state='partial',coverage_note='Historical partial coverage; no source receipt or current revision is inferred after restart or evidence-key change.',evidence_revision=evidence_revision+1,updated_at=? WHERE state!='partial'",
+        this.timestamp()
+      )
+    )
+  }
+  checkInspectionSubject(
+    scope: Scope,
+    id: string,
+    subject: string,
+    revision: string,
+    proof: unknown,
+    identity?: string
+  ) {
+    this.evidence('inspection_observation', proof)
+    this.project(scope)
+    if (
+      !this.get(
+        'SELECT inspection_id FROM project_inspections WHERE inspection_id=? AND project_id=?',
+        this.parse(ID, id),
+        scope.projectId
+      )
+    )
+      refuse('NOT_AUTHORIZED')
+    const existing = this.get(
+      "SELECT evidence_digest FROM inspection_observations WHERE inspection_id=? AND observation_kind='read_file' AND subject_key=?",
+      this.parse(ID, id),
+      subject
+    )
+    if (existing && existing.evidence_digest !== sha256(JSON.stringify({ identity, revision })))
+      refuse('SOURCE_STALE')
   }
   conversationBinding(conversationId: string) {
     const row =

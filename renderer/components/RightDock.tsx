@@ -2,19 +2,23 @@ import { useRef, useState } from 'react'
 import { Icon } from './Icon'
 import { EmptyState } from './EmptyState'
 import type { DockTab } from '../state/session'
+import { FilesBrowser } from './FilesBrowser'
+import type { Output } from '../../contracts/ipc'
 
 export function RightDock({
   tab,
   width,
   onTab,
   onClose,
-  onWidth
+  onWidth,
+  project
 }: {
   tab: DockTab
   width: number
   onTab: (tab: DockTab) => void
   onClose: () => void
   onWidth: (width: number) => void
+  project?: Output<'projects.choose'>
 }) {
   const pointer = useRef<{ x: number; width: number } | null>(null)
   const [dragging, setDragging] = useState(false)
@@ -115,6 +119,8 @@ export function RightDock({
               No process connected
             </div>
           </>
+        ) : project ? (
+          <FilesBrowser project={project} />
         ) : (
           <>
             <div className="files-location">

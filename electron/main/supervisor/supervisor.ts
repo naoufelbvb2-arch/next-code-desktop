@@ -22,6 +22,14 @@ export interface SupervisorOptions {
   ) => unknown
   workspaceSafe?: (taskId: string) => boolean
   discussionLaunch?: () => LaunchSpec
+  discussionBroker?: {
+    authorize: (session: string, input: Record<string, unknown>) => boolean
+    frame: (
+      child: SupervisedChild,
+      frame: import('../../../contracts/wire-schema').WireMessage
+    ) => void
+    ended: (session: string) => void
+  }
   now?: () => number
   sleep?: (milliseconds: number) => Promise<void>
 }
@@ -63,12 +71,19 @@ export class PythonSupervisor {
           role: 'discussion',
           launch:
             this.options.discussionLaunch?.() ?? launchSpec(this.options.runtime, 'discussion'),
-          now: this.options.now
+          now: this.options.now,
+          authorizeBroker: (input) =>
+            !!child && this.options.discussionBroker?.authorize(child.sessionId, input) === true,
+          onFrame: (frame) => {
+            if (child) this.options.discussionBroker?.frame(child, frame)
+          },
+          onFault: (session) => this.options.discussionBroker?.ended(session)
         })
         this.discussion = child
         child.start()
         await child.ready
         child.once('stopped', (verified: boolean) => {
+          this.options.discussionBroker?.ended(child!.sessionId)
           if (this.closing || this.discussion !== child) return
           if (!verified) {
             this.exhausted = true

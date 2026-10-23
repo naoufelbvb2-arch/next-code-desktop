@@ -102,7 +102,7 @@ export function Composer({
         {discussion?.ready
           ? 'Discussion only. Sending saves your message before contacting DeepSeek.'
           : discussion?.models.length
-            ? 'Choose an available model and a project. Project files remain unavailable.'
+            ? 'Choose an available model and a project. Source sharing needs separate permission.'
             : 'Drafts stay in this session. Sending is not available yet.'}
       </p>
     </div>
