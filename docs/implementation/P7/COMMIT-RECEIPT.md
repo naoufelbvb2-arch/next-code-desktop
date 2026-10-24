@@ -1,3 +1,62 @@
+# P7 integration-fix publication receipt — 2026-10-24
+
+Desktop implementation commit: **`4112eeebe4dc85acb52b720fba01ab0e928f4e96`**, normally pushed to the official
+[`feature/p7-real-coding-execution`](https://github.com/naoufelbvb2-arch/next-code-desktop/tree/feature/p7-real-coding-execution)
+branch. The exact remote feature ref matched local HEAD before this later
+documentation-only receipt. This receipt has no self-referential final SHA.
+
+The separately authorized engine patch is clean and published at
+**`5e7179b9d528e7ef97e18f91ec284e4da514ca0b`** on
+[`feature/p7-desktop-lifecycle-control`](https://github.com/naoufelbvb2-arch/next-code/tree/feature/p7-desktop-lifecycle-control).
+Engine main remains `834d0ca62cc9b2c03e530bafe4090024d98f31d3`; Desktop main
+remains `af682b74375a0b5827aa1fca0ff0815434803650`. No merge or force push.
+Desktop integration continuation starts at `d05ceacb6180456b8e5072a06a4496cbf5e53a51`;
+phase ancestry remains the separate P6 conditional acceptance
+`06221d81ce96d82434ec2d8d76ab172355ba60a1`.
+
+The 36 exact staged continuation files were reviewed for scope, actual
+credential values/fragments and personal paths. Every staged blob matched working
+bytes. The updated phase manifest covers 37 files (including
+the earlier P7 foundation); it excludes itself and this later receipt. All its
+implementation Git blobs were independently verified against exact working bytes
+and SHA-256 after publication. Contracts, schema, npm packages/lock and frozen
+sources remain byte-identical to the P7 starting point. Frozen working/Git/ZIP
+verification against the implementation commit passed: 42 delivery files,
+41 authenticated payloads, 18 normative sources.
+
+- CHANGE-MANIFEST.json SHA-256: `6e652cb92c089c28f3aea2186339a7ba4cd40685ac7f2d52c259cbb2a96fe605`.
+- VERIFICATION-RESULTS.json SHA-256: `29391ef155b00d179fe22e9ea92c210b7ee98b7b8fe90b41e8b4ae5d0a5f3385`.
+
+Final Desktop unique executable results: **470 PASS / zero FAIL / one NOT_RUN**:
+419 unit/UI, 22 Python, 28 actual Windows Electron and one read-only P5 history
+restore. The unprivileged Windows file-symlink case is still NOT_RUN. Engine
+regressions separately total **53 PASS / three paid live tests NOT_RUN**.
+Intermediate failing commands and their corrections remain in the report;
+repeated/scoped runs do not multiply totals. Build/typecheck/format passed.
+
+Real offline AgentOS ran only in external synthetic workspaces, through the real
+UI/Main/SQLite/bridge with actual source change, sourced start/TaskOutcome,
+cooperative cancellation, held Windows Job/descendant proof and actual Main crash
+recovery without replay. Uncertainty keeps the writer lease. The exact engine
+compatibility block is resolved; minimum grounded G4 is PASS for this approved
+offline Windows subset. The owner case register remains **18 PASS / three PARTIAL**;
+full IIS-08 G2/G4/G7 and P7 product acceptance are **PARTIAL/PENDING**.
+
+**Production coding model routing is unconfigured and denied before T2.** Normal
+Run Task cannot use a default paid provider, inherited Discussion key or fixture
+Gateway. A matching engine alone does not enable it. GUI alias/lost execute-ACK/
+before-start actual-crash variants remain explicitly partial. No paid call was
+added; the historical budget is unchanged at two requests /381 tokens. P6 G6
+remains PARTIAL and P1 visual signoff remains deferred.
+
+Screenshots, implementation details, dependency pins, commands, results, limits
+and safe rollback are in the existing P7 reports. Separate repositories/histories
+were retained. No real-user project task, source disclosure, public/schema change,
+global/admin change, P8/P9 or installer work occurred. Stop for owner review;
+no main merge. Final remote receipt SHA is reported after publication.
+
+## Earlier foundation receipt (historical; integration fix supersedes its blocked-engine disposition)
+
 # P7 publication receipt — 2026-10-23
 
 Implementation commit: **`912ad5048faabf63e91d0027dc38b309c2445b66`**.
