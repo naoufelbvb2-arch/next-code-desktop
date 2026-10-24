@@ -18,8 +18,8 @@ the existing conversation UI to the read-only engine's `ModelGateway` and
 before network issue; validated replies commit before display. Conversation
 history survives restart. P6 adds native Windows read-only file browsing/preview,
 scoped Discussion discovery/read, explicit source-sharing consent and durable
-inspection evidence. Seventeen existing methods now have trusted implementations;
-the remaining six fail closed. Coding simulation is confined to isolated tests.
+inspection evidence. P6 implemented seventeen methods; its remaining six failed
+closed. P7 adds the scoped task workflow described below.
 
 Run locally on Windows with Node.js 24+ (tested host: 25.9.0 / npm 11.12.1):
 
@@ -104,21 +104,30 @@ enumeration or a successful local Discussion pipe handoff, not provider receipt
 or complete project comprehension. Python separation is application-level, not
 a Windows OS sandbox. See P6 evidence for the exact limits and unrun cases.
 
-P7 adds exact-goal proposal cards, explicit **Run Task**, scoped task reads and
-durable cancellation intent. Real coding remains disabled: the inspected engine
-has no approved task-start observer or cooperative cancellation contract. Clicking
-Run Task reports this gate without consuming the proposal, admitting a task or
-launching a Coding child. Existing committed admission receipts are historical
-responses and never replay a task after restart. AgentOS is never called by the
-Discussion service or Renderer. Full Mission Control remains outside P7.
+P7 adds exact-goal proposal cards, explicit **Run Task**, scoped task reads,
+durable cancellation, real AgentOS bridge integration and verified writer cleanup.
+The approved separate engine patch supplies optional lifecycle/cancellation hooks.
+Actual Windows tests execute a harmless file change through the real UI, Main,
+SQLite and AgentOS with an offline ModelGateway in external synthetic workspaces.
+The runtime accepts only the exact tested engine/source/Git identity. No task is
+replayed after restart, and uncertain writers retain their lease.
+
+**Production coding still has no authorized model route.** A matching engine
+does not configure a provider: normal Run Task fails before admission and never
+uses the test Gateway or inherited Discussion credentials. No paid coding call is
+enabled by this patch. The offline caller is confined to isolated test-owned Main
+code. Discussion and Renderer cannot dispatch AgentOS directly. See the P7 report
+for reproduction, exact proof and remaining product acceptance conditions.
 
 **P1–P5 are accepted; P6 is conditionally accepted with G6 PARTIAL (P1 visual
-signoff deferred). P7 independent Desktop work stops at the required engine gate:
-G4 BLOCKED. No engine edit, paid test, main merge, P8/P9 or installer is authorized.**
+signoff deferred). P7's minimum real-engine G4 evidence is now verified offline
+on Windows; full product acceptance and provider configuration remain pending.
+The limited engine patch was explicitly approved. No paid test, main merge,
+P8/P9 or installer is authorized.**
 
 - [P7 implementation and actual disposition](docs/implementation/P7/IMPLEMENTATION-REPORT.md)
 - [P7 engine compatibility gate](docs/implementation/P7/ENGINE-COMPATIBILITY-REPORT.md)
-- [Required separate engine change approval](docs/implementation/P7/ENGINE-CHANGE-REQUEST.md)
+- [Approved separate engine change](docs/implementation/P7/ENGINE-CHANGE-REQUEST.md)
 - [P7 verification results](docs/implementation/P7/VERIFICATION-RESULTS.json)
 
 - [P6 implementation report](docs/implementation/P6/IMPLEMENTATION-REPORT.md)

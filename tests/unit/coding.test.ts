@@ -325,3 +325,100 @@ test('P7-A10 restart or unavailable engine returns the exact historical receipt 
     await f.close()
   }
 })
+
+test('P7-A11 committed cancellation evidence can reconcile without inventing a TaskOutcome', async () => {
+  const f = setup()
+  try {
+    const task = await f.coding.confirm({
+      proposalId: f.proposals(),
+      clientMutationId: 'cancel_cleanup'
+    })
+    await f.coding.idle()
+    f.store.commitEvent(
+      f.scope,
+      event(task.taskId, 'task.started', 1, { phase: 'INITIALIZING' }),
+      session(task.taskId)
+    )
+    f.coding.cancel(task.taskId)
+    f.store.commitEvent(
+      f.scope,
+      event(task.taskId, 'task.cancelled', 2, {
+        confirmation: 'Synthetic confirmed stop, not a provider outcome'
+      }),
+      session(task.taskId)
+    )
+    expect(f.store.terminalForCleanup(f.scope, task.taskId)).toBe('cancelled')
+    f.store.reconcile(f.scope, task.taskId, {
+      ...proof,
+      taskId: task.taskId,
+      workspaceKey: f.scope.workspaceKey,
+      childStopped: true,
+      descendantsStopped: true,
+      workspaceSafe: true,
+      reason: 'cancelled'
+    })
+    expect(f.coding.read(task.taskId)).toMatchObject({ state: 'cancelled', outcome: null })
+    expect(
+      inspect(f.store).prepare('SELECT count(*) n FROM workspace_writer_leases').get()!.n
+    ).toBe(0)
+  } finally {
+    await f.close()
+  }
+})
+
+test('P7-A12 a gapped terminal stream retains its actual recorded outcome and writer until complete', async () => {
+  const f = setup()
+  try {
+    const task = await f.coding.confirm({
+      proposalId: f.proposals(),
+      clientMutationId: 'gap_cleanup'
+    })
+    await f.coding.idle()
+    const outcome = {
+      task_id: task.taskId,
+      success: true,
+      final_phase: 'COMPLETED',
+      summary: 'Synthetic fixture outcome',
+      total_ticks: 1,
+      rollbacks_triggered: 0,
+      final_checkpoint_hash: null
+    }
+    f.store.commitEvent(
+      f.scope,
+      event(task.taskId, 'task.started', 1, { phase: 'INITIALIZING' }),
+      session(task.taskId)
+    )
+    f.store.commitEvent(
+      f.scope,
+      event(task.taskId, 'task.completed', 3, { outcome }),
+      session(task.taskId)
+    )
+    const cleanup = {
+      ...proof,
+      taskId: task.taskId,
+      workspaceKey: f.scope.workspaceKey,
+      childStopped: true,
+      descendantsStopped: true,
+      workspaceSafe: true,
+      reason: 'completed'
+    }
+    expect(f.store.terminalForCleanup(f.scope, task.taskId)).toBeNull()
+    expect(() => f.store.reconcile(f.scope, task.taskId, cleanup)).toThrow('TASK_UNKNOWN')
+    expect(f.coding.read(task.taskId).outcome).toEqual(outcome)
+    expect(
+      inspect(f.store).prepare('SELECT count(*) n FROM workspace_writer_leases').get()!.n
+    ).toBe(1)
+    f.store.commitEvent(
+      f.scope,
+      event(task.taskId, 'task.progress', 2, {
+        phase: 'EXECUTING',
+        detail: 'Delayed fixture evidence'
+      }),
+      session(task.taskId)
+    )
+    expect(f.store.terminalForCleanup(f.scope, task.taskId)).toBe('completed')
+    expect(f.store.reconcile(f.scope, task.taskId, cleanup)).toBe(true)
+  } finally {
+    await f.close()
+  }
+})

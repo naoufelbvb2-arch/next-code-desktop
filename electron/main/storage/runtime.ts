@@ -60,6 +60,12 @@ export const discussionBroker = {
     discussion?.broker?.frame(child, frame),
   ended: (session: string) => discussion?.broker?.endedSession(session)
 }
+export function installCoding(
+  supervisor: import('../supervisor/supervisor').PythonSupervisor,
+  runtime: import('../coding/gate').VerifiedCodingRuntime
+) {
+  discussion?.installCoding(supervisor, runtime)
+}
 export function dispatchStorage(
   method: Method,
   input: unknown,

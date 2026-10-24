@@ -11,6 +11,12 @@ export interface SupervisorOptions {
   // Explicit trusted integration hooks, deny by default. Production P4 has no
   // coding launch source, workspace-safe verifier or engine event authority.
   codingLaunch?: () => LaunchSpec
+  codingContext?: (
+    scope: Scope,
+    taskId: string
+  ) => import('zod').infer<typeof import('../../../contracts/wire-schema').ConversationContext>
+  verifyCoding?: <T>(scope: Scope, operation: () => T) => Promise<T>
+  onCodingTerminal?: (scope: Scope, taskId: string) => void
   proof?: (
     kind: string,
     binding: {
@@ -41,11 +47,33 @@ export class PythonSupervisor {
   private closing = false
   private exhausted = false
   private generation = 0
-  private coding?: { child: SupervisedChild; taskId: string; scope: Scope }
+  private coding?: {
+    child: SupervisedChild
+    taskId: string
+    scope: Scope
+    executeIssued: boolean
+    cancelForwarded: boolean
+  }
   private readonly dispatched = new Set<string>()
   private readonly now: () => number
   constructor(private readonly options: SupervisorOptions) {
     this.now = options.now ?? (() => performance.now())
+  }
+  configureCoding(
+    options: Pick<
+      SupervisorOptions,
+      | 'store'
+      | 'codingLaunch'
+      | 'codingContext'
+      | 'verifyCoding'
+      | 'proof'
+      | 'workspaceSafe'
+      | 'onCodingTerminal'
+    >
+  ): void {
+    if (this.closing || this.coding || this.options.codingLaunch)
+      throw new StoreError('RUNTIME_NOT_READY')
+    Object.assign(this.options, options)
   }
   ensureDiscussionReady(): Promise<SupervisedChild> {
     if (this.closing || this.exhausted) return Promise.reject(new StoreError('RUNTIME_NOT_READY'))
@@ -116,7 +144,12 @@ export class PythonSupervisor {
       processSessionRef: this.runId,
       role: 'coding_task'
     })
-    const admission = store.supervisionAdmission(scope, taskId, admissionProof)
+    const verify = <T>(operation: () => T) =>
+      this.options.verifyCoding
+        ? this.options.verifyCoding(scope, operation)
+        : Promise.resolve(operation())
+    const admission = await verify(() => store.supervisionAdmission(scope, taskId, admissionProof))
+    if (this.closing || this.coding) throw new StoreError('TASK_BUSY')
     const child = new SupervisedChild({
       runId: this.runId,
       role: 'coding_task',
@@ -131,7 +164,11 @@ export class PythonSupervisor {
         input.task_goal === admission.taskGoal &&
         store.supervisionAdmission(scope, taskId, admissionProof).taskId === taskId,
       onFrame: (frame, sessionId) => {
-        if (frame.type === 'event')
+        if (frame.type === 'error') {
+          store.markProcessUncertain(scope, taskId, admissionProof)
+          void child.stop()
+        }
+        if (frame.type === 'event') {
           store.commitEvent(
             scope,
             frame,
@@ -142,10 +179,13 @@ export class PythonSupervisor {
               role: 'coding_task'
             })
           )
+          if (['task.completed', 'task.failed', 'task.cancelled'].includes(frame.payload.name))
+            this.options.onCodingTerminal?.(scope, taskId)
+        }
       },
       onFault: () => store.markProcessUncertain(scope, taskId, admissionProof)
     })
-    this.coding = { child, taskId, scope }
+    this.coding = { child, taskId, scope, executeIssued: false, cancelForwarded: false }
     this.dispatched.add(taskId)
     child.once('stopped', () => {
       try {
@@ -155,13 +195,18 @@ export class PythonSupervisor {
     try {
       child.start()
       await child.ready
-      child.send('task.execute', {
-        task_id: taskId,
-        conversation_id: admission.conversationId,
-        task_goal: admission.taskGoal,
-        workspace_root: admission.workspaceRoot,
-        conversation_context: null
-      })
+      await verify(() =>
+        child.send('task.execute', {
+          task_id: taskId,
+          conversation_id: admission.conversationId,
+          task_goal: admission.taskGoal,
+          workspace_root: admission.workspaceRoot,
+          conversation_context: this.options.codingContext?.(scope, taskId) ?? null
+        })
+      )
+      this.coding.executeIssued = true
+      if (store.readTask(scope, taskId).state === 'cancel_requested')
+        this.forwardRegisteredCancellation(scope, taskId)
       return child
     } catch (error) {
       await child.stop()
@@ -185,14 +230,39 @@ export class PythonSupervisor {
       active.scope.projectId === scope.projectId &&
       active.scope.workspaceKey === scope.workspaceKey
     ) {
-      try {
-        active.child.send('task.cancel', { task_id: taskId })
-      } catch {
-        store.markProcessUncertain(scope, taskId, proof('supervise', binding))
-        void active.child.stop()
-      }
+      this.forwardRegisteredCancellation(scope, taskId)
     }
     return result
+  }
+  forwardRegisteredCancellation(scope: Scope, taskId: string): void {
+    const active = this.coding
+    if (
+      !active ||
+      active.taskId !== taskId ||
+      active.scope.projectId !== scope.projectId ||
+      active.scope.workspaceKey !== scope.workspaceKey
+    )
+      throw new StoreError('TASK_UNKNOWN')
+    if (!active.executeIssued || active.cancelForwarded) return
+    // T3 is already durable; this method never calls cancel() a second time.
+    if (this.options.store?.readTask(scope, taskId).state !== 'cancel_requested') return
+    active.child.send('task.cancel', { task_id: taskId })
+    active.cancelForwarded = true
+  }
+  ownsCodingSession(taskId: string, workspaceKey: string, session?: string): boolean {
+    return (
+      !!this.coding &&
+      this.coding.taskId === taskId &&
+      this.coding.scope.workspaceKey === workspaceKey &&
+      (!session || this.coding.child.sessionId === session)
+    )
+  }
+  verifiedCodingCleanup(taskId: string, workspaceKey: string): boolean {
+    return this.ownsCodingSession(taskId, workspaceKey) && this.coding!.child.hasVerifiedCleanup()
+  }
+  async stopCodingChild(taskId: string): Promise<boolean> {
+    if (this.coding?.taskId !== taskId) return false
+    return this.coding.child.stop()
   }
   async reconcileTask(scope: Scope, taskId: string): Promise<boolean> {
     const active = this.coding,
@@ -206,7 +276,7 @@ export class PythonSupervisor {
       !proof
     )
       throw new StoreError('TASK_UNKNOWN')
-    const stopped = await active.child.stop()
+    const stopped = active.child.hasVerifiedCleanup() ? true : await active.child.stop()
     if (!stopped || workspaceSafe?.(taskId) !== true) return false
     const binding = {
       taskId,
@@ -214,7 +284,9 @@ export class PythonSupervisor {
       processSessionRef: active.child.sessionId,
       role: 'coding_task' as const
     }
-    // A killed simulator/bridge provides no engine outcome or cancelled event.
+    // A forced stop supplies no terminal result. Real terminal evidence must
+    // already be durably committed with an intact event stream.
+    const reason = store.terminalForCleanup(scope, taskId) ?? 'interrupted'
     const trusted = proof('cleanup', binding) as Record<string, unknown>
     store.reconcile(scope, taskId, {
       ...trusted,
@@ -223,9 +295,10 @@ export class PythonSupervisor {
       childStopped: true,
       descendantsStopped: true,
       workspaceSafe: true,
-      reason: 'interrupted'
+      reason
     })
     this.coding = undefined
+    store.taskHint(scope, taskId)
     return true
   }
   get activeCodingTask() {

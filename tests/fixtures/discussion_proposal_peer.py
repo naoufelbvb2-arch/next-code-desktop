@@ -15,7 +15,7 @@ async def offline_discuss(settings, key, value, resources=None, sources=None):
         def finish(self, ordinal, result): pass
     async def respond(request):
         result = {"answer": "A bounded proposal is available for explicit review.",
-                  "task_proposal": {"goal": "Change only the synthetic project note after owner approves a verified coding engine.", "reason": "Synthetic offline proposal fixture."},
+                  "task_proposal": {"goal": "Change only sample.py so value() returns 2 and verify with check.py.", "reason": "Synthetic offline proposal fixture."},
                   "summary_candidates": [], "decision_candidates": []}
         return httpx.Response(200, json={"choices": [{"message": {"content": json.dumps(result)}, "finish_reason": "stop"}], "usage": {"prompt_tokens": 20, "completion_tokens": 10, "total_tokens": 30}})
     resources = gateway_adapter.build_gateway(settings, key, backend=httpx.MockTransport(respond), budget=Budget())

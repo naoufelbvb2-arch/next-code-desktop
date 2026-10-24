@@ -2,6 +2,30 @@
 
 ## Current authority
 
+The owner's **P7 ENGINE INTEGRATION FIX** approves the existing
+`docs/implementation/P7/ENGINE-CHANGE-REQUEST.md` and supersedes the older
+read-only engine restriction for that narrow patch. Engine baseline is verified
+`834d0ca62cc9b2c03e530bafe4090024d98f31d3`; use the separate engine checkout and
+`feature/p7-desktop-lifecycle-control`. Add optional lifecycle observation and
+cooperative control, preserve existing callers and the seven TaskOutcome fields,
+test all engine regressions and real offline AgentOS in external synthetic
+workspaces, review/commit/push that branch. Then complete Desktop P7 on
+`feature/p7-real-coding-execution` from verified
+`d05ceacb6180456b8e5072a06a4496cbf5e53a51`, opening coding only for the exact
+tested engine capability/version. Preserve uncertain leases, Windows Job proof,
+the frozen public/schema inventory, separate histories and existing provider
+budget. No paid calls, production-repo coding tasks, P8/P9, global/admin changes
+or main merges. Update existing P7 evidence and stop for owner review.
+
+The limited engine patch is published at
+`5e7179b9d528e7ef97e18f91ec284e4da514ca0b`; keep its exact capability/source
+checks. Production has no authorized coding model route: never replace that
+guard with the test Gateway, inherit provider credentials, or make a paid call.
+Offline fixtures are confined to test-owned Main callers and external synthetic
+workspaces. Normal UI/data and the existing P5 provider budget remain separate.
+
+### Earlier P7 foundation authority (historical)
+
 The owner's **P7 REAL CODING EXECUTION** authorization conditionally accepts P6
 at `579a4048c65f3b147a5c147453dcdd4ee18f4a40`. Preserve 432 PASS/one Windows
 NOT_RUN, IIS-07 44 PASS/10 PARTIAL/2 NOT_RUN and G6 PARTIAL. P6 acceptance was
@@ -57,8 +81,9 @@ Keep the closed **23 Promise methods, 3 subscriptions, 5 request actions,
 schema without an explicit architectural decision. No generic plugin/agent host,
 localhost bridge server, functional PTY, or distribution work by implication.
 
-The original `naoufelbvb2-arch/next-code` repository is read-only. Do not copy,
-vendor, submodule, refactor, or modify it without separate specific approval.
+The original `naoufelbvb2-arch/next-code` repository is read-only outside the
+separately approved limited P7 engine patch above. Do not copy, vendor, submodule,
+refactor, or modify it outside that specific approval.
 Inspect real APIs before integration; do not assume JSONL, worker events,
 cooperative cancellation or provider retries already satisfy Desktop contracts.
 Never start the engine or contact a model provider during bootstrap.

@@ -7,6 +7,9 @@ export default defineConfig({
     include: ['tests/unit/**/*.test.ts', 'tests/ui/**/*.test.tsx'],
     environment: 'jsdom',
     setupFiles: ['tests/ui/setup.ts'],
-    clearMocks: true
+    clearMocks: true,
+    // Actual Windows/AgentOS tests share host CPU and fixed startup deadlines.
+    // Keep independent files serial; concurrency is exercised inside the cases.
+    fileParallelism: false
   }
 })

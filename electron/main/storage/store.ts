@@ -354,7 +354,7 @@ export class DurableStore extends DatabaseCore {
     )
     if (result.changes !== 1) refuse('TASK_BUSY')
   }
-  schedule(proof: unknown): string | null {
+  schedule(proof: unknown, eligibleScope?: Scope): string | null {
     this.evidence('schedule', proof)
     return this.transaction('T3.schedule', () => {
       if (this.get('SELECT task_id FROM active_coding_slot WHERE slot_id=1')?.task_id !== null)
@@ -363,6 +363,12 @@ export class DurableStore extends DatabaseCore {
         "SELECT * FROM tasks WHERE state='queued' ORDER BY admission_order LIMIT 20"
       )
       for (const task of candidates) {
+        if (
+          eligibleScope &&
+          (task.project_id !== eligibleScope.projectId ||
+            task.workspace_key !== eligibleScope.workspaceKey)
+        )
+          continue
         if (
           this.get(
             'SELECT task_id FROM workspace_writer_leases WHERE workspace_key=?',
@@ -438,10 +444,14 @@ export class DurableStore extends DatabaseCore {
         scope.workspaceKey
       )
       if (!lease) refuse('TASK_UNKNOWN')
+      const cancelledEvent = this.get(
+        "SELECT event_id FROM task_events WHERE task_id=? AND name='task.cancelled'",
+        taskId
+      )
       if (
         proof.reason !== 'interrupted' &&
         task.engine_outcome_json === null &&
-        task.state !== 'cancelled'
+        !(proof.reason === 'cancelled' && cancelledEvent)
       )
         refuse('TASK_UNKNOWN')
       const outcome =
@@ -462,6 +472,8 @@ export class DurableStore extends DatabaseCore {
         'SELECT integrity_status FROM task_event_streams WHERE task_id=?',
         taskId
       )
+      if (proof.reason !== 'interrupted' && stream?.integrity_status !== 'complete')
+        refuse('TASK_UNKNOWN')
       const state =
         stream?.integrity_status !== 'complete'
           ? 'needs_reconciliation'
@@ -534,6 +546,31 @@ export class DurableStore extends DatabaseCore {
         workspaceKey: scope.workspaceKey
       })
     })
+  }
+  queuedBindings(proof: unknown) {
+    this.evidence('schedule', proof)
+    return this.all(
+      "SELECT task_id,project_id,workspace_key FROM tasks WHERE state='queued' ORDER BY admission_order LIMIT 20"
+    ).map((t) => ({
+      taskId: t.task_id as string,
+      scope: { projectId: t.project_id as string, workspaceKey: t.workspace_key as string }
+    }))
+  }
+  terminalForCleanup(scope: Scope, taskId: string): 'completed' | 'failed' | 'cancelled' | null {
+    const task = this.task(scope, taskId)
+    if (
+      this.get('SELECT integrity_status FROM task_event_streams WHERE task_id=?', taskId)
+        ?.integrity_status !== 'complete'
+    )
+      return null
+    const event = this.get(
+      "SELECT name FROM task_events WHERE task_id=? AND name IN ('task.completed','task.failed','task.cancelled')",
+      taskId
+    )
+    if (!event) return null
+    if (event.name === 'task.cancelled') return task.cancel_request_ref ? 'cancelled' : null
+    if (!task.engine_outcome_json) return null
+    return JSON.parse(task.engine_outcome_json).success ? 'completed' : 'failed'
   }
   markProcessUncertain(scope: Scope, taskId: string, proof: unknown): void {
     this.evidence('supervise', proof)

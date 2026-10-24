@@ -79,6 +79,9 @@ function load() {
     read: lib.func(
       'int32 __stdcall ReadFile(void *h, _Out_ void *buffer, uint32 size, _Out_ uint32 *read, void *overlapped)'
     ),
+    peek: lib.func(
+      'int32 __stdcall PeekNamedPipe(void *h, void *buffer, uint32 size, void *read, _Out_ uint32 *available, void *left)'
+    ),
     write: lib.func(
       'int32 __stdcall WriteFile(void *h, void *buffer, uint32 size, _Out_ uint32 *written, void *overlapped)'
     )
@@ -205,31 +208,49 @@ export class WindowsProcess extends EventEmitter {
       this.pipeHandles = new Set([inputW, outputR, errorR])
       const reader = (h: unknown) => {
         let reading = false
+        let pending: ReturnType<typeof setTimeout> | undefined
+        // Idle stdout/stderr must not occupy the shared native async pool:
+        // Discussion + Coding has four idle readers and otherwise starves stdin.
+        // One exclusive reader first checks available pipe bytes, then consumes
+        // only that bounded ready chunk; it never waits for future bytes in Main.
+        const poll = () => {
+          pending = undefined
+          if (this.closed || stream.destroyed) {
+            reading = false
+            return
+          }
+          const available = [0]
+          if (!n.peek(h, null, 0, null, available, null)) {
+            reading = false
+            this.pipeHandles.delete(h)
+            close(h)
+            stream.push(null)
+            return
+          }
+          if (!available[0]) {
+            pending = setTimeout(poll, 10)
+            return
+          }
+          const buffer = Buffer.alloc(Math.min(65536, available[0])),
+            count = [0]
+          const ok = n.read(h, buffer, buffer.length, count, null)
+          reading = false
+          if (!ok || !count[0]) {
+            this.pipeHandles.delete(h)
+            close(h)
+            stream.push(null)
+          } else stream.push(buffer.subarray(0, count[0]))
+        }
         const stream = new Readable({
           highWaterMark: 65536,
           read: () => {
             if (reading || this.closed) return
             reading = true
-            const buffer = Buffer.alloc(65536),
-              count = [0]
-            n.read.async(
-              h,
-              buffer,
-              buffer.length,
-              count,
-              null,
-              (error: Error | null, ok: number) => {
-                reading = false
-                if (this.closed) return
-                if (error || !ok || !count[0]) {
-                  this.pipeHandles.delete(h)
-                  close(h)
-                  stream.push(null)
-                  return
-                }
-                stream.push(buffer.subarray(0, count[0]))
-              }
-            )
+            poll()
+          },
+          destroy: (error, done) => {
+            clearTimeout(pending)
+            done(error)
           }
         })
         return stream

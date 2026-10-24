@@ -13,7 +13,13 @@ import { FileBroker, SOURCE_DESTINATION } from '../broker/service'
 import { BrokerError } from '../broker/policy'
 import type { BrokerPool } from '../broker/pool'
 import { CodingService } from '../coding/service'
-import { CodingUnavailable, CODING_BLOCKED_MESSAGE } from '../coding/gate'
+import {
+  CodingUnavailable,
+  requireVerifiedCoding,
+  type VerifiedCodingRuntime
+} from '../coding/gate'
+import type { PythonSupervisor } from '../supervisor/supervisor'
+import type { LaunchSpec } from '../supervisor/windows-process'
 
 export const DISCUSSION_MODEL = 'deepseek-flash'
 export const DISCUSSION_PROVIDER = 'deepseek_official_v1'
@@ -44,6 +50,9 @@ export class DiscussionService {
   readonly coding: CodingService
   private readonly nativeVerified = new Set<string>()
   private readonly proof = Object.freeze({ ref: randomBytes(24).toString('hex') })
+  private readonly codingProof = Object.freeze({ ref: randomBytes(24).toString('hex') })
+  private codingSupervisor?: PythonSupervisor
+  private readonly finishing = new Set<string>()
   private selectedProjectId: string | null = null
   private readonly queued = new Set<string>()
   private readonly lanes = new Map<string, Promise<void>>()
@@ -60,6 +69,7 @@ export class DiscussionService {
       'run',
       'cancel',
       'supervise',
+      'schedule',
       'disclosure',
       'consent_response',
       'consent_revoke',
@@ -84,7 +94,28 @@ export class DiscussionService {
             ? { modelId: id, providerKey: DISCUSSION_PROVIDER }
             : null,
         providerLabel: (key) => (key === DISCUSSION_PROVIDER ? 'DeepSeek' : null),
-        evidence: (kind, p) => allowed.has(kind) && (p as { ref?: string })?.ref === this.proof.ref
+        evidence: (kind, p) => {
+          const candidate = p as {
+            ref?: string
+            taskId: string
+            workspaceKey: string
+            processSessionRef?: string
+          }
+          if (allowed.has(kind) && candidate?.ref === this.proof.ref) return true
+          if (candidate?.ref !== this.codingProof.ref || !this.codingSupervisor) return false
+          if (kind === 'event')
+            return this.codingSupervisor.ownsCodingSession(
+              candidate.taskId,
+              candidate.workspaceKey,
+              candidate.processSessionRef
+            )
+          if (kind === 'cleanup')
+            return (
+              this.nativeVerified.has(candidate.workspaceKey) &&
+              this.codingSupervisor.verifiedCodingCleanup(candidate.taskId, candidate.workspaceKey)
+            )
+          return false
+        }
       }
     })
     this.store.recoverAfterRestart()
@@ -120,6 +151,95 @@ export class DiscussionService {
         this.select(project.projectId)
         break
       } catch {}
+    }
+  }
+  // Main-only installation after exact runtime verification. A test-owned offline
+  // launch may inject a Gateway into the real bridge; production never imports
+  // that caller or selects it through IPC/config/environment.
+  installCoding(
+    supervisor: PythonSupervisor,
+    runtime: VerifiedCodingRuntime,
+    offlineLaunch?: () => LaunchSpec
+  ): void {
+    requireVerifiedCoding(runtime)
+    if (!this.broker || this.codingSupervisor) throw new CodingUnavailable()
+    this.codingSupervisor = supervisor
+    const verify = <T>(scope: Scope, operation: () => T) => this.broker!.withRoot(scope, operation)
+    supervisor.configureCoding({
+      store: this.store,
+      codingLaunch: () => {
+        requireVerifiedCoding(runtime)
+        return offlineLaunch?.() ?? runtime.launch()
+      },
+      codingContext: (scope, taskId) => this.store.codingContext(scope, taskId),
+      verifyCoding: verify,
+      proof: (kind, binding) =>
+        kind === 'event'
+          ? { ...this.codingProof, ...binding }
+          : kind === 'cleanup'
+            ? this.codingProof
+            : this.proof,
+      workspaceSafe: (taskId) => {
+        const bindings = this.store.bootstrap().activeTaskSummaries.find((t) => t.taskId === taskId)
+        if (!bindings) return false
+        const scope = this.store.conversationBinding(bindings.conversationId).scope
+        return this.nativeVerified.has(scope.workspaceKey)
+      },
+      onCodingTerminal: (scope, taskId) => {
+        if (this.finishing.has(taskId)) return
+        this.finishing.add(taskId)
+        void (async () => {
+          try {
+            if (
+              !(await supervisor.stopCodingChild(taskId)) ||
+              !this.store.terminalForCleanup(scope, taskId)
+            )
+              return
+            const released = await verify(scope, () => supervisor.reconcileTask(scope, taskId))
+            if (released && !this.closing) await this.advanceCoding(supervisor, runtime, verify)
+          } catch {
+            this.store.markProcessUncertain(scope, taskId, this.proof)
+            this.store.taskHint(scope, taskId)
+          } finally {
+            this.finishing.delete(taskId)
+          }
+        })().catch(() => {})
+      }
+    })
+    this.coding.installBackend({
+      requireReady: () => {
+        requireVerifiedCoding(runtime)
+        if (!offlineLaunch)
+          throw new CodingUnavailable(
+            'The coding engine is verified. A coding model route requires separate configuration and authorization; no task was admitted or started.'
+          )
+      },
+      start: async (scope, taskId) => {
+        await supervisor.admitCodingTask(scope, taskId)
+      },
+      cancelRegistered: (scope, taskId) => supervisor.forwardRegisteredCancellation(scope, taskId)
+    })
+  }
+  private async advanceCoding(
+    supervisor: PythonSupervisor,
+    runtime: VerifiedCodingRuntime,
+    verify: <T>(scope: Scope, operation: () => T) => Promise<T>
+  ): Promise<void> {
+    // Called only after new, proven terminal cleanup; never on boot/reload.
+    for (const candidate of this.store.queuedBindings(this.proof)) {
+      requireVerifiedCoding(runtime)
+      const taskId = await verify(candidate.scope, () =>
+        this.store.schedule(this.proof, candidate.scope)
+      )
+      if (!taskId) continue
+      this.store.taskHint(candidate.scope, taskId)
+      try {
+        await supervisor.admitCodingTask(candidate.scope, taskId)
+      } catch {
+        this.store.markProcessUncertain(candidate.scope, taskId, this.proof)
+        this.store.taskHint(candidate.scope, taskId)
+      }
+      break
     }
   }
   private select(projectId: string) {
@@ -162,7 +282,7 @@ export class DiscussionService {
       if (error instanceof CodingUnavailable)
         return {
           ok: false,
-          error: { code: 'RUNTIME_NOT_READY', message: CODING_BLOCKED_MESSAGE, retryable: false }
+          error: { code: 'RUNTIME_NOT_READY', message: error.explanation, retryable: false }
         }
       if (error instanceof BrokerError)
         return failure(

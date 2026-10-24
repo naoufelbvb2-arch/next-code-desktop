@@ -1,4 +1,4 @@
-import { mkdirSync, writeFileSync } from 'node:fs'
+import { mkdirSync, writeFileSync, readFileSync } from 'node:fs'
 import { resolve, join } from 'node:path'
 import { SupervisedChild } from '../../electron/main/supervisor/child'
 import { baselineEnvironment } from '../../electron/main/supervisor/runtime'
@@ -10,8 +10,11 @@ import { IPC, PUSH, type Method, type PushKind } from '../../contracts/ipc'
 import { BrowserWindow, ipcMain } from 'electron'
 import { isAllowedDocument } from '../../electron/main/window-security'
 import { DatabaseSync } from 'node:sqlite'
+import { codingEngineFixture } from './coding-engine'
+import { mainProcessIdentity } from './supervision'
 
 let child: SupervisedChild, directory: string, service: DiscussionService
+let actual: Awaited<ReturnType<typeof codingEngineFixture>> | undefined
 export async function startCodingFixture(profile: string) {
   directory = profile
   const workspace = join(profile, 'Synthetic P7 project')
@@ -55,6 +58,13 @@ export async function startCodingFixture(profile: string) {
       boundary.publish(kind, id, update)
     }
   })
+  boundary = installBoundary(service)
+  const chosen = await service.dispatch('projects.choose', null)
+  if (!chosen.ok) throw new Error('Native fixture registration failed')
+  return { ready: child.connection.state.ready, role: child.identity.role }
+}
+let boundary: IpcBoundary
+function installBoundary(service: DiscussionService) {
   // Fixture-owned routing for this disposable test window only; all messages
   // still pass the production closed IpcBoundary and typed Preload. No test
   // installer or provider transport is imported by the product launcher.
@@ -69,7 +79,10 @@ export async function startCodingFixture(profile: string) {
       (kind === 'runtime' && id === null) ||
       (kind === 'conversation' && !!id && service.authorizedConversation(id)) ||
       (kind === 'task' && !!id && service.coding.authorized(id)),
-    (method, input, event) => service.dispatch(method, input, event.sender.id)
+    async (method, input, event) => {
+      const result = await service.dispatch(method, input, event.sender.id)
+      return result
+    }
   )
   for (const method of Object.keys(IPC) as Method[]) {
     ipcMain.removeHandler(IPC[method].channel)
@@ -81,9 +94,59 @@ export async function startCodingFixture(profile: string) {
     ipcMain.on(PUSH[kind].channel, (event, ...args: unknown[]) =>
       boundary.control(kind, event as Caller, args)
     )
-  const chosen = await service.dispatch('projects.choose', null)
-  if (!chosen.ok) throw new Error('Native fixture registration failed')
-  return { ready: child.connection.state.ready, role: child.identity.role }
+  return boundary
+}
+export async function startActualCodingFixture(mode = 'success') {
+  actual = await codingEngineFixture(mode, undefined, (kind, id, update) =>
+    boundary?.publish(kind, id, update)
+  )
+  boundary = installBoundary(actual.service)
+  return { engineCommit: actual.runtime.engineCommit, outsideProductionRepos: true }
+}
+export function actualCodingSnapshot() {
+  if (!actual) return null
+  return {
+    tasks: actual.db.prepare('SELECT task_id,state FROM tasks ORDER BY admission_order').all(),
+    events: actual.db.prepare('SELECT name FROM task_events ORDER BY sequence').all(),
+    leases: actual.db.prepare('SELECT count(*) n FROM workspace_writer_leases').get()!.n,
+    source: actual.source(),
+    status: actual.status()
+  }
+}
+export async function stopActualCodingFixture() {
+  await actual?.close()
+}
+export function actualCodingDatabasePath() {
+  return actual ? join(actual.directory, 'state.sqlite3') : null
+}
+export function actualCrashEvidence() {
+  if (!actual) throw new Error('No actual fixture')
+  let descendants: number[] = []
+  try {
+    const record = readFileSync(join(actual.workspace, 'owned.json'), 'utf8')
+    if (record) descendants = JSON.parse(record) as number[]
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error
+  }
+  return {
+    directory: actual.directory,
+    workspace: actual.workspace,
+    main: mainProcessIdentity(),
+    descendants
+  }
+}
+export async function recoverActualCodingFixture(existing: {
+  directory: string
+  workspace: string
+}) {
+  actual = await codingEngineFixture(
+    'success',
+    undefined,
+    (kind, id, update) => boundary?.publish(kind, id, update),
+    existing
+  )
+  boundary = installBoundary(actual.service)
+  return actualCodingSnapshot()
 }
 export function codingSnapshot() {
   const db = new DatabaseSync(join(directory, 'p7-fixture.sqlite3'), { readOnly: true })

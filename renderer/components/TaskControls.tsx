@@ -70,7 +70,7 @@ export function TaskControls({ conversation }: { conversation: Output<'conversat
       if (!result.ok) setError(result.error.message)
       else if (result.data.conversationId === conversation.conversation.conversationId)
         setNotice(
-          `Task admitted as ${result.data.state}. Engine execution and completion have not been verified.`
+          `Task admitted as ${result.data.state}. Follow the committed task evidence below.`
         )
     } catch {
       setError('Admission could not be confirmed. No task is automatically resubmitted.')

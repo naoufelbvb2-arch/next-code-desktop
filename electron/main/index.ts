@@ -4,7 +4,8 @@ import { existsSync, readFileSync, statSync } from 'node:fs'
 import { pathToFileURL } from 'node:url'
 import { protectSession, protectWindow } from './window-security'
 import { registerIpc, allowIpcWindow, ipcBoundary } from './ipc'
-import { openStorage, closeStorage, discussionBroker } from './storage/runtime'
+import { openStorage, closeStorage, discussionBroker, installCoding } from './storage/runtime'
+import { verifyCodingRuntime } from './coding/gate'
 import { openSupervisor, closeSupervisor, hasActiveCodingTask } from './supervisor/application'
 import type { PythonSupervisor } from './supervisor/supervisor'
 
@@ -111,6 +112,10 @@ app
       runtimeConfig,
       (supervisor, runtime) => {
         if (runtime.discussion) activeSupervisor = supervisor
+        if (runtime.discussion && fileBrokerEnabled)
+          void verifyCodingRuntime(runtime, bridgeDirectory, runtime.discussion)
+            .then((coding) => installCoding(supervisor, coding))
+            .catch(() => {}) // UI Run Task remains closed; no fallback or replay.
       },
       discussionBroker
     )

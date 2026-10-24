@@ -1,8 +1,10 @@
 {
   "phase": "P7",
   "startingCommit": "06221d81ce96d82434ec2d8d76ab172355ba60a1",
+  "integrationFixStartingCommit": "d05ceacb6180456b8e5072a06a4496cbf5e53a51",
   "branch": "feature/p7-real-coding-execution",
-  "hash": "SHA-256 of exact working bytes, independently compare every staged blob before commit",
+  "engineCommit": "5e7179b9d528e7ef97e18f91ec284e4da514ca0b",
+  "hash": "SHA-256 of exact working bytes, independently compare every staged and committed blob",
   "exclusions": [
     "This manifest cannot authenticate itself",
     "COMMIT-RECEIPT.md is a later documentation-only commit referring to the source SHA"
@@ -10,63 +12,83 @@
   "files": [
     {
       "path": "AGENTS.md",
-      "bytes": 6553,
-      "sha256": "bea6e098886991db7427617840e555a061f7bfdc44d8af9f0a4d49a1275dd3cd"
+      "bytes": 8140,
+      "sha256": "0d44a194814312d5f6ac27228334823ee92686e1362200ac1c80de421d31262d"
     },
     {
       "path": "README.md",
-      "bytes": 9927,
-      "sha256": "59f7c58e3716c55aa5a46e4e9c50dc5988f6a0216967c8cda96181032776e191"
+      "bytes": 10472,
+      "sha256": "4f4dfd08ac9dc18f85667847cf6aabafb311bbc614460ec36eaa5828d3fbcdb3"
+    },
+    {
+      "path": "bridge/coding-compatibility.json",
+      "bytes": 4066,
+      "sha256": "61c58978012dfc73b34203897193d1159c7ad162be218af077785144113dca73"
     },
     {
       "path": "bridge/coding_bridge.py",
-      "bytes": 1216,
-      "sha256": "6072a12dfb6a2bb5de8193f79260d9a024f559709808dfb7b7c77b69a8c791f1"
+      "bytes": 11519,
+      "sha256": "92039c4059339eccfda75550807f5271b883b8476e241d08e0658f5e12ac74c3"
     },
     {
       "path": "bridge/engine_compatibility.py",
-      "bytes": 4012,
-      "sha256": "9a7c6358b955b8c329b2b2af111f85e40cda9b55698ab8a28832290faa2bcbdf"
+      "bytes": 6456,
+      "sha256": "df35b8a2152e8c8cf4e378167d67670b131b0776b174b4cafaff8f1323c94741"
     },
     {
       "path": "docs/implementation/P7/ENGINE-CHANGE-REQUEST.md",
-      "bytes": 5686,
-      "sha256": "aa204edbd0b2b2791474ca6cf42fdba724315490878832eb3c1f779fb2523d30"
+      "bytes": 6434,
+      "sha256": "e1b05e251bbc4d67c63f8923baa1e6ba530a03b5fecc6a38f4d23be12f2d343e"
     },
     {
       "path": "docs/implementation/P7/ENGINE-COMPATIBILITY-REPORT.md",
-      "bytes": 4711,
-      "sha256": "cdd476150f70193ad83299e651af5c02c28cb3493f7c742d037450cc47ae1996"
+      "bytes": 3894,
+      "sha256": "16f584ed8112451a65c20158f8e6e3fcc476c5ed10eeba40894e6e43ba37bd94"
     },
     {
       "path": "docs/implementation/P7/IMPLEMENTATION-PLAN.md",
-      "bytes": 3292,
-      "sha256": "af78d761fa9833b285232b2d4cb91e33f5fe9aa8168b46012ffecf76d48374ac"
+      "bytes": 4873,
+      "sha256": "2867f854630c8a539c42960bf8ee5a3e5103e952ca928d1644f2873747f5b813"
     },
     {
       "path": "docs/implementation/P7/IMPLEMENTATION-REPORT.md",
-      "bytes": 9788,
-      "sha256": "9089b6e7d11dab1db91ad0c6abe97f6772f4778cdcea7c998ab730b015e7e300"
+      "bytes": 11406,
+      "sha256": "bc3a9818fb7ce84799c896bb312d6432e35c4c49f50ef19e022f0dbcc968bdf7"
     },
     {
       "path": "docs/implementation/P7/VERIFICATION-RESULTS.json",
-      "bytes": 103656,
-      "sha256": "dbfc02430f09a8054074493ffcabed28fe6f18b80dbbb15416937b3bbfe77bef"
+      "bytes": 113382,
+      "sha256": "29391ef155b00d179fe22e9ea92c210b7ee98b7b8fe90b41e8b4ae5d0a5f3385"
+    },
+    {
+      "path": "docs/implementation/P7/screenshots/actual-cancelled.png",
+      "bytes": 321524,
+      "sha256": "512486c312dfb2d2c0b5c84e52d9c3f2df584a43f84bdede51d3337470da27d4"
+    },
+    {
+      "path": "docs/implementation/P7/screenshots/actual-success.png",
+      "bytes": 322889,
+      "sha256": "b41faf9ffba10cf757048a261d45573083fca979dae53a6725f691c998400e0b"
     },
     {
       "path": "electron/main/coding/gate.ts",
-      "bytes": 580,
-      "sha256": "ba9b4f664018b9e17fa06e97b5c308ca683401ce6e1eaad3cc6beff5413c8e39"
+      "bytes": 5760,
+      "sha256": "ac1291b063e9c5a51dc6e85333f6be6e6b7605d7f357564d0c5ee013a7fc3987"
     },
     {
       "path": "electron/main/coding/service.ts",
-      "bytes": 3962,
-      "sha256": "b8f41780068d3ad58ffc728b087b35e03fd232f21ba7e66e4e5f2876072c92a7"
+      "bytes": 4138,
+      "sha256": "5eb758ed3879f06529a788b4b8167b4590efb8f7771658ce5eed68147a1549e5"
     },
     {
       "path": "electron/main/discussion/service.ts",
-      "bytes": 17204,
-      "sha256": "307c756ca722e7529856ad91fdfe7daffa5150cf2839bedb71a94eebb0855f5d"
+      "bytes": 21926,
+      "sha256": "ac9b5b5ad17bb47bca24df7705ea9e0e7d8e866f785112d523ab46535b391ad1"
+    },
+    {
+      "path": "electron/main/index.ts",
+      "bytes": 6550,
+      "sha256": "7dbc9749167a235a0e7c0022b144e6df5bf9be293205c79313bf5d722eea454a"
     },
     {
       "path": "electron/main/ipc.ts",
@@ -75,13 +97,23 @@
     },
     {
       "path": "electron/main/storage/runtime.ts",
-      "bytes": 2891,
-      "sha256": "63c50f1292cb27bcb4b4607c86795e0110331134dda7bb0bad52056444288dfc"
+      "bytes": 3102,
+      "sha256": "0d5cbb3f8c59aaa74b690f893c6838d75e5492ac06e445ecfebf670067332fa5"
     },
     {
       "path": "electron/main/storage/store.ts",
-      "bytes": 69766,
-      "sha256": "040daa6cc594dfedbd0cd7a4335c9f91fdb4f2cefd36f3249d26e6eb9cf6889c"
+      "bytes": 71353,
+      "sha256": "e9505b38ac337bf327b5184185f2f0c0d8178b33e3690e0858efe8d5850783ca"
+    },
+    {
+      "path": "electron/main/supervisor/supervisor.ts",
+      "bytes": 12116,
+      "sha256": "a25c8c83ef265111c50a519078045e0ebadd41d3eb994d1b873595d47d6f4213"
+    },
+    {
+      "path": "electron/main/supervisor/windows-process.ts",
+      "bytes": 12108,
+      "sha256": "3494876eb3415c034ab5e53c8082431963217bf8470dffb060b4bad3773ecaed"
     },
     {
       "path": "renderer/App.tsx",
@@ -89,39 +121,79 @@
       "sha256": "2fd7eec1ab730344f8aa816d45417695ba6d94dea313c30ce48c870eb54720e4"
     },
     {
+      "path": "renderer/components/Sidebar.tsx",
+      "bytes": 4569,
+      "sha256": "3c0a9400c556175a9879dc23e7c0d635986589d55215cfc06c860175e809c77b"
+    },
+    {
       "path": "renderer/components/TaskControls.tsx",
-      "bytes": 5938,
-      "sha256": "48d8c411c46c48ef95102b6e5b54416d4e30a2429d6346fd5b1ad7a5eea50902"
+      "bytes": 5924,
+      "sha256": "8d941eff1e85bcad2ef6918ab4c82dd6aae31aefd6404a75e3bf6b23ec1960d3"
+    },
+    {
+      "path": "tests/electron/coding-engine.spec.ts",
+      "bytes": 8228,
+      "sha256": "bcb59ba473e05e116acfbdb1c0bfb35fb0f1c3253414cc17f81437254e4f66ff"
     },
     {
       "path": "tests/electron/coding.spec.ts",
-      "bytes": 3282,
-      "sha256": "8d08a96285db58fbf66d2529a80704087c00b6bdb0f41c5d94460cbacd6bade6"
+      "bytes": 3293,
+      "sha256": "6f0f226dcf3358731aa216ee9bcfdd9556ceffa514b20e7567a81e1b74343554"
+    },
+    {
+      "path": "tests/electron/desktop.spec.ts",
+      "bytes": 17795,
+      "sha256": "3f51fab2bc7a6e0e12e7c9cffccf0899182b680694c8816e36dd45693e015826"
+    },
+    {
+      "path": "tests/fixtures/coding-engine.ts",
+      "bytes": 6987,
+      "sha256": "623fcd3eab22c8107b4904a48dc0e9e95ea55d57e999e390975ec7272ad90c74"
     },
     {
       "path": "tests/fixtures/coding-main.ts",
-      "bytes": 4372,
-      "sha256": "a097b7bab20e027097bd6e7978c7a1f65c769856a594cf064911f3d9aed460e4"
+      "bytes": 6519,
+      "sha256": "3d9d603185868bab91b576769fa1a14b050664fab8c294c1ec1f2f4f3aeecfbd"
+    },
+    {
+      "path": "tests/fixtures/coding_engine_peer.py",
+      "bytes": 5200,
+      "sha256": "83ee9596248d248245f04729e26f0fff6b4e8d0f1c19d784603ed66ed3cd9b42"
     },
     {
       "path": "tests/fixtures/discussion_proposal_peer.py",
-      "bytes": 1423,
-      "sha256": "2c53120c16297904570b9b50b65abbd63ccb2b2c19284fa5e6bbdaa62c06322a"
+      "bytes": 1406,
+      "sha256": "96e0b1573168f79e8c6c9aa5a3e1070dff6fee8e20a6e42e79d8073ed8fe62c4"
     },
     {
       "path": "tests/python/test_coding_gate.py",
-      "bytes": 3457,
-      "sha256": "30513bbce21f3264c8de1265efe5c59c988e813f434d193c4bf10ab1a6b54886"
+      "bytes": 3562,
+      "sha256": "3ed8010995104a2bd6b6a673284882a308802f786fd8b01a212a49341ecf0a17"
     },
     {
       "path": "tests/ui/coding.test.tsx",
-      "bytes": 4477,
-      "sha256": "25477a9710d9b5edd4f843557309c99213902575c37f25737625d2986db2b027"
+      "bytes": 4541,
+      "sha256": "45585253dd9a78b6bed703912dcc6132cca84b98b72a5ff29a5ec80e3ccaa11c"
+    },
+    {
+      "path": "tests/unit/coding-integration.test.ts",
+      "bytes": 11162,
+      "sha256": "4ecc599ba84831ea5a207c711d7636c36fe96845b6466d87add015842053bf1b"
+    },
+    {
+      "path": "tests/unit/coding-runtime.test.ts",
+      "bytes": 2624,
+      "sha256": "8f71e4e3d2bb764f582391facc28d8ae276932a1e89375587ccdf291f048878d"
     },
     {
       "path": "tests/unit/coding.test.ts",
-      "bytes": 11435,
-      "sha256": "180b6ae78339d0dbba307b814aabf14900aaa9f3faf60fd1ac7aa17645ee6727"
+      "bytes": 14447,
+      "sha256": "a2db026442f8c8513e5e129bbda919369e8d8e9a55b1ec2d208db2993d2efb01"
+    },
+    {
+      "path": "vitest.config.ts",
+      "bytes": 499,
+      "sha256": "090c979468951d4be16f26c7de513a884f544dc83474e650b5ce89f1a207b3f3"
     }
   ]
 }

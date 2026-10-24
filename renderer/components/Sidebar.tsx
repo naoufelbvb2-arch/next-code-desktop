@@ -128,9 +128,7 @@ export function Sidebar({
         </button>
         <div className="connection-label">
           <span className="status-dot" />
-          <span>
-            {discussionReady ? 'Discussion ready · coding unavailable' : 'Engine not connected'}
-          </span>
+          <span>{discussionReady ? 'Discussion ready' : 'Discussion not ready'}</span>
         </div>
       </div>
     </aside>

@@ -22,6 +22,10 @@ export class CodingService {
   private readonly pending = new Set<Promise<void>>()
   private closing = false
   constructor(private readonly options: Options) {}
+  installBackend(backend: CodingBackend): void {
+    if (this.closing || this.options.backend) throw new StoreError('RUNTIME_NOT_READY')
+    this.options.backend = backend
+  }
   async confirm(input: Input<'proposals.confirmRun'>) {
     if (this.closing) throw new StoreError('RUNTIME_NOT_READY')
     const { store, backend } = this.options,

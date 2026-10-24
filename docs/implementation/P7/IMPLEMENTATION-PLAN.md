@@ -1,5 +1,30 @@
 # P7 execution plan — 2026-10-23
 
+## Approved integration fix continuation
+
+The owner approved ENGINE-CHANGE-REQUEST.md in P7 ENGINE INTEGRATION FIX.
+Both clean local baselines match origin: engine `834d0ca62cc9b2c03e530bafe4090024d98f31d3`
+and Desktop `d05ceacb6180456b8e5072a06a4496cbf5e53a51`. Engine work uses
+`feature/p7-desktop-lifecycle-control`; Desktop keeps its existing P7 branch.
+Allowed engine envelope: AgentOS, lead loop, squad dispatcher/chassis, tool
+registry/shell, a small control/owned-process helper, isolated tests and reports.
+Add optional observer/control without changing TaskOutcome or TaskPhase. Run all
+existing engine tests offline plus lifecycle, cancellation, cleanup, failure and
+legacy-call tests. Use external synthetic Git workspaces, never either source
+checkout as the task target. No paid calls or global installations.
+
+After proving and publishing the engine patch, bind Desktop's private coding
+launcher to that exact tested version and source identity. Complete real bridge,
+context/goal propagation, durable event mapping, responsive cancellation,
+independent Windows child/descendant proof, workspace reconciliation and queue
+advancement without replay. Run actual Windows/offline AgentOS integration and
+Desktop regressions; retain BLOCKED/uncertain evidence on failed ownership or
+compatibility checks. No new public API/schema, P8/P9 or merge. Review exact files,
+secrets, frozen hashes and staged bytes before each normal feature-branch push.
+Reports and later receipts must identify actual results and final separate SHAs.
+
+## Original foundation plan (historical)
+
 Authority: owner's P7 REAL CODING EXECUTION. Official Desktop repository,
 `feature/p7-real-coding-execution`, starts at published P6 conditional acceptance
 `06221d81ce96d82434ec2d8d76ab172355ba60a1`, verified against origin. P6 baseline

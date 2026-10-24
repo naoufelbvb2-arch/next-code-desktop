@@ -1,6 +1,6 @@
-"""P7 source inspection/quarantined entry only. No AgentOS or model invocation."""
-import ast
+"""Exact-version capability audit and deny-by-default coding entry checks."""
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -13,13 +13,14 @@ from engine_compatibility import inspect_engine, ENGINE_COMMIT
 
 
 class CodingGateTests(unittest.TestCase):
-    def test_actual_engine_source_signature_outcome_fields_and_missing_capabilities_remain_blocked(self):
+    def test_actual_engine_source_signature_outcome_fields_and_tested_control_capability(self):
         audit = inspect_engine(ROOT.parent / "next code")
         self.assertEqual(audit["engineCommit"], ENGINE_COMMIT)
         self.assertTrue(audit["approvedCommitMatches"])
         self.assertFalse(audit["codingReady"])
-        self.assertEqual(audit["g4"], "BLOCKED")
-        self.assertEqual(audit["signatures"]["AgentOS.execute_task"]["parameters"], ["self", "task_goal", "task_id", "conversation_context"])
+        self.assertEqual(audit["g4"], "REQUIRES_DESKTOP_EXECUTION_EVIDENCE")
+        self.assertTrue(audit["engineCapabilityVerified"])
+        self.assertEqual(audit["signatures"]["AgentOS.execute_task"]["parameters"], ["self", "task_goal", "task_id", "conversation_context", "observer", "cancellation"])
         self.assertEqual(audit["taskOutcomeFields"], ["task_id", "success", "final_phase", "summary", "total_ticks", "rollbacks_triggered", "final_checkpoint_hash"])
         self.assertNotIn(str(ROOT.parent), json.dumps(audit))
 
@@ -46,10 +47,10 @@ class CodingGateTests(unittest.TestCase):
         self.assertFalse(value["payload"]["retryable"])
         self.assertFalse(result.stderr)
 
-    def test_quarantined_entry_does_not_advertise_coding_capability_or_import_engine(self):
-        result = subprocess.run([sys.executable, "-I", "-S", str(ROOT / "bridge/coding_bridge.py"), "--describe"], capture_output=True, check=True, timeout=5)
-        self.assertEqual(json.loads(result.stdout), {"protocol": 1, "roles": [], "provider": False, "engine": False})
-        tree = ast.parse((ROOT / "bridge/coding_bridge.py").read_text())
-        imports = [n.module if isinstance(n, ast.ImportFrom) else a.name for n in ast.walk(tree)
-                   if isinstance(n, (ast.Import, ast.ImportFrom)) for a in n.names]
-        self.assertTrue(set(imports).isdisjoint({"agent_os", "gateway_adapter", "os", "subprocess", "engine_compatibility"}))
+    def test_verified_entry_advertises_only_tested_engine_control_and_no_paid_provider(self):
+        env = {key: value for key, value in os.environ.items() if key.upper() in ("SYSTEMROOT", "WINDIR", "TEMP", "TMP")}
+        env["NCD_CODING_CONFIG"] = json.dumps({"engineRoot": str(ROOT.parent / "next code"),
+            "sitePackages": str(ROOT.parent / "next code/.venv/Lib/site-packages")})
+        result = subprocess.run([sys.executable, "-I", "-S", str(ROOT / "bridge/coding_bridge.py"), "--describe"], env=env, capture_output=True, check=True, timeout=5)
+        self.assertEqual(json.loads(result.stdout), {"protocol": 1, "roles": ["coding_task"], "provider": False, "engine": True, "executionControl": 1})
+        self.assertFalse(result.stderr)

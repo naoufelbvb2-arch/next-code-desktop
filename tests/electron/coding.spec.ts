@@ -13,7 +13,7 @@ test('P7-WIN01 actual Main/Job/Discussion/Gateway mock issues a proposal, explic
     platform: 'node',
     format: 'cjs',
     outfile: module,
-    external: ['koffi', 'electron'],
+    external: ['koffi', 'electron', 'esbuild'],
     logLevel: 'silent'
   })
   writeFileSync(join(profile, 'python-runtime.json'), JSON.stringify({ fileBroker: true }))

@@ -421,7 +421,7 @@ test('P1-RELOAD: renderer reload does not claim restored messages, model or task
     await page.reload()
     await expect(page.getByRole('textbox')).toHaveValue('')
     await expect(page.getByText('No saved conversations yet')).toBeVisible()
-    await expect(page.getByText('Engine not connected')).toBeVisible()
+    await expect(page.getByText('Discussion not ready')).toBeVisible()
     await expect(page.getByRole('button', { name: 'Send message' })).toBeDisabled()
     await expect(page.getByRole('button', { name: /Model unavailable/ })).toBeDisabled()
   } finally {

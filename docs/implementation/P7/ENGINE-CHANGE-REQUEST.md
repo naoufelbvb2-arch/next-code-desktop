@@ -1,4 +1,16 @@
-# P7 engine change request — DRAFT, owner approval required
+# P7 engine change request — owner approved and implemented
+
+The owner's separate **P7 ENGINE INTEGRATION FIX** explicitly approved this
+request. The narrow patch was tested and normally published in the independent
+engine repository on `feature/p7-desktop-lifecycle-control` at
+`5e7179b9d528e7ef97e18f91ec284e4da514ca0b`, from verified
+`834d0ca62cc9b2c03e530bafe4090024d98f31d3`. Engine regressions: 53 PASS, three
+paid live tests NOT_RUN. Desktop runtime/Windows proof is recorded in the existing
+implementation, compatibility and verification reports. No frozen change or main
+merge was adopted. Production coding provider configuration remains a separate
+unfulfilled condition; no paid call or fixture route is authorized for users.
+
+## Original request (historical wording, superseded by that approval)
 
 This is a request for separate authorization, **not permission to edit the
 engine**. Original engine remains unchanged at

@@ -1,37 +1,413 @@
 {
   "phase": "P7",
-  "recordedDate": "2026-10-23",
-  "status": "SAFE_INDEPENDENT_DESKTOP_WORK_IMPLEMENTED; REAL_ENGINE_GATE_BLOCKED; P7_NOT_COMPLETE",
+  "recordedDate": "2026-10-24",
+  "status": "REAL_ENGINE_OFFLINE_INTEGRATION_VERIFIED; FULL_P7_PRODUCT_ACCEPTANCE_PENDING",
   "branch": "feature/p7-real-coding-execution",
   "startingCommit": "06221d81ce96d82434ec2d8d76ab172355ba60a1",
-  "conditionallyAcceptedP6": "579a4048c65f3b147a5c147453dcdd4ee18f4a40",
+  "integrationFixStartingCommit": "d05ceacb6180456b8e5072a06a4496cbf5e53a51",
+  "engineCommit": "5e7179b9d528e7ef97e18f91ec284e4da514ca0b",
+  "engineBranch": "feature/p7-desktop-lifecycle-control",
+  "ownerAcceptance": "PENDING",
   "gates": {
-    "G2": "PARTIAL: actual Desktop SQLite/admission subset only",
-    "G4": "BLOCKED: minimum real engine lifecycle/cancellation evidence not achieved",
-    "G7": "PARTIAL: actual inherited process/DB/limits fixtures, real engine effects NOT_RUN",
+    "engineCompatibility": "PASS for the exact tested commit + source/bridge/Git pins; no boolean bypass",
+    "G4MinimumP7": "PASS: actual offline AgentOS + actual Windows lifecycle/outcome/cancellation/cleanup",
+    "fullIIS08G4": "PARTIAL: owner register and remaining integrated faults/alias flow need disposition",
+    "G2": "PARTIAL: database + actual admission/event/process subsets verified; complete system gate not claimed",
+    "G7": "PARTIAL: actual engine Main crash/no replay added; full P9 recovery/resource gate not claimed",
     "P6_G6": "PARTIAL unchanged",
+    "P1VisualSignoff": "DEFERRED by owner",
     "P8_P9": "NOT_AUTHORIZED"
   },
+  "productionCodingRoute": {
+    "status": "UNCONFIGURED_AND_DENIED_BEFORE_ADMISSION",
+    "paidCalls": 0,
+    "note": "No production coding Gateway/provider configuration is implemented. Offline injection is test-owned only; matching engine sources do not enable a paid/default route. Full P7 product readiness is not claimed."
+  },
   "executedUniqueTotals": {
-    "PASS": 450,
+    "PASS": 470,
     "FAIL": 0,
     "PARTIAL": 0,
     "NOT_RUN": 1,
     "BLOCKED": 0
   },
-  "counting": "450 unique executable passes and one inherited EPERM symlink NOT_RUN. Unit ledger combines initial full run (401 PASS, one legacy-profile FAIL, one NOT_RUN) with corrected 28-case Discussion/P7 recheck (28 PASS), for 402 unit/UI PASS/one NOT_RUN. Python 22 PASS, actual Windows Electron 25 PASS, read-only actual P5 restore one PASS. Failed intermediate runs are not relabeled; latest per-case disposition is used. Real engine blocked requirements are separate.",
+  "counting": "470 unique Desktop executable PASS: 419 unit/UI, 22 Python, 28 actual Windows Electron, one read-only P5 history restore; one inherited unprivileged symlink NOT_RUN. Engine 53 PASS/three paid tests NOT_RUN are a separate repository suite. Repeated scoped runs do not multiply totals.",
+  "engineSuite": {
+    "baseline": "834d0ca62cc9b2c03e530bafe4090024d98f31d3",
+    "branch": "feature/p7-desktop-lifecycle-control",
+    "platform": "actual Windows x64 CPython 3.14.4",
+    "engine": "actual AgentOS with offline Gateway",
+    "passed": 53,
+    "skippedPaidLive": 3,
+    "failed": 0,
+    "cases": [
+      {
+        "name": "test_independent_prechange_golden_oracle",
+        "class": "tests.test_conversation_context",
+        "status": "PASS"
+      },
+      {
+        "name": "test_f01_safe_task_id_full_string_verification",
+        "class": "tests.test_conversation_context",
+        "status": "PASS"
+      },
+      {
+        "name": "test_f02_unicode_separators_and_sanitization",
+        "class": "tests.test_conversation_context",
+        "status": "PASS"
+      },
+      {
+        "name": "test_h01_defensive_collection_cap_enforcement",
+        "class": "tests.test_conversation_context",
+        "status": "PASS"
+      },
+      {
+        "name": "test_h02_contradictory_prior_outcomes",
+        "class": "tests.test_conversation_context",
+        "status": "PASS"
+      },
+      {
+        "name": "test_h03_workspace_root_metadata_bounds",
+        "class": "tests.test_conversation_context",
+        "status": "PASS"
+      },
+      {
+        "name": "test_two_task_agent_os_execution_and_gate3_rollback",
+        "class": "tests.test_conversation_context",
+        "status": "PASS"
+      },
+      {
+        "name": "test_manual_checkpointer_rollback_supplementary",
+        "class": "tests.test_conversation_context",
+        "status": "PASS"
+      },
+      {
+        "name": "test_failed_historical_status_in_prompt_and_no_fact_seeding",
+        "class": "tests.test_conversation_context",
+        "status": "PASS"
+      },
+      {
+        "name": "test_full_record_preservation_with_explicit_parsing",
+        "class": "tests.test_conversation_context",
+        "status": "PASS"
+      },
+      {
+        "name": "test_strengthened_playbook_immunity_spied",
+        "class": "tests.test_conversation_context",
+        "status": "PASS"
+      },
+      {
+        "name": "test_r02_f02_boundary_revalidation_and_post_instantiation_mutations",
+        "class": "tests.test_conversation_context",
+        "status": "PASS"
+      },
+      {
+        "name": "test_real_lifecycle_outcome_and_old_call[False]",
+        "class": "tests.test_execution_control",
+        "status": "PASS"
+      },
+      {
+        "name": "test_real_lifecycle_outcome_and_old_call[True]",
+        "class": "tests.test_execution_control",
+        "status": "PASS"
+      },
+      {
+        "name": "test_actual_failed_outcome_and_late_cancel[ABORT_TASK]",
+        "class": "tests.test_execution_control",
+        "status": "PASS"
+      },
+      {
+        "name": "test_actual_failed_outcome_and_late_cancel[COMPLETE_TASK]",
+        "class": "tests.test_execution_control",
+        "status": "PASS"
+      },
+      {
+        "name": "test_precancel_does_not_start_or_write",
+        "class": "tests.test_execution_control",
+        "status": "PASS"
+      },
+      {
+        "name": "test_gateway_and_worker_cancel_drains_before_confirmation[False]",
+        "class": "tests.test_execution_control",
+        "status": "PASS"
+      },
+      {
+        "name": "test_gateway_and_worker_cancel_drains_before_confirmation[True]",
+        "class": "tests.test_execution_control",
+        "status": "PASS"
+      },
+      {
+        "name": "test_exception_has_no_invented_task_outcome",
+        "class": "tests.test_execution_control",
+        "status": "PASS"
+      },
+      {
+        "name": "test_blocking_tool_is_drained_and_no_next_tool_starts",
+        "class": "tests.test_execution_control",
+        "status": "PASS"
+      },
+      {
+        "name": "test_shell_cancel_stops_owned_child_and_descendant",
+        "class": "tests.test_execution_control",
+        "status": "PASS"
+      },
+      {
+        "name": "test_cleanup_failure_cannot_be_cooperative_confirmation",
+        "class": "tests.test_execution_control",
+        "status": "PASS"
+      },
+      {
+        "name": "test_real_coding_patch_verification_context_and_terminal_race",
+        "class": "tests.test_execution_control",
+        "status": "PASS"
+      },
+      {
+        "name": "test_tool_failure_does_not_invent_success",
+        "class": "tests.test_execution_control",
+        "status": "PASS"
+      },
+      {
+        "name": "test_cancellation_preserves_already_written_files",
+        "class": "tests.test_execution_control",
+        "status": "PASS"
+      },
+      {
+        "name": "test_path_escape_and_symlink_jail",
+        "class": "tests.test_l1_kernel",
+        "status": "PASS"
+      },
+      {
+        "name": "test_rbac_enforcement",
+        "class": "tests.test_l1_kernel",
+        "status": "PASS"
+      },
+      {
+        "name": "test_syntax_gated_patching",
+        "class": "tests.test_l1_kernel",
+        "status": "PASS"
+      },
+      {
+        "name": "test_shadow_checkpointing_and_dirty_tree_rollback",
+        "class": "tests.test_l1_kernel",
+        "status": "PASS"
+      },
+      {
+        "name": "test_process_group_timeout_and_truncation",
+        "class": "tests.test_l1_kernel",
+        "status": "PASS"
+      },
+      {
+        "name": "test_model_gateway_and_structured_validation",
+        "class": "tests.test_l1_kernel",
+        "status": "PASS"
+      },
+      {
+        "name": "test_live_deepseek_api_integration",
+        "class": "tests.test_l1_kernel",
+        "status": "SKIPPED"
+      },
+      {
+        "name": "test_filesystem_edge_cases",
+        "class": "tests.test_l1_kernel",
+        "status": "PASS"
+      },
+      {
+        "name": "test_search_tools",
+        "class": "tests.test_l1_kernel",
+        "status": "PASS"
+      },
+      {
+        "name": "test_tool_registry",
+        "class": "tests.test_l1_kernel",
+        "status": "PASS"
+      },
+      {
+        "name": "test_agent_os_security_and_rollback_immunity",
+        "class": "tests.test_l2_brain",
+        "status": "PASS"
+      },
+      {
+        "name": "test_ast_parsing_and_dependency_resolution",
+        "class": "tests.test_l2_brain",
+        "status": "PASS"
+      },
+      {
+        "name": "test_incremental_caching_performance",
+        "class": "tests.test_l2_brain",
+        "status": "PASS"
+      },
+      {
+        "name": "test_impact_radius_calculation",
+        "class": "tests.test_l2_brain",
+        "status": "PASS"
+      },
+      {
+        "name": "test_blackboard_persistence_recovery_and_graveyard",
+        "class": "tests.test_l2_brain",
+        "status": "PASS"
+      },
+      {
+        "name": "test_playbook_seeding_persistence_and_matching",
+        "class": "tests.test_l2_brain",
+        "status": "PASS"
+      },
+      {
+        "name": "test_rename_rollback_cleanup_polish",
+        "class": "tests.test_l3_architect",
+        "status": "PASS"
+      },
+      {
+        "name": "test_happy_path_orchestration_cycle",
+        "class": "tests.test_l3_architect",
+        "status": "PASS"
+      },
+      {
+        "name": "test_gate_4_premature_completion_blocked",
+        "class": "tests.test_l3_architect",
+        "status": "PASS"
+      },
+      {
+        "name": "test_gate_3_surgeon_failure_auto_rollback",
+        "class": "tests.test_l3_architect",
+        "status": "PASS"
+      },
+      {
+        "name": "test_gate_3_inquisitor_rejection_auto_rollback",
+        "class": "tests.test_l3_architect",
+        "status": "PASS"
+      },
+      {
+        "name": "test_gate_1_and_max_rollbacks_abort",
+        "class": "tests.test_l3_architect",
+        "status": "PASS"
+      },
+      {
+        "name": "test_live_deepseek_architect_reasoning",
+        "class": "tests.test_l3_architect",
+        "status": "SKIPPED"
+      },
+      {
+        "name": "test_chassis_physical_tool_whitelist_enforcement",
+        "class": "tests.test_l4_squad",
+        "status": "PASS"
+      },
+      {
+        "name": "test_sliding_window_memory_compression_and_ephemeral_destruction",
+        "class": "tests.test_l4_squad",
+        "status": "PASS"
+      },
+      {
+        "name": "test_mandatory_test_execution_hook_and_truthful_modified_files_ledger",
+        "class": "tests.test_l4_squad",
+        "status": "PASS"
+      },
+      {
+        "name": "test_step_budget_exhaustion_handling",
+        "class": "tests.test_l4_squad",
+        "status": "PASS"
+      },
+      {
+        "name": "test_end_to_end_autonomous_bugfix_cycle",
+        "class": "tests.test_l4_squad",
+        "status": "PASS"
+      },
+      {
+        "name": "test_live_deepseek_ephemeral_worker_execution",
+        "class": "tests.test_l4_squad",
+        "status": "SKIPPED"
+      },
+      {
+        "name": "test_chassis_tool_signature_alignment",
+        "class": "tests.test_l4_squad",
+        "status": "PASS"
+      }
+    ],
+    "files": {
+      ".gitignore": {
+        "bytes": 439,
+        "sha256": "8ac52fd232b3b4a114e9bf3b686186fe24d42cebadc154b1fd4e8582d0d1c688"
+      },
+      "agent_os.py": {
+        "bytes": 5412,
+        "sha256": "084f891d2135c1c53ecca30df4a4a25a4e927bcf48d18fbc807a63ae3509c47d"
+      },
+      "architect/lead_loop.py": {
+        "bytes": 18842,
+        "sha256": "c376eb276d6fbaf20c4ef588e6898f9d0a6f2b075ac0d1ceafecc06cb076809d"
+      },
+      "squad/dispatcher.py": {
+        "bytes": 2585,
+        "sha256": "aca5c9e9eae1fb0cf29f017b85d3b1a103789842216c0f1514d835aaa54d5b4d"
+      },
+      "squad/chassis.py": {
+        "bytes": 12661,
+        "sha256": "05c05bf7256b5aa1b7c009b86f0c3a557766ab44ce3c664804c57897acee50bd"
+      },
+      "kernel/tools/registry.py": {
+        "bytes": 2465,
+        "sha256": "24f2e7106bcbc43d73e3b79328b0f3fffb6e04411913cb03748679ce85489b7b"
+      },
+      "kernel/tools/shell.py": {
+        "bytes": 8107,
+        "sha256": "2a5ae91831e37d17baf559998c6e3c1a5fa8c39b27aa0812e851558ce2abf215"
+      },
+      "kernel/execution.py": {
+        "bytes": 3207,
+        "sha256": "801f3cdb4c73d014c189d13dcd9efdd70127a939b27f65dfba05953233d7ffd5"
+      },
+      "kernel/owned_process.py": {
+        "bytes": 3589,
+        "sha256": "bfae87e1df5bc0bd284050d6cc3e455afe324766f8c2c71e8662e733cfcd9166"
+      },
+      "tests/test_execution_control.py": {
+        "bytes": 13963,
+        "sha256": "0943e4eba24aad3cb66ae12981ceeba25c287feceff16a262e037509ed995105"
+      },
+      "tests/run_offline.py": {
+        "bytes": 1462,
+        "sha256": "107af6edcfb7bea2e45b09e73951a040fdb08bfa14d6927d4c9ea90e5e5a464a"
+      },
+      "requirements-p7-test.lock": {
+        "bytes": 415,
+        "sha256": "3c558a55f6397c730858e81afa258195a02e438fec27d68ab181e36c4e88c83c"
+      }
+    },
+    "paidRequestsMade": 0,
+    "desktopIntegration": "NOT_RUN_IN_ENGINE_SUITE"
+  },
+  "engineEditsAuthorized": true,
   "regression": {
-    "priorP6Pass": 432,
-    "priorCasesExercised": 432,
-    "newPass": 18,
-    "historicalPaidP5Test": "NOT_RUN in P7; actual Main/Job/Gateway two-turn MockTransport counterpart P6-E04 rerun",
+    "historicalP7Foundation": "450 PASS /one NOT_RUN at d05ceac; engine gate was blocked then",
+    "initialContinuationFullUnit": {
+      "PASS": 417,
+      "FAIL": 2,
+      "NOT_RUN": 1,
+      "disposition": "Old admission-message assertion corrected; Windows startup-positive probe contention removed by serial test-file execution, preserving production deadlines."
+    },
+    "finalFullUnit": {
+      "PASS": 419,
+      "FAIL": 0,
+      "NOT_RUN": 1
+    },
+    "initialContinuationFullElectron": {
+      "PASS": 27,
+      "FAIL": 1,
+      "disposition": "Legacy reload assertion expected the old Sidebar text; updated to Discussion not ready and reran the full suite."
+    },
+    "secondContinuationFullElectron": {
+      "PASS": 27,
+      "FAIL": 1,
+      "disposition": "Crash test polled for actual tool descendants for only five seconds, before engine preparation completed. Wait for real running state and bound tool readiness separately at 15 seconds; preserve production deadlines and stop/exit assertions."
+    },
+    "finalFullElectron": {
+      "PASS": 28,
+      "FAIL": 0
+    },
     "paidRequestsAdded": 0,
     "existingPaidLedger": {
       "requests": 2,
-      "totalTokens": 381
+      "totalTokens": 381,
+      "sha256": "edd0244f1ad016c2aa77c75deacb8e07bbd30815e7299a0e0921f6841c1de200"
     },
-    "actualEngineTasks": 0,
-    "actualExternalSourceDisclosures": 0,
     "P6_IIS07": {
       "PASS": 44,
       "PARTIAL": 10,
@@ -39,2268 +415,2128 @@
       "G6": "PARTIAL"
     }
   },
-  "engineAudit": {
-    "engineCommit": "834d0ca62cc9b2c03e530bafe4090024d98f31d3",
-    "approvedCommitMatches": true,
-    "inspection": "SOURCE_ONLY_NO_ENGINE_IMPORT_OR_EXECUTION",
-    "files": {
-      "agent_os.py": {
-        "sha256": "3af9a100878e54979faa6204afe21b56956307b280791b59ff998d9f2f9b924a",
-        "bytes": 4625
-      },
-      "architect/contracts.py": {
-        "sha256": "1783b61b0112d7310aa74bcc940b4e6832f4daf8432881958e95d0219f26ca81",
-        "bytes": 8826
-      },
-      "architect/lead_loop.py": {
-        "sha256": "750a5913fe8878a43a231c77748cff043275d575b2b42d4e39f81c33f03f5232",
-        "bytes": 18854
-      },
-      "architect/prompts.py": {
-        "sha256": "92b11a972355cbff85eea71bc5c18e65cdf183e87f660ddd4b296f36c2e15800",
-        "bytes": 11644
-      },
-      "architect/dispatcher.py": {
-        "sha256": "c13fac8b94fc78485a1cc698cccd63a75b35b96a7d03c32574132bfb4339ad04",
-        "bytes": 2439
-      },
-      "squad/dispatcher.py": {
-        "sha256": "4222f2aa34d5d557c119782ee23381b5fae497e0555fdc94f939e9ae7bec5c90",
-        "bytes": 2559
-      },
-      "squad/chassis.py": {
-        "sha256": "3cef3c8a641a47b00316c59b9f02dbc6b7a61c2689a552db37096784fa991baf",
-        "bytes": 12745
-      },
-      "kernel/tools/registry.py": {
-        "sha256": "0d4b6314cbe694f630061a300df2017d89a9a7e24aa474efb2287ea275cc9799",
-        "bytes": 2291
-      },
-      "kernel/tools/shell.py": {
-        "sha256": "9dc1282b75a62bf2b6a9f7053568a182e82deaf7a6247ce2bd797959338bdf4f",
-        "bytes": 6162
-      },
-      "kernel/guard.py": {
-        "sha256": "90d4772c9846c0783f9f3852d0c72135a7928edb67cc3f652247cba6c5ad2db7",
-        "bytes": 5908
-      },
-      "kernel/checkpoint.py": {
-        "sha256": "e5073b2c3e9703e3f9833603541eb5b89b0ae3b0c18ed4258afee69f56813f8a",
-        "bytes": 9579
-      },
-      "kernel/gateway/router.py": {
-        "sha256": "df0cd166b20cab15734f48945248edda936e367eab6a409b5441b32db39b80ae",
-        "bytes": 5020
-      },
-      "kernel/gateway/openai_compat.py": {
-        "sha256": "dd6848b1d869fb6719db1ccd7f6a5e50673b4335ad576c9592e944ce2d28f1e0",
-        "bytes": 9257
-      },
-      "kernel/config.py": {
-        "sha256": "f37add09a4320bab48de75b388a3a59626b037cd957e3e82cf1a3e2bf8e43056",
-        "bytes": 1132
-      },
-      "pyproject.toml": {
-        "sha256": "612eadb902cee62bd2741eaaa71333678a3272abd76d691faf0a7206835bc6fb",
-        "bytes": 527
-      }
-    },
-    "signatures": {
-      "AgentOS.__init__": {
-        "file": "agent_os.py",
-        "line": 17,
-        "async": false,
-        "parameters": [
-          "self",
-          "workspace_root",
-          "gateway",
-          "max_ticks",
-          "max_rollbacks",
-          "verbose"
-        ]
-      },
-      "AgentOS.execute_task": {
-        "file": "agent_os.py",
-        "line": 41,
-        "async": true,
-        "parameters": [
-          "self",
-          "task_goal",
-          "task_id",
-          "conversation_context"
-        ]
-      },
-      "LeadArchitectLoop.__init__": {
-        "file": "architect/lead_loop.py",
-        "line": 33,
-        "async": false,
-        "parameters": [
-          "self",
-          "workspace_root",
-          "gateway",
-          "dispatcher",
-          "task_id",
-          "task_goal",
-          "max_ticks",
-          "max_rollbacks",
-          "verbose",
-          "conversation_context"
-        ]
-      },
-      "LeadArchitectLoop._execute_rollback_and_graveyard": {
-        "file": "architect/lead_loop.py",
-        "line": 105,
-        "async": false,
-        "parameters": [
-          "self",
-          "reason"
-        ]
-      },
-      "LeadArchitectLoop.run": {
-        "file": "architect/lead_loop.py",
-        "line": 124,
-        "async": true,
-        "parameters": [
-          "self"
-        ]
-      },
-      "EphemeralSquadDispatcher.__init__": {
-        "file": "squad/dispatcher.py",
-        "line": 18,
-        "async": false,
-        "parameters": [
-          "self",
-          "workspace_root",
-          "gateway",
-          "repo_graph",
-          "tool_registry"
-        ]
-      },
-      "EphemeralSquadDispatcher.dispatch": {
-        "file": "squad/dispatcher.py",
-        "line": 30,
-        "async": true,
-        "parameters": [
-          "self",
-          "contract",
-          "ctx",
-          "git_diff"
-        ]
-      }
-    },
-    "taskOutcomeFields": [
-      "task_id",
-      "success",
-      "final_phase",
-      "summary",
-      "total_ticks",
-      "rollbacks_triggered",
-      "final_checkpoint_hash"
-    ],
-    "codingReady": false,
-    "g4": "BLOCKED",
-    "missing": [
-      "Engine-owned lifecycle start observation",
-      "Cooperative cancellation request and confirmed-stop contract",
-      "Verified propagation through worker and blocking tool execution"
-    ],
-    "terminal": "Structured TaskOutcome return exists; actual invocation/serialization NOT_RUN until lifecycle/cancel gate is resolved.",
-    "enablement": "Future engine changes require separate owner authorization and actual integration tests; source/commit match alone cannot enable coding."
-  },
-  "engineChangeRequired": true,
-  "engineChangeRequest": "ENGINE-CHANGE-REQUEST.md",
-  "engineEditsAuthorized": false,
   "dependencies": {
-    "changed": false,
-    "lockfileChanged": false,
-    "currentDiscussionEnvironment": {
+    "desktopPackageAndLockChanged": false,
+    "engineLocalEnvironment": "requirements-p7-test.lock in independent engine repo",
+    "runtimePins": {
+      "python": "3.14.4 Windows x64",
       "pydantic": "2.12.5",
       "httpx": "0.28.1",
-      "psutil": "NOT_INSTALLED"
+      "psutilEngineTestEnvironment": "7.2.2",
+      "GitExecutable": "SHA-256 in coding-compatibility.json"
     },
-    "codingEnvironment": "NOT_VERIFIED; missing hooks cannot be fixed by package installation"
+    "globalOrAdminChanges": false
   },
   "checks": {
+    "build": "PASS",
     "typecheck": "PASS",
-    "build": "PASS; existing third-party Zod comment warnings",
     "format": "PASS",
-    "newPythonSyntax": "PASS",
     "frozenWorkingGitZIP": "PASS: 42 delivery /41 payload /18 normative",
-    "schema": "22 tables and migration unchanged",
-    "publicSurface": "23 Promise methods /3 subscriptions /5 JSONL actions/types unchanged",
-    "runtimeBridgeHashes": "PASS; P5/P6 bridge unchanged; quarantined coding entry not registered",
-    "engineClean": "PASS: 834d0ca62cc9b2c03e530bafe4090024d98f31d3",
-    "secretsAndExactStagedBlobs": "Checked before publication; later receipt records outcome"
+    "publicSurface": "23 Promise methods /3 subscriptions /5 actions /5 outer types unchanged",
+    "schema": "22 tables/migration unchanged",
+    "engineClean": "PASS at 5e7179b9d528e7ef97e18f91ec284e4da514ca0b",
+    "stagedSecretsAndBlobs": "Reviewed before publication; receipt records actual published commit"
   },
-  "commands": [
-    {
-      "command": "npm run build",
-      "result": "PASS"
-    },
-    {
-      "command": "npm test -- --reporter=json --outputFile=.cache/p7-unit-results.json",
-      "result": "401 PASS /one FAIL /one NOT_RUN; legacy profile behavior corrected afterward"
-    },
-    {
-      "command": "npx vitest run tests/unit/discussion.test.ts tests/unit/coding.test.ts tests/ui/coding.test.tsx --reporter=json --outputFile=.cache/p7-final-scoped-results.json",
-      "result": "28 PASS, resolves the prior failure"
-    },
-    {
-      "command": "python -m unittest discover -s tests/python -v",
-      "result": "22 PASS; source audit/quarantine and MockTransport only"
-    },
-    {
-      "command": "npm run test:electron",
-      "result": "25 PASS actual Windows Electron"
-    },
-    {
-      "command": "npm run test:live -- tests/live/restore.spec.ts",
-      "result": "one PASS; read-only existing P5 history, no Send/API call"
-    },
-    {
-      "command": "npm run format:check",
-      "result": "PASS"
-    },
-    {
-      "command": "python -X utf8 docs/implementation/P0/verify_delivery.py --git-ref HEAD --archive <retained-original-zip>",
-      "result": "PASS"
-    },
-    {
-      "command": "python -I -S bridge/engine_compatibility.py --engine-root <separate-approved-engine>",
-      "result": "SOURCE AUDIT COMPLETE; G4 BLOCKED"
-    }
-  ],
-  "unitRuns": [
-    {
-      "artifact": ".cache/p7-unit-results.json",
-      "sha256": "b43e86dc4be924c9e5ac51438df4adaca25c02e1a311bc6414c9dce92733667f",
-      "PASS": 401,
-      "FAIL": 1,
-      "NOT_RUN": 1
-    },
-    {
-      "artifact": ".cache/p7-final-scoped-results.json",
-      "sha256": "702f543e2bc07a0ffe0df586ed7cec75c4a1f0afb68e9c883a001534cd0c763d",
-      "PASS": 28,
-      "FAIL": 0,
-      "NOT_RUN": 0
-    }
-  ],
   "unitAndUI": [
     {
       "name": "real UI interactions without a backend keeps an unsent draft through pages and never fakes message acceptance",
       "status": "PASS",
-      "durationMs": 1439.3675000000003
+      "durationMs": 1437.0477
     },
     {
       "name": "real UI interactions without a backend maintains independent Dock state and supports keyboard resizing and tabs",
       "status": "PASS",
-      "durationMs": 678.9231
+      "durationMs": 482.05449999999973
     },
     {
       "name": "real UI interactions without a backend opens Files from Projects in place and keeps future controls honestly disabled",
       "status": "PASS",
-      "durationMs": 393.27670000000035
+      "durationMs": 407.8234999999995
     },
     {
       "name": "real UI interactions without a backend switches session appearance and routes using keyboard only",
       "status": "PASS",
-      "durationMs": 314.1274000000003
+      "durationMs": 260.9351999999999
     },
     {
       "name": "P6-U01 pending preview from A is never shown under selected project B",
       "status": "PASS",
-      "durationMs": 467.68119999999976
+      "durationMs": 531.1403999999998
     },
     {
       "name": "P6-U02 preview is escaped local text and never calls a discussion or disclosure mutation",
       "status": "PASS",
-      "durationMs": 96.29910000000018
+      "durationMs": 104.4978000000001
     },
     {
       "name": "P6-U03 only explicit source consent clicks mutate authority, and uncertain retries reuse the exact mutation identity",
       "status": "PASS",
-      "durationMs": 153.72389999999996
+      "durationMs": 80.00350000000026
     },
     {
       "name": "P7-U01 Main-issued exact proposal needs explicit click; duplicate click and uncertain retry reuse one mutation identity",
       "status": "PASS",
-      "durationMs": 201.24469999999997
+      "durationMs": 507.7473
     },
     {
       "name": "P7-U02 expired proposals disabled and backend unavailability is shown without optimistic task success",
       "status": "PASS",
-      "durationMs": 30.727600000000166
+      "durationMs": 86.82290000000012
     },
     {
       "name": "P7-U03 subscribe-before-snapshot, cancellation remains intent and navigation never confirms or re-executes a task",
       "status": "PASS",
-      "durationMs": 15.16190000000006
+      "durationMs": 44.74299999999994
     },
     {
       "name": "P5-UI01 explicit model choice, one acceptance on double click, waiting and only committed assistant rendering",
       "status": "PASS",
-      "durationMs": 1469.1122
+      "durationMs": 1287.1135999999997
     },
     {
       "name": "P5-UI02 failed T1 acceptance retains the local draft and shows no phantom saved assistant",
       "status": "PASS",
-      "durationMs": 917.1844000000001
+      "durationMs": 783.5751
     },
     {
       "name": "P5-UI03 delayed acceptance preserves newer unsent text: edit current draft",
       "status": "PASS",
-      "durationMs": 1021.1984000000002
+      "durationMs": 1109.8211000000001
     },
     {
       "name": "P5-UI03 delayed acceptance preserves newer unsent text: open another draft",
       "status": "PASS",
-      "durationMs": 923.3001000000004
+      "durationMs": 1181.9483
     },
     {
-      "name": "isolated presentation fixtures — never live task evidence renders coding conversation cards, expansion and safe text",
+      "name": "isolated presentation fixtures â€” never live task evidence renders coding conversation cards, expansion and safe text",
       "status": "PASS",
-      "durationMs": 530.6947
+      "durationMs": 528.8437000000004
     },
     {
-      "name": "isolated presentation fixtures — never live task evidence keeps preview read-only and treats markup as text",
+      "name": "isolated presentation fixtures â€” never live task evidence keeps preview read-only and treats markup as text",
       "status": "PASS",
-      "durationMs": 108.5915
+      "durationMs": 74.22499999999991
     },
     {
-      "name": "isolated presentation fixtures — never live task evidence shows truthful unavailable preview: Binary file preview is unavailable.",
+      "name": "isolated presentation fixtures â€” never live task evidence shows truthful unavailable preview: Binary file preview is unavailable.",
       "status": "PASS",
-      "durationMs": 21.93439999999964
+      "durationMs": 25.50949999999966
     },
     {
-      "name": "isolated presentation fixtures — never live task evidence shows truthful unavailable preview: This file cannot be read.",
+      "name": "isolated presentation fixtures â€” never live task evidence shows truthful unavailable preview: This file cannot be read.",
       "status": "PASS",
-      "durationMs": 27.24649999999974
+      "durationMs": 18.910699999999906
     },
     {
       "name": "P6-L01 failed source pipe never increments a durable read or sends a second response",
       "status": "PASS",
-      "durationMs": 3425.4835999999996
+      "durationMs": 2430.9689
     },
     {
       "name": "P6-L02 revoke wins before the authenticated write scheduling; prepared content is never released",
       "status": "PASS",
-      "durationMs": 1051.1532000000007
+      "durationMs": 1331.2621000000004
     },
     {
       "name": "P6-L03 30 discover calls and 1000 returned entries are independent parent ceilings",
       "status": "PASS",
-      "durationMs": 7056.3692
+      "durationMs": 14336.5701
     },
     {
       "name": "P6-L04 24 distinct files and 40 reads cannot be bypassed by repeating a subject",
       "status": "PASS",
-      "durationMs": 6167.636199999999
+      "durationMs": 9325.6512
     },
     {
       "name": "P6-L05 actual UTF8 released-byte and complete-file scan budgets never overflow",
       "status": "PASS",
-      "durationMs": 5054.3086
+      "durationMs": 7158.5194999999985
     },
     {
       "name": "P6-L06 actual WAL backup/restore with missing HMAC starts a new partial inspection and never reuses subject identity",
       "status": "PASS",
-      "durationMs": 1884.4522999999972
+      "durationMs": 2624.159400000004
     },
     {
       "name": "P6-L06 actual WAL backup/restore with rotated HMAC starts a new partial inspection and never reuses subject identity",
       "status": "PASS",
-      "durationMs": 2219.7151000000013
+      "durationMs": 2631.781600000002
     },
     {
       "name": "P6-L07 real native workers enforce two active, sixteen global queued, four per parent, fair UI access and cancellation",
       "status": "PASS",
-      "durationMs": 1859.443900000002
+      "durationMs": 2372.6821999999956
     },
     {
       "name": "P6-L08 real wall-clock queued work expires within the 30 second operation ceiling without starving Main",
       "status": "PASS",
-      "durationMs": 30490.0436
+      "durationMs": 30787.094300000004
     },
     {
       "name": "P6-L09 actual 90 second parent window expires independently of the 30 second per-operation deadline",
       "status": "PASS",
-      "durationMs": 90648.64519999998
+      "durationMs": 91427.9197
     },
     {
       "name": "P6-PATH rejects unsafe selector 0",
       "status": "PASS",
-      "durationMs": 4.164499999999975
+      "durationMs": 5.692300000000159
     },
     {
       "name": "P6-PATH rejects unsafe selector 1",
       "status": "PASS",
-      "durationMs": 0.8988000000000511
+      "durationMs": 1.0135999999999967
     },
     {
       "name": "P6-PATH rejects unsafe selector 2",
       "status": "PASS",
-      "durationMs": 0.8678999999999633
+      "durationMs": 0.6970000000001164
     },
     {
       "name": "P6-PATH rejects unsafe selector 3",
       "status": "PASS",
-      "durationMs": 0.5081000000000131
+      "durationMs": 0.48679999999990287
     },
     {
       "name": "P6-PATH rejects unsafe selector 4",
       "status": "PASS",
-      "durationMs": 0.38440000000002783
+      "durationMs": 0.45029999999997017
     },
     {
       "name": "P6-PATH rejects unsafe selector 5",
       "status": "PASS",
-      "durationMs": 0.37609999999995125
+      "durationMs": 0.34339999999997417
     },
     {
       "name": "P6-PATH rejects unsafe selector 6",
       "status": "PASS",
-      "durationMs": 0.29589999999996053
+      "durationMs": 0.34969999999998436
     },
     {
       "name": "P6-PATH rejects unsafe selector 7",
       "status": "PASS",
-      "durationMs": 0.24729999999999563
+      "durationMs": 0.3324000000000069
     },
     {
       "name": "P6-PATH rejects unsafe selector 8",
       "status": "PASS",
-      "durationMs": 0.36029999999993834
+      "durationMs": 0.4435000000000855
     },
     {
       "name": "P6-PATH rejects unsafe selector 9",
       "status": "PASS",
-      "durationMs": 0.4210999999999103
+      "durationMs": 0.4635999999998148
     },
     {
       "name": "P6-PATH rejects unsafe selector 10",
       "status": "PASS",
-      "durationMs": 0.29729999999995016
+      "durationMs": 0.39069999999992433
     },
     {
       "name": "P6-PATH rejects unsafe selector 11",
       "status": "PASS",
-      "durationMs": 0.2676999999999907
+      "durationMs": 0.3263000000001739
     },
     {
       "name": "P6-PATH rejects unsafe selector 12",
       "status": "PASS",
-      "durationMs": 0.2075999999999567
+      "durationMs": 0.2636999999999716
     },
     {
       "name": "P6-PATH rejects unsafe selector 13",
       "status": "PASS",
-      "durationMs": 0.2596999999999525
+      "durationMs": 0.21479999999996835
     },
     {
       "name": "P6-PATH rejects unsafe selector 14",
       "status": "PASS",
-      "durationMs": 0.25950000000000273
+      "durationMs": 0.21129999999993743
     },
     {
       "name": "P6-PATH rejects unsafe selector 15",
       "status": "PASS",
-      "durationMs": 0.22429999999997108
+      "durationMs": 0.26909999999998035
     },
     {
       "name": "P6-PATH rejects unsafe selector 16",
       "status": "PASS",
-      "durationMs": 0.21330000000000382
+      "durationMs": 0.23330000000009932
     },
     {
       "name": "P6-PATH rejects unsafe selector 17",
       "status": "PASS",
-      "durationMs": 0.17679999999995744
+      "durationMs": 0.32550000000014734
     },
     {
       "name": "P6-PATH rejects unsafe selector 18",
       "status": "PASS",
-      "durationMs": 0.19259999999997035
+      "durationMs": 0.23279999999999745
     },
     {
       "name": "P6-PATH rejects unsafe selector 19",
       "status": "PASS",
-      "durationMs": 0.2338999999999487
+      "durationMs": 0.19190000000003238
     },
     {
       "name": "P6-PATH rejects unsafe selector 20",
       "status": "PASS",
-      "durationMs": 0.20090000000004693
+      "durationMs": 0.17039999999997235
     },
     {
       "name": "P6-PATH rejects unsafe selector 21",
       "status": "PASS",
-      "durationMs": 0.32569999999998345
+      "durationMs": 0.22329999999988104
     },
     {
       "name": "P6-PATH rejects unsafe selector 22",
       "status": "PASS",
-      "durationMs": 0.17240000000003874
+      "durationMs": 0.18299999999999272
     },
     {
       "name": "P6-PATH rejects unsafe selector 23",
       "status": "PASS",
-      "durationMs": 0.2979000000000269
+      "durationMs": 0.17180000000007567
     },
     {
       "name": "P6-PATH rejects unsafe selector 24",
       "status": "PASS",
-      "durationMs": 0.2725000000000364
+      "durationMs": 0.15979999999990468
     },
     {
       "name": "P6-PATH rejects unsafe selector 25",
       "status": "PASS",
-      "durationMs": 0.22759999999993852
+      "durationMs": 0.16800000000012005
     },
     {
       "name": "P6-PATH rejects unsafe selector 26",
       "status": "PASS",
-      "durationMs": 0.3750999999999749
+      "durationMs": 0.44849999999996726
     },
     {
       "name": "P6-PATH rejects unsafe selector 27",
       "status": "PASS",
-      "durationMs": 0.26890000000003056
+      "durationMs": 0.2723999999998341
     },
     {
       "name": "P6-PATH rejects unsafe selector 28",
       "status": "PASS",
-      "durationMs": 0.2581000000000131
+      "durationMs": 0.5444999999999709
     },
     {
       "name": "P6-PATH rejects unsafe selector 29",
       "status": "PASS",
-      "durationMs": 0.2859999999999445
+      "durationMs": 0.3290999999999258
     },
     {
       "name": "P6-PATH rejects unsafe selector 30",
       "status": "PASS",
-      "durationMs": 0.22940000000005512
+      "durationMs": 0.21720000000004802
     },
     {
       "name": "P6-PATH rejects unsafe selector 31",
       "status": "PASS",
-      "durationMs": 0.3167000000000826
+      "durationMs": 0.921100000000024
     },
     {
       "name": "P6-PATH accepts literal bounded selector 0",
       "status": "PASS",
-      "durationMs": 4.7789000000000215
+      "durationMs": 1.0598999999999705
     },
     {
       "name": "P6-PATH accepts literal bounded selector 1",
       "status": "PASS",
-      "durationMs": 0.4622999999999138
+      "durationMs": 0.7445999999999913
     },
     {
       "name": "P6-PATH accepts literal bounded selector 2",
       "status": "PASS",
-      "durationMs": 0.3623999999999796
+      "durationMs": 0.4597999999998592
     },
     {
       "name": "P6-PATH accepts literal bounded selector 3",
       "status": "PASS",
-      "durationMs": 0.17819999999994707
+      "durationMs": 0.6511000000000422
     },
     {
       "name": "P6-PATH accepts literal bounded selector 4",
       "status": "PASS",
-      "durationMs": 0.25919999999996435
+      "durationMs": 0.26530000000002474
     },
     {
       "name": "P6-PATH root marker only belongs to directory enumeration",
       "status": "PASS",
-      "durationMs": 1.1908000000000811
+      "durationMs": 1.911100000000033
     },
     {
       "name": "P6-S1 denies sensitive path category 0",
       "status": "PASS",
-      "durationMs": 0.8409000000000333
+      "durationMs": 0.9619999999999891
     },
     {
       "name": "P6-S1 denies sensitive path category 1",
       "status": "PASS",
-      "durationMs": 0.3143999999999778
+      "durationMs": 0.3713000000000193
     },
     {
       "name": "P6-S1 denies sensitive path category 2",
       "status": "PASS",
-      "durationMs": 0.34989999999993415
+      "durationMs": 0.3805999999999585
     },
     {
       "name": "P6-S1 denies sensitive path category 3",
       "status": "PASS",
-      "durationMs": 0.2542999999999438
+      "durationMs": 0.28160000000002583
     },
     {
       "name": "P6-S1 denies sensitive path category 4",
       "status": "PASS",
-      "durationMs": 0.2604000000000042
+      "durationMs": 0.15069999999991524
     },
     {
       "name": "P6-S1 denies sensitive path category 5",
       "status": "PASS",
-      "durationMs": 0.24469999999996617
+      "durationMs": 0.16790000000014516
     },
     {
       "name": "P6-S1 denies sensitive path category 6",
       "status": "PASS",
-      "durationMs": 0.19000000000005457
+      "durationMs": 0.177599999999984
     },
     {
       "name": "P6-S1 denies sensitive path category 7",
       "status": "PASS",
-      "durationMs": 0.18039999999996326
+      "durationMs": 0.1608000000001084
     },
     {
       "name": "P6-S1 denies sensitive path category 8",
       "status": "PASS",
-      "durationMs": 0.11050000000000182
+      "durationMs": 0.14740000000006148
     },
     {
       "name": "P6-S1 denies sensitive path category 9",
       "status": "PASS",
-      "durationMs": 0.17399999999997817
+      "durationMs": 0.19970000000012078
     },
     {
       "name": "P6-S1 denies sensitive path category 10",
       "status": "PASS",
-      "durationMs": 0.14760000000001128
+      "durationMs": 0.12850000000003092
     },
     {
       "name": "P6-S1 denies sensitive path category 11",
       "status": "PASS",
-      "durationMs": 0.16640000000006694
+      "durationMs": 0.14789999999993597
     },
     {
       "name": "P6-S1 denies sensitive path category 12",
       "status": "PASS",
-      "durationMs": 0.1630999999999858
+      "durationMs": 0.296100000000024
     },
     {
       "name": "P6-S1 denies sensitive path category 13",
       "status": "PASS",
-      "durationMs": 0.1309999999999718
+      "durationMs": 0.13149999999995998
     },
     {
       "name": "P6-S1 denies sensitive path category 14",
       "status": "PASS",
-      "durationMs": 0.10649999999998272
+      "durationMs": 0.14820000000008804
     },
     {
       "name": "P6-S1 ordinary settings and unknown source extension remain eligible",
       "status": "PASS",
-      "durationMs": 0.19200000000000728
+      "durationMs": 0.2297000000000935
     },
     {
       "name": "P6-S3 denies complete sensitive content, including escaped and cross-buffer material 0",
       "status": "PASS",
-      "durationMs": 1.2291999999999916
+      "durationMs": 1.654700000000048
     },
     {
       "name": "P6-S3 denies complete sensitive content, including escaped and cross-buffer material 1",
       "status": "PASS",
-      "durationMs": 0.738399999999956
+      "durationMs": 0.7572999999999865
     },
     {
       "name": "P6-S3 denies complete sensitive content, including escaped and cross-buffer material 2",
       "status": "PASS",
-      "durationMs": 0.977800000000002
+      "durationMs": 0.4068999999999505
     },
     {
       "name": "P6-S3 denies complete sensitive content, including escaped and cross-buffer material 3",
       "status": "PASS",
-      "durationMs": 0.46510000000000673
+      "durationMs": 0.32950000000005275
     },
     {
       "name": "P6-S3 denies complete sensitive content, including escaped and cross-buffer material 4",
       "status": "PASS",
-      "durationMs": 0.3650000000000091
+      "durationMs": 0.29569999999989705
     },
     {
       "name": "P6-S3 denies complete sensitive content, including escaped and cross-buffer material 5",
       "status": "PASS",
-      "durationMs": 0.6543000000000347
+      "durationMs": 0.860300000000052
     },
     {
       "name": "P6-S3 denies complete sensitive content, including escaped and cross-buffer material 6",
       "status": "PASS",
-      "durationMs": 0.5632000000000517
+      "durationMs": 0.6947999999999865
     },
     {
       "name": "P6-S3 denies complete sensitive content, including escaped and cross-buffer material 7",
       "status": "PASS",
-      "durationMs": 0.3653999999999087
+      "durationMs": 0.7083000000000084
     },
     {
       "name": "P6-S3 denies complete sensitive content, including escaped and cross-buffer material 8",
       "status": "PASS",
-      "durationMs": 0.7427999999999884
+      "durationMs": 0.7766999999998916
     },
     {
       "name": "P6-S3 denies complete sensitive content, including escaped and cross-buffer material 9",
       "status": "PASS",
-      "durationMs": 0.5262000000000171
+      "durationMs": 0.5773999999998978
     },
     {
       "name": "P6-S3 denies complete sensitive content, including escaped and cross-buffer material 10",
       "status": "PASS",
-      "durationMs": 1.6820999999999913
+      "durationMs": 2.0272999999999683
     },
     {
       "name": "P6-DECODE malformed/ambiguous/binary input fails closed 0",
       "status": "PASS",
-      "durationMs": 0.6436999999999671
+      "durationMs": 0.5588000000000193
     },
     {
       "name": "P6-DECODE malformed/ambiguous/binary input fails closed 1",
       "status": "PASS",
-      "durationMs": 0.3830000000000382
+      "durationMs": 0.3686000000000149
     },
     {
       "name": "P6-DECODE malformed/ambiguous/binary input fails closed 2",
       "status": "PASS",
-      "durationMs": 0.3326000000000704
+      "durationMs": 0.26720000000000255
     },
     {
       "name": "P6-DECODE malformed/ambiguous/binary input fails closed 3",
       "status": "PASS",
-      "durationMs": 0.346300000000042
+      "durationMs": 0.9309000000000651
     },
     {
       "name": "P6-DECODE malformed/ambiguous/binary input fails closed 4",
       "status": "PASS",
-      "durationMs": 0.254099999999994
+      "durationMs": 0.29690000000005057
     },
     {
       "name": "P6-DECODE strict UTF8 BOM and UTF16 LE/BE share the same normalized excerpt hash",
       "status": "PASS",
-      "durationMs": 2.54729999999995
+      "durationMs": 3.235400000000027
     },
     {
       "name": "P6-SCAN ordinary source/hash text is not a secret by entropy alone",
       "status": "PASS",
-      "durationMs": 0.5978999999999814
+      "durationMs": 0.5730000000000928
     },
     {
       "name": "P6-LINES empty and wholly past EOF are denied; partial EOF reports real emitted bounds",
       "status": "PASS",
-      "durationMs": 1.3899000000000115
+      "durationMs": 1.6059000000000196
     },
     {
       "name": "P6-LINES character limits retain whole non-BMP scalar lines",
       "status": "PASS",
-      "durationMs": 0.8514999999999873
+      "durationMs": 0.7597000000000662
     },
     {
       "name": "P6-SIZE bounded complete scanner accepts the exact 8MiB edge and denies overflow",
       "status": "PASS",
-      "durationMs": 737.13
+      "durationMs": 893.4576999999999
     },
     {
       "name": "P6-WIRE numeric broker ranges and cursor lengths are rejected at the closed wire boundary",
       "status": "PASS",
-      "durationMs": 15.337000000000216
+      "durationMs": 22.332499999999982
     },
     {
       "name": "P6-B01 real Windows worker discover, T6 grant and exact local handoff before one durable read count",
       "status": "PASS",
-      "durationMs": 3203.5149999999994
+      "durationMs": 2697.4902
     },
     {
       "name": "P6-B02 local preview uses identical safety policy and never adds Discussion observations",
       "status": "PASS",
-      "durationMs": 904.4408000000003
+      "durationMs": 1017.4953999999998
     },
     {
       "name": "P6-B03 opaque cursor is scope-bound, mutation invalidates it, and no hidden name is returned",
       "status": "PASS",
-      "durationMs": 749.9835000000003
+      "durationMs": 1380.5073000000002
     },
     {
       "name": "P6-B04 foreign and ended parent cannot acquire filesystem authority",
       "status": "PASS",
-      "durationMs": 371.8234999999995
+      "durationMs": 622.2034000000003
     },
     {
       "name": "P6-B05 sensitive content outside requested line and across capture block is denied",
       "status": "PASS",
-      "durationMs": 639.5870999999997
+      "durationMs": 1371.5101000000004
     },
     {
       "name": "P6-B06 evidence COMMIT failure after successful source handoff never invents a count or sends a second response",
       "status": "PASS",
-      "durationMs": 692.0253999999995
+      "durationMs": 1246.1678999999995
     },
     {
       "name": "P6-B07 HMAC rotation ends the old inspection without mixing keys or releasing another source",
       "status": "PASS",
-      "durationMs": 457.58400000000074
+      "durationMs": 961.8711000000003
     },
     {
       "name": "P6-B08 UI workspace switch never retargets the immutable active parent",
       "status": "PASS",
-      "durationMs": 719.1653999999999
+      "durationMs": 1553.7523
     },
     {
       "name": "P6-B09 coding role, nonREADY connection and foreign session are denied before worker admission",
       "status": "PASS",
-      "durationMs": 358.7430999999997
+      "durationMs": 750.7075999999997
     },
     {
       "name": "P6-B10 replaced root is marked unavailable with historic identity preserved and requires explicit folder registration",
       "status": "PASS",
-      "durationMs": 385.17139999999927
+      "durationMs": 893.4982999999993
     },
     {
       "name": "P6-B11 moved root becomes unavailable rather than silently adopting another directory or repairing its identity",
       "status": "PASS",
-      "durationMs": 339.66530000000057
+      "durationMs": 737.7546000000002
     },
     {
       "name": "P6-B12 S5 repeats same-handle native freshness at the actual write hook after preparation; attribute-only timestamp change is denied",
       "status": "PASS",
-      "durationMs": 495.6702000000005
+      "durationMs": 1362.4256999999998
     },
     {
       "name": "P6-B13 cursors cannot cross UI project or Discussion authority; changed source cannot reuse a prior read observation",
       "status": "PASS",
-      "durationMs": 1165.0612
+      "durationMs": 2253.523799999999
     },
     {
       "name": "P6-W01 actual NTFS handle chain, identity, capture and same-byte normalized excerpt",
       "status": "PASS",
-      "durationMs": 22.00610000000006
+      "durationMs": 39.537700000000086
     },
     {
       "name": "P6-W02 held native ancestor and leaf reject rename/replacement and new writers",
       "status": "PASS",
-      "durationMs": 16.512199999999893
+      "durationMs": 26.360799999999927
     },
     {
       "name": "P6-W03 pre-existing writable handle makes native capture fail closed",
       "status": "PASS",
-      "durationMs": 8.330999999999904
+      "durationMs": 14.663499999999885
     },
     {
       "name": "P6-W04 real junction is refused, including a target inside the same project",
       "status": "PASS",
-      "durationMs": 12.68509999999992
+      "durationMs": 18.961199999999963
     },
     {
       "name": "P6-W05 strict native registration identity rejects a replaced project directory",
       "status": "PASS",
-      "durationMs": 20.998399999999947
+      "durationMs": 23.13869999999997
     },
     {
       "name": "P6-W06 previously writable mapped view after original handle closes must not permit a capture",
       "status": "PASS",
-      "durationMs": 10.686599999999999
+      "durationMs": 14.006999999999834
     },
     {
       "name": "P6-W07 outside-root junction and ordinary hard-link alias never release bytes",
       "status": "PASS",
-      "durationMs": 10.574100000000044
+      "durationMs": 19.8916999999999
     },
     {
       "name": "P6-W08 full precise expected mtime and post-capture metadata mutation are rejected",
       "status": "PASS",
-      "durationMs": 31.877500000000055
+      "durationMs": 22.87390000000005
     },
     {
       "name": "P6-W09 actual separate worker pins ancestors and exact capture against same-length writer/mtime restoration and directory replacement",
       "status": "PASS",
-      "durationMs": 1555.0576999999998
+      "durationMs": 743.8811000000001
     },
     {
       "name": "P6-W10 actual symbolic link is denied when unprivileged Windows link creation is available",
       "status": "NOT_RUN",
-      "durationMs": 5.693499999999858
+      "durationMs": 11.430499999999938
     },
     {
       "name": "P6-W11 actual long-name identity accepts ASCII case and refuses an available Windows short alias",
       "status": "PASS",
-      "durationMs": 12.083100000000286
+      "durationMs": 21.079700000000003
     },
     {
       "name": "P6-W12 borrowed Main verification uses real worker-owned handles and cannot outlive their native lease",
       "status": "PASS",
-      "durationMs": 193.08140000000003
+      "durationMs": 225.48640000000023
+    },
+    {
+      "name": "P7-E01 actual AgentOS patch, C01, TaskOutcome, Main T4 and native/outer-Job T3 cleanup",
+      "status": "PASS",
+      "durationMs": 10108.9733
+    },
+    {
+      "name": "P7-E02 actual failed TaskOutcome releases only after native/Windows cleanup",
+      "status": "PASS",
+      "durationMs": 7517.1836
+    },
+    {
+      "name": "P7-E03-gateway durable cancel reaches real engine and confirms actual cooperative stop",
+      "status": "PASS",
+      "durationMs": 7553.0969000000005
+    },
+    {
+      "name": "P7-E03-worker durable cancel reaches real engine and confirms actual cooperative stop",
+      "status": "PASS",
+      "durationMs": 8950.046400000003
+    },
+    {
+      "name": "P7-E03-shell durable cancel reaches real engine and confirms actual cooperative stop",
+      "status": "PASS",
+      "durationMs": 8783.7794
+    },
+    {
+      "name": "P7-E04 actual engine exception preserves unknown outcome and blocked writer",
+      "status": "PASS",
+      "durationMs": 7415.918899999997
+    },
+    {
+      "name": "P7-E05 real noncooperating Gateway plus owned descendants escalates after 15 seconds, retaining uncertainty and lease",
+      "status": "PASS",
+      "durationMs": 22967.935299999997
+    },
+    {
+      "name": "P7-E06 real FIFO queue: queued cancellation never spawns, next committed writer starts only after actual cleanup",
+      "status": "PASS",
+      "durationMs": 13396.792499999996
+    },
+    {
+      "name": "P7-E07 terminal SQLite COMMIT fault preserves actual changed file, unknown outcome and blocked lease",
+      "status": "PASS",
+      "durationMs": 9538.768399999986
+    },
+    {
+      "name": "P7-E08 verified engine alone cannot enable a paid/default provider or consume a production proposal",
+      "status": "PASS",
+      "durationMs": 5077.265699999989
+    },
+    {
+      "name": "P7-E09 actual native T2 COMMIT fault cannot spawn the verified engine or consume approval",
+      "status": "PASS",
+      "durationMs": 5095.522599999997
+    },
+    {
+      "name": "P7-E10 ordinary Main proof cannot forge a coding event or cleanup authority for a real active task",
+      "status": "PASS",
+      "durationMs": 7823.388600000006
+    },
+    {
+      "name": "P7-G01 exact tested engine is verified with pinned sources/Git and a credential-free narrow environment",
+      "status": "PASS",
+      "durationMs": 2216.9091
+    },
+    {
+      "name": "P7-G02 changed Desktop bridge bytes cannot launch after verification; original sources stay untouched",
+      "status": "PASS",
+      "durationMs": 2194.3013
+    },
+    {
+      "name": "P7-G03 wrong Git identity and a fabricated source-only capability cannot enable coding",
+      "status": "PASS",
+      "durationMs": 517.2537000000002
     },
     {
       "name": "P7-A01 default engine gate rejects production admission without consuming a real Main proposal",
       "status": "PASS",
-      "durationMs": 47.23249999999996
+      "durationMs": 102.34749999999985
     },
     {
       "name": "P7-A02 concurrent duplicate explicit admissions have one durable task, receipt, lease and post-COMMIT dispatch",
       "status": "PASS",
-      "durationMs": 34.872799999999984
+      "durationMs": 74.35860000000002
     },
     {
       "name": "P7-A03 T2 COMMIT failure never dispatches or consumes authorization",
       "status": "PASS",
-      "durationMs": 27.467300000000023
+      "durationMs": 52.2512999999999
     },
     {
       "name": "P7-A04 real SQLite one active +20 queued, FIFO, and never-started queue cancellation without a child command",
       "status": "PASS",
-      "durationMs": 118.19920000000002
+      "durationMs": 218.7009999999998
     },
     {
       "name": "P7-A05 active cancel is durably recorded before forwarding; repeated cancel does not forward twice or imply engine cancellation",
       "status": "PASS",
-      "durationMs": 35.6952
+      "durationMs": 59.67949999999996
     },
     {
       "name": "P7-A06 failed launch and lost cancel route retain uncertainty and blocked writer; original receipt never auto-reexecutes",
       "status": "PASS",
-      "durationMs": 36.22910000000002
+      "durationMs": 58.94439999999986
     },
     {
       "name": "P7-A07 expiry, absent and cross-project proposal IDs reject before launch",
       "status": "PASS",
-      "durationMs": 26.420699999999897
+      "durationMs": 58.576699999999846
     },
     {
       "name": "P7-A08 C01 context is bounded, same-conversation, advisory and separate from the exact admitted goal",
       "status": "PASS",
-      "durationMs": 50.31989999999996
+      "durationMs": 91.67730000000006
     },
     {
       "name": "P7-A09 terminal/SQLite/cancel race preserves actual committed evidence and never releases a writer from a DTO",
       "status": "PASS",
-      "durationMs": 45.96129999999994
+      "durationMs": 89.38369999999986
     },
     {
       "name": "P7-A10 restart or unavailable engine returns the exact historical receipt without rechecking native IO or re-executing",
       "status": "PASS",
-      "durationMs": 31.7983999999999
+      "durationMs": 59.95739999999978
+    },
+    {
+      "name": "P7-A11 committed cancellation evidence can reconcile without inventing a TaskOutcome",
+      "status": "PASS",
+      "durationMs": 73.10000000000036
+    },
+    {
+      "name": "P7-A12 a gapped terminal stream retains its actual recorded outcome and writer until complete",
+      "status": "PASS",
+      "durationMs": 85.5648000000001
     },
     {
       "name": "P5-14 valid visible summary sources enter derived memory for a later turn",
       "status": "PASS",
-      "durationMs": 60.91459999999995
+      "durationMs": 134.1159
     },
     {
       "name": "P5-15 history pressure prunes whole optional entries and preserves the exact current message",
       "status": "PASS",
-      "durationMs": 42.22090000000003
+      "durationMs": 76.81850000000009
     },
     {
       "name": "P5-01 model registry, unsupported selection and preference is for future sends",
       "status": "PASS",
-      "durationMs": 25.039300000000026
+      "durationMs": 46.78110000000015
     },
     {
       "name": "P5-02 real T1 acceptance and immutable receipt before issue; duplicate mutation produces one T5 answer and no second call",
       "status": "PASS",
-      "durationMs": 37.69569999999999
+      "durationMs": 68.85549999999989
     },
     {
       "name": "P5-03 current and future queued user turns never leak into historical context; same conversation serialized",
       "status": "PASS",
-      "durationMs": 45.390300000000025
+      "durationMs": 88.86130000000003
     },
     {
       "name": "P5-04 ambiguous provider failure preserves the user and unknown attempt, no assistant or task event",
       "status": "PASS",
-      "durationMs": 32.10089999999991
+      "durationMs": 59.40070000000014
     },
     {
       "name": "P5-05 T1 commit failure makes no provider issue; T5 commit failure cannot publish an assistant",
       "status": "PASS",
-      "durationMs": 61.31189999999992
+      "durationMs": 106.36349999999993
     },
     {
       "name": "P5-06 all coding and broker/file methods remain closed, registry and DB have no credential",
       "status": "PASS",
-      "durationMs": 21.927999999999884
+      "durationMs": 41.63409999999999
     },
     {
       "name": "P5-07 restart of a T1-committed but unissued turn shows unknown without replay or fake attempt",
       "status": "PASS",
-      "durationMs": 39.98669999999993
+      "durationMs": 78.24469999999997
     },
     {
       "name": "P5-08 wrong request correlation cannot become a committed assistant message",
       "status": "PASS",
-      "durationMs": 32.2351000000001
+      "durationMs": 57.1891999999998
     },
     {
       "name": "P5-09 different conversation context is isolated even within the same registered project",
       "status": "PASS",
-      "durationMs": 28.79469999999992
+      "durationMs": 56.76729999999998
     },
     {
       "name": "P5-10 a structured proposal receives a Main identity and TTL while no task, lease or coding event is created",
       "status": "PASS",
-      "durationMs": 31.47550000000001
+      "durationMs": 64.1280999999999
     },
     {
       "name": "P5-11 fabricated summary sources and generated decision candidates never enter trusted memory",
       "status": "PASS",
-      "durationMs": 27.26890000000003
+      "durationMs": 55.67959999999994
     },
     {
       "name": "P5-12 exact attributable user approval enters T5 atomically and is available as approved context on a later turn",
       "status": "PASS",
-      "durationMs": 29.295399999999972
+      "durationMs": 63.96720000000005
     },
     {
       "name": "P5-13 conversation Dock save uses existing receipt transaction and never changes task state",
       "status": "PASS",
-      "durationMs": 27.685400000000072
+      "durationMs": 64.07029999999986
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main has precisely the independent 23-method and three-subscription register",
       "status": "PASS",
-      "durationMs": 6.895399999999995
+      "durationMs": 11.12649999999985
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main app.bootstrap: validated known input reaches Main and returns an official unready error",
       "status": "PASS",
-      "durationMs": 2.0348000000000184
+      "durationMs": 3.0009000000000015
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main app.bootstrap: malformed payload never becomes success",
       "status": "PASS",
-      "durationMs": 1.0243000000000393
+      "durationMs": 1.6847000000000207
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main projects.listRecent: validated known input reaches Main and returns an official unready error",
       "status": "PASS",
-      "durationMs": 0.6025000000000773
+      "durationMs": 0.660799999999881
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main projects.listRecent: malformed payload never becomes success",
       "status": "PASS",
-      "durationMs": 0.4855000000000018
+      "durationMs": 0.5238999999999123
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main projects.choose: validated known input reaches Main and returns an official unready error",
       "status": "PASS",
-      "durationMs": 0.5205999999999449
+      "durationMs": 0.5300000000002001
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main projects.choose: malformed payload never becomes success",
       "status": "PASS",
-      "durationMs": 0.46439999999995507
+      "durationMs": 0.47319999999990614
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main projects.select: validated known input reaches Main and returns an official unready error",
       "status": "PASS",
-      "durationMs": 2.987799999999993
+      "durationMs": 4.126099999999951
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main projects.select: malformed payload never becomes success",
       "status": "PASS",
-      "durationMs": 0.8961000000000467
+      "durationMs": 0.6427000000001044
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main projects.listFiles: validated known input reaches Main and returns an official unready error",
       "status": "PASS",
-      "durationMs": 2.684599999999932
+      "durationMs": 3.3010000000001583
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main projects.listFiles: malformed payload never becomes success",
       "status": "PASS",
-      "durationMs": 0.7498000000000502
+      "durationMs": 0.5226999999999862
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main projects.previewFile: validated known input reaches Main and returns an official unready error",
       "status": "PASS",
-      "durationMs": 2.5984000000000833
+      "durationMs": 2.470199999999977
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main projects.previewFile: malformed payload never becomes success",
       "status": "PASS",
-      "durationMs": 0.6088000000000875
+      "durationMs": 0.4430999999999585
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main conversations.list: validated known input reaches Main and returns an official unready error",
       "status": "PASS",
-      "durationMs": 1.1607000000000198
+      "durationMs": 1.3097000000000207
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main conversations.list: malformed payload never becomes success",
       "status": "PASS",
-      "durationMs": 0.5357000000000198
+      "durationMs": 0.42020000000002256
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main conversations.read: validated known input reaches Main and returns an official unready error",
       "status": "PASS",
-      "durationMs": 1.1832999999999174
+      "durationMs": 1.1593000000000302
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main conversations.read: malformed payload never becomes success",
       "status": "PASS",
-      "durationMs": 0.47440000000005966
+      "durationMs": 0.3489999999999327
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main conversations.saveDockState: validated known input reaches Main and returns an official unready error",
       "status": "PASS",
-      "durationMs": 2.1386999999999716
+      "durationMs": 2.6170999999999367
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main conversations.saveDockState: malformed payload never becomes success",
       "status": "PASS",
-      "durationMs": 0.5445999999999458
+      "durationMs": 0.49339999999983775
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main conversations.sendMessage: validated known input reaches Main and returns an official unready error",
       "status": "PASS",
-      "durationMs": 1.7052999999999656
+      "durationMs": 2.08179999999993
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main conversations.sendMessage: malformed payload never becomes success",
       "status": "PASS",
-      "durationMs": 0.6141999999999825
+      "durationMs": 0.49270000000001346
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main models.list: validated known input reaches Main and returns an official unready error",
       "status": "PASS",
-      "durationMs": 0.43640000000004875
+      "durationMs": 0.32779999999979736
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main models.list: malformed payload never becomes success",
       "status": "PASS",
-      "durationMs": 0.37189999999998236
+      "durationMs": 0.28650000000016007
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main models.setDiscussionPreference: validated known input reaches Main and returns an official unready error",
       "status": "PASS",
-      "durationMs": 0.7688000000000557
+      "durationMs": 0.802599999999984
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main models.setDiscussionPreference: malformed payload never becomes success",
       "status": "PASS",
-      "durationMs": 0.32979999999997744
+      "durationMs": 0.27089999999998327
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main disclosures.list: validated known input reaches Main and returns an official unready error",
       "status": "PASS",
-      "durationMs": 0.5494999999999663
+      "durationMs": 0.44630000000006476
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main disclosures.list: malformed payload never becomes success",
       "status": "PASS",
-      "durationMs": 0.2904999999999518
+      "durationMs": 0.2438999999999396
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main disclosures.respond: validated known input reaches Main and returns an official unready error",
       "status": "PASS",
-      "durationMs": 0.8614000000000033
+      "durationMs": 0.9462000000000899
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main disclosures.respond: malformed payload never becomes success",
       "status": "PASS",
-      "durationMs": 0.41259999999999764
+      "durationMs": 0.3582000000001244
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main disclosures.revoke: validated known input reaches Main and returns an official unready error",
       "status": "PASS",
-      "durationMs": 0.9385999999999513
+      "durationMs": 0.9026999999998679
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main disclosures.revoke: malformed payload never becomes success",
       "status": "PASS",
-      "durationMs": 0.37379999999996016
+      "durationMs": 0.26720000000000255
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main proposals.confirmRun: validated known input reaches Main and returns an official unready error",
       "status": "PASS",
-      "durationMs": 0.9595000000000482
+      "durationMs": 0.8505999999999858
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main proposals.confirmRun: malformed payload never becomes success",
       "status": "PASS",
-      "durationMs": 0.48680000000001655
+      "durationMs": 0.7942000000000462
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main tasks.read: validated known input reaches Main and returns an official unready error",
       "status": "PASS",
-      "durationMs": 0.7122999999999138
+      "durationMs": 0.7382000000000062
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main tasks.read: malformed payload never becomes success",
       "status": "PASS",
-      "durationMs": 0.41820000000006985
+      "durationMs": 0.3571999999999207
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main tasks.list: validated known input reaches Main and returns an official unready error",
       "status": "PASS",
-      "durationMs": 1.1103999999999132
+      "durationMs": 0.9367999999999483
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main tasks.list: malformed payload never becomes success",
       "status": "PASS",
-      "durationMs": 0.37439999999992324
+      "durationMs": 0.27070000000003347
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main tasks.cancel: validated known input reaches Main and returns an official unready error",
       "status": "PASS",
-      "durationMs": 0.5042000000000826
+      "durationMs": 0.4379999999998745
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main tasks.cancel: malformed payload never becomes success",
       "status": "PASS",
-      "durationMs": 0.29779999999993834
+      "durationMs": 0.22210000000018226
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main tasks.readEvents: validated known input reaches Main and returns an official unready error",
       "status": "PASS",
-      "durationMs": 1.0097999999999274
+      "durationMs": 1.0424000000000433
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main tasks.readEvents: malformed payload never becomes success",
       "status": "PASS",
-      "durationMs": 0.5374000000000478
+      "durationMs": 0.40390000000002146
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main tasks.readDiagnostics: validated known input reaches Main and returns an official unready error",
       "status": "PASS",
-      "durationMs": 0.8585000000000491
+      "durationMs": 0.8533999999999651
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main tasks.readDiagnostics: malformed payload never becomes success",
       "status": "PASS",
-      "durationMs": 0.39990000000000236
+      "durationMs": 0.3484000000000833
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main preferences.get: validated known input reaches Main and returns an official unready error",
       "status": "PASS",
-      "durationMs": 0.43659999999999854
+      "durationMs": 0.3727000000001226
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main preferences.get: malformed payload never becomes success",
       "status": "PASS",
-      "durationMs": 0.266399999999976
+      "durationMs": 0.21810000000004948
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main preferences.update: validated known input reaches Main and returns an official unready error",
       "status": "PASS",
-      "durationMs": 1.1580999999999904
+      "durationMs": 1.2040000000001783
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main preferences.update: malformed payload never becomes success",
       "status": "PASS",
-      "durationMs": 0.7142000000000053
+      "durationMs": 1.1784999999999854
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main rejects unknown channels, multiple arguments, foreign frames, and callers that lose trust",
       "status": "PASS",
-      "durationMs": 0.6145000000000209
+      "durationMs": 1.4085000000000036
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main measures Unicode code points and rejects extra authority / path / enum / page fields",
       "status": "PASS",
-      "durationMs": 7.793300000000045
+      "durationMs": 12.747700000000123
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main rejects cycles, accessors and non-JSON objects before expensive schema work",
       "status": "PASS",
-      "durationMs": 4.6621000000000095
+      "durationMs": 7.11019999999985
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main facade enforces arity, fixed argument adapters and sanitized transport errors",
       "status": "PASS",
-      "durationMs": 4.171499999999924
+      "durationMs": 4.666899999999941
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main bounds aggregate serialized work and rejects array subclasses or hidden properties",
       "status": "PASS",
-      "durationMs": 8.999500000000012
+      "durationMs": 10.97420000000011
     },
     {
       "name": "IIS-02 exact restricted surface and fail-closed Main acceptance is persisted-only and errors are the fixed 17 UI values",
       "status": "PASS",
-      "durationMs": 5.8134000000000015
+      "durationMs": 9.430799999999863
     },
     {
       "name": "IIS-02-C01 required closed projections, not a new public operation preserves required nulls and empty proposal fields",
       "status": "PASS",
-      "durationMs": 2.467200000000048
+      "durationMs": 2.9588000000001102
     },
     {
       "name": "IIS-02-C01 required closed projections, not a new public operation rejects foreign proposal / user turn, excess proposals and nonexistent retry controls",
       "status": "PASS",
-      "durationMs": 2.4250999999999294
+      "durationMs": 2.651299999999992
     },
     {
       "name": "three subscriptions: Main authority, sanitation and lifecycle delivers typed scoped projections only, isolates callbacks, and safely unregisters",
       "status": "PASS",
-      "durationMs": 7.0458999999999605
+      "durationMs": 7.658799999999928
     },
     {
       "name": "three subscriptions: Main authority, sanitation and lifecycle defaults unavailable scoped stores to denied, rechecks permissions, and disposes on reload",
       "status": "PASS",
-      "durationMs": 1.871499999999969
+      "durationMs": 1.4969999999998436
     },
     {
       "name": "three subscriptions: Main authority, sanitation and lifecycle bounds listeners, validates input, and never exposes raw Electron event objects",
       "status": "PASS",
-      "durationMs": 9.591600000000085
+      "durationMs": 11.307700000000068
     },
     {
       "name": "IIS-01 closed framing and schema vectors normative fixture 1",
       "status": "PASS",
-      "durationMs": 8.904100000000085
+      "durationMs": 13.761700000000133
     },
     {
       "name": "IIS-01 closed framing and schema vectors normative fixture 2",
       "status": "PASS",
-      "durationMs": 5.689999999999941
+      "durationMs": 11.556899999999814
     },
     {
       "name": "IIS-01 closed framing and schema vectors normative fixture 3",
       "status": "PASS",
-      "durationMs": 2.13250000000005
+      "durationMs": 3.4706999999998516
     },
     {
       "name": "IIS-01 closed framing and schema vectors normative fixture 4",
       "status": "PASS",
-      "durationMs": 4.759399999999914
+      "durationMs": 10.830200000000104
     },
     {
       "name": "IIS-01 closed framing and schema vectors normative fixture 5",
       "status": "PASS",
-      "durationMs": 2.481899999999996
+      "durationMs": 4.361100000000079
     },
     {
       "name": "IIS-01 closed framing and schema vectors normative fixture 6",
       "status": "PASS",
-      "durationMs": 2.504699999999957
+      "durationMs": 3.085099999999784
     },
     {
       "name": "IIS-01 closed framing and schema vectors normative fixture 7",
       "status": "PASS",
-      "durationMs": 1.0744999999999436
+      "durationMs": 4.173500000000104
     },
     {
       "name": "IIS-01 closed framing and schema vectors normative fixture 8",
       "status": "PASS",
-      "durationMs": 2.47079999999994
+      "durationMs": 5.704199999999901
     },
     {
       "name": "IIS-01 closed framing and schema vectors normative fixture 9",
       "status": "PASS",
-      "durationMs": 1.2775000000000318
+      "durationMs": 2.3794000000000324
     },
     {
       "name": "IIS-01 closed framing and schema vectors normative fixture 10",
       "status": "PASS",
-      "durationMs": 0.9257000000000062
+      "durationMs": 1.414600000000064
     },
     {
       "name": "IIS-01 closed framing and schema vectors normative fixture 11",
       "status": "PASS",
-      "durationMs": 1.8987000000000762
+      "durationMs": 2.9082999999998265
     },
     {
       "name": "IIS-01 closed framing and schema vectors normative fixture 12",
       "status": "PASS",
-      "durationMs": 1.0184000000000424
+      "durationMs": 1.2884999999998854
     },
     {
       "name": "IIS-01 closed framing and schema vectors normative fixture 13",
       "status": "PASS",
-      "durationMs": 2.8233999999999924
+      "durationMs": 4.149300000000039
     },
     {
       "name": "IIS-01 closed framing and schema vectors normative fixture 14",
       "status": "PASS",
-      "durationMs": 1.5715999999999894
+      "durationMs": 2.139799999999923
     },
     {
       "name": "IIS-01 closed framing and schema vectors normative fixture 15",
       "status": "PASS",
-      "durationMs": 1.356300000000033
+      "durationMs": 2.3953999999998814
     },
     {
       "name": "IIS-01 closed framing and schema vectors normative fixture 16",
       "status": "PASS",
-      "durationMs": 2.474399999999946
+      "durationMs": 4.561799999999948
     },
     {
       "name": "IIS-01 closed framing and schema vectors failed native outcome preserves its actual phase",
       "status": "PASS",
-      "durationMs": 0.8802999999999201
+      "durationMs": 1.5992999999998574
     },
     {
       "name": "IIS-01 closed framing and schema vectors extra root key",
       "status": "PASS",
-      "durationMs": 0.7928000000000566
+      "durationMs": 1.2639999999998963
     },
     {
       "name": "IIS-01 closed framing and schema vectors missing root field",
       "status": "PASS",
-      "durationMs": 0.4964999999999691
+      "durationMs": 0.7750999999998385
     },
     {
       "name": "IIS-01 closed framing and schema vectors boolean version",
       "status": "PASS",
-      "durationMs": 0.4254000000000815
+      "durationMs": 2.214100000000144
     },
     {
       "name": "IIS-01 closed framing and schema vectors string version",
       "status": "PASS",
-      "durationMs": 0.4237000000000535
+      "durationMs": 1.7423000000001139
     },
     {
       "name": "IIS-01 closed framing and schema vectors unknown version",
       "status": "PASS",
-      "durationMs": 0.3301000000000158
+      "durationMs": 0.6446999999998297
     },
     {
       "name": "IIS-01 closed framing and schema vectors unknown type",
       "status": "PASS",
-      "durationMs": 0.3708000000000311
+      "durationMs": 0.7592999999999392
     },
     {
       "name": "IIS-01 closed framing and schema vectors invalid ID",
       "status": "PASS",
-      "durationMs": 0.45299999999997453
+      "durationMs": 0.931400000000167
     },
     {
       "name": "IIS-01 closed framing and schema vectors non-null ready correlation",
       "status": "PASS",
-      "durationMs": 0.32929999999998927
+      "durationMs": 0.5858999999998105
     },
     {
       "name": "IIS-01 closed framing and schema vectors extra ready payload",
       "status": "PASS",
-      "durationMs": 0.419399999999996
+      "durationMs": 0.5981999999999061
     },
     {
       "name": "IIS-01 closed framing and schema vectors unknown role",
       "status": "PASS",
-      "durationMs": 0.3926999999999907
+      "durationMs": 0.7258999999999105
     },
     {
       "name": "IIS-01 closed framing and schema vectors unknown action",
       "status": "PASS",
-      "durationMs": 1.9627000000000407
+      "durationMs": 0.6020999999998367
     },
     {
       "name": "IIS-01 closed framing and schema vectors task.cancel extra PID",
       "status": "PASS",
-      "durationMs": 0.8514000000000124
+      "durationMs": 1.102999999999838
     },
     {
       "name": "IIS-01 closed framing and schema vectors read unsafe metadata",
       "status": "PASS",
-      "durationMs": 0.45679999999993015
+      "durationMs": 0.5981000000001586
     },
     {
       "name": "IIS-01 closed framing and schema vectors read fractional lines",
       "status": "PASS",
-      "durationMs": 0.30700000000001637
+      "durationMs": 0.3748000000000502
     },
     {
       "name": "IIS-01 closed framing and schema vectors read too many lines",
       "status": "PASS",
-      "durationMs": 0.7746000000001914
+      "durationMs": 1.1496999999999389
     },
     {
       "name": "IIS-01 closed framing and schema vectors read traversal",
       "status": "PASS",
-      "durationMs": 0.6259000000000015
+      "durationMs": 1.293999999999869
     },
     {
       "name": "IIS-01 closed framing and schema vectors discovery excessive depth",
       "status": "PASS",
-      "durationMs": 1.7749999999998636
+      "durationMs": 0.9800999999999931
     },
     {
       "name": "IIS-01 closed framing and schema vectors boolean sequence",
       "status": "PASS",
-      "durationMs": 0.8761999999999261
+      "durationMs": 1.5441000000000713
     },
     {
       "name": "IIS-01 closed framing and schema vectors source label forgery",
       "status": "PASS",
-      "durationMs": 0.5511999999998807
+      "durationMs": 0.7930999999998676
     },
     {
       "name": "IIS-01 closed framing and schema vectors unknown event",
       "status": "PASS",
-      "durationMs": 0.7449000000001433
+      "durationMs": 2.3612000000000535
     },
     {
       "name": "IIS-01 closed framing and schema vectors unknown worker role",
       "status": "PASS",
-      "durationMs": 1.794700000000148
+      "durationMs": 3.1981000000000677
     },
     {
       "name": "IIS-01 closed framing and schema vectors event/outside ID collision",
       "status": "PASS",
-      "durationMs": 0.8248999999998432
+      "durationMs": 0.8847000000000662
     },
     {
       "name": "IIS-01 closed framing and schema vectors unpaired surrogate",
       "status": "PASS",
-      "durationMs": 0.4150999999999385
+      "durationMs": 0.6761000000001332
     },
     {
       "name": "IIS-01 closed framing and schema vectors oversized text",
       "status": "PASS",
-      "durationMs": 6.464000000000169
+      "durationMs": 11.59050000000002
     },
     {
       "name": "IIS-01 closed framing and schema vectors accepted result must be null",
       "status": "PASS",
-      "durationMs": 1.647799999999961
+      "durationMs": 3.085800000000063
     },
     {
       "name": "IIS-01 closed framing and schema vectors unknown error code",
       "status": "PASS",
-      "durationMs": 1.7208000000000538
+      "durationMs": 2.6609000000000833
     },
     {
       "name": "IIS-01 closed framing and schema vectors duplicate root key",
       "status": "PASS",
-      "durationMs": 2.0008000000000266
+      "durationMs": 0.6107999999999265
     },
     {
       "name": "IIS-01 closed framing and schema vectors escaped duplicate key",
       "status": "PASS",
-      "durationMs": 0.5730999999998403
+      "durationMs": 0.5610000000001492
     },
     {
       "name": "IIS-01 closed framing and schema vectors integer lexeme float",
       "status": "PASS",
-      "durationMs": 0.3545999999998912
+      "durationMs": 0.49139999999988504
     },
     {
       "name": "IIS-01 closed framing and schema vectors integer lexeme exponent",
       "status": "PASS",
-      "durationMs": 0.28449999999998
+      "durationMs": 0.4493999999999687
     },
     {
       "name": "IIS-01 closed framing and schema vectors nonfinite value",
       "status": "PASS",
-      "durationMs": 0.2504999999998745
+      "durationMs": 0.3686000000000149
     },
     {
       "name": "IIS-01 closed framing and schema vectors missing LF",
       "status": "PASS",
-      "durationMs": 0.14629999999988286
+      "durationMs": 0.40019999999981337
     },
     {
       "name": "IIS-01 closed framing and schema vectors CRLF",
       "status": "PASS",
-      "durationMs": 0.2686999999998534
+      "durationMs": 0.3647000000000844
     },
     {
       "name": "IIS-01 closed framing and schema vectors BOM",
       "status": "PASS",
-      "durationMs": 0.2319999999999709
+      "durationMs": 0.3082999999999174
     },
     {
       "name": "IIS-01 closed framing and schema vectors stdout chatter",
       "status": "PASS",
-      "durationMs": 0.20650000000000546
+      "durationMs": 0.5208999999999833
     },
     {
       "name": "IIS-01 closed framing and schema vectors blank line",
       "status": "PASS",
-      "durationMs": 0.19680000000016662
+      "durationMs": 0.36779999999998836
     },
     {
       "name": "IIS-01 closed framing and schema vectors trailing garbage",
       "status": "PASS",
-      "durationMs": 0.1854000000000724
+      "durationMs": 0.3486000000000331
     },
     {
       "name": "IIS-01 closed framing and schema vectors invalid UTF-8",
       "status": "PASS",
-      "durationMs": 0.19080000000008113
+      "durationMs": 0.4277999999999338
     },
     {
       "name": "IIS-01 closed framing and schema vectors record exact hard cap",
       "status": "PASS",
-      "durationMs": 2.970399999999927
+      "durationMs": 5.681899999999814
     },
     {
       "name": "IIS-01 closed framing and schema vectors record above hard cap",
       "status": "PASS",
-      "durationMs": 0.5213999999998578
+      "durationMs": 0.6603999999999814
     },
     {
       "name": "IIS-01 closed framing and schema vectors Unicode within code-point cap",
       "status": "PASS",
-      "durationMs": 3.9610999999999876
+      "durationMs": 6.417599999999993
     },
     {
       "name": "IIS-01 closed framing and schema vectors has exactly five types, five actions and nine event names",
       "status": "PASS",
-      "durationMs": 14.71550000000002
+      "durationMs": 28.040199999999913
     },
     {
       "name": "IIS-01 closed framing and schema vectors roundtrips every canonical fixture with exactly five root keys and one LF",
       "status": "PASS",
-      "durationMs": 15.079099999999926
+      "durationMs": 21.411100000000033
     },
     {
       "name": "IIS-01 closed framing and schema vectors handles multibyte characters split at every byte without decoding partial UTF-8",
       "status": "PASS",
-      "durationMs": 2.7140999999999167
+      "durationMs": 4.580000000000155
     },
     {
       "name": "IIS-01 closed framing and schema vectors bounds partial data, the first-byte deadline, EOF and records per push",
       "status": "PASS",
-      "durationMs": 32.64269999999988
+      "durationMs": 53.730800000000045
     },
     {
       "name": "IIS-01 closed framing and schema vectors never interprets stderr, including otherwise valid event or READY JSON",
       "status": "PASS",
-      "durationMs": 1.3919999999998254
+      "durationMs": 1.8234999999999673
     },
     {
       "name": "IIS-01 closed framing and schema vectors bounds outbound/event queues by both records and bytes, with finite pressure",
       "status": "PASS",
-      "durationMs": 13.598999999999933
+      "durationMs": 20.68509999999992
     },
     {
       "name": "IIS-01 connection-bound state, identity and capabilities accepts both normative fixture streams under isolated trusted authorization callbacks",
       "status": "PASS",
-      "durationMs": 10.973099999999931
+      "durationMs": 14.60940000000005
     },
     {
       "name": "IIS-01 connection-bound state, identity and capabilities gates discussion on a single assigned READY, fresh process and deadline",
       "status": "PASS",
-      "durationMs": 1.6058000000000447
+      "durationMs": 2.0389999999999873
     },
     {
       "name": "IIS-01 connection-bound state, identity and capabilities gates coding_task on a single assigned READY, fresh process and deadline",
       "status": "PASS",
-      "durationMs": 1.0016000000000531
+      "durationMs": 1.226799999999912
     },
     {
       "name": "IIS-01 connection-bound state, identity and capabilities uses a shared ID set in both directions and refuses stale/orphan correlations",
       "status": "PASS",
-      "durationMs": 1.101799999999912
+      "durationMs": 1.5100999999999658
     },
     {
       "name": "IIS-01 connection-bound state, identity and capabilities requires explicit trusted execution admission and exact task/workspace binding",
       "status": "PASS",
-      "durationMs": 1.5973999999998796
+      "durationMs": 2.147699999999986
     },
     {
       "name": "IIS-01 connection-bound state, identity and capabilities refuses cross-role actions and wrong directions",
       "status": "PASS",
-      "durationMs": 1.1254999999998745
+      "durationMs": 1.232300000000123
     },
     {
       "name": "IIS-01 connection-bound state, identity and capabilities binds broker reads to an active discussion and a trusted broker check",
       "status": "PASS",
-      "durationMs": 1.9363000000000739
+      "durationMs": 2.480299999999943
     },
     {
       "name": "IIS-01 connection-bound state, identity and capabilities reserves a cancellation slot while execute is pending; acknowledgment is not a terminal event",
       "status": "PASS",
-      "durationMs": 1.2794000000001233
+      "durationMs": 1.6204000000000178
     },
     {
       "name": "IIS-01 connection-bound state, identity and capabilities distinguishes acceptance, actual start and a terminal observation without claiming durability",
       "status": "PASS",
-      "durationMs": 2.297900000000027
+      "durationMs": 3.7508000000000266
     },
     {
       "name": "IIS-01 connection-bound state, identity and capabilities rejects duplicate acceptance and completed task.execute responses",
       "status": "PASS",
-      "durationMs": 2.638900000000149
+      "durationMs": 2.1299000000001342
     },
     {
       "name": "IIS-01 connection-bound state, identity and capabilities detects gaps and conflicting duplicates, deduplicating semantically equal events",
       "status": "PASS",
-      "durationMs": 3.021900000000187
+      "durationMs": 4.07529999999997
     },
     {
       "name": "IIS-01 connection-bound state, identity and capabilities limits general inflight requests while keeping a fresh connection independent",
       "status": "PASS",
-      "durationMs": 2.5884000000000924
+      "durationMs": 3.0223000000000866
     },
     {
       "name": "IIS-01 connection-bound state, identity and capabilities enforces broker and discussion deadlines without starting a process or retry",
       "status": "PASS",
-      "durationMs": 2.4003999999999905
+      "durationMs": 4.188899999999876
     },
     {
       "name": "IIS-01 connection-bound state, identity and capabilities rejects ordinary rejection after execute admission and never turns it into task finality",
       "status": "PASS",
-      "durationMs": 1.9571000000000822
+      "durationMs": 1.7346000000000004
     },
     {
       "name": "IIS-01 connection-bound state, identity and capabilities validates excerpt result hash against the emitted UTF-8 content",
       "status": "PASS",
-      "durationMs": 1.4001999999998134
+      "durationMs": 2.126700000000028
     },
     {
       "name": "IIS-01 connection-bound state, identity and capabilities does not add task retry, heartbeat or replay actions",
       "status": "PASS",
-      "durationMs": 0.9266999999999825
+      "durationMs": 1.4359999999999218
     },
     {
       "name": "NCD-01 protected-center fit policy protects the center at a fractional Windows DPI viewport width",
       "status": "PASS",
-      "durationMs": 3.3817000000003645
+      "durationMs": 4.397300000000087
     },
     {
       "name": "NCD-01 protected-center fit policy fits 1920px viewport without reducing center below 580",
       "status": "PASS",
-      "durationMs": 2.43119999999999
+      "durationMs": 2.5399999999999636
     },
     {
       "name": "NCD-01 protected-center fit policy fits 1366px viewport without reducing center below 580",
       "status": "PASS",
-      "durationMs": 1.065299999999752
+      "durationMs": 0.6941999999999098
     },
     {
       "name": "NCD-01 protected-center fit policy fits 1100px viewport without reducing center below 580",
       "status": "PASS",
-      "durationMs": 0.4292000000000371
+      "durationMs": 0.3827000000001135
     },
     {
       "name": "NCD-01 protected-center fit policy fits 1000px viewport without reducing center below 580",
       "status": "PASS",
-      "durationMs": 0.44210000000020955
+      "durationMs": 0.37199999999984357
     },
     {
       "name": "NCD-01 protected-center fit policy restores the actual Sidebar preference after closing Dock",
       "status": "PASS",
-      "durationMs": 0.38080000000036307
+      "durationMs": 0.41849999999976717
     },
     {
       "name": "NCD-01 protected-center fit policy hides panels when even the rail and minimum panel cannot fit",
       "status": "PASS",
-      "durationMs": 0.3760000000002037
+      "durationMs": 0.3728000000000975
     },
     {
-      "name": "NCD-01 protected-center fit policy clamps global preference to 320–480 without rewriting it",
+      "name": "NCD-01 protected-center fit policy clamps global preference to 320â€“480 without rewriting it",
       "status": "PASS",
-      "durationMs": 0.3886999999999716
+      "durationMs": 0.38209999999980937
     },
     {
       "name": "independent Python fixture peer and TypeScript agree on every positive/negative schema vector",
       "status": "PASS",
-      "durationMs": 283.00970000000007
+      "durationMs": 283.91949999999997
     },
     {
       "name": "document navigation boundary limits local assets to the decoded renderer root, rejecting traversal and encoded separators",
       "status": "PASS",
-      "durationMs": 5.039099999999962
+      "durationMs": 7.991199999999935
     },
     {
       "name": "document navigation boundary permits only the same entry document and local anchor",
       "status": "PASS",
-      "durationMs": 1.2005000000003747
+      "durationMs": 1.8483000000001084
     },
     {
       "name": "document navigation boundary does not admit another localhost origin or path in development",
       "status": "PASS",
-      "durationMs": 0.9241000000001804
+      "durationMs": 1.6601000000000568
     },
     {
       "name": "session-only drafts and page-local Dock ownership never discards text on route changes",
       "status": "PASS",
-      "durationMs": 4.683800000000019
+      "durationMs": 8.423299999999927
     },
     {
       "name": "session-only drafts and page-local Dock ownership new drafts are empty with closed Dock; old unsent drafts stay recoverable",
       "status": "PASS",
-      "durationMs": 2.626899999999978
+      "durationMs": 4.053899999999885
     },
     {
       "name": "session-only drafts and page-local Dock ownership repeated blank New Conversation clicks produce no history rows",
       "status": "PASS",
-      "durationMs": 1.1963000000000648
+      "durationMs": 1.1696000000001732
     },
     {
       "name": "session-only drafts and page-local Dock ownership Agents entry resets only the temporary Dock; returning to Chat restores its tab and visibility",
       "status": "PASS",
-      "durationMs": 0.792699999999968
+      "durationMs": 0.6799000000000888
     },
     {
       "name": "session-only drafts and page-local Dock ownership Projects starts closed with Files selected; Settings cannot overwrite Chat",
       "status": "PASS",
-      "durationMs": 0.6673999999998159
+      "durationMs": 0.6005999999997584
     },
     {
       "name": "session-only drafts and page-local Dock ownership explicit Sidebar expansion closes a constrained Dock and preserves text",
       "status": "PASS",
-      "durationMs": 0.9028000000000702
+      "durationMs": 0.5324000000000524
     },
     {
       "name": "session-only drafts and page-local Dock ownership panel resizing is bounded and survives page navigation",
       "status": "PASS",
-      "durationMs": 0.7125999999998385
+      "durationMs": 0.41990000000032524
     },
     {
       "name": "P3 real competing SQLite connections and transaction interruption six simultaneous identical first-send clicks produce one original result",
       "status": "PASS",
-      "durationMs": 1285.8943
+      "durationMs": 763.7592
     },
     {
       "name": "P3 real competing SQLite connections and transaction interruption a racing changed payload under one mutation ID is rejected without a duplicate",
       "status": "PASS",
-      "durationMs": 251.0990999999999
+      "durationMs": 310.45619999999985
     },
     {
       "name": "P3 real competing SQLite connections and transaction interruption competing Run requests consume one proposal and reserve one global writer",
       "status": "PASS",
-      "durationMs": 570.5275000000001
+      "durationMs": 449.0448000000001
     },
     {
       "name": "P3 real competing SQLite connections and transaction interruption concurrent distinct admissions preserve 1+20 capacity and do not consume the rejected proposal",
       "status": "PASS",
-      "durationMs": 1416.1311
+      "durationMs": 1656.1693
     },
     {
       "name": "P3 real competing SQLite connections and transaction interruption queued cancel racing reservation cannot become a never-started cancelled task with a writer lease",
       "status": "PASS",
-      "durationMs": 219.26499999999942
+      "durationMs": 307.79619999999977
     },
     {
       "name": "P3 real competing SQLite connections and transaction interruption real SQLITE_BUSY waits the bounded 5000ms then fails without an accepted mutation",
       "status": "PASS",
-      "durationMs": 5576.1035999999995
+      "durationMs": 5719.5722000000005
     },
     {
       "name": "P3 real competing SQLite connections and transaction interruption isolated connection exit before COMMIT rolls back, while post-COMMIT restart preserves original receipt",
       "status": "PASS",
-      "durationMs": 273.9529999999995
+      "durationMs": 572.9544000000005
     },
     {
       "name": "P3 real competing SQLite connections and transaction interruption actual isolated Node process exits before/after COMMIT preserve rollback versus original durable acceptance",
       "status": "PASS",
-      "durationMs": 367.21439999999893
+      "durationMs": 716.4217000000008
     },
     {
       "name": "P3 schema, migration and actual WAL backup/restore matches all 22 frozen table names and exact column sets, not merely a local schema mirror",
       "status": "PASS",
-      "durationMs": 71.08579999999984
+      "durationMs": 76.90570000000002
     },
     {
       "name": "P3 schema, migration and actual WAL backup/restore preserves monotonic message ordinals after deleting the maximum unreferenced row and restarting",
       "status": "PASS",
-      "durationMs": 67.59550000000013
+      "durationMs": 82.49040000000014
     },
     {
       "name": "P3 schema, migration and actual WAL backup/restore enforces FK/closed roles, immutable messages/receipts, scope and partial unique indexes",
       "status": "PASS",
-      "durationMs": 55.05790000000002
+      "durationMs": 42.39639999999986
     },
     {
       "name": "P3 schema, migration and actual WAL backup/restore fails closed on newer without resetting the file",
       "status": "PASS",
-      "durationMs": 1237.3989000000001
+      "durationMs": 1576.8745
     },
     {
       "name": "P3 schema, migration and actual WAL backup/restore fails closed on checksum without resetting the file",
       "status": "PASS",
-      "durationMs": 1296.2709999999997
+      "durationMs": 1456.8552
     },
     {
       "name": "P3 schema, migration and actual WAL backup/restore fails closed on DDL drift without resetting the file",
       "status": "PASS",
-      "durationMs": 1226.7860999999998
+      "durationMs": 1398.1071999999995
     },
     {
       "name": "P3 schema, migration and actual WAL backup/restore fails closed on corruption without resetting the file",
       "status": "PASS",
-      "durationMs": 33.461999999999534
+      "durationMs": 49.98940000000039
     },
     {
       "name": "P3 schema, migration and actual WAL backup/restore rolls failed fresh migration back and refuses silent recreation on next open",
       "status": "PASS",
-      "durationMs": 19.95310000000063
+      "durationMs": 33.13619999999992
     },
     {
       "name": "P3 schema, migration and actual WAL backup/restore native online backup includes uncheckpointed WAL data and restore verifies schema and contents",
       "status": "PASS",
-      "durationMs": 105.29999999999927
+      "durationMs": 174.75880000000052
     },
     {
       "name": "P3 T1 original receipts, faults and P2 readiness a structurally valid but invalid closed DB preference does not become defaults or caller success",
       "status": "PASS",
-      "durationMs": 41.64900000000034
+      "durationMs": 51.548499999999876
     },
     {
       "name": "P3 T1 original receipts, faults and P2 readiness original receipt replay does not depend on later model/runtime availability",
       "status": "PASS",
-      "durationMs": 51.003099999999904
+      "durationMs": 68.57129999999961
     },
     {
       "name": "P3 T1 original receipts, faults and P2 readiness duplicate first sends and restart return one original acceptance; window identity is absent",
       "status": "PASS",
-      "durationMs": 46.634000000000015
+      "durationMs": 69.47820000000047
     },
     {
       "name": "P3 T1 original receipts, faults and P2 readiness changed text/model/project/mutation operation cannot reuse a receipt",
       "status": "PASS",
-      "durationMs": 55.79240000000027
+      "durationMs": 69.91769999999997
     },
     {
       "name": "P3 T1 original receipts, faults and P2 readiness commit-fault rollback returns no acceptance, creates no conversation and sends no hint",
       "status": "PASS",
-      "durationMs": 29.11779999999999
+      "durationMs": 47.964600000000246
     },
     {
       "name": "P3 T1 original receipts, faults and P2 readiness model validation and canonical workspace verification are required; default policy grants no authority",
       "status": "PASS",
-      "durationMs": 37.058899999999994
+      "durationMs": 60.951600000000326
     },
     {
       "name": "P3 T1 original receipts, faults and P2 readiness real SQLITE_FULL rolls back first-send with no receipt or notification",
       "status": "PASS",
-      "durationMs": 32.05380000000059
+      "durationMs": 46.19660000000022
     },
     {
       "name": "P3 T2/T3 capacity, canonical identity, cancellation and recovery valid foreign-project proposals/conversations cannot authorize admission or a writer",
       "status": "PASS",
-      "durationMs": 32.85959999999977
+      "durationMs": 57.905400000000554
     },
     {
       "name": "P3 T2/T3 capacity, canonical identity, cancellation and recovery physical task admission ordinals remain monotonic after retiring the maximum fixture row",
       "status": "PASS",
-      "durationMs": 61.810199999999895
+      "durationMs": 108.29600000000028
     },
     {
       "name": "P3 T2/T3 capacity, canonical identity, cancellation and recovery consumes once and replays the original admission snapshot after state changes and restart",
       "status": "PASS",
-      "durationMs": 45.089200000000346
+      "durationMs": 96.44200000000001
     },
     {
       "name": "P3 T2/T3 capacity, canonical identity, cancellation and recovery enforces 1+20, leaves the 21st queued proposal available and gives queued tasks no writer lease",
       "status": "PASS",
-      "durationMs": 121.03300000000036
+      "durationMs": 215.7509
     },
     {
       "name": "P3 T2/T3 capacity, canonical identity, cancellation and recovery proposal expiry and rollback never consume an approval",
       "status": "PASS",
-      "durationMs": 58.897399999999834
+      "durationMs": 97.46000000000004
     },
     {
       "name": "P3 T2/T3 capacity, canonical identity, cancellation and recovery canonical aliases use one project/lane; blocked writer survives restart and timeout",
       "status": "PASS",
-      "durationMs": 34.73909999999978
+      "durationMs": 58.562700000000405
     },
     {
       "name": "P3 T2/T3 capacity, canonical identity, cancellation and recovery FIFO reservation skips cancelled work; cleanup atomically releases lease and slot only with verified evidence",
       "status": "PASS",
-      "durationMs": 46.01369999999952
+      "durationMs": 71.49539999999979
     },
     {
       "name": "P3 T4 exact committed events and persistent uncertainty canonical event bytes and digest match an independently generated Python golden fixture",
       "status": "PASS",
-      "durationMs": 1.4949999999998909
+      "durationMs": 2.6239999999997963
     },
     {
       "name": "P3 T4 exact committed events and persistent uncertainty commits before notification, deduplicates reordered payload keys and replays committed evidence",
       "status": "PASS",
-      "durationMs": 66.01929999999993
+      "durationMs": 107.5010999999995
     },
     {
       "name": "P3 T4 exact committed events and persistent uncertainty preserves sparse sequence gaps; filling them does not downgrade sticky conflict across restart",
       "status": "PASS",
-      "durationMs": 64.10049999999956
+      "durationMs": 93.15359999999964
     },
     {
       "name": "P3 T4 exact committed events and persistent uncertainty detects reused event ID at another sequence, rejects foreign sessions/role/schema and defaults deny",
       "status": "PASS",
-      "durationMs": 45.13510000000042
+      "durationMs": 62.96780000000035
     },
     {
       "name": "P3 T4 exact committed events and persistent uncertainty terminal outcome is separate from cleanup; late cancel does not erase it, no second terminal is accepted",
       "status": "PASS",
-      "durationMs": 49.034599999999955
+      "durationMs": 81.46579999999994
     },
     {
       "name": "P3 T4 exact committed events and persistent uncertainty T4 commit failure emits no notification and leaves no event/stream advancement",
       "status": "PASS",
-      "durationMs": 45.0002999999997
+      "durationMs": 78.17480000000069
     },
     {
       "name": "P3 T5 per-attempt lineage, summaries, decisions and C01 projections persists real-attempt structures and safe answer atomically without invoking a provider",
       "status": "PASS",
-      "durationMs": 39.12970000000041
+      "durationMs": 74.8774999999996
     },
     {
       "name": "P3 T5 per-attempt lineage, summaries, decisions and C01 projections rejects foreign/missing/empty source sets and ambiguous or assistant-role approval",
       "status": "PASS",
-      "durationMs": 33.460399999999936
+      "durationMs": 63.931900000000496
     },
     {
       "name": "P3 T5 per-attempt lineage, summaries, decisions and C01 projections crash recovery marks issued attempt unknown and never silently reissues; retry lineage remains same-turn",
       "status": "PASS",
-      "durationMs": 38.644899999999325
+      "durationMs": 64.15139999999974
     },
     {
       "name": "P3 T5 per-attempt lineage, summaries, decisions and C01 projections model/provider mismatch and failed result never erase a durable user message",
       "status": "PASS",
-      "durationMs": 32.92730000000029
+      "durationMs": 55.82710000000043
     },
     {
       "name": "P3 T5 per-attempt lineage, summaries, decisions and C01 projections C01 proposal cap, TTL, scope and turn projections survive restart, with no fabricated attempts",
       "status": "PASS",
-      "durationMs": 115.20190000000002
+      "durationMs": 185.92109999999957
     },
     {
       "name": "P3 T6 consent, inspections, scoped paging and presentation persisted model preference never supplies a fallback for a different message model",
       "status": "PASS",
-      "durationMs": 45.04330000000027
+      "durationMs": 75.14680000000044
     },
     {
       "name": "P3 T6 consent, inspections, scoped paging and presentation a legal maximum-size DB message/proposal page remains within the explicit bounded IPC response budget",
       "status": "PASS",
-      "durationMs": 663.6356999999998
+      "durationMs": 1352.540399999999
     },
     {
       "name": "P3 T6 consent, inspections, scoped paging and presentation grants exact scope, replays original consent snapshot after revoke, and blocks future source release",
       "status": "PASS",
-      "durationMs": 35.4965000000002
+      "durationMs": 61.09430000000066
     },
     {
       "name": "P3 T6 consent, inspections, scoped paging and presentation denies forged, expired, wrong-provider/class/project challenges and leaves no synthetic grant",
       "status": "PASS",
-      "durationMs": 30.24279999999999
+      "durationMs": 51.26680000000124
     },
     {
       "name": "P3 T6 consent, inspections, scoped paging and presentation explicit deny creates no grant; failed T6 commit does not consume the challenge",
       "status": "PASS",
-      "durationMs": 55.010699999999815
+      "durationMs": 89.55079999999907
     },
     {
       "name": "P3 T6 consent, inspections, scoped paging and presentation counts committed unique subject/page evidence, rejects conflicts and stores hashes instead of sensitive paths",
       "status": "PASS",
-      "durationMs": 37.432700000000295
+      "durationMs": 64.18379999999888
     },
     {
       "name": "P3 T6 consent, inspections, scoped paging and presentation scopes Dock receipts and persists safe preferences without affecting tasks, with stable original snapshots",
       "status": "PASS",
-      "durationMs": 47.90759999999955
+      "durationMs": 83.16669999999976
     },
     {
       "name": "P3 T6 consent, inspections, scoped paging and presentation default 40/max 100 pagination uses ordinal cursors, rejects tampering/query scope and stale process cursors",
       "status": "PASS",
-      "durationMs": 120.26639999999952
+      "durationMs": 217.17909999999938
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-R01 explicit pinned interpreter, real isolated version/bridge probes and environment allowlist",
       "status": "PASS",
-      "durationMs": 996.5434
+      "durationMs": 594.1143999999999
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-R02 missing configuration, PATH command, wrong digest and missing executable fail closed",
       "status": "PASS",
-      "durationMs": 23.190100000000257
+      "durationMs": 23.10329999999999
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-R03 incompatible or changed bridge manifest is rejected without executing it",
       "status": "PASS",
-      "durationMs": 26.029999999999745
+      "durationMs": 23.504799999999932
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-L01 actual READY, independent process identity and truthful provider unavailable",
       "status": "PASS",
-      "durationMs": 1439.2008
+      "durationMs": 850.4522
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer before_ready fails safely",
       "status": "PASS",
-      "durationMs": 472.8948000000005
+      "durationMs": 363.6736999999998
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer wrong_role fails safely",
       "status": "PASS",
-      "durationMs": 367.2977000000001
+      "durationMs": 331.19709999999986
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer duplicate_ready fails safely",
       "status": "PASS",
-      "durationMs": 480.71940000000086
+      "durationMs": 412.66539999999986
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer invalid_utf8 fails safely",
       "status": "PASS",
-      "durationMs": 282.0001000000002
+      "durationMs": 320.1401999999998
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer chatter fails safely",
       "status": "PASS",
-      "durationMs": 265.71900000000005
+      "durationMs": 379.2448999999997
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer oversize fails safely",
       "status": "PASS",
-      "durationMs": 236.64000000000033
+      "durationMs": 326.3051000000005
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer duplicate_keys fails safely",
       "status": "PASS",
-      "durationMs": 205.89609999999993
+      "durationMs": 311.3818999999994
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer bad_version fails safely",
       "status": "PASS",
-      "durationMs": 216.85390000000007
+      "durationMs": 315.16560000000027
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer wrong_action fails safely",
       "status": "PASS",
-      "durationMs": 226.4335999999994
+      "durationMs": 299.14280000000053
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer wrong_correlation fails safely",
       "status": "PASS",
-      "durationMs": 229.21279999999933
+      "durationMs": 265.2576999999992
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P02 exact READY 30s and partial-frame 15s deadlines on live isolated children with advanced monotonic clocks",
       "status": "PASS",
-      "durationMs": 235.5658999999996
+      "durationMs": 302.4301000000005
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P03 request fault duplicate_id does not replay or accept foreign results",
       "status": "PASS",
-      "durationMs": 198.19740000000002
+      "durationMs": 332.8278
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P03 request fault foreign_final does not replay or accept foreign results",
       "status": "PASS",
-      "durationMs": 197.84090000000015
+      "durationMs": 347.9978999999994
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P03 request fault disconnect does not replay or accept foreign results",
       "status": "PASS",
-      "durationMs": 202.98120000000017
+      "durationMs": 301.9218000000001
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-S01 raw stderr secrets/paths/pretend completion never enter wire or retained diagnostics",
       "status": "PASS",
-      "durationMs": 223.02249999999913
+      "durationMs": 325.60099999999966
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P04 discussion requests serialize per conversation, cap at 16 and expire at 300s without replay",
       "status": "PASS",
-      "durationMs": 191.72569999999996
+      "durationMs": 298.03090000000066
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-L02 bounded Discussion starts use 1/2/4s schedule, each session is fresh, then unavailable",
       "status": "PASS",
-      "durationMs": 912.8482000000004
+      "durationMs": 1460.9262999999992
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-L03 one long-lived Discussion per Main, concurrent ensure shares the same child and new Main has fresh identity",
       "status": "PASS",
-      "durationMs": 440.96559999999954
+      "durationMs": 756.0468000000001
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-C01 coding simulator accepts one execute, responsive reserved cancel under load, no fabricated terminal event",
       "status": "PASS",
-      "durationMs": 491.59829999999965
+      "durationMs": 717.8145000000004
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-C02 full 15-second graceful window, acknowledgement is not stop; forced Job termination is not cancellation evidence",
       "status": "PASS",
-      "durationMs": 15208.6885
+      "durationMs": 15386.0742
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-W01 suspended launch Job contains child and grandchild, direct parent exit does not prove descendants stopped",
       "status": "PASS",
-      "durationMs": 450.29639999999927
+      "durationMs": 598.8601999999992
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-D01 DB commit gates launch, replay cannot spawn twice, cancel/exit retains lease until independent workspace proof",
       "status": "PASS",
-      "durationMs": 706.8866999999991
+      "durationMs": 924.3493000000017
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-D02 missing/queued/cancelled admission never spawns; production has no coding launch capability",
       "status": "PASS",
-      "durationMs": 835.9570999999996
+      "durationMs": 1125.3526999999995
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-D03 verified Job plus independent synthetic workspace proof allows interrupted cleanup without invented outcome",
       "status": "PASS",
-      "durationMs": 603.7860000000001
+      "durationMs": 835.7919000000002
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-Q01 finite queue bytes/count and sustained 30s pressure use existing P2 limits",
       "status": "PASS",
-      "durationMs": 18.376399999997375
+      "durationMs": 23.920899999997346
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P05 child-originated broker request is denied by default and bounded at 30 seconds with explicit fixture scope",
       "status": "PASS",
-      "durationMs": 553.5483999999997
+      "durationMs": 642.3123000000014
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-L04 Discussion restart after ambiguous disconnect is separate from coding and never replays a turn",
       "status": "PASS",
-      "durationMs": 1315.9295999999995
+      "durationMs": 1521.161500000002
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-Q02 actual Python event pressure against stalled persistence stays bounded and fails on saturation deadline",
       "status": "PASS",
-      "durationMs": 4472.336900000002
+      "durationMs": 4579.460400000004
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-D04 loss of Job query evidence is UNVERIFIED and never releases the durable lease even with workspace proof",
       "status": "PASS",
-      "durationMs": 599.709299999995
+      "durationMs": 848.1275999999998
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-D05 persistence handler failure faults transport and never treats an uncommitted event as success",
       "status": "PASS",
-      "durationMs": 191.06059999999707
+      "durationMs": 316.33899999999994
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-PY01 production Python independently rejects task_action without engine/provider or database",
       "status": "PASS",
-      "durationMs": 508.67119999999704
+      "durationMs": 948.6136000000042
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-PY01 production Python independently rejects duplicate_keys without engine/provider or database",
       "status": "PASS",
-      "durationMs": 628.2590999999957
+      "durationMs": 910.7172999999966
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-PY01 production Python independently rejects invalid_utf8 without engine/provider or database",
       "status": "PASS",
-      "durationMs": 605.6679000000004
+      "durationMs": 895.5789000000004
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-PY01 production Python independently rejects lone_surrogate without engine/provider or database",
       "status": "PASS",
-      "durationMs": 537.2111999999979
+      "durationMs": 876.2036000000007
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-PY01 production Python independently rejects unknown_field without engine/provider or database",
       "status": "PASS",
-      "durationMs": 605.2829000000056
+      "durationMs": 877.2059000000008
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-PY01 production Python independently rejects float_version without engine/provider or database",
       "status": "PASS",
-      "durationMs": 602.7967999999964
+      "durationMs": 971.6419999999998
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-PY01 production Python independently rejects context_over_budget without engine/provider or database",
       "status": "PASS",
-      "durationMs": 614.5421999999962
+      "durationMs": 969.1263000000035
     },
     {
       "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-PY02 production Python refuses duplicate request identity instead of repeating a provider attempt",
       "status": "PASS",
-      "durationMs": 624.7105999999985
+      "durationMs": 982.0975000000035
     }
   ],
   "pythonOffline": [
@@ -2337,7 +2573,7 @@
       "status": "PASS"
     },
     {
-      "name": "test_coding_gate.CodingGateTests.test_actual_engine_source_signature_outcome_fields_and_missing_capabilities_remain_blocked",
+      "name": "test_coding_gate.CodingGateTests.test_actual_engine_source_signature_outcome_fields_and_tested_control_capability",
       "status": "PASS"
     },
     {
@@ -2349,7 +2585,7 @@
       "status": "PASS"
     },
     {
-      "name": "test_coding_gate.CodingGateTests.test_quarantined_entry_does_not_advertise_coding_capability_or_import_engine",
+      "name": "test_coding_gate.CodingGateTests.test_verified_entry_advertises_only_tested_engine_control_and_no_paid_provider",
       "status": "PASS"
     },
     {
@@ -2397,180 +2633,206 @@
     {
       "name": "P6-E01 actual Windows Main worker -> closed Preload -> local Files preview, sensitive denial and zero discussion evidence",
       "status": "PASS",
-      "durationMs": 1868
+      "durationMs": 2643
     },
     {
       "name": "P6-E02 actual Windows Main/Job/production Discussion broker and original Gateway with MockTransport, consent then source handoff/T5",
       "status": "PASS",
-      "durationMs": 2333
+      "durationMs": 3604
     },
     {
       "name": "P6-E03 actual Electron Main exits after successful pipe callback before evidence COMMIT; reopen preserves partial undercount and never replays",
       "status": "PASS",
-      "durationMs": 3069
+      "durationMs": 3411
     },
     {
       "name": "P6-E04 P5 two-turn discussion regression through actual Windows Main/Job/bridge/Gateway with MockTransport and no broker reads",
       "status": "PASS",
-      "durationMs": 2128
+      "durationMs": 2877
+    },
+    {
+      "name": "P7-WIN02 actual Windows Electron explicit Run Task reaches real AgentOS, committed outcome, cleanup and reload without replay",
+      "status": "PASS",
+      "durationMs": 9149
+    },
+    {
+      "name": "P7-WIN03 real worker task survives navigation/reload; Renderer cancellation reaches engine and independently reconciles",
+      "status": "PASS",
+      "durationMs": 11944
+    },
+    {
+      "name": "P7-WIN04 actual AgentOS Main crash stops owned descendants and reopens actual SQLite with blocked lease and zero replay",
+      "status": "PASS",
+      "durationMs": 9063
     },
     {
       "name": "P7-WIN01 actual Main/Job/Discussion/Gateway mock issues a proposal, explicit Renderer Run Task hits the closed engine gate without admission/spawn/replay",
       "status": "PASS",
-      "durationMs": 2782
+      "durationMs": 2655
     },
     {
       "name": "P1-WIN: actual Windows startup, maximized window, isolated renderer and restricted preload",
       "status": "PASS",
-      "durationMs": 1479
+      "durationMs": 1526
     },
     {
       "name": "P1-SEC: external navigation, popup, provider network, local-file reads and inline code are blocked",
       "status": "PASS",
-      "durationMs": 887
+      "durationMs": 986
     },
     {
       "name": "P1-NAV: all pages, recoverable drafts and no fictitious history/task",
       "status": "PASS",
-      "durationMs": 1645
+      "durationMs": 1413
     },
     {
       "name": "P1-DOCK: per-draft restoration, page-local resets, tabs, keyboard/pointer sizing and manual hide",
       "status": "PASS",
-      "durationMs": 2359
+      "durationMs": 1961
     },
     {
       "name": "P1-FIT: actual Electron viewport fit at all approved CSS sizes and safe constrained fallback",
       "status": "PASS",
-      "durationMs": 2426
+      "durationMs": 3003
     },
     {
       "name": "P1-A11Y: keyboard navigation, focus, reduced motion and automated accessibility on every page",
       "status": "PASS",
-      "durationMs": 2447
+      "durationMs": 3313
     },
     {
       "name": "P1-DPI: Windows Electron forced device scale 1 with usable effective viewport",
       "status": "PASS",
-      "durationMs": 1327
+      "durationMs": 1373
     },
     {
       "name": "P1-DPI: Windows Electron forced device scale 1.25 with usable effective viewport",
       "status": "PASS",
-      "durationMs": 1415
+      "durationMs": 1375
     },
     {
       "name": "P1-DPI: Windows Electron forced device scale 1.5 with usable effective viewport",
       "status": "PASS",
-      "durationMs": 1671
+      "durationMs": 1370
     },
     {
       "name": "P1-RELOAD: renderer reload does not claim restored messages, model or task execution",
       "status": "PASS",
-      "durationMs": 884
+      "durationMs": 941
     },
     {
       "name": "P1-DEV: development assets, nonce CSP and React load in an actual sandboxed Electron window",
       "status": "PASS",
-      "durationMs": 1412
+      "durationMs": 1285
     },
     {
       "name": "P2-WIN: exact 23+3 facade; P3-backed methods and remaining fail-closed methods use real IPC",
       "status": "PASS",
-      "durationMs": 870
+      "durationMs": 968
     },
     {
       "name": "P2-WIN: real unregistered webContents and unknown channel are rejected",
       "status": "PASS",
-      "durationMs": 940
+      "durationMs": 1038
     },
     {
       "name": "P2-WIN: typed subscriptions filter invalid updates, isolate callbacks and safely unsubscribe/reload",
       "status": "PASS",
-      "durationMs": 936
+      "durationMs": 884
     },
     {
       "name": "P3-WIN: actual Electron Main uses built-in SQLite, 22-table production schema and durable safe preferences across restart",
       "status": "PASS",
-      "durationMs": 1585
+      "durationMs": 1511
     },
     {
       "name": "P3-WIN: corrupt user-profile database fails closed without reset while the P1 interface opens",
       "status": "PASS",
-      "durationMs": 762
+      "durationMs": 784
     },
     {
       "name": "P3-WIN: isolated Main-only T1-T6 fixture, C01 read projection and native WAL backup/restore; no Renderer fixture records",
       "status": "PASS",
-      "durationMs": 1096
+      "durationMs": 991
     },
     {
       "name": "P4-WIN01: real Electron Main Node-API/Job/Discussion bridge, Renderer reload keeps the same owned session and has no process authority",
       "status": "PASS",
-      "durationMs": 2200
+      "durationMs": 1958
     },
     {
       "name": "P4-WIN02: missing Python configuration leaves actual local preferences and interface available; no simulator in production history",
       "status": "PASS",
-      "durationMs": 943
+      "durationMs": 999
     },
     {
       "name": "P4-WIN03: forced real Main death closes its Job, stops child/grandchild, and next Main recovers durable uncertainty without replay or lease release",
       "status": "PASS",
-      "durationMs": 2435
+      "durationMs": 2796
     }
   ],
   "actualP5ReadOnlyRestore": [
     {
       "name": "P5-RESTORE: current Desktop restores the actual live conversation and model readiness without another API request",
       "status": "PASS",
-      "durationMs": 4918
+      "durationMs": 4083
     }
   ],
   "rawArtifacts": [
     {
-      "artifact": ".cache/p7-electron-final-results.json",
-      "sha256": "d95dd2d54302bc3d02a86098a8a6e2053f700e59f6392b80cd5681f64bf43bfb"
+      "artifact": ".cache/p7-unit-serial-final-results.json",
+      "sha256": "0cfef2334f53298e2338809c05592cd11f9066461566b83993602ae92adc862c"
     },
     {
-      "artifact": ".cache/p5-live-results.json",
-      "sha256": "eb2177d682128a3a8d56a5dfa3fcd1d8619c94807d565ea1a6660c793eafcaa4"
+      "artifact": ".cache/p7-full-final-electron-results.json",
+      "sha256": "a3c51d4cb9750cba29cc510df481cf09cc41c6ae30f0c40146640aa54c1d99b5"
+    },
+    {
+      "artifact": ".cache/p7-final-restore-results.json",
+      "sha256": "87a21b301d66e89660ee9a81d72a54efc7b1995936dfbf3072bb9ece60384e63"
+    },
+    {
+      "artifact": ".cache/p7-python-results.txt",
+      "sha256": "f4050b8b936b9ef74cd49767dabaa23c376ca8d6885126df9a77892c22ef483a"
+    },
+    {
+      "artifact": ".cache/p7-engine-results.xml",
+      "sha256": "284da7c867204dfc0cfb8e66442dd7081a0c8faff7be591c2a88a10520b602d6"
     }
   ],
-  "ownerCaseRegister": "P7-C01..C21 are implementation trace IDs for this owner authorization, not a new frozen test catalog.",
+  "ownerCaseRegister": "Existing P7-C01..C21 trace IDs; not a new frozen test catalog",
   "ownerCaseTotals": {
-    "PASS": 11,
-    "FAIL": 0,
-    "PARTIAL": 6,
-    "NOT_RUN": 0,
-    "BLOCKED": 4
+    "PASS": 18,
+    "PARTIAL": 3
   },
   "ownerCases": [
     {
       "id": "P7-C01",
       "status": "PASS",
       "evidence": [
-        "P7-A01",
-        "P7-WIN01"
+        "P7-WIN02",
+        "P7-E08"
       ],
-      "reason": "Explicit Main proposal and real UI click cannot bypass the closed engine gate; zero production task admission/spawn."
+      "reason": "Real UI click reaches actual AgentOS; default production provider guard rejects before T2 without consuming a proposal."
     },
     {
       "id": "P7-C02",
       "status": "PASS",
       "evidence": [
         "P7-A02",
-        "P7-A03"
+        "P7-A03",
+        "P7-E09"
       ],
-      "reason": "Actual SQLite atomic consumption, immutable receipt, one post-COMMIT dispatch spy; T2 failure dispatches nothing."
+      "reason": "Atomic consumption/immutable receipt and post-COMMIT dispatch; native T2 failure admits/spawns nothing."
     },
     {
       "id": "P7-C03",
       "status": "PASS",
       "evidence": [
-        "P7-A04"
+        "P7-A04",
+        "P7-E06"
       ],
-      "reason": "One active plus 20 queued, next queued admission denied; actual T3 FIFO after explicitly synthetic cleanup proof."
+      "reason": "Actual SQLite 1+20 capacity; actual engine FIFO and never-started queued cancellation. The capacity stress uses labelled dispatch spies; the FIFO case uses actual AgentOS."
     },
     {
       "id": "P7-C04",
@@ -2581,171 +2843,193 @@
         "P7-U01",
         "P7-U02"
       ],
-      "reason": "Concurrent/duplicate confirmations, consumed/expired/unknown/cross-project IDs, double-click and stable uncertain retry IDs tested."
+      "reason": "Duplicate/concurrent confirmations, expiry/consumption/scope and uncertain retry identity remain bounded and idempotent."
     },
     {
       "id": "P7-C05",
       "status": "PARTIAL",
       "evidence": [
-        "P7-A07",
-        "tests/unit/broker-windows.test.ts"
+        "tests/unit/broker-windows.test.ts",
+        "P7-E01",
+        "P7-A07"
       ],
-      "reason": "Scope mismatch denied and inherited actual Windows alias/native identity tests rerun; real coding admission through an aliased workspace NOT_RUN while G4 is blocked."
+      "reason": "Native alias identity/escape denial and native coding admission verified. A distinct full GUI aliased-project coding sequence was not executed."
     },
     {
       "id": "P7-C06",
-      "status": "PARTIAL",
+      "status": "PASS",
       "evidence": [
-        "tests/unit/supervisor.test.ts",
-        "bridge/coding_bridge.py"
+        "P7-E01",
+        "P7-E03",
+        "P7-G01",
+        "P7-G02",
+        "P7-G03",
+        "tests/unit/supervisor.test.ts"
       ],
-      "reason": "Inherited fixture/protocol checks cover one-shot/wrong role/session; new quarantined entry emits no READY or accepted task. Actual AgentOS Coding child loop not implemented/enabled."
+      "reason": "Actual separate Coding child, one-shot exact goal+C01, independent reader and verified capability; simulator-only protocol negatives remain labelled as such."
     },
     {
       "id": "P7-C07",
       "status": "PASS",
       "evidence": [
-        "P7-U03",
-        "P7-WIN01",
+        "P7-WIN02",
+        "P7-WIN03",
         "P7-A10"
       ],
-      "reason": "Renderer navigation/reload and receipt lookup never execute; reopened history retains proposal; scoped subscriptions precede snapshots."
+      "reason": "Actual task survives route/reload and unsubscribe; subscription hints read committed snapshots; immutable receipt cannot rerun a completed task."
     },
     {
       "id": "P7-C08",
       "status": "PARTIAL",
       "evidence": [
         "P7-A06",
-        "tests/unit/supervisor.test.ts"
+        "tests/unit/supervisor.test.ts",
+        "P7-WIN04"
       ],
-      "reason": "Lost launch/ACK spy retains uncertainty/no reissue; inherited process faults rerun. Actual engine-side lost execute ACK NOT_RUN."
+      "reason": "Lost launch/ACK transport negatives retain leases in fixtures; actual post-start Main failure/restart proved. An actual AgentOS execute with deliberately lost ACK was not run."
     },
     {
       "id": "P7-C09",
       "status": "PARTIAL",
       "evidence": [
-        "tests/electron/supervisor.spec.ts",
-        "P7-A10"
+        "P7-WIN04",
+        "tests/electron/supervisor.spec.ts"
       ],
-      "reason": "Actual inherited Windows Main/child/descendant crash fixture plus SQLite restart blocks leases; real AgentOS before/after-start crash NOT_RUN."
+      "reason": "Actual AgentOS Main death stops held child/descendant handles and restart retains lease/no replay. Before-start crash is inherited supervisor fixture evidence, not a new actual AgentOS run."
     },
     {
       "id": "P7-C10",
-      "status": "PARTIAL",
+      "status": "PASS",
       "evidence": [
+        "P7-E07",
+        "P7-E09",
         "P7-A09",
-        "tests/unit/storage.test.ts",
-        "P6-E03"
+        "P7-A12"
       ],
-      "reason": "Actual SQLite terminal/cancel/COMMIT fault primitives and native Main crash coverage exist, but terminal events are fixtures and no actual AgentOS terminal serialization/commit occurred."
+      "reason": "Actual native T2/terminal T4 faults, preserved source change, outcome uncertainty, terminal/cancel race and gap-guarded cleanup verified."
     },
     {
       "id": "P7-C11",
-      "status": "BLOCKED",
+      "status": "PASS",
       "evidence": [
-        "ENGINE-COMPATIBILITY-REPORT.md",
-        "ENGINE-CHANGE-REQUEST.md"
+        "P7-E03-gateway",
+        "P7-E03-worker",
+        "P7-E03-shell",
+        "P7-WIN03"
       ],
-      "reason": "Cancel while real AgentOS busy requires absent cooperative request/stop propagation; no fabricated cancellation."
+      "reason": "Cancellation reaches actual busy Gateway/worker/owned shell; ACK remains registration, actual confirmed stop follows unwind and cleanup."
     },
     {
       "id": "P7-C12",
       "status": "PASS",
       "evidence": [
-        "P7-A04",
+        "P7-E06",
         "P7-A05",
-        "P7-A06",
-        "P7-A09"
+        "P7-A11"
       ],
-      "reason": "Durable cancel before forwarding; queued never-started cancellation emits no event; repeats and known terminal outcome preserve locks. Backend forwarding is a spy."
+      "reason": "Durable request before forward, no duplicate cancel, queued never-started cancellation has no child/event; real cancellation needs no invented TaskOutcome."
     },
     {
       "id": "P7-C13",
-      "status": "PARTIAL",
+      "status": "PASS",
       "evidence": [
-        "tests/electron/supervisor.spec.ts",
-        "tests/unit/supervisor.test.ts"
+        "P7-E03-shell",
+        "P7-E05",
+        "P7-WIN04"
       ],
-      "reason": "Actual Windows Job/descendant/15-second cleanup fixture proof is inherited. Real-engine descendants and workspace safety remain NOT_RUN; no lease unlocked by PID/DTO."
+      "reason": "Actual Windows nested/outer Jobs, live descendants, full 15-second escalation and actual Main-death cleanup; forced stop has no cooperative-cancel event."
     },
     {
       "id": "P7-C14",
       "status": "PASS",
       "evidence": [
-        "P7-A06",
-        "P7-A10"
+        "P7-A10",
+        "P7-E04",
+        "P7-E05",
+        "P7-WIN04"
       ],
-      "reason": "Actual SQLite blocked writer and immutable original receipt survive restart/unavailable engine; new coordinator performs no IO/dispatch for receipt replay."
+      "reason": "Original receipt survives engine unavailability; actual engine exception/kill/restart retain blocked writer and do not replay."
     },
     {
       "id": "P7-C15",
       "status": "PASS",
       "evidence": [
-        "P7-A08"
+        "P7-A08",
+        "P7-E01",
+        "engine tests/test_conversation_context.py"
       ],
-      "reason": "C01 bounded same-conversation/project selection and exact goal are distinct; no foreign source records. Actual rendered 3000-character/token calibration remains outside this subset."
+      "reason": "Bounded same-conversation C01 and exact goal verified through actual engine prompts; original whole-entry character-budget tests pass. Paid-provider token calibration is NOT_VERIFIED."
     },
     {
       "id": "P7-C16",
-      "status": "BLOCKED",
+      "status": "PASS",
       "evidence": [
-        "ENGINE-COMPATIBILITY-REPORT.md"
+        "P7-E01",
+        "P7-WIN02",
+        "engine tests/test_execution_control.py"
       ],
-      "reason": "Real AgentOS invocation and engine-grounded task.started cannot be demonstrated at approved source without missing hooks; not run."
+      "reason": "Real AgentOS and LeadArchitectLoop originate bound task.started exactly once; no stdout/Future/ACK inference."
     },
     {
       "id": "P7-C17",
-      "status": "BLOCKED",
+      "status": "PASS",
       "evidence": [
-        "ENGINE-COMPATIBILITY-REPORT.md"
+        "P7-E01",
+        "P7-E02",
+        "P7-E04"
       ],
-      "reason": "TaskOutcome source fields exist, but no real coding task/terminal serialization was invoked while compatibility gate is blocked."
+      "reason": "Actual same-object seven-field TaskOutcome maps to typed committed terminal events; exceptions without a result retain uncertainty."
     },
     {
       "id": "P7-C18",
-      "status": "BLOCKED",
+      "status": "PASS",
       "evidence": [
-        "ENGINE-CHANGE-REQUEST.md"
+        "P7-E01",
+        "P7-E03",
+        "P7-E05",
+        "P7-E07",
+        "P7-E10"
       ],
-      "reason": "Real-engine stop/descendant/workspace safe writer release requires approved engine patch and actual tests. No automatic release or fake success supplied."
+      "reason": "Independent child/descendant zero, intact terminal stream and fresh native root required before T3 release; ordinary Main proof cannot forge event/cleanup authority."
     },
     {
       "id": "P7-C19",
       "status": "PASS",
       "evidence": [
         "P7-WIN01",
+        "P7-WIN02",
+        "P7-WIN03",
         "P7-U01",
         "P7-U02",
         "P7-U03"
       ],
-      "reason": "Functional proposal/gate/admission-intent/task status/cancel-intent UI tested; no P8 feed/redesign. Actual completed coding outcome unavailable."
+      "reason": "Real proposal/run/task outcome/cancel UI and unavailable-operation honesty; no Mission Control redesign or synthetic production activity."
     },
     {
       "id": "P7-C20",
       "status": "PASS",
       "evidence": [
-        "P1-P6 unit/UI/Python/Electron",
+        "complete unit/UI/Python/Electron regression",
         "P5-RESTORE"
       ],
-      "reason": "All 432 inherited passing cases exercised; paid P5 test remains historical with offline counterpart, old P6 partial/NOT_RUN cases preserved."
+      "reason": "Current full regressions executed; historical paid case not repeated; inherited P6 partial/unrun and deferred P1 visual signoff preserved."
     },
     {
       "id": "P7-C21",
       "status": "PASS",
       "evidence": [
-        "frozen SHA / exact schema / Git checks"
+        "frozen working/Git/ZIP hashes",
+        "exact public/schema bytes",
+        "reviewed staged blobs"
       ],
-      "reason": "Engine/frozen/public/22-table/dependency bytes unchanged; no paid calls, actual source disclosure, user-project coding, main merge or P8/P9."
+      "reason": "Only authorized engine feature patch and Desktop P7; separate repos, no main merge, paid calls, credentials, P8/P9 or schema/public expansion."
     }
   ],
-  "notRunRealEngine": [
-    "Grounded AgentOS invocation/start",
-    "Actual engine TaskOutcome terminal mapping/serialization",
-    "One-shot real Coding child execution/cancel reader",
-    "Cancellation while real Gateway/worker/tool is busy",
-    "15-second actual engine cooperative stop and escalation",
-    "Actual engine-owned descendants/workspace safe lease release",
-    "Real engine C01 prompt/token budget calibration"
+  "remaining": [
+    "Production coding model route is not configured or authorized; default Run Task remains closed before T2.",
+    "Distinct GUI alias coding flow and actual lost-ACK/before-start-crash variants remain PARTIAL in the owner register.",
+    "Real paid-provider token calibration NOT_VERIFIED; three engine paid live tests NOT_RUN.",
+    "Full nine-event worker timeline/Inspector/replay presentation belongs to unstarted P8; full system resilience/release gates remain later work."
   ],
-  "stop": "Concrete separate engine change request is ready; wait for owner approval. No engine patch, P8/P9 or main merge."
+  "stop": "Owner review required; no main merge or P8/P9."
 }

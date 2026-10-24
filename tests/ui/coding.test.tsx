@@ -47,7 +47,8 @@ test('P7-U01 Main-issued exact proposal needs explicit click; duplicate click an
   fireEvent.click(screen.getByRole('button', { name: 'Run Task' }))
   await waitFor(() => expect(confirm).toHaveBeenCalledTimes(2))
   expect(confirm.mock.calls[0][0]).toEqual(confirm.mock.calls[1][0])
-  expect(await screen.findByRole('status')).toHaveTextContent('completion have not been verified')
+  expect(await screen.findByRole('status')).toHaveTextContent('Task admitted as starting')
+  expect(screen.queryByText(/Engine outcome:/)).not.toBeInTheDocument()
 })
 test('P7-U02 expired proposals disabled and backend unavailability is shown without optimistic task success', async () => {
   const value = conversation()
