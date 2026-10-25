@@ -1,3 +1,77 @@
+# P7 final production-integration publication receipt — 2026-10-25
+
+Desktop implementation commit: **`b9eeb31c4b9eb43bf7ee03594c1a1339bf5ef812`**, normally pushed to the official
+[`feature/p7-real-coding-execution`](https://github.com/naoufelbvb2-arch/next-code-desktop/tree/feature/p7-real-coding-execution).
+Its exact remote ref matched local HEAD before this later documentation-only
+receipt. The receipt does not invent its own final commit SHA.
+This authorized continuation starts at `b07dffc9cd0444a516f1106ea846983b85b3a802`.
+
+The independent engine is unchanged/read-only at
+`5e7179b9d528e7ef97e18f91ec284e4da514ca0b` on its separate lifecycle/control
+feature branch. Desktop main remains `af682b74375a0b5827aa1fca0ff0815434803650`;
+engine main remains `834d0ca62cc9b2c03e530bafe4090024d98f31d3`.
+No engine edit, force push, main merge, P8 or P9.
+
+The 28 staged continuation files were individually reviewed for authorized scope,
+real credential values/fragments and personal paths; every staged blob matched
+reviewed working bytes. The cumulative P7 manifest covers 47 exact files, excluding
+itself and this later receipt. All 47 implementation Git blobs match working bytes
+and SHA-256. Public contracts, SQLite schema, package/lock and frozen sources
+remain byte-identical. Frozen working/Git/ZIP verification against this actual
+implementation commit passed: 42 delivered files /41 payloads /18 normative.
+
+- CHANGE-MANIFEST.json SHA-256: `3905b3281b9c1549ddc150313c623f232780c149dc3d89ab7d45beef7acf24fa`.
+- VERIFICATION-RESULTS.json SHA-256: `eef5c48b221a0fd7d7cfb4d577218ac3370d803d12c0be5210a0e71b771a6a46`.
+- Preserved local mission journal SHA-256: `06fcb97499f258eb5a8d1ea1d96928ad39e3ba74d0f3068800eca349fb973d7e`.
+
+The normal production application entry and explicit Renderer Run Task reached
+real Main/T2/Supervisor/Coding Bridge/original AgentOS/ModelGateway/official
+DeepSeek Flash. One approved external synthetic task corrected sample.py's
+add(a,b), with actual success TaskOutcome, T4 events, Windows Job zero/native
+root proof and T3 release. Four independent arithmetic assertions passed and
+restart preserved the result without replay. Proposal setup used a test-owned
+Main caller and fresh real native handles, not a model reply or production
+fixture route. Discussion was deliberately unconfigured in that isolated profile
+so the real key went only to Coding Python; the screenshot warning is explained
+in IMPLEMENTATION-REPORT.md.
+
+**LIVE DEEPSEEK PASS:** exactly **12 HTTP requests /31,628 tokens**, all HTTP 200
+and known usage, independently matched to original engine TokenLedger. No paid
+retry or subsequent paid request. All three original ModelProfiles are configured
+and offline tested; the live engine used REASONING eight times, FAST_WORKER four
+times and did not request LOCAL_CODER. Historical P5 stays two requests /381 tokens.
+**The mission's request and task allowances are consumed.** No journal reset,
+budget renewal or further task is authorized. New dispatch requires separate owner
+authority and explicit local scope/budget configuration. Preserve journal, DB/WAL,
+external project and checkpoints. The temporary pure-Python/pinned-test tool policy
+is scoped application enforcement, not a general Windows filesystem sandbox.
+
+**Final Desktop: 483 PASS /zero FAIL /one NOT_RUN**, comprising 422 unit/UI/native,
+30 Python, 30 actual Windows Electron and one real paid Coding test. The inherited
+unprivileged file-symlink test is NOT_RUN. Prior read-only P5 restore PASS is carried,
+not counted or rerun; P5 mock regressions pass. **Engine: 53 PASS /three paid
+NOT_RUN**, separately counted. Build/typecheck/format pass. Intermediate failures,
+including the sandbox build denial and concurrent-build Electron startup failure,
+are retained and distinguished from the successful sequential final run.
+
+Production HTTP cancellation had a cancellation-only post-live propagation fix;
+the actual production factory/CLI cancellation and all final offline regressions
+verify it. Exact successful live-runtime source hashes remain explicit in the
+verification JSON; no paid rerun was made after exhausting the cap. Existing
+cooperative cancellation/races, descendant cleanup, uncertain leases and Main
+crash/no-replay tests pass. C05 GUI ASCII-case alias, C08 actual lost execute ACK
+and C09 actual before-start Main crash now PASS for their documented variants.
+The owner-case register is **21 PASS /zero PARTIAL**.
+
+Minimum P7 G4 has actual offline + live Windows evidence. **P7 is ready for owner
+review; official owner acceptance remains PENDING.** Full IIS-08 G2/G4/G7 are
+PARTIAL system subsets, P6 G6 remains PARTIAL, and P1 visual signoff is deferred.
+No general real-user project execution, packaged proof or complete system-gate
+acceptance is asserted. Reports, exact file manifest and runtime screenshot are
+in this folder. Stop here for owner review; no main merge or P8/P9.
+
+## Prior integration-fix receipt (historical; production routing and case status superseded above)
+
 # P7 integration-fix publication receipt — 2026-10-24
 
 Desktop implementation commit: **`4112eeebe4dc85acb52b720fba01ab0e928f4e96`**, normally pushed to the official
