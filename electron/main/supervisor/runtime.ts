@@ -3,6 +3,7 @@ import { readFileSync, statSync, realpathSync } from 'node:fs'
 import { dirname, isAbsolute, join } from 'node:path'
 import { z } from 'zod'
 import { WindowsProcess, type LaunchSpec } from './windows-process'
+import { codingConfig, type CodingConfiguration } from '../coding/config'
 
 export class RuntimeError extends Error {
   constructor(readonly code = 'RUNTIME_NOT_READY') {
@@ -15,6 +16,7 @@ const configSchema = z
     pythonPath: z.string().min(1).max(1024),
     pythonSha256: sha,
     fileBroker: z.boolean().optional(),
+    coding: codingConfig.optional(),
     discussion: z
       .object({
         engineRoot: z.string().max(1024),
@@ -42,6 +44,7 @@ const manifestSchema = z
   })
   .strict()
 export interface VerifiedRuntime {
+  readonly coding?: CodingConfiguration
   readonly executable: string
   readonly executableSha256: string
   readonly bridge: string
@@ -219,6 +222,7 @@ export async function resolveRuntime(
       env.DEEPSEEK_API_KEY = secret
     }
     return Object.freeze({
+      ...(config.coding ? { coding: Object.freeze(config.coding) } : {}),
       executable,
       executableSha256: config.pythonSha256,
       bridge,

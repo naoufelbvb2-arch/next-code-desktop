@@ -6,7 +6,7 @@ Dedicated Windows desktop interface for the existing
 P1 provides a runnable Electron + React + TypeScript interface: Home/composer,
 Projects, independent Agents page, Settings, collapsible Sidebar and resizable
 Terminal/Files Dock. Drafts and appearance state stay in the current session.
-Coding and Interactive Shell remain unavailable.
+Interactive Shell remains unavailable; Coding has the explicit P7 scope below.
 P2 adds the exact typed `window.nextCode` facade (23 Promise methods and three
 subscriptions), a trusted Main IPC boundary and closed standalone JSONL protocol
 validators. P3 adds Main-owned SQLite with 22 tables, migrations, WAL-consistent
@@ -112,18 +112,26 @@ SQLite and AgentOS with an offline ModelGateway in external synthetic workspaces
 The runtime accepts only the exact tested engine/source/Git identity. No task is
 replayed after restart, and uncertain writers retain their lease.
 
-**Production coding still has no authorized model route.** A matching engine
-does not configure a provider: normal Run Task fails before admission and never
-uses the test Gateway or inherited Discussion credentials. No paid coding call is
-enabled by this patch. The offline caller is confined to isolated test-owned Main
-code. Discussion and Renderer cannot dispatch AgentOS directly. See the P7 report
-for reproduction, exact proof and remaining product acceptance conditions.
+**The production DeepSeek Coding route is implemented and live verified.** Main
+requires explicit private configuration, the exact tested engine, a local key,
+workspace/tool scope and durable mission budget. All three original ModelGateway
+profiles explicitly use official DeepSeek Flash, with no paid HTTP/schema retry
+or silent fallback. The real normal-entry UI/Main/SQLite/AgentOS path fixed a
+small external synthetic project and independently passed its test; restart did
+not replay it. No test Gateway is selectable by production or Renderer.
+
+That owner-authorized mission used **12 requests /31,628 tokens** and consumed its
+one-task/request allowance. New Run Task admissions stay closed until renewed
+owner authority and explicit local scope/budget configuration. Do not reset or
+rerun the live journal. This temporary route permits pure Python functions and a
+hash-pinned verification command in the synthetic project; it is not a general
+Windows filesystem sandbox or permission to code in real-user projects.
 
 **P1–P5 are accepted; P6 is conditionally accepted with G6 PARTIAL (P1 visual
-signoff deferred). P7's minimum real-engine G4 evidence is now verified offline
-on Windows; full product acceptance and provider configuration remain pending.
-The limited engine patch was explicitly approved. No paid test, main merge,
-P8/P9 or installer is authorized.**
+signoff deferred). P7's minimum real-engine G4 evidence is verified offline and
+with one real paid task on Windows; owner P7 acceptance remains pending. Full
+system gates are not self-certified. Engine is read-only again. No further paid
+call, main merge, P8/P9 or installer is authorized.**
 
 - [P7 implementation and actual disposition](docs/implementation/P7/IMPLEMENTATION-REPORT.md)
 - [P7 engine compatibility gate](docs/implementation/P7/ENGINE-COMPATIBILITY-REPORT.md)

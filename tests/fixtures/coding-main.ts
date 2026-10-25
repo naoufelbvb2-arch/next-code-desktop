@@ -1,4 +1,4 @@
-import { mkdirSync, writeFileSync, readFileSync } from 'node:fs'
+import { mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs'
 import { resolve, join } from 'node:path'
 import { SupervisedChild } from '../../electron/main/supervisor/child'
 import { baselineEnvironment } from '../../electron/main/supervisor/runtime'
@@ -102,6 +102,30 @@ export async function startActualCodingFixture(mode = 'success') {
   )
   boundary = installBoundary(actual.service)
   return { engineCommit: actual.runtime.engineCommit, outsideProductionRepos: true }
+}
+export function actualBeforeStartEvidence() {
+  if (!actual) throw new Error('No actual fixture')
+  if (!existsSync(join(actual.workspace, 'before-start.txt'))) return { ready: false }
+  const marker = readFileSync(join(actual.workspace, 'before-start.txt'), 'utf8')
+  const child = (actual.supervisor as unknown as { coding: { child: SupervisedChild } }).coding
+    .child
+  return {
+    ready: marker.length > 0,
+    main: mainProcessIdentity(),
+    child: child.process!.pid,
+    directory: actual.directory,
+    workspace: actual.workspace
+  }
+}
+export function actualAliasEvidence() {
+  if (!actual) throw new Error('No actual fixture')
+  return {
+    projects: actual.service.store.projects().length,
+    canonicalRootMatches:
+      actual.service.store
+        .projectBinding(actual.service.store.projects()[0].projectId)
+        .root.toLowerCase() === actual.workspace.toLowerCase()
+  }
 }
 export function actualCodingSnapshot() {
   if (!actual) return null

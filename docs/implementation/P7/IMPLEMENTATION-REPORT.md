@@ -1,179 +1,165 @@
-# P7 engine integration fix and actual offline Desktop execution — 2026-10-24
+# P7 final production integration — 2026-10-25
 
-The approved engine patch and real offline Desktop execution path are implemented
-and tested. **The engine compatibility block is resolved and minimum grounded G4
-evidence is achieved. Full P7 product acceptance is not claimed:** production has
-no configured/authorized coding model route, and the case register retains three
-explicit PARTIAL cases. This delivery is ready for the owner's review of those
-facts; it does not accept P7 or authorize P8/P9.
+**The normal production Run Task path executed the original AgentOS against real
+official DeepSeek Flash and completed the approved external synthetic fix.** The
+single mission used **12 HTTP requests /31,628 tokens**, with no paid retry. Its
+request and task allowances are now consumed: new tasks fail before T2 until the
+owner grants a new scoped mission. This is an implemented explicit model route,
+not an unlimited grant or a general-purpose Windows filesystem sandbox.
 
-## Authority and independent histories
+## Authority, scope and result
 
-The owner's P7 ENGINE INTEGRATION FIX approved the existing ENGINE-CHANGE-REQUEST.
-Clean engine baseline `834d0ca62cc9b2c03e530bafe4090024d98f31d3` and Desktop
-continuation baseline `d05ceacb6180456b8e5072a06a4496cbf5e53a51` matched origin
-before work. Engine branch `feature/p7-desktop-lifecycle-control` is published at
-`5e7179b9d528e7ef97e18f91ec284e4da514ca0b`; engine main remains its original
-baseline. Desktop retains `feature/p7-real-coding-execution`, descended from P6
-conditional acceptance `06221d81ce96d82434ec2d8d76ab172355ba60a1`. The separate
-feature histories are preserved; no engine source was copied/vendored/submoduled.
-The later receipt records the actual Desktop implementation commit.
+P7 FINAL INTEGRATION explicitly supersedes the earlier no-paid/unconfigured-route
+restriction for this mission only. Clean Desktop baseline and origin matched
+`b07dffc9cd0444a516f1106ea846983b85b3a802` on
+`feature/p7-real-coding-execution`; the independent engine remains clean/read-only
+at `5e7179b9d528e7ef97e18f91ec284e4da514ca0b` on its separate feature branch.
+No engine edit/copy/submodule, main merge, P8/P9, visual redesign or new dependency.
+The original P7 engine/Windows implementation is retained, not rebuilt.
 
-## Implemented behavior
+An external clean Git project contained `sample.py` with `add(a,b)` subtracting,
+and a hash-pinned `check.py` with four arithmetic assertions. The baseline test
+actually failed. A test-owned Main caller created the owner's exact proposal in
+an isolated user-data profile using real SQLite T1/proposal operations and fresh
+native root handles. It created no assistant/model reply, provider attempt or
+task event. Production IPC, storage dispatch, Coding factory and AgentOS were
+never replaced with fixture routing. Discussion was deliberately unconfigured:
+the real key was passed only to Coding Python, and no proposal API call was spent.
+The screenshot's Discussion status/draft warning comes from that isolated owner
+proposal setup and is not a failed paid Discussion request.
 
-AgentOS has optional observer/control parameters with unchanged legacy callers,
-seven TaskOutcome fields and TaskPhase inventory. LeadArchitectLoop originates
-the real task-start observation. Control reaches Gateway waits, dispatcher,
-chassis, blocking tools and owned shell processes. Awaited work drains and chassis
-finally wipes memory before confirmed stop. Controlled Windows shell processes
-enter a non-breakaway Job while suspended; cleanup must establish zero processes.
-Ordinary failures without a TaskOutcome remain failures without terminal evidence.
-Cancellation never claims to roll back prior file writes. Engine regressions and
-exact dependency lock are recorded in that repository's own P7 report.
+The real Renderer displayed the full goal and clicked Run Task. Production Main
+verified runtime/provider/key/scope/budget, T2 atomically consumed the proposal and
+committed its immutable receipt/slot/lease, then launched the exact Coding Bridge.
+After READY/session binding and another native root proof it sent task.execute
+once. Original AgentOS/LeadArchitectLoop emitted task.started, used the original
+ModelGateway, workers and tools, and returned its real seven-field TaskOutcome.
+T4 persisted start/completion before UI hints. Verified outer Windows Job child /
+descendant zero, intact event history and fresh native root enabled T3 release.
+The task finished COMPLETED/success, three architect ticks, zero rollbacks and a
+real final checkpoint. The test independently reran `check.py` and observed
+SYNTHETIC_ADD_TEST_PASS; source is `return a + b`, the test bytes are unchanged.
+Reopening the ordinary production entry showed the same result with no Run Task
+button, new task or additional request. See `screenshots/live-deepseek-success.png`.
 
-Desktop verifies the exact engine commit, all 36 runtime Python sources, four
-Desktop bridge modules, interpreter and tested Git executable. A private Main
-capability cannot be forged by Renderer/config booleans. Launch rechecks the pins;
-Python independently validates the engine/source contract. The child gets only
-baseline Windows variables, pinned Git/Python directories and private coding
-settings; no inherited Discussion credential, PYTHONPATH or project import path.
+## Private production configuration and provider enforcement
 
-Main T2 consumes an exact-goal proposal once and commits the immutable receipt,
-singleton slot and writer lease before dispatch. Native root identity is verified
-for admission, after handshake immediately before execute, and after cleanup.
-The real bridge passes the exact goal plus the bounded same-conversation C01
-snapshot. Its independent reader receives task.cancel while AgentOS runs. Git
-and engine subprocesses inherit NUL stdin, never the private JSONL/cancel pipe.
-Actual AgentOS return/unwind and Gateway cleanup precede terminal event delivery.
-Only actual sourced task-start and TaskOutcome/cancel observations become the
-minimal frozen events; no worker progress or future Mission Control is invented.
+Main's existing local python-runtime.json supports an explicit private `coding`
+section: pinned engine/site paths; provider deepseek_official_v1, base URL
+https://api.deepseek.com, model deepseek-flash; ignored secret/journal files;
+canonical workspace, writable Python filenames, verification script hash and
+exact command. No field crosses Renderer/preferences IPC or enters SQLite. The
+normal development config was updated locally while preserving P5 configuration;
+the journal was never reset. Missing/invalid/spent configuration denies before T2.
+Python process readiness is independently probed without a provider call/key;
+transport READY is not model authorization. A valid model route additionally
+requires Main's private exact-version capability, explicit config, local key and
+unconsumed budget. No environment boolean, fixture selector or default paid route.
 
-T4 validates session-bound events and commits them before UI hints. Event/cleanup
-authority is separate from ordinary Main mutation proof. A real cancellation can
-reconcile without an invented TaskOutcome. Gapped/conflicting streams cannot
-automatically release a writer. T3 release additionally needs the outer Windows
-Job's verified child/descendant cessation and fresh canonical native root proof.
-That project-safety check establishes writer cessation and identity, not a clean
-Git tree, rollback, correctness of all model decisions or control of external
-human editors. Unknown outcomes/artifacts retain the lease and require review.
+Coding Python pops the key from its environment before engine/subprocess creation.
+It constructs the original ModelGateway and original OpenAICompatibleProvider,
+clears default routes and explicitly registers REASONING, FAST_WORKER, LOCAL_CODER
+as Flash. All three are verified with HTTP mocks; the particular live engine task
+requested REASONING eight times and FAST_WORKER four times, never LOCAL_CODER.
+The endpoint and requested model are pinned; this is not independent attestation
+of DeepSeek's internal model weights/version behind its public alias.
 
-FIFO advancement occurs only after new verified terminal cleanup, uses the durable
-ordered queue and commits reservation before launch. One globally active coding
-task and at most twenty queued remain unchanged. A queued cancellation launches
-nothing and creates no fake engine event. Application restart does not advance or
-replay old work; the actual crash/reopen test retains the writer as blocked even
-after Windows observation confirms the old descendants exited.
+A Desktop-owned supported httpx transport permits only POST to the exact HTTPS
+chat-completions destination, with no proxy inheritance or redirects. It explicitly
+uses non-thinking JSON output and caps output at 2,048 tokens. Original provider
+max_http_retries=1 means one attempt in that API; Gateway max_retries=0 and the
+provider wrapper prevent paid structured self-healing even if a caller asks for
+retries. No LLM engine was reimplemented. Official references checked on 2026-10-25:
+[model identity](https://api-docs.deepseek.com/quick_start/pricing/) and
+[thinking configuration](https://api-docs.deepseek.com/guides/thinking_mode/).
 
-The React controls show the full escaped proposal, require explicit Run Task,
-distinguish admission from actual outcome, and display independent reconciliation
-status. Navigation/reload/unsubscribe do not cancel the task. The Sidebar now
-reports Discussion readiness without a false blanket coding-state claim. No
-visual redesign, new public method/action/table or functional shell was added.
+The separate 12-request/60,000-token mission journal is mandatory and pre-created
+locally. Cross-process locking plus fsynced atomic replacement reserves each HTTP
+attempt before I/O. No automatic empty-journal creation/replenishment. Unknown /
+failed attempts block further spend; one task claim persists across restarts.
+Conservative UTF-8/framing/output reservation precedes each request; actual usage
+must be valid and bounded before another request. This is not a certified tokenizer
+calibration. Every live request completed HTTP 200 with known usage: the provider
+journal and independent original Engine TokenLedger both show 12 /31,628. Existing
+P5 remains exactly two requests /381 tokens. No paid test was repeated to improve
+counts, and no additional API call is authorized now.
 
-## Actual results and reproduction
+The temporary local scope additionally wraps existing ToolRegistry registrations:
+only the approved files may be patched; only the exact pinned Python verification
+command may run; writable code must consist of pure arithmetic functions before
+execution. The trusted test remains hash-pinned. Original engine guards still run.
+Actual denial tests target both production repository paths and escaping commands,
+and reject executable imports/calls. This is application policy for this synthetic
+mission, not an OS sandbox for hostile Python or permission to run user projects.
 
-Final Desktop totals: **470 PASS / zero FAIL / one NOT_RUN**: 419 unit/UI, 22
-Python, 28 actual Windows Electron, one read-only restore of the original P5
-history. The inherited unprivileged Windows file-symlink case remains NOT_RUN.
-The independent engine suite is **53 PASS / three paid live tests NOT_RUN**;
-14 new engine lifecycle/control tests and 39 original offline tests pass.
-Repeated scoped commands are not counted twice. VERIFICATION-RESULTS.json lists
-every final executable result, raw artifact digests and the existing owner-case
-register: **18 PASS / three PARTIAL**. P6's 44 PASS/10 PARTIAL/two NOT_RUN and G6
-PARTIAL remain historical/unchanged; P1 visual signoff stays owner-deferred.
+## Cancellation, faults and the three earlier partial cases
 
-Real tests use external synthetic Git projects outside both source repositories,
-an explicitly offline original ModelGateway with all profiles routed through
-in-memory HTTP mocks, and real AgentOS/worker/tool code. Actual commands patch
-only the synthetic sample and execute its verification script. No user project or
-production ledger is a fixture target. Native outer/nested Job tests include a
-live shell and descendant, cooperative cancellation during Gateway/worker/tool,
-the real 15-second escalation, SQLite admission/terminal faults and proof forgery.
-Actual Electron tests click the real Run Task control, observe the committed
-outcome, navigate/reload/cancel and forcibly terminate a creation-bound Main
-handle, then verify held descendant handles exited and reopen the actual DB with
-no replay. Screenshots are under `screenshots/`.
+Existing lifecycle/control/Job logic remains in use. Code review found that the
+new HTTP transport initially sanitized asyncio cancellation into ValueError; it
+now propagates CancelledError so the original gateway_wait can drain and confirm
+TaskCancelled. The actual production factory/CLI cancellation test uses a waiting
+HTTP mock, real AgentOS/control, T3 cancel/T4 event and verified Job cleanup. This
+cancellation-only follow-up is offline tested; the successful live path was not
+paid-rerun after the cap. Exact live-tested source hashes are retained separately.
+Existing worker/tool cancellation, terminal race, true 15-second escalation,
+descendant cleanup and uncertain-writer/no-replay regressions pass.
 
-Reproduce on Windows with the pinned local packages and engine checkout:
+- **C05 PASS:** real GUI chooses an ASCII-case alias, retains one canonical project
+  and completes actual offline AgentOS with safe release. A junction-root positive
+  expectation was denied NOT_AUTHORIZED; that is the existing safe reparse policy,
+  not permission to weaken it. Short/reparse/hard-link negatives remain verified.
+- **C08 PASS:** a test-owned filter drops only the actual accepted response. Actual
+  AgentOS originates task.started; Main rejects it without ACK under the unchanged
+  frozen protocol. No event/outcome is invented, lease remains blocked, immutable
+  receipt replay creates no task or execute. This is actual engine evidence plus
+  deliberate transport loss, not a simulator generating a fake start.
+- **C09 PASS:** Main is actually terminated through a creation-bound handle while
+  the real Coding child waits at a test-only Gateway setup barrier before AgentOS
+  construction/start. Its held handle exits, actual SQLite reopens blocked with
+  no start/event/replay. Existing actual post-start Main death evidence also passes.
 
-```powershell
-npm ci --cache .cache/npm
-npm run build
-npm test
-python -m unittest discover -s tests/python -v
-npm run test:electron
-npm run test:live -- tests/live/restore.spec.ts
-npm run format:check
-```
+## Actual verification, failures and limits
 
-The engine environment is separately reproducible using its
-`requirements-p7-test.lock` and `python tests/run_offline.py -q`; the runner
-removes provider credentials and denies external socket connections. Desktop's
-private integration fixture uses a test-owned Main caller, never a public test
-flag or a production provider. The restore command performs no Send/API call.
-The dedicated engine test environment uses pydantic 2.12.5, httpx 0.28.1 and psutil
-7.2.2; Desktop npm dependencies/lockfile were not changed. Git is an existing,
-SHA-pinned runtime dependency; no global/admin setup was changed.
+Final current Desktop executable results: **483 PASS / zero FAIL /one NOT_RUN**:
+422 unit/UI/native, 30 Python, 30 Windows Electron and one real paid Coding case.
+The inherited unprivileged file-symlink case remains NOT_RUN. Prior read-only P5
+restore PASS is carried, not counted again or rerun with a credential-bearing
+Discussion child; actual P5 mock/two-turn regressions are included. Independent
+engine regression is **53 PASS /three paid NOT_RUN**, unchanged source, provider
+credentials stripped and external sockets denied. Build/typecheck/format and
+frozen working/Git/archive checks pass; exact 23+3/5+5/22 public/schema inventory
+and package/lock remain unchanged. VERIFICATION-RESULTS.json lists every final
+case and raw artifact hashes. The owner P7 register is now **21 PASS /zero PARTIAL**.
 
-## Problems found and corrected
+Failures were retained and corrected: test peer engine-only config/CLI-role and
+missing HTTP finish_reason; native-selection synchronization and a missing native
+proof in isolated proposal setup; an early runtime-startup gate denial before T2;
+the intentionally forbidden junction interpretation; cancellation exception
+propagation. The final sandbox build was denied directory resolution; the
+authorized elevated build passed unchanged. A concurrent build/Electron run had
+29 PASS /one pre-scenario window-startup FAIL. Its raw JSON/trace is preserved;
+after building finished, the complete sequential Electron rerun passed all 30.
+Build overlap is the suspected cause, not a proven application defect.
+The pre-admission live harness failures consumed no task or HTTP
+request. Strict production validators, native proofs, deadlines and writer guards
+were preserved. No failing command is described as a passing run.
 
-Concurrent Discussion/Coding exposed four blocking native pipe readers starving
-stdin writes. Bounded PeekNamedPipe/read polling fixes this without global thread
-pool changes. Git checkpoint startup exposed inherited private stdin; descendant
-NUL stdin plus an explicitly pinned Git path fixes it without engine checkpointer
-changes. C01 wire data is constructed as a model before engine snapshot validation.
-Confirmed cancellation cleanup and gapped terminal cleanup received dedicated T3
-fixes/tests. The protected AppData temporary root was correctly denied, so actual
-native tests use a separate approved sibling fixture directory instead.
+Minimum P7 G4 is PASS with actual offline and live original engine/Windows proof.
+**P7 is ready for the owner's review/acceptance of this scoped delivery; acceptance
+is not self-issued.** Full IIS-08 G2/G4/G7 are still system subsets/PARTIAL, P6 G6
+remains PARTIAL, and P1 visual signoff remains deferred. No general user-project
+coding/OS sandbox certification or packaged proof is claimed. The paid/task limits
+are consumed, so another Run Task requires renewed owner authority and explicit
+local scope/budget configuration. P8's worker stream/timeline/Inspector and P9's
+full resilience/system gates are unstarted. Stop here; no merge or P8/P9.
 
-Intermediate failures remain documented: an outdated UI notice assertion and a
-startup-positive probe under full file-parallel host contention failed once in
-the full continuation run (417 PASS/two FAIL/one NOT_RUN). The assertion now
-checks admission without invented outcome; native test files run serially while
-their concurrency cases remain concurrent. Production deadlines were preserved.
-The first full Electron run had 27 PASS/one FAIL: its legacy reload assertion
-expected the old Sidebar status. The next full run had 27 PASS/one FAIL because
-the crash harness allowed only five seconds for real engine/tool preparation.
-The external fixture subsequently recorded both descendants. The harness now
-waits for the real running state and allows 15 seconds for tool readiness;
-unexpected evidence errors propagate rather than being silently polled as zero.
-Production startup/escalation deadlines and exit assertions are unchanged. The
-final full rerun passed. An Electron test initially matched a history title containing
-Run Task; exact accessible-name matching corrected the harness. Windows SystemRoot
-case selection in the Python test environment was corrected. A temporary approval
-review usage error executed no action; the same authorized action later passed
-review. No failed command is represented as a passing run.
-
-## Remaining conditions and honest boundaries
-
-**Normal application Run Task remains unavailable before T2 because no production
-coding model route is configured or authorized.** Matching the engine is not
-provider configuration. Production cannot select the fixture Gateway, instantiate
-the default paid Gateway, inherit the Discussion key or silently bypass consent.
-No live paid coding request or real-user project task was run. This is the main
-remaining product condition; this report does not say users can perform normal
-model-driven coding yet. Actual offline evidence does satisfy the requested
-minimum engine/G4 proof, independently of that missing production route.
-
-The distinct full GUI alias-coded-workspace path, deliberately lost actual-engine
-execute ACK, and actual before-start Main-crash variant remain partial; native
-alias/transport/early-crash fixtures plus real post-start crash are separately
-identified in the register. Paid token calibration remains NOT_VERIFIED. A cancel
-during ambiguous pre-start preparation may retain a blocked lease rather than
-invent never-started/engine-cancelled evidence. Full IIS-08 G2/G4/G7 are not
-declared PASS. P8's nine-event worker stream, timeline/Inspector and detailed
-replay presentation are unstarted; P9's complete system recovery/release gates
-are also unstarted.
-
-Run the normal UI with `npm run dev`, or `npm run build` then `npm start`. Existing
-browsing and explicitly configured P5 Discussion behave as before. Retain
-SQLite/WAL, source/checkpoints, keys and immutable receipts on failure. Do not
-reset data, unlock by time/PID, replay a consumed proposal or perform an automatic
-source rollback. Feature rollback is a reviewed new commit without schema
-downgrade. Frozen working/Git/archive hashes verify 42 delivery files, 41 payloads
-and 18 normative sources. Public 23+3/5+5/22 inventory is byte-identical.
-
-The paid ledger remains **two requests /381 tokens**, unchanged. No external
-source disclosure, global/admin change, main merge, P8/P9 or installer work was
-performed. The manifest records exact phase files/hashes; the later receipt and
-final response supply actual separate publication SHAs. Stop for owner review.
+Run UI locally: `npm run dev`, or `npm run build` then `npm start`. Offline QA:
+`npm test`, `python -X utf8 -m unittest discover -s tests/python -v`,
+`npm run test:electron`, `npm run format:check`, plus the original engine's
+`python tests/run_offline.py -q -p no:cacheprovider`. The separate live Playwright
+config intentionally refuses a consumed mission; do not rerun/reset it. Retain
+SQLite/WAL, external source/checkpoints, journal and receipts. Recovery never
+replays or unlocks by time/PID; rollback is a reviewed new commit, not data reset.
+CHANGE-MANIFEST records exact phase files; the later receipt/final response gives
+actual independent publication SHAs. No key/personal path/raw environment is
+published, and the engine source is not vendored.

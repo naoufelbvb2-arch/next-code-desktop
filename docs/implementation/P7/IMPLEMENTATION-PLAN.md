@@ -1,5 +1,34 @@
 # P7 execution plan — 2026-10-23
 
+## Authorized final production-route continuation — 2026-10-25
+
+Verified clean local/remote baselines: Desktop `b07dffc9cd0444a516f1106ea846983b85b3a802`
+and engine `5e7179b9d528e7ef97e18f91ec284e4da514ca0b`. Keep the existing separate
+P7 feature branches; engine is read-only again. Allowed Desktop envelope: private
+Main runtime/coding setup, Coding bridge/provider adapter, isolated P7 tests and
+existing reports/README/AGENTS. Keep pinned npm/engine packages; no new dependency
+planned. Public IPC/wire/schema and imported frozen bytes remain unchanged.
+
+Implement explicit official DeepSeek Flash routing for all original ModelGateway
+profiles, independent process/model readiness, trusted local secret and one-task
+scope. Reserve every HTTP attempt durably before network under a cross-process
+lock, enforce 12 requests /60,000 tokens (conservative reservation when actual
+usage is unknown), disable both retry layers, close resources, and retain unknown
+leases. Configure only an external synthetic workspace with bounded tool policy;
+verify it cannot target either source checkout. Offline MockTransport tests precede
+one primary actual UI Run Task using the production factory and original AgentOS.
+Verify real source diff, independent local test exit, TaskOutcome, T4/T3, Job zero,
+native root and no replay. No automatic paid task reruns. Stop paid work on an
+exhausted/uncertain budget; request renewed authority before exceeding it.
+
+Attempt the three prior partial cases with actual offline components. Run relevant
+Engine/Desktop regressions, build/type/format, frozen and exact public/schema byte
+checks; distinguish OFFLINE PASS /LIVE DEEPSEEK PASS /PARTIAL /NOT_RUN /BLOCKED.
+Preserve prior raw results and paid ledger, record the new mission separately,
+sanitize all evidence/screenshots, review exact staged bytes/secrets and normally
+publish only P7. Later receipt/final response supplies actual publication SHAs.
+No main merge or P8/P9; stop for owner review without self-accepting the phase.
+
 ## Approved integration fix continuation
 
 The owner approved ENGINE-CHANGE-REQUEST.md in P7 ENGINE INTEGRATION FIX.

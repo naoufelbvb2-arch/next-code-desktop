@@ -7,7 +7,7 @@ import { requireCodingEngine } from './gate'
 // independent evidence/owner approval. Isolated tests may supply a dispatch spy;
 // neither that spy nor P4's simulator is real AgentOS evidence.
 export interface CodingBackend {
-  requireReady(): void
+  requireReady(scope?: Scope): void
   start(scope: Scope, taskId: string): Promise<void>
   cancelRegistered(scope: Scope, taskId: string): void
 }
@@ -39,7 +39,7 @@ export class CodingService {
     )
       throw new StoreError('NOT_AUTHORIZED')
     if (!backend) requireCodingEngine()
-    backend.requireReady()
+    backend.requireReady(scope)
     let created = false
     const admission = await this.options.verify(scope, () =>
       store.admit(scope, input, this.options.proof, () => {
@@ -52,7 +52,7 @@ export class CodingService {
       const work = Promise.resolve()
         .then(() => {
           if (this.closing) throw new StoreError('RUNTIME_NOT_READY')
-          backend.requireReady()
+          backend.requireReady(scope)
           return backend.start(scope, admission.taskId)
         })
         .catch(() => {

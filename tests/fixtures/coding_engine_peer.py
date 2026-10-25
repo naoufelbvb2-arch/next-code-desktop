@@ -10,6 +10,7 @@ from pathlib import Path
 import socket
 import subprocess
 import sys
+import threading
 
 sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "bridge"))
@@ -17,7 +18,8 @@ import coding_bridge
 from engine_compatibility import load_verified_engine
 
 settings = json.loads(os.environ["NCD_CODING_CONFIG"])
-load_verified_engine(settings)
+wire_filter = None
+load_verified_engine({k: settings[k] for k in ("engineRoot", "sitePackages")})
 connect = socket.socket.connect
 def local(self, address):
     if not isinstance(address, tuple) or address[0] not in ("127.0.0.1", "::1"):
@@ -26,7 +28,7 @@ def local(self, address):
 socket.socket.connect = local
 
 
-def factory(settings, workspace):
+def offline_backend(settings, workspace):
     import httpx
     from kernel.config import KernelConfig
     from kernel.gateway.router import ModelGateway
@@ -34,7 +36,9 @@ def factory(settings, workspace):
     from kernel.gateway.ledger import TokenLedger
     from kernel.schemas import ModelProfile
     mode = os.environ.get("P7_FIXTURE_CASE", "success")
-    command = '"C:/Python314/python.exe" check.py'
+    if mode == "lost_ack":
+        mode = "gateway"
+    command = '"C:/Python314/python.exe" -B check.py'
 
     def architect(action, role=None):
         value = dict(situation_assessment="Synthetic offline fixture",
@@ -90,10 +94,25 @@ def factory(settings, workspace):
             workspace.joinpath("awaiting.txt").write_text(mode)
             await asyncio.Event().wait()
         require_reply = replies.pop(0)
-        return httpx.Response(200,json={"choices":[{"message":{"content":json.dumps(require_reply)}}],
+        return httpx.Response(200,json={"choices":[{"message":{"content":json.dumps(require_reply)},"finish_reason":"stop"}],
             "usage":{"prompt_tokens":1,"completion_tokens":1,"total_tokens":2}})
 
-    client = httpx.AsyncClient(transport=httpx.MockTransport(respond), trust_env=False)
+    return httpx.MockTransport(respond)
+
+
+def factory(settings, workspace):
+    if wire_filter is not None:
+        wire_filter.workspace = workspace
+    if os.environ.get("P7_FIXTURE_CASE") == "before_start":
+        workspace.joinpath("before-start.txt").write_text("Actual Coding Bridge reached Gateway setup; AgentOS not yet constructed.")
+        threading.Event().wait()
+    import httpx
+    from kernel.config import KernelConfig
+    from kernel.gateway.router import ModelGateway
+    from kernel.gateway.openai_compat import OpenAICompatibleProvider, ProviderConfig
+    from kernel.gateway.ledger import TokenLedger
+    from kernel.schemas import ModelProfile
+    client = httpx.AsyncClient(transport=offline_backend(settings, workspace), trust_env=False)
     provider = OpenAICompatibleProvider(config=ProviderConfig(api_key=None,max_http_retries=1),client=client)
     gateway = ModelGateway(config=KernelConfig(workspace_root=workspace,deepseek_api_key=None,max_retries=0),
         ledger=TokenLedger(workspace / ".agent_os/offline-ledger.jsonl"))
@@ -104,4 +123,23 @@ def factory(settings, workspace):
 
 
 if __name__ == "__main__":
+    if os.environ.get("P7_FIXTURE_CASE") == "lost_ack":
+        class AckFilter:
+            workspace = None
+            def __init__(self, output): self.output = output
+            def write(self, record):
+                frame = json.loads(record)
+                if frame["type"] == "response" and frame["payload"].get("status") == "accepted":
+                    return len(record)  # Actual response dropped, never replaced.
+                if frame["type"] == "event" and frame["payload"]["name"] == "task.started":
+                    self.workspace.joinpath("actual-start-with-lost-ack.json").write_text(json.dumps(frame))
+                return self.output.write(record)
+            def flush(self): return self.output.flush()
+        original_stdout = sys.stdout
+        wire_filter = AckFilter(original_stdout.buffer)
+        class Output:
+            buffer = wire_filter
+            def write(self, value): return original_stdout.write(value)
+            def flush(self): return original_stdout.flush()
+        sys.stdout = Output()
     raise SystemExit(coding_bridge.serve(settings, factory))

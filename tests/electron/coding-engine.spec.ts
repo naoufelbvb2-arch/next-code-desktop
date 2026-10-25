@@ -194,3 +194,83 @@ test('P7-WIN04 actual AgentOS Main crash stops owned descendants and reopens act
     await current.app.close().catch(() => {})
   }
 })
+
+test('P7-WIN05 actual GUI opens an ASCII case alias, preserves canonical project identity and completes real AgentOS safely', async () => {
+  const { app, page } = await launch()
+  try {
+    await call(app, 'startActualCodingFixture', ['alias'])
+    await page.reload()
+    await page.getByRole('button', { name: 'Projects', exact: true }).click()
+    await page.getByRole('button', { name: 'Open project', exact: true }).click()
+    await expect
+      .poll(() => call(app, 'actualAliasEvidence'))
+      .toEqual({ projects: 1, canonicalRootMatches: true })
+    await page.getByRole('button', { name: 'New Conversation', exact: true }).click()
+    await propose(page)
+    await page.getByRole('button', { name: 'Run Task', exact: true }).click()
+    await expect(page.getByText(/Task .+: completed/)).toBeVisible({ timeout: 20000 })
+    await expect(page.getByText('Main reports reconciled task evidence.')).toBeVisible()
+    expect(await call(app, 'actualCodingSnapshot')).toMatchObject({
+      leases: 0,
+      source: 'def value(): return 2\n',
+      events: [{ name: 'task.started' }, { name: 'task.completed' }]
+    })
+    expect(await call(app, 'actualAliasEvidence')).toEqual({
+      projects: 1,
+      canonicalRootMatches: true
+    })
+  } finally {
+    await call(app, 'stopActualCodingFixture').catch(() => {})
+    await app.close()
+  }
+})
+
+test('P7-WIN06 actual Main crash before AgentOS start stops the real Coding child; restart retains lease and never executes/replays', async () => {
+  let current = await launch()
+  const watches: ReturnType<typeof observeOwned>[] = []
+  try {
+    await call(current.app, 'startActualCodingFixture', ['before_start'])
+    await propose(current.page)
+    await current.page.getByRole('button', { name: 'Run Task', exact: true }).click()
+    let evidence: any
+    await expect
+      .poll(
+        async () => {
+          evidence = await call(current.app, 'actualBeforeStartEvidence')
+          return evidence.ready
+        },
+        { timeout: 15000 }
+      )
+      .toBe(true)
+    expect(await call(current.app, 'actualCodingSnapshot')).toMatchObject({
+      events: [],
+      leases: 1,
+      tasks: [{ state: 'starting' }]
+    })
+    const child = observeOwned(evidence.child),
+      main = observeOwned(evidence.main.pid, evidence.main.creation)
+    watches.push(child, main)
+    expect(main.terminateMain()).toBe(1)
+    for (const watch of watches) await expect.poll(watch.exited, { timeout: 8000 }).toBe(true)
+    current = await launch()
+    expect(
+      await call(current.app, 'recoverActualCodingFixture', [
+        { directory: evidence.directory, workspace: evidence.workspace }
+      ])
+    ).toMatchObject({
+      events: [],
+      leases: 1,
+      source: 'def value(): return 1\n',
+      tasks: [{ state: 'needs_reconciliation' }],
+      status: { active: null }
+    })
+    await current.page.reload()
+    await current.page.locator('.sidebar-history button').first().click()
+    await expect(current.page.getByText(/Task .+: needs_reconciliation/)).toBeVisible()
+    expect((await call(current.app, 'actualCodingSnapshot')).events).toEqual([])
+  } finally {
+    for (const watch of watches) watch.close()
+    await call(current.app, 'stopActualCodingFixture').catch(() => {})
+    await current.app.close().catch(() => {})
+  }
+})

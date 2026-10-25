@@ -1,8 +1,9 @@
 import { StoreError } from '../storage/database'
 import { readFileSync, realpathSync, readdirSync } from 'node:fs'
-import { dirname, join, relative, resolve } from 'node:path'
+import { dirname, isAbsolute, join, relative, resolve, sep } from 'node:path'
 import { baselineEnvironment, digestFile, probe, type VerifiedRuntime } from '../supervisor/runtime'
 import type { LaunchSpec } from '../supervisor/windows-process'
+import { codingBudget, codingKey, codingScope, codingConfig } from './config'
 
 export const CODING_BLOCKED_MESSAGE =
   'Real coding is unavailable: a verified engine lifecycle and cooperative cancellation runtime and an authorized coding model route are required. No task was admitted or started.'
@@ -21,6 +22,7 @@ export interface VerifiedCodingRuntime {
   readonly engineCommit: typeof TESTED_ENGINE_COMMIT
   readonly launch: () => LaunchSpec
   readonly verify: () => void
+  readonly requireProvider: (root: string) => void
 }
 const verified = new WeakSet<VerifiedCodingRuntime>()
 export function requireVerifiedCoding(runtime: VerifiedCodingRuntime): void {
@@ -108,6 +110,37 @@ export async function verifyCodingRuntime(
         throw new CodingUnavailable()
   }
   verify()
+  const route = runtime.coding ? codingConfig.parse(runtime.coding) : undefined
+  const requireProvider = (root: string) => {
+    verify()
+    if (!route)
+      throw new CodingUnavailable(
+        'The coding model route is not configured. No task was admitted or started.'
+      )
+    try {
+      codingScope(route, root)
+      for (const protectedRoot of [engineRoot, dirname(directory)]) {
+        const rel = relative(protectedRoot, realpathSync(root))
+        if (!rel || (!isAbsolute(rel) && rel !== '..' && !rel.startsWith('..' + sep)))
+          throw new Error('CODING_SCOPE_DENIED')
+      }
+      if (
+        route.command !==
+        `"${runtime.executable.replaceAll('\\', '/')}" -B ${route.verificationFile}`
+      )
+        throw new Error('CODING_COMMAND_DENIED')
+      codingKey(route.secretFile)
+      codingBudget(route.budgetFile)
+      if (
+        digestFile(join(route.workspaceRoot, route.verificationFile)) !== route.verificationSha256
+      )
+        throw new Error('CODING_SCOPE_DENIED')
+    } catch {
+      throw new CodingUnavailable(
+        'The coding model route, authorized workspace or mission budget is unavailable. No task was admitted or started.'
+      )
+    }
+  }
   const spec: LaunchSpec = {
     executable: runtime.executable,
     cwd: directory,
@@ -139,9 +172,24 @@ export async function verifyCodingRuntime(
     engineRoot,
     engineCommit: TESTED_ENGINE_COMMIT,
     verify,
+    requireProvider,
     launch: () => {
       verify()
-      return spec
+      if (!route) return spec
+      requireProvider(route.workspaceRoot)
+      const { secretFile, engineRoot: _engine, sitePackages: _site, ...routeSettings } = route
+      return {
+        ...spec,
+        env: {
+          ...spec.env,
+          DEEPSEEK_API_KEY: codingKey(secretFile),
+          NCD_CODING_CONFIG: JSON.stringify({
+            engineRoot,
+            sitePackages: realpathSync(settings.sitePackages),
+            route: routeSettings
+          })
+        }
+      }
     }
   })
   verified.add(result)

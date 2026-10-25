@@ -90,7 +90,7 @@ app
       brokerDirectory: fileBrokerEnabled ? userData : undefined,
       ensure: () =>
         activeSupervisor?.ensureDiscussionReady() ?? Promise.reject(new Error('RUNTIME_NOT_READY')),
-      available: () => !!activeSupervisor?.discussion?.connection.state.ready,
+      available: () => discussionEnabled && !!activeSupervisor?.discussion?.connection.state.ready,
       choose: async () => {
         const selection = await dialog.showOpenDialog({
           title: fileBrokerEnabled
@@ -111,9 +111,10 @@ app
       bridgeDirectory,
       runtimeConfig,
       (supervisor, runtime) => {
-        if (runtime.discussion) activeSupervisor = supervisor
-        if (runtime.discussion && fileBrokerEnabled)
-          void verifyCodingRuntime(runtime, bridgeDirectory, runtime.discussion)
+        if (runtime.discussion || runtime.coding) activeSupervisor = supervisor
+        const codingSettings = runtime.coding ?? runtime.discussion
+        if (codingSettings && fileBrokerEnabled)
+          void verifyCodingRuntime(runtime, bridgeDirectory, codingSettings)
             .then((coding) => installCoding(supervisor, coding))
             .catch(() => {}) // UI Run Task remains closed; no fallback or replay.
       },

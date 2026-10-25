@@ -10,6 +10,7 @@ import { BrokerPool } from '../../electron/main/broker/pool'
 import { workerFixture } from './broker'
 import { runtimeFixture, waitFor } from './supervision'
 import { inspect } from './storage'
+import { digestFile } from '../../electron/main/supervisor/runtime'
 
 export async function codingEngineFixture(
   mode = 'success',
@@ -47,8 +48,47 @@ export async function codingEngineFixture(
     git(['add', 'sample.py', 'check.py', 'sleeper.py', 'parent.py'])
     git(['commit', '-m', 'Synthetic task baseline'])
   }
+  const chosenRoot = mode === 'alias' ? workspace.toUpperCase() : workspace
+  const baseRuntime = await runtimeFixture()
+  if (mode === 'production_mock') {
+    writeFileSync(
+      join(directory, 'coding-secret.env'),
+      'DEEPSEEK_API_KEY=sk-synthetic-production-fixture\n'
+    )
+    writeFileSync(
+      join(directory, 'coding-budget.json'),
+      JSON.stringify({
+        version: 1,
+        requestLimit: 12,
+        tokenLimit: 60000,
+        outputLimit: 2048,
+        taskId: null,
+        requests: []
+      })
+    )
+  }
   const baseline = git(['rev-parse', 'HEAD']).toString().trim(),
-    runtime = await runtimeFixture(),
+    runtime =
+      mode === 'production_mock'
+        ? {
+            ...baseRuntime,
+            coding: {
+              engineRoot: resolve('../next code'),
+              sitePackages: resolve('../next code/.venv/Lib/site-packages'),
+              provider: 'deepseek_official_v1' as const,
+              baseUrl: 'https://api.deepseek.com' as const,
+              model: 'deepseek-flash' as const,
+              secretFile: join(directory, 'coding-secret.env'),
+              budgetFile: join(directory, 'coding-budget.json'),
+              workspaceRoot: workspace,
+              writableFiles: ['sample.py'],
+              verificationFile: 'check.py',
+              verificationSha256: digestFile(join(workspace, 'check.py')),
+              command: '"C:/Python314/python.exe" -B check.py',
+              policy: 'pure-python-functions-v1' as const
+            }
+          }
+        : baseRuntime,
     settings = {
       engineRoot: resolve('../next code'),
       sitePackages: resolve('../next code/.venv/Lib/site-packages')
@@ -82,7 +122,7 @@ export async function codingEngineFixture(
       enabled: true,
       ensure: async () => discussion,
       available: () => discussion.connection.state.ready,
-      choose: async () => workspace,
+      choose: async () => chosenRoot,
       brokerDirectory: directory,
       brokerPool: new BrokerPool(await workerFixture()),
       database: { fault },
@@ -97,6 +137,7 @@ export async function codingEngineFixture(
   const project = service.store.projects()[0],
     scope = service.store.projectBinding(project.projectId).scope
   let nextCase = mode
+  if (mode === 'production_mock') coding.requireProvider(workspace)
   service.installCoding(
     supervisor,
     coding,
@@ -105,7 +146,17 @@ export async function codingEngineFixture(
       : () => ({
           ...coding.launch(),
           env: { ...coding.launch().env, P7_FIXTURE_CASE: nextCase },
-          args: ['-I', '-S', '-u', resolve('tests/fixtures/coding_engine_peer.py')]
+          args: [
+            '-I',
+            '-S',
+            '-u',
+            resolve(
+              mode === 'production_mock'
+                ? 'tests/fixtures/coding_production_peer.py'
+                : 'tests/fixtures/coding_engine_peer.py'
+            ),
+            ...(mode === 'production_mock' ? ['--role', 'coding_task'] : [])
+          ]
         })
   )
   let next = 0

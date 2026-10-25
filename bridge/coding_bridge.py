@@ -1,4 +1,4 @@
-"""Real P7 AgentOS boundary; private stdio, independent reader, no paid route.
+"""Real P7 AgentOS boundary; private stdio and independent cancellation reader.
 
 Offline tests inject a Gateway through a test-owned caller. Production has no
 fixture selector on the CLI, environment, Renderer or public IPC.
@@ -76,7 +76,7 @@ def serve(settings, gateway_factory=None):
 
 
 def _serve(settings, gateway_factory):
-    AgentOS, Context, Outcome, Control, Cancelled = load_verified_engine(settings)
+    AgentOS, Context, Outcome, Control, Cancelled = load_verified_engine({k: settings[k] for k in ("engineRoot", "sitePackages")})
     incoming, lock, seen = Input(), threading.RLock(), set()
     wire = sys.stdout.buffer
     active, thread, control = None, None, None
@@ -152,9 +152,12 @@ def _serve(settings, gateway_factory):
             gateway = gateway_factory(settings, workspace)
             # Engine prints never become transport records or outcome evidence.
             with open(os.devnull, "w") as discarded, contextlib.redirect_stdout(discarded):
-                engine = AgentOS(workspace, gateway=gateway, verbose=False)
                 async def execute():
                     try:
+                        engine = AgentOS(workspace, gateway=gateway, verbose=False)
+                        if "route" in settings:
+                            from coding_policy import install_policy
+                            install_policy(engine, settings["route"])
                         return await engine.execute_task(value["task_goal"], identity,
                             conversation_context=context, observer=Observer(), cancellation=task_control)
                     finally:
@@ -203,6 +206,10 @@ def _serve(settings, gateway_factory):
                     if gateway_factory is None:
                         emit("error", {"code": "PROVIDER_UNAVAILABLE", "message": "A coding model route requires separate configuration and authorization.", "retryable": False}, frame["message_id"])
                         return 78
+                    if "route" in settings:
+                        from coding_gateway import CodingBudget, validate_route
+                        validate_route(settings["route"], Path(value["workspace_root"]).resolve(strict=True))
+                        CodingBudget(settings["route"]["budgetFile"]).claim(value["task_id"])
                     context = None if value["conversation_context"] is None else Context.snapshot_and_validate(Context.model_validate(value["conversation_context"]))
                     if context is not None:
                         require(context.conversation_id == value["conversation_id"])
@@ -225,12 +232,18 @@ def main():
     args = parser.parse_args()
     try:
         settings = json.loads(os.environ["NCD_CODING_CONFIG"])
-        load_verified_engine(settings)
+        load_verified_engine({k: settings[k] for k in ("engineRoot", "sitePackages")})
         if args.describe:
             print(json.dumps({"protocol": 1, "roles": ["coding_task"], "provider": False, "engine": True, "executionControl": 1}, separators=(",", ":")))
             return 0
         require(args.role == "coding_task")
-        return serve(settings)
+        factory = None
+        if "route" in settings:
+            from coding_gateway import build_gateway
+            key = os.environ.pop("DEEPSEEK_API_KEY", "")
+            require(bool(key))
+            factory = lambda config, workspace: build_gateway(config, key, workspace)
+        return serve(settings, factory)
     except BaseException:
         frame = dict(version=1, type="error", message_id=secrets.token_hex(24), correlation_id=None,
             payload={"code":"STARTUP_FAILED", "message":"The tested coding runtime could not be verified.", "retryable":False})

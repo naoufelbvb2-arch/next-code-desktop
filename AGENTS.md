@@ -2,6 +2,32 @@
 
 ## Current authority
 
+The owner's **P7 FINAL INTEGRATION — Production DeepSeek Coding Route & Real Run
+Task Verification** (2026-10-25) supersedes the older no-paid/provider restriction
+only for this continuation. Desktop starts at verified `b07dffc9cd0444a516f1106ea846983b85b3a802`
+on its existing P7 branch; engine remains read-only at
+`5e7179b9d528e7ef97e18f91ec284e4da514ca0b`. Implement a Main-verified explicit
+DeepSeek official / deepseek-flash Coding factory over the original ModelGateway,
+with all three profiles, no fallback, local ignored credential, and durable
+provider-layer limits: at most 12 HTTP requests /60,000 tokens for this mission,
+one primary synthetic coding task, no HTTP or structured-output paid retries.
+Use heavy offline tests and one explicit UI Run Task in an external synthetic Git
+workspace; independently check the file, test, real TaskOutcome and Windows/lease
+cleanup. Preserve prior evidence, attempt C05/C08/C09 closure without paid reruns,
+run necessary regressions, document exact costs/limits, review/commit/push P7.
+No engine edits, frozen/public/schema changes, real-user project coding, visual
+changes, main merge or P8/P9. Stop at P7 owner review. Never display/store/publish
+the key or send it to Renderer/SQLite/engine repository.
+
+The authorized live task succeeded: 12 requests /31,628 tokens, independently
+matched to the original engine ledger. **The mission request/task allowance is
+consumed. No further paid call, new task, journal reset or automatic budget
+renewal is authorized.** Preserve the local journal, isolated DB and external
+project/checkpoints. Continue only offline verification/documentation/publication;
+stop at owner P7 review. Any additional paid task needs separate owner authority.
+
+### Prior integration-fix authority (historical)
+
 The owner's **P7 ENGINE INTEGRATION FIX** approves the existing
 `docs/implementation/P7/ENGINE-CHANGE-REQUEST.md` and supersedes the older
 read-only engine restriction for that narrow patch. Engine baseline is verified

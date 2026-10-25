@@ -1,7 +1,7 @@
 // @vitest-environment node
 import { test, expect } from 'vitest'
 import { readFileSync, existsSync } from 'node:fs'
-import { join } from 'node:path'
+import { join, resolve } from 'node:path'
 import { codingEngineFixture } from '../fixtures/coding-engine'
 import { waitFor } from '../fixtures/supervision'
 import { event } from '../fixtures/storage'
@@ -278,3 +278,86 @@ test('P7-E10 ordinary Main proof cannot forge a coding event or cleanup authorit
     await f.close()
   }
 }, 20000)
+test('P7-P01 real production factory/CLI, three-profile Gateway, budget and restricted tools complete actual AgentOS with HTTP mocks only', async () => {
+  const f = await codingEngineFixture('production_mock')
+  try {
+    expect(() => f.runtime.requireProvider(f.workspace)).not.toThrow()
+    expect(() => f.runtime.requireProvider(resolve('../next code'))).toThrow('RUNTIME_NOT_READY')
+    const { task } = await f.run()
+    try {
+      await f.wait(task.taskId, 'completed', 15000)
+    } catch {
+      throw new Error(JSON.stringify(f.status()))
+    }
+    expect(f.source()).toBe('def value(): return 2\n')
+    expect(f.db.prepare('SELECT count(*) n FROM workspace_writer_leases').get()!.n).toBe(0)
+    const budget = JSON.parse(readFileSync(join(f.directory, 'coding-budget.json'), 'utf8'))
+    expect(budget.taskId).toBe(task.taskId)
+    expect(budget.requests).toHaveLength(8)
+    expect(
+      budget.requests.every(
+        (r: { status: string; model: string }) =>
+          r.status === 'completed' && r.model === 'deepseek-flash'
+      )
+    ).toBe(true)
+    expect(() => f.runtime.requireProvider(f.workspace)).toThrow('RUNTIME_NOT_READY')
+    expect(JSON.stringify(budget)).not.toContain('synthetic-production-fixture')
+  } finally {
+    await f.close()
+  }
+}, 30000)
+test('P7-P02 actual AgentOS start with lost execute ACK fails closed, retains lease and immutable receipt never replays', async () => {
+  const f = await codingEngineFixture('lost_ack')
+  try {
+    const run = await f.run()
+    await f.wait(run.task.taskId, 'needs_reconciliation')
+    await waitFor(() => existsSync(join(f.workspace, 'actual-start-with-lost-ack.json')))
+    const start = JSON.parse(
+      readFileSync(join(f.workspace, 'actual-start-with-lost-ack.json'), 'utf8')
+    )
+    expect(start.payload).toMatchObject({
+      name: 'task.started',
+      data: { task_id: run.task.taskId, source: 'agent_os' }
+    })
+    expect(f.db.prepare('SELECT count(*) n FROM task_events').get()!.n).toBe(0)
+    expect(f.db.prepare('SELECT lease_state FROM workspace_writer_leases').get()!.lease_state).toBe(
+      'blocked'
+    )
+    expect(f.source()).toBe('def value(): return 1\n')
+    expect(await f.service.dispatch('proposals.confirmRun', run.input)).toMatchObject({
+      ok: true,
+      data: run.task
+    })
+    expect(f.db.prepare('SELECT count(*) n FROM tasks').get()!.n).toBe(1)
+    expect(f.supervisor.activeCodingTask).toBe(run.task.taskId)
+  } finally {
+    await f.close()
+  }
+}, 20000)
+test('P7-P03 production factory/CLI cooperatively cancels a waiting HTTP mock and releases only after real stop proof', async () => {
+  const f = await codingEngineFixture('production_mock')
+  try {
+    f.setCase('gateway')
+    const { task } = await f.run()
+    await waitFor(() => existsSync(join(f.workspace, 'awaiting.txt')))
+    expect(await f.service.dispatch('tasks.cancel', { taskId: task.taskId })).toMatchObject({
+      ok: true,
+      data: { state: 'requested' }
+    })
+    await f.wait(task.taskId, 'cancelled', 15000)
+    expect(
+      f.db
+        .prepare('SELECT name FROM task_events ORDER BY sequence')
+        .all()
+        .map((r) => r.name)
+    ).toEqual(['task.started', 'task.cancelled'])
+    expect(f.service.store.readTask(f.scope, task.taskId).outcome).toBeNull()
+    expect(f.db.prepare('SELECT count(*) n FROM workspace_writer_leases').get()!.n).toBe(0)
+    const budget = JSON.parse(readFileSync(join(f.directory, 'coding-budget.json'), 'utf8'))
+    expect(budget.requests).toHaveLength(1)
+    expect(budget.requests[0].status).toBe('reserved')
+    expect(() => f.runtime.requireProvider(f.workspace)).toThrow('RUNTIME_NOT_READY')
+  } finally {
+    await f.close()
+  }
+}, 30000)

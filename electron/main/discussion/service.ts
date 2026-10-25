@@ -207,12 +207,12 @@ export class DiscussionService {
       }
     })
     this.coding.installBackend({
-      requireReady: () => {
+      requireReady: (scope) => {
         requireVerifiedCoding(runtime)
-        if (!offlineLaunch)
-          throw new CodingUnavailable(
-            'The coding engine is verified. A coding model route requires separate configuration and authorization; no task was admitted or started.'
-          )
+        if (!offlineLaunch) {
+          if (!scope) throw new CodingUnavailable()
+          runtime.requireProvider(this.store.projectBinding(scope.projectId).root)
+        }
       },
       start: async (scope, taskId) => {
         await supervisor.admitCodingTask(scope, taskId)
