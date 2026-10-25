@@ -1,7 +1,15 @@
 import { useEffect, useRef, useState } from 'react'
 import type { Output } from '../../contracts/ipc'
 
-export function TaskControls({ conversation }: { conversation: Output<'conversations.read'> }) {
+export function TaskControls({
+  conversation,
+  onLiveStart,
+  onAdmission
+}: {
+  conversation: Output<'conversations.read'>
+  onLiveStart?: (key: string) => void
+  onAdmission?: (taskId: string, exactGoal: string) => void
+}) {
   const api = window.nextCode,
     [error, setError] = useState(''),
     [notice, setNotice] = useState(''),
@@ -9,6 +17,8 @@ export function TaskControls({ conversation }: { conversation: Output<'conversat
     [now, setNow] = useState(Date.now())
   const inFlight = useRef(false),
     mutations = useRef(new Map<string, string>())
+  const callbacks = useRef({ onLiveStart, onAdmission })
+  callbacks.current = { onLiveStart, onAdmission }
   const [views, setViews] = useState<
     Record<string, { task: Output<'tasks.read'>; certain: boolean }>
   >({})
@@ -19,6 +29,8 @@ export function TaskControls({ conversation }: { conversation: Output<'conversat
   useEffect(() => {
     if (!api?.tasks) return
     let active = true
+    const baselines = new Set<string>(),
+      seenStarts = new Set<string>()
     const refresh = async (id: string) => {
       const task = await api.tasks.read(id)
       if (
@@ -28,6 +40,13 @@ export function TaskControls({ conversation }: { conversation: Output<'conversat
       )
         return
       const evidence = await api.tasks.readEvents({ taskId: id, afterSequence: 0, limit: 1 })
+      if (active && evidence.ok) {
+        if (
+          evidence.data.events.some((e) => e.type === 'event' && e.payload.name === 'task.started')
+        )
+          seenStarts.add(id)
+        baselines.add(id)
+      }
       if (active)
         setViews((old) => ({
           ...old,
@@ -36,7 +55,30 @@ export function TaskControls({ conversation }: { conversation: Output<'conversat
     }
     // Register before snapshots. Unsubscribe/navigation never controls task life.
     const subscriptions = conversation.tasks.slice(0, 21).map((task) => {
-      const unsubscribe = api.tasks.subscribeTask(task.taskId, () => {
+      const unsubscribe = api.tasks.subscribeTask(task.taskId, (hint) => {
+        if (
+          active &&
+          hint?.type === 'TaskEventCommitted' &&
+          hint.taskId === task.taskId &&
+          hint.sequence === 1 &&
+          baselines.has(task.taskId) &&
+          !seenStarts.has(task.taskId)
+        ) {
+          seenStarts.add(task.taskId)
+          void api.tasks
+            .readEvents({ taskId: task.taskId, afterSequence: 0, limit: 1 })
+            .then((page) => {
+              if (!active || !page.ok || page.data.taskId !== task.taskId) return
+              const first = page.data.events[0]
+              if (
+                first?.type === 'event' &&
+                first.payload.name === 'task.started' &&
+                first.payload.data.task_id === task.taskId
+              )
+                callbacks.current.onLiveStart?.(`${task.taskId}:${first.payload.data.event_id}`)
+            })
+            .catch(() => {})
+        }
         void refresh(task.taskId).catch(() => {})
       })
       void refresh(task.taskId).catch(() => {})
@@ -68,10 +110,12 @@ export function TaskControls({ conversation }: { conversation: Output<'conversat
     try {
       const result = await api.proposals.confirmRun({ proposalId: id, clientMutationId: mutation })
       if (!result.ok) setError(result.error.message)
-      else if (result.data.conversationId === conversation.conversation.conversationId)
+      else if (result.data.conversationId === conversation.conversation.conversationId) {
+        callbacks.current.onAdmission?.(result.data.taskId, proposal.exactGoal)
         setNotice(
           `Task admitted as ${result.data.state}. Follow the committed task evidence below.`
         )
+      }
     } catch {
       setError('Admission could not be confirmed. No task is automatically resubmitted.')
     } finally {

@@ -73,6 +73,18 @@ if args.mode == "no_read":
 
 def workload(task):
     event(task, "task.started", {"phase": "INITIALIZING"})
+    if args.mode == "p8_conflict":
+        emit("event", {"name":"task.progress","data":dict(task_id=task,event_id="collision",sequence=1,source="agent_os",phase="EXECUTING",detail="Synthetic conflicting sequence")})
+        return
+    if args.mode == "p8_backfill":
+        def row(seq, name, **data):
+            emit("event", {"name":name,"data":dict(task_id=task,event_id="fill_"+str(seq),sequence=seq,source="agent_os",**data)})
+        row(2,"task.progress",phase="EXECUTING",detail="Synthetic sparse history")
+        row(4,"test.result",status="passed",summary="Synthetic only")
+        row(5,"task.completed",outcome=dict(task_id=task,success=True,final_phase="COMPLETED",summary="Synthetic outcome",total_ticks=1,rollbacks_triggered=0,final_checkpoint_hash=None))
+        time.sleep(0.1)
+        row(3,"task.progress",phase="VERIFYING",detail="Synthetic late earlier row")
+        return
     if args.mode in ("tree", "orphan"):
         # Descendant inherits the Job, not protocol pipes or Main handles.
         child_code = "import subprocess,sys,time,os,json;g=subprocess.Popen([sys.executable,'-I','-S','-c','import time;time.sleep(120)'],stdin=subprocess.DEVNULL,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL);m=os.environ.get('P4_FIXTURE_CHILD_FILE');f=open(m,'w',encoding='utf-8') if m else None;f.write(json.dumps({'pid':os.getpid(),'grandchild':g.pid})) if f else None;f.close() if f else None;time.sleep(120)"

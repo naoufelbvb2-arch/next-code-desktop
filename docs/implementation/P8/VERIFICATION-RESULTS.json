@@ -1,0 +1,3806 @@
+{
+  "phase": "P8",
+  "recordedDate": "2026-10-25",
+  "branch": "feature/p8-mission-control",
+  "startingCommit": "c6f36fc8ead214284e26dc7738a4e65aed73eefd",
+  "acceptedP7Commit": "3f205b036a5e074803d9e58580987a2aeb96d873",
+  "engineCommit": "5e7179b9d528e7ef97e18f91ec284e4da514ca0b",
+  "status": "INDEPENDENT_IMPLEMENTATION_VERIFIED; FULL_P8_G5_BLOCKED_PENDING_OWNER_ENGINE_AND_PROJECTION_REVIEW",
+  "currentDesktopUniqueExecutableTotals": {
+    "PASS": 508,
+    "FAIL": 0,
+    "NOT_RUN": 1
+  },
+  "counting": "443 unique unit/UI/native PASS: full 441 plus two additional UI cases, affected UI/replay files replaced by final 32-case PASS; 34 Python and 31 Windows Electron. One inherited unprivileged symlink NOT_RUN. No diagnostic repeat or historical paid PASS counted again.",
+  "unitAndUI": [
+    {
+      "file": "tests/ui/app.test.tsx",
+      "name": "real UI interactions without a backend keeps an unsent draft through pages and never fakes message acceptance",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/ui/app.test.tsx",
+      "name": "real UI interactions without a backend maintains independent Dock state and supports keyboard resizing and tabs",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/ui/app.test.tsx",
+      "name": "real UI interactions without a backend opens Files from Projects in place and keeps future controls honestly disabled",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/ui/app.test.tsx",
+      "name": "real UI interactions without a backend switches session appearance and routes using keyboard only",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/ui/broker.test.tsx",
+      "name": "P6-U01 pending preview from A is never shown under selected project B",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/ui/broker.test.tsx",
+      "name": "P6-U02 preview is escaped local text and never calls a discussion or disclosure mutation",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/ui/broker.test.tsx",
+      "name": "P6-U03 only explicit source consent clicks mutate authority, and uncertain retries reuse the exact mutation identity",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/ui/coding.test.tsx",
+      "name": "E05-08/23/35 only a new live committed Chat start triggers once; replay/remount and stale callbacks do not open Dock",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/ui/coding.test.tsx",
+      "name": "E05-35 initial snapshot containing historical start is never a live start even with repeated later hints",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/ui/coding.test.tsx",
+      "name": "P7-U01 Main-issued exact proposal needs explicit click; duplicate click and uncertain retry reuse one mutation identity",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/ui/coding.test.tsx",
+      "name": "P7-U02 expired proposals disabled and backend unavailability is shown without optimistic task success",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/ui/coding.test.tsx",
+      "name": "P7-U03 subscribe-before-snapshot, cancellation remains intent and navigation never confirms or re-executes a task",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/ui/discussion.test.tsx",
+      "name": "P5-UI01 explicit model choice, one acceptance on double click, waiting and only committed assistant rendering",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/ui/discussion.test.tsx",
+      "name": "P5-UI02 failed T1 acceptance retains the local draft and shows no phantom saved assistant",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/ui/discussion.test.tsx",
+      "name": "P5-UI03 delayed acceptance preserves newer unsent text: edit current draft",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/ui/discussion.test.tsx",
+      "name": "P5-UI03 delayed acceptance preserves newer unsent text: open another draft",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/ui/mission.test.tsx",
+      "name": "E05-07/24/30/31/36 real DTO limits show honest unknown cleanup/goal/liveness and empty worker inspector",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/ui/mission.test.tsx",
+      "name": "E05-04/05/06/27/34 synthetic repeated-role selectors and Inspector escape XSS without attributing task tests to worker",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/ui/mission.test.tsx",
+      "name": "E05-11/16/32 I08-T55 mounted timeline stays at 100 rows and gap/partial states remain visible",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/ui/presentation.test.tsx",
+      "name": "isolated presentation fixtures — never live task evidence renders coding conversation cards, expansion and safe text",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/ui/presentation.test.tsx",
+      "name": "isolated presentation fixtures — never live task evidence keeps preview read-only and treats markup as text",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/ui/presentation.test.tsx",
+      "name": "isolated presentation fixtures — never live task evidence shows truthful unavailable preview: Binary file preview is unavailable.",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/ui/presentation.test.tsx",
+      "name": "isolated presentation fixtures — never live task evidence shows truthful unavailable preview: This file cannot be read.",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/unit/broker-limits.test.ts",
+      "name": "P6-L01 failed source pipe never increments a durable read or sends a second response",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-limits.test.ts",
+      "name": "P6-L02 revoke wins before the authenticated write scheduling; prepared content is never released",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-limits.test.ts",
+      "name": "P6-L03 30 discover calls and 1000 returned entries are independent parent ceilings",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-limits.test.ts",
+      "name": "P6-L04 24 distinct files and 40 reads cannot be bypassed by repeating a subject",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-limits.test.ts",
+      "name": "P6-L05 actual UTF8 released-byte and complete-file scan budgets never overflow",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-limits.test.ts",
+      "name": "P6-L06 actual WAL backup/restore with missing HMAC starts a new partial inspection and never reuses subject identity",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-limits.test.ts",
+      "name": "P6-L06 actual WAL backup/restore with rotated HMAC starts a new partial inspection and never reuses subject identity",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-limits.test.ts",
+      "name": "P6-L07 real native workers enforce two active, sixteen global queued, four per parent, fair UI access and cancellation",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-limits.test.ts",
+      "name": "P6-L08 real wall-clock queued work expires within the 30 second operation ceiling without starving Main",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-limits.test.ts",
+      "name": "P6-L09 actual 90 second parent window expires independently of the 30 second per-operation deadline",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 0",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 1",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 2",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 3",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 4",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 5",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 6",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 7",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 8",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 9",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 10",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 11",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 12",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 13",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 14",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 15",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 16",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 17",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 18",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 19",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 20",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 21",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 22",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 23",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 24",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 25",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 26",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 27",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 28",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 29",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 30",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH rejects unsafe selector 31",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH accepts literal bounded selector 0",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH accepts literal bounded selector 1",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH accepts literal bounded selector 2",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH accepts literal bounded selector 3",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH accepts literal bounded selector 4",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-PATH root marker only belongs to directory enumeration",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S1 denies sensitive path category 0",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S1 denies sensitive path category 1",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S1 denies sensitive path category 2",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S1 denies sensitive path category 3",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S1 denies sensitive path category 4",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S1 denies sensitive path category 5",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S1 denies sensitive path category 6",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S1 denies sensitive path category 7",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S1 denies sensitive path category 8",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S1 denies sensitive path category 9",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S1 denies sensitive path category 10",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S1 denies sensitive path category 11",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S1 denies sensitive path category 12",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S1 denies sensitive path category 13",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S1 denies sensitive path category 14",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S1 ordinary settings and unknown source extension remain eligible",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S3 denies complete sensitive content, including escaped and cross-buffer material 0",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S3 denies complete sensitive content, including escaped and cross-buffer material 1",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S3 denies complete sensitive content, including escaped and cross-buffer material 2",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S3 denies complete sensitive content, including escaped and cross-buffer material 3",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S3 denies complete sensitive content, including escaped and cross-buffer material 4",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S3 denies complete sensitive content, including escaped and cross-buffer material 5",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S3 denies complete sensitive content, including escaped and cross-buffer material 6",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S3 denies complete sensitive content, including escaped and cross-buffer material 7",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S3 denies complete sensitive content, including escaped and cross-buffer material 8",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S3 denies complete sensitive content, including escaped and cross-buffer material 9",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-S3 denies complete sensitive content, including escaped and cross-buffer material 10",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-DECODE malformed/ambiguous/binary input fails closed 0",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-DECODE malformed/ambiguous/binary input fails closed 1",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-DECODE malformed/ambiguous/binary input fails closed 2",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-DECODE malformed/ambiguous/binary input fails closed 3",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-DECODE malformed/ambiguous/binary input fails closed 4",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-DECODE strict UTF8 BOM and UTF16 LE/BE share the same normalized excerpt hash",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-SCAN ordinary source/hash text is not a secret by entropy alone",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-LINES empty and wholly past EOF are denied; partial EOF reports real emitted bounds",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-LINES character limits retain whole non-BMP scalar lines",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-SIZE bounded complete scanner accepts the exact 8MiB edge and denies overflow",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-policy.test.ts",
+      "name": "P6-WIRE numeric broker ranges and cursor lengths are rejected at the closed wire boundary",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-service.test.ts",
+      "name": "P6-B01 real Windows worker discover, T6 grant and exact local handoff before one durable read count",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-service.test.ts",
+      "name": "P6-B02 local preview uses identical safety policy and never adds Discussion observations",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-service.test.ts",
+      "name": "P6-B03 opaque cursor is scope-bound, mutation invalidates it, and no hidden name is returned",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-service.test.ts",
+      "name": "P6-B04 foreign and ended parent cannot acquire filesystem authority",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-service.test.ts",
+      "name": "P6-B05 sensitive content outside requested line and across capture block is denied",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-service.test.ts",
+      "name": "P6-B06 evidence COMMIT failure after successful source handoff never invents a count or sends a second response",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-service.test.ts",
+      "name": "P6-B07 HMAC rotation ends the old inspection without mixing keys or releasing another source",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-service.test.ts",
+      "name": "P6-B08 UI workspace switch never retargets the immutable active parent",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-service.test.ts",
+      "name": "P6-B09 coding role, nonREADY connection and foreign session are denied before worker admission",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-service.test.ts",
+      "name": "P6-B10 replaced root is marked unavailable with historic identity preserved and requires explicit folder registration",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-service.test.ts",
+      "name": "P6-B11 moved root becomes unavailable rather than silently adopting another directory or repairing its identity",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-service.test.ts",
+      "name": "P6-B12 S5 repeats same-handle native freshness at the actual write hook after preparation; attribute-only timestamp change is denied",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-service.test.ts",
+      "name": "P6-B13 cursors cannot cross UI project or Discussion authority; changed source cannot reuse a prior read observation",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-windows.test.ts",
+      "name": "P6-W01 actual NTFS handle chain, identity, capture and same-byte normalized excerpt",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-windows.test.ts",
+      "name": "P6-W02 held native ancestor and leaf reject rename/replacement and new writers",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-windows.test.ts",
+      "name": "P6-W03 pre-existing writable handle makes native capture fail closed",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-windows.test.ts",
+      "name": "P6-W04 real junction is refused, including a target inside the same project",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-windows.test.ts",
+      "name": "P6-W05 strict native registration identity rejects a replaced project directory",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-windows.test.ts",
+      "name": "P6-W06 previously writable mapped view after original handle closes must not permit a capture",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-windows.test.ts",
+      "name": "P6-W07 outside-root junction and ordinary hard-link alias never release bytes",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-windows.test.ts",
+      "name": "P6-W08 full precise expected mtime and post-capture metadata mutation are rejected",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-windows.test.ts",
+      "name": "P6-W09 actual separate worker pins ancestors and exact capture against same-length writer/mtime restoration and directory replacement",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-windows.test.ts",
+      "name": "P6-W10 actual symbolic link is denied when unprivileged Windows link creation is available",
+      "status": "NOT_RUN",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-windows.test.ts",
+      "name": "P6-W11 actual long-name identity accepts ASCII case and refuses an available Windows short alias",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/broker-windows.test.ts",
+      "name": "P6-W12 borrowed Main verification uses real worker-owned handles and cannot outlive their native lease",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding-integration.test.ts",
+      "name": "P7-E01 actual AgentOS patch, C01, TaskOutcome, Main T4 and native/outer-Job T3 cleanup",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding-integration.test.ts",
+      "name": "P7-E02 actual failed TaskOutcome releases only after native/Windows cleanup",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding-integration.test.ts",
+      "name": "P7-E03-gateway durable cancel reaches real engine and confirms actual cooperative stop",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding-integration.test.ts",
+      "name": "P7-E03-worker durable cancel reaches real engine and confirms actual cooperative stop",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding-integration.test.ts",
+      "name": "P7-E03-shell durable cancel reaches real engine and confirms actual cooperative stop",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding-integration.test.ts",
+      "name": "P7-E04 actual engine exception preserves unknown outcome and blocked writer",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding-integration.test.ts",
+      "name": "P7-E05 real noncooperating Gateway plus owned descendants escalates after 15 seconds, retaining uncertainty and lease",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding-integration.test.ts",
+      "name": "P7-E06 real FIFO queue: queued cancellation never spawns, next committed writer starts only after actual cleanup",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding-integration.test.ts",
+      "name": "P7-E07 terminal SQLite COMMIT fault preserves actual changed file, unknown outcome and blocked lease",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding-integration.test.ts",
+      "name": "P7-E08 verified engine alone cannot enable a paid/default provider or consume a production proposal",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding-integration.test.ts",
+      "name": "P7-E09 actual native T2 COMMIT fault cannot spawn the verified engine or consume approval",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding-integration.test.ts",
+      "name": "P7-E10 ordinary Main proof cannot forge a coding event or cleanup authority for a real active task",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding-integration.test.ts",
+      "name": "P7-P01 real production factory/CLI, three-profile Gateway, budget and restricted tools complete actual AgentOS with HTTP mocks only",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding-integration.test.ts",
+      "name": "P7-P02 actual AgentOS start with lost execute ACK fails closed, retains lease and immutable receipt never replays",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding-integration.test.ts",
+      "name": "P7-P03 production factory/CLI cooperatively cancels a waiting HTTP mock and releases only after real stop proof",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding-runtime.test.ts",
+      "name": "P7-G01 exact tested engine is verified with pinned sources/Git and a credential-free narrow environment",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding-runtime.test.ts",
+      "name": "P7-G02 changed Desktop bridge bytes cannot launch after verification; original sources stay untouched",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding-runtime.test.ts",
+      "name": "P7-G03 wrong Git identity and a fabricated source-only capability cannot enable coding",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding.test.ts",
+      "name": "P7-A01 default engine gate rejects production admission without consuming a real Main proposal",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding.test.ts",
+      "name": "P7-A02 concurrent duplicate explicit admissions have one durable task, receipt, lease and post-COMMIT dispatch",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding.test.ts",
+      "name": "P7-A03 T2 COMMIT failure never dispatches or consumes authorization",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding.test.ts",
+      "name": "P7-A04 real SQLite one active +20 queued, FIFO, and never-started queue cancellation without a child command",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding.test.ts",
+      "name": "P7-A05 active cancel is durably recorded before forwarding; repeated cancel does not forward twice or imply engine cancellation",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding.test.ts",
+      "name": "P7-A06 failed launch and lost cancel route retain uncertainty and blocked writer; original receipt never auto-reexecutes",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding.test.ts",
+      "name": "P7-A07 expiry, absent and cross-project proposal IDs reject before launch",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding.test.ts",
+      "name": "P7-A08 C01 context is bounded, same-conversation, advisory and separate from the exact admitted goal",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding.test.ts",
+      "name": "P7-A09 terminal/SQLite/cancel race preserves actual committed evidence and never releases a writer from a DTO",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding.test.ts",
+      "name": "P7-A10 restart or unavailable engine returns the exact historical receipt without rechecking native IO or re-executing",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding.test.ts",
+      "name": "P7-A11 committed cancellation evidence can reconcile without inventing a TaskOutcome",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/coding.test.ts",
+      "name": "P7-A12 a gapped terminal stream retains its actual recorded outcome and writer until complete",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/discussion.test.ts",
+      "name": "P5-14 valid visible summary sources enter derived memory for a later turn",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/discussion.test.ts",
+      "name": "P5-15 history pressure prunes whole optional entries and preserves the exact current message",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/discussion.test.ts",
+      "name": "P5-01 model registry, unsupported selection and preference is for future sends",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/discussion.test.ts",
+      "name": "P5-02 real T1 acceptance and immutable receipt before issue; duplicate mutation produces one T5 answer and no second call",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/discussion.test.ts",
+      "name": "P5-03 current and future queued user turns never leak into historical context; same conversation serialized",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/discussion.test.ts",
+      "name": "P5-04 ambiguous provider failure preserves the user and unknown attempt, no assistant or task event",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/discussion.test.ts",
+      "name": "P5-05 T1 commit failure makes no provider issue; T5 commit failure cannot publish an assistant",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/discussion.test.ts",
+      "name": "P5-06 all coding and broker/file methods remain closed, registry and DB have no credential",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/discussion.test.ts",
+      "name": "P5-07 restart of a T1-committed but unissued turn shows unknown without replay or fake attempt",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/discussion.test.ts",
+      "name": "P5-08 wrong request correlation cannot become a committed assistant message",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/discussion.test.ts",
+      "name": "P5-09 different conversation context is isolated even within the same registered project",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/discussion.test.ts",
+      "name": "P5-10 a structured proposal receives a Main identity and TTL while no task, lease or coding event is created",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/discussion.test.ts",
+      "name": "P5-11 fabricated summary sources and generated decision candidates never enter trusted memory",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/discussion.test.ts",
+      "name": "P5-12 exact attributable user approval enters T5 atomically and is available as approved context on a later turn",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/discussion.test.ts",
+      "name": "P5-13 conversation Dock save uses existing receipt transaction and never changes task state",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main has precisely the independent 23-method and three-subscription register",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main app.bootstrap: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main app.bootstrap: malformed payload never becomes success",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main projects.listRecent: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main projects.listRecent: malformed payload never becomes success",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main projects.choose: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main projects.choose: malformed payload never becomes success",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main projects.select: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main projects.select: malformed payload never becomes success",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main projects.listFiles: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main projects.listFiles: malformed payload never becomes success",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main projects.previewFile: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main projects.previewFile: malformed payload never becomes success",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main conversations.list: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main conversations.list: malformed payload never becomes success",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main conversations.read: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main conversations.read: malformed payload never becomes success",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main conversations.saveDockState: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main conversations.saveDockState: malformed payload never becomes success",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main conversations.sendMessage: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main conversations.sendMessage: malformed payload never becomes success",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main models.list: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main models.list: malformed payload never becomes success",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main models.setDiscussionPreference: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main models.setDiscussionPreference: malformed payload never becomes success",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main disclosures.list: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main disclosures.list: malformed payload never becomes success",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main disclosures.respond: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main disclosures.respond: malformed payload never becomes success",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main disclosures.revoke: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main disclosures.revoke: malformed payload never becomes success",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main proposals.confirmRun: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main proposals.confirmRun: malformed payload never becomes success",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main tasks.read: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main tasks.read: malformed payload never becomes success",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main tasks.list: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main tasks.list: malformed payload never becomes success",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main tasks.cancel: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main tasks.cancel: malformed payload never becomes success",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main tasks.readEvents: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main tasks.readEvents: malformed payload never becomes success",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main tasks.readDiagnostics: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main tasks.readDiagnostics: malformed payload never becomes success",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main preferences.get: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main preferences.get: malformed payload never becomes success",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main preferences.update: validated known input reaches Main and returns an official unready error",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main preferences.update: malformed payload never becomes success",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main rejects unknown channels, multiple arguments, foreign frames, and callers that lose trust",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main measures Unicode code points and rejects extra authority / path / enum / page fields",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main rejects cycles, accessors and non-JSON objects before expensive schema work",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main facade enforces arity, fixed argument adapters and sanitized transport errors",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main bounds aggregate serialized work and rejects array subclasses or hidden properties",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02 exact restricted surface and fail-closed Main acceptance is persisted-only and errors are the fixed 17 UI values",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02-C01 required closed projections, not a new public operation preserves required nulls and empty proposal fields",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "IIS-02-C01 required closed projections, not a new public operation rejects foreign proposal / user turn, excess proposals and nonexistent retry controls",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "three subscriptions: Main authority, sanitation and lifecycle delivers typed scoped projections only, isolates callbacks, and safely unregisters",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "three subscriptions: Main authority, sanitation and lifecycle defaults unavailable scoped stores to denied, rechecks permissions, and disposes on reload",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/ipc.test.ts",
+      "name": "three subscriptions: Main authority, sanitation and lifecycle bounds listeners, validates input, and never exposes raw Electron event objects",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 1",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 2",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 3",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 4",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 5",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 6",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 7",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 8",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 9",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 10",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 11",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 12",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 13",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 14",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 15",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors normative fixture 16",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors failed native outcome preserves its actual phase",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors extra root key",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors missing root field",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors boolean version",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors string version",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors unknown version",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors unknown type",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors invalid ID",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors non-null ready correlation",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors extra ready payload",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors unknown role",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors unknown action",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors task.cancel extra PID",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors read unsafe metadata",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors read fractional lines",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors read too many lines",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors read traversal",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors discovery excessive depth",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors boolean sequence",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors source label forgery",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors unknown event",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors unknown worker role",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors event/outside ID collision",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors unpaired surrogate",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors oversized text",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors accepted result must be null",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors unknown error code",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors duplicate root key",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors escaped duplicate key",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors integer lexeme float",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors integer lexeme exponent",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors nonfinite value",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors missing LF",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors CRLF",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors BOM",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors stdout chatter",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors blank line",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors trailing garbage",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors invalid UTF-8",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors record exact hard cap",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors record above hard cap",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors Unicode within code-point cap",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors has exactly five types, five actions and nine event names",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors roundtrips every canonical fixture with exactly five root keys and one LF",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors handles multibyte characters split at every byte without decoding partial UTF-8",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors bounds partial data, the first-byte deadline, EOF and records per push",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors never interprets stderr, including otherwise valid event or READY JSON",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 closed framing and schema vectors bounds outbound/event queues by both records and bytes, with finite pressure",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities accepts both normative fixture streams under isolated trusted authorization callbacks",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities gates discussion on a single assigned READY, fresh process and deadline",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities gates coding_task on a single assigned READY, fresh process and deadline",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities uses a shared ID set in both directions and refuses stale/orphan correlations",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities requires explicit trusted execution admission and exact task/workspace binding",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities refuses cross-role actions and wrong directions",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities binds broker reads to an active discussion and a trusted broker check",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities reserves a cancellation slot while execute is pending; acknowledgment is not a terminal event",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities distinguishes acceptance, actual start and a terminal observation without claiming durability",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities rejects duplicate acceptance and completed task.execute responses",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities detects gaps and conflicting duplicates, deduplicating semantically equal events",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities limits general inflight requests while keeping a fresh connection independent",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities enforces broker and discussion deadlines without starting a process or retry",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities rejects ordinary rejection after execute admission and never turns it into task finality",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities validates excerpt result hash against the emitted UTF-8 content",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/jsonl.test.ts",
+      "name": "IIS-01 connection-bound state, identity and capabilities does not add task retry, heartbeat or replay actions",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/layout.test.ts",
+      "name": "NCD-01 protected-center fit policy protects the center at a fractional Windows DPI viewport width",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/layout.test.ts",
+      "name": "NCD-01 protected-center fit policy fits 1920px viewport without reducing center below 580",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/layout.test.ts",
+      "name": "NCD-01 protected-center fit policy fits 1366px viewport without reducing center below 580",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/layout.test.ts",
+      "name": "NCD-01 protected-center fit policy fits 1100px viewport without reducing center below 580",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/layout.test.ts",
+      "name": "NCD-01 protected-center fit policy fits 1000px viewport without reducing center below 580",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/layout.test.ts",
+      "name": "NCD-01 protected-center fit policy restores the actual Sidebar preference after closing Dock",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/layout.test.ts",
+      "name": "NCD-01 protected-center fit policy hides panels when even the rail and minimum panel cannot fit",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/layout.test.ts",
+      "name": "NCD-01 protected-center fit policy clamps global preference to 320–480 without rewriting it",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/mission-ingestion.test.ts",
+      "name": "E05-02 nine closed subtype data schemas and unrecognized keys/types are rejected",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/mission-ingestion.test.ts",
+      "name": "E05-08/09/10/11/29/30 I08-T50/53 actual T4 idempotence, late hole and sticky conflict survive later fill",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/mission-ingestion.test.ts",
+      "name": "E05-18 I08-T50 real SQLite rollback never publishes an uncommitted event, successful push reads committed row",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/mission-ingestion.test.ts",
+      "name": "E05-27 event metadata secrets, absolute/sensitive paths and foreign sessions fail closed before persistence",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/mission-ingestion.test.ts",
+      "name": "E05-09 actual supervised protocol collision preserves permanent SQLite conflict before fault",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/mission-ingestion.test.ts",
+      "name": "E05-33 actual supervised late earlier event after terminal is valid backfill without rewriting outcome",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/mission-ingestion.test.ts",
+      "name": "E05-01/06/24/25 actual original AgentOS production factory with offline HTTP emits real patch/test effects but no invented workers",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/mission-replay.test.ts",
+      "name": "E05-10/21/33 I08-T52/53 subscribe before snapshot, deduplicate hints and rewind for late 3 after 1,2,4",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/unit/mission-replay.test.ts",
+      "name": "E05-16/17/32 more than 128 hints and continuous tail yield after four 40-row pages; bounded 400-row cache",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/unit/mission-replay.test.ts",
+      "name": "E05-15/22 stale callback and pending snapshot after disposal cannot mutate another task or publish",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/unit/mission-replay.test.ts",
+      "name": "E05-27 foreign task/page/project and wrong numeric boundary never enter the visible cache",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/unit/mission-replay.test.ts",
+      "name": "E05-09/30 sticky authoritative uncertainty stays after gap fills; UI identity collision does not overwrite original event",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/unit/mission-replay.test.ts",
+      "name": "E05-19/20/36 subscription loss poll recovers late committed facts without treating stale starts as live workers",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/unit/mission-replay.test.ts",
+      "name": "E05-04/07/34 repeated roles stay distinct; orphan completion and semantic double-start preserve first report and uncertainty",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/unit/python-parity.test.ts",
+      "name": "independent Python fixture peer and TypeScript agree on every positive/negative schema vector",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/security.test.ts",
+      "name": "document navigation boundary limits local assets to the decoded renderer root, rejecting traversal and encoded separators",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/security.test.ts",
+      "name": "document navigation boundary permits only the same entry document and local anchor",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/security.test.ts",
+      "name": "document navigation boundary does not admit another localhost origin or path in development",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/session.test.ts",
+      "name": "session-only drafts and page-local Dock ownership never discards text on route changes",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/session.test.ts",
+      "name": "session-only drafts and page-local Dock ownership new drafts are empty with closed Dock; old unsent drafts stay recoverable",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/session.test.ts",
+      "name": "session-only drafts and page-local Dock ownership repeated blank New Conversation clicks produce no history rows",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/session.test.ts",
+      "name": "session-only drafts and page-local Dock ownership Agents entry resets only the temporary Dock; returning to Chat restores its tab and visibility",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/session.test.ts",
+      "name": "session-only drafts and page-local Dock ownership Projects starts closed with Files selected; Settings cannot overwrite Chat",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/session.test.ts",
+      "name": "session-only drafts and page-local Dock ownership explicit Sidebar expansion closes a constrained Dock and preserves text",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/session.test.ts",
+      "name": "session-only drafts and page-local Dock ownership panel resizing is bounded and survives page navigation",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage-concurrency.test.ts",
+      "name": "P3 real competing SQLite connections and transaction interruption six simultaneous identical first-send clicks produce one original result",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage-concurrency.test.ts",
+      "name": "P3 real competing SQLite connections and transaction interruption a racing changed payload under one mutation ID is rejected without a duplicate",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage-concurrency.test.ts",
+      "name": "P3 real competing SQLite connections and transaction interruption competing Run requests consume one proposal and reserve one global writer",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage-concurrency.test.ts",
+      "name": "P3 real competing SQLite connections and transaction interruption concurrent distinct admissions preserve 1+20 capacity and do not consume the rejected proposal",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage-concurrency.test.ts",
+      "name": "P3 real competing SQLite connections and transaction interruption queued cancel racing reservation cannot become a never-started cancelled task with a writer lease",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage-concurrency.test.ts",
+      "name": "P3 real competing SQLite connections and transaction interruption real SQLITE_BUSY waits the bounded 5000ms then fails without an accepted mutation",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage-concurrency.test.ts",
+      "name": "P3 real competing SQLite connections and transaction interruption isolated connection exit before COMMIT rolls back, while post-COMMIT restart preserves original receipt",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage-concurrency.test.ts",
+      "name": "P3 real competing SQLite connections and transaction interruption actual isolated Node process exits before/after COMMIT preserve rollback versus original durable acceptance",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 schema, migration and actual WAL backup/restore matches all 22 frozen table names and exact column sets, not merely a local schema mirror",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 schema, migration and actual WAL backup/restore preserves monotonic message ordinals after deleting the maximum unreferenced row and restarting",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 schema, migration and actual WAL backup/restore enforces FK/closed roles, immutable messages/receipts, scope and partial unique indexes",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 schema, migration and actual WAL backup/restore fails closed on newer without resetting the file",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 schema, migration and actual WAL backup/restore fails closed on checksum without resetting the file",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 schema, migration and actual WAL backup/restore fails closed on DDL drift without resetting the file",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 schema, migration and actual WAL backup/restore fails closed on corruption without resetting the file",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 schema, migration and actual WAL backup/restore rolls failed fresh migration back and refuses silent recreation on next open",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 schema, migration and actual WAL backup/restore native online backup includes uncheckpointed WAL data and restore verifies schema and contents",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T1 original receipts, faults and P2 readiness a structurally valid but invalid closed DB preference does not become defaults or caller success",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T1 original receipts, faults and P2 readiness original receipt replay does not depend on later model/runtime availability",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T1 original receipts, faults and P2 readiness duplicate first sends and restart return one original acceptance; window identity is absent",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T1 original receipts, faults and P2 readiness changed text/model/project/mutation operation cannot reuse a receipt",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T1 original receipts, faults and P2 readiness commit-fault rollback returns no acceptance, creates no conversation and sends no hint",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T1 original receipts, faults and P2 readiness model validation and canonical workspace verification are required; default policy grants no authority",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T1 original receipts, faults and P2 readiness real SQLITE_FULL rolls back first-send with no receipt or notification",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T2/T3 capacity, canonical identity, cancellation and recovery valid foreign-project proposals/conversations cannot authorize admission or a writer",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T2/T3 capacity, canonical identity, cancellation and recovery physical task admission ordinals remain monotonic after retiring the maximum fixture row",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T2/T3 capacity, canonical identity, cancellation and recovery consumes once and replays the original admission snapshot after state changes and restart",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T2/T3 capacity, canonical identity, cancellation and recovery enforces 1+20, leaves the 21st queued proposal available and gives queued tasks no writer lease",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T2/T3 capacity, canonical identity, cancellation and recovery proposal expiry and rollback never consume an approval",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T2/T3 capacity, canonical identity, cancellation and recovery canonical aliases use one project/lane; blocked writer survives restart and timeout",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T2/T3 capacity, canonical identity, cancellation and recovery FIFO reservation skips cancelled work; cleanup atomically releases lease and slot only with verified evidence",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T4 exact committed events and persistent uncertainty canonical event bytes and digest match an independently generated Python golden fixture",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T4 exact committed events and persistent uncertainty commits before notification, deduplicates reordered payload keys and replays committed evidence",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T4 exact committed events and persistent uncertainty preserves sparse sequence gaps; filling them does not downgrade sticky conflict across restart",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T4 exact committed events and persistent uncertainty detects reused event ID at another sequence, rejects foreign sessions/role/schema and defaults deny",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T4 exact committed events and persistent uncertainty terminal outcome is separate from cleanup; late cancel does not erase it, no second terminal is accepted",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T4 exact committed events and persistent uncertainty T4 commit failure emits no notification and leaves no event/stream advancement",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T5 per-attempt lineage, summaries, decisions and C01 projections persists real-attempt structures and safe answer atomically without invoking a provider",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T5 per-attempt lineage, summaries, decisions and C01 projections rejects foreign/missing/empty source sets and ambiguous or assistant-role approval",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T5 per-attempt lineage, summaries, decisions and C01 projections crash recovery marks issued attempt unknown and never silently reissues; retry lineage remains same-turn",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T5 per-attempt lineage, summaries, decisions and C01 projections model/provider mismatch and failed result never erase a durable user message",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T5 per-attempt lineage, summaries, decisions and C01 projections C01 proposal cap, TTL, scope and turn projections survive restart, with no fabricated attempts",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T6 consent, inspections, scoped paging and presentation persisted model preference never supplies a fallback for a different message model",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T6 consent, inspections, scoped paging and presentation a legal maximum-size DB message/proposal page remains within the explicit bounded IPC response budget",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T6 consent, inspections, scoped paging and presentation grants exact scope, replays original consent snapshot after revoke, and blocks future source release",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T6 consent, inspections, scoped paging and presentation denies forged, expired, wrong-provider/class/project challenges and leaves no synthetic grant",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T6 consent, inspections, scoped paging and presentation explicit deny creates no grant; failed T6 commit does not consume the challenge",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T6 consent, inspections, scoped paging and presentation counts committed unique subject/page evidence, rejects conflicts and stores hashes instead of sensitive paths",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T6 consent, inspections, scoped paging and presentation scopes Dock receipts and persists safe preferences without affecting tasks, with stable original snapshots",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/storage.test.ts",
+      "name": "P3 T6 consent, inspections, scoped paging and presentation default 40/max 100 pagination uses ordinal cursors, rejects tampering/query scope and stale process cursors",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-R01 explicit pinned interpreter, real isolated version/bridge probes and environment allowlist",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-R02 missing configuration, PATH command, wrong digest and missing executable fail closed",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-R03 incompatible or changed bridge manifest is rejected without executing it",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-L01 actual READY, independent process identity and truthful provider unavailable",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer before_ready fails safely",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer wrong_role fails safely",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer duplicate_ready fails safely",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer invalid_utf8 fails safely",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer chatter fails safely",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer oversize fails safely",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer duplicate_keys fails safely",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer bad_version fails safely",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer wrong_action fails safely",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P01 real malformed startup/peer wrong_correlation fails safely",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P02 exact READY 30s and partial-frame 15s deadlines on live isolated children with advanced monotonic clocks",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P03 request fault duplicate_id does not replay or accept foreign results",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P03 request fault foreign_final does not replay or accept foreign results",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P03 request fault disconnect does not replay or accept foreign results",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-S01 raw stderr secrets/paths/pretend completion never enter wire or retained diagnostics",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P04 discussion requests serialize per conversation, cap at 16 and expire at 300s without replay",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-L02 bounded Discussion starts use 1/2/4s schedule, each session is fresh, then unavailable",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-L03 one long-lived Discussion per Main, concurrent ensure shares the same child and new Main has fresh identity",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-C01 coding simulator accepts one execute, responsive reserved cancel under load, no fabricated terminal event",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-C02 full 15-second graceful window, acknowledgement is not stop; forced Job termination is not cancellation evidence",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-W01 suspended launch Job contains child and grandchild, direct parent exit does not prove descendants stopped",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-D01 DB commit gates launch, replay cannot spawn twice, cancel/exit retains lease until independent workspace proof",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-D02 missing/queued/cancelled admission never spawns; production has no coding launch capability",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-D03 verified Job plus independent synthetic workspace proof allows interrupted cleanup without invented outcome",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-Q01 finite queue bytes/count and sustained 30s pressure use existing P2 limits",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-P05 child-originated broker request is denied by default and bounded at 30 seconds with explicit fixture scope",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-L04 Discussion restart after ambiguous disconnect is separate from coding and never replays a turn",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-Q02 actual Python event pressure against stalled persistence stays bounded and fails on saturation deadline",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-D04 loss of Job query evidence is UNVERIFIED and never releases the durable lease even with workspace proof",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-D05 persistence handler failure faults transport and never treats an uncommitted event as success",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-PY01 production Python independently rejects task_action without engine/provider or database",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-PY01 production Python independently rejects duplicate_keys without engine/provider or database",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-PY01 production Python independently rejects invalid_utf8 without engine/provider or database",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-PY01 production Python independently rejects lone_surrogate without engine/provider or database",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-PY01 production Python independently rejects unknown_field without engine/provider or database",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-PY01 production Python independently rejects float_version without engine/provider or database",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-PY01 production Python independently rejects context_over_budget without engine/provider or database",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/unit/supervisor.test.ts",
+      "name": "P4 real Windows Python supervision (synthetic peers, no engine) P4-PY02 production Python refuses duplicate request identity instead of repeating a provider attempt",
+      "status": "PASS",
+      "artifact": ".cache/p8-full-unit.json"
+    },
+    {
+      "file": "tests/ui/discussion.test.tsx",
+      "name": "E05-23/35 unknown persisted Dock never auto-opens or overwrites state; explicit user Panels remains available",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    },
+    {
+      "file": "tests/ui/mission.test.tsx",
+      "name": "E05-14/32 bounded task history window can still reach later pages beyond 200 without task control",
+      "status": "PASS",
+      "artifact": ".cache/p8-final-ui-all.json"
+    }
+  ],
+  "pythonOffline": [
+    {
+      "file": "tests/python/test_broker.py",
+      "name": "BrokerTests.test_read_uses_exact_active_parent_no_absolute_root_and_lossless_metadata",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_broker.py",
+      "name": "BrokerTests.test_no_source_intent_has_no_broker_calls_or_cached_previous_source",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_broker.py",
+      "name": "BrokerTests.test_denial_never_turns_into_source_or_a_retry",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_broker.py",
+      "name": "BrokerTests.test_forged_source_hash_route_selector_timestamp_and_extra_fields_fail_closed",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_broker.py",
+      "name": "BrokerTests.test_closed_record_duplicate_keys_invalid_unicode_floats_and_unknown_response",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_broker.py",
+      "name": "BrokerTests.test_no_filesystem_shell_or_agent_capability_exposed_by_broker_client",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_broker.py",
+      "name": "BrokerTests.test_original_gateway_treats_source_as_lower_trust_user_data_without_tools_or_execution",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_broker.py",
+      "name": "BrokerTests.test_oversize_sources_fail_before_any_provider_attempt",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_coding_events.py",
+      "name": "CodingEventTests.test_actual_patch_digest_change_only_no_event_for_failed_or_noop_patch",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_coding_events.py",
+      "name": "CodingEventTests.test_actual_failed_and_successful_pinned_test_return_codes_not_generated_summary",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_coding_events.py",
+      "name": "CodingEventTests.test_pasSED_prose_without_actual_return_code_and_boolean_code_never_prove_test",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_coding_events.py",
+      "name": "CodingEventTests.test_tool_cancellation_does_not_fabricate_test_or_worker_completion",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_coding_gate.py",
+      "name": "CodingGateTests.test_actual_engine_source_signature_outcome_fields_and_tested_control_capability",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_coding_gate.py",
+      "name": "CodingGateTests.test_missing_engine_probe_emits_sanitized_denial_and_never_enables_coding",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_coding_gate.py",
+      "name": "CodingGateTests.test_coding_entry_has_no_ready_no_acceptance_or_fake_events_and_fails_closed_before_reading_task",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_coding_gate.py",
+      "name": "CodingGateTests.test_verified_entry_advertises_only_tested_engine_control_and_no_paid_provider",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_coding_gateway.py",
+      "name": "CodingGatewayTests.test_three_profiles_use_original_gateway_explicit_flash_and_no_retry_or_fallback",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_coding_gateway.py",
+      "name": "CodingGatewayTests.test_thirteenth_http_request_is_denied_before_network",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_coding_gateway.py",
+      "name": "CodingGatewayTests.test_token_reservation_is_conservative_and_blocks_before_network",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_coding_gateway.py",
+      "name": "CodingGatewayTests.test_http_failure_and_structured_failure_never_retry_or_leak_raw_provider_body",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_coding_gateway.py",
+      "name": "CodingGatewayTests.test_missing_usage_is_unknown_and_prevents_more_paid_attempts",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_coding_gateway.py",
+      "name": "CodingGatewayTests.test_single_task_claim_survives_restart_and_corrupt_budget_never_resets",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_coding_gateway.py",
+      "name": "CodingGatewayTests.test_cross_process_last_request_slot_cannot_be_double_reserved",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_coding_gateway.py",
+      "name": "CodingGatewayTests.test_actual_registry_denies_escaping_writes_commands_and_executable_python",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_discussion.py",
+      "name": "GatewayTests.test_real_gateway_class_explicit_destination_model_non_thinking_and_single_request",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_discussion.py",
+      "name": "GatewayTests.test_history_current_user_once_no_paths_credentials_or_tools",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_discussion.py",
+      "name": "GatewayTests.test_http_503_has_one_attempt_no_hidden_retries",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_discussion.py",
+      "name": "GatewayTests.test_route_destination_mismatch_before_network",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_discussion.py",
+      "name": "GatewayTests.test_model_mismatch_before_network",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_discussion.py",
+      "name": "GatewayTests.test_finish_length_is_not_silently_truncated_success",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_discussion.py",
+      "name": "GatewayTests.test_overlong_answer_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_discussion.py",
+      "name": "GatewayTests.test_secret_echo_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_discussion.py",
+      "name": "GatewayTests.test_missing_key_never_builds_callable_route",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/python/test_discussion.py",
+      "name": "GatewayTests.test_durable_ten_request_reservation_cap_across_instances",
+      "status": "PASS"
+    }
+  ],
+  "windowsElectron": [
+    {
+      "name": "P6-E01 actual Windows Main worker -> closed Preload -> local Files preview, sensitive denial and zero discussion evidence",
+      "status": "PASS"
+    },
+    {
+      "name": "P6-E02 actual Windows Main/Job/production Discussion broker and original Gateway with MockTransport, consent then source handoff/T5",
+      "status": "PASS"
+    },
+    {
+      "name": "P6-E03 actual Electron Main exits after successful pipe callback before evidence COMMIT; reopen preserves partial undercount and never replays",
+      "status": "PASS"
+    },
+    {
+      "name": "P6-E04 P5 two-turn discussion regression through actual Windows Main/Job/bridge/Gateway with MockTransport and no broker reads",
+      "status": "PASS"
+    },
+    {
+      "name": "P7-WIN02 actual Windows Electron explicit Run Task reaches real AgentOS, committed outcome, cleanup and reload without replay",
+      "status": "PASS"
+    },
+    {
+      "name": "P7-WIN03 real worker task survives navigation/reload; Renderer cancellation reaches engine and independently reconciles",
+      "status": "PASS"
+    },
+    {
+      "name": "P7-WIN04 actual AgentOS Main crash stops owned descendants and reopens actual SQLite with blocked lease and zero replay",
+      "status": "PASS"
+    },
+    {
+      "name": "P8-WIN01 actual offline AgentOS tools -> T4 -> closed IPC -> Mission Control survives Renderer reload without execute replay",
+      "status": "PASS"
+    },
+    {
+      "name": "P7-WIN05 actual GUI opens an ASCII case alias, preserves canonical project identity and completes real AgentOS safely",
+      "status": "PASS"
+    },
+    {
+      "name": "P7-WIN06 actual Main crash before AgentOS start stops the real Coding child; restart retains lease and never executes/replays",
+      "status": "PASS"
+    },
+    {
+      "name": "P7-WIN01 actual Main/Job/Discussion/Gateway mock issues a proposal, explicit Renderer Run Task hits the closed engine gate without admission/spawn/replay",
+      "status": "PASS"
+    },
+    {
+      "name": "P1-WIN: actual Windows startup, maximized window, isolated renderer and restricted preload",
+      "status": "PASS"
+    },
+    {
+      "name": "P1-SEC: external navigation, popup, provider network, local-file reads and inline code are blocked",
+      "status": "PASS"
+    },
+    {
+      "name": "P1-NAV: all pages, recoverable drafts and no fictitious history/task",
+      "status": "PASS"
+    },
+    {
+      "name": "P1-DOCK: per-draft restoration, page-local resets, tabs, keyboard/pointer sizing and manual hide",
+      "status": "PASS"
+    },
+    {
+      "name": "P1-FIT: actual Electron viewport fit at all approved CSS sizes and safe constrained fallback",
+      "status": "PASS"
+    },
+    {
+      "name": "P1-A11Y: keyboard navigation, focus, reduced motion and automated accessibility on every page",
+      "status": "PASS"
+    },
+    {
+      "name": "P1-DPI: Windows Electron forced device scale 1 with usable effective viewport",
+      "status": "PASS"
+    },
+    {
+      "name": "P1-DPI: Windows Electron forced device scale 1.25 with usable effective viewport",
+      "status": "PASS"
+    },
+    {
+      "name": "P1-DPI: Windows Electron forced device scale 1.5 with usable effective viewport",
+      "status": "PASS"
+    },
+    {
+      "name": "P1-RELOAD: renderer reload does not claim restored messages, model or task execution",
+      "status": "PASS"
+    },
+    {
+      "name": "P1-DEV: development assets, nonce CSP and React load in an actual sandboxed Electron window",
+      "status": "PASS"
+    },
+    {
+      "name": "P2-WIN: exact 23+3 facade; P3-backed methods and remaining fail-closed methods use real IPC",
+      "status": "PASS"
+    },
+    {
+      "name": "P2-WIN: real unregistered webContents and unknown channel are rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "P2-WIN: typed subscriptions filter invalid updates, isolate callbacks and safely unsubscribe/reload",
+      "status": "PASS"
+    },
+    {
+      "name": "P3-WIN: actual Electron Main uses built-in SQLite, 22-table production schema and durable safe preferences across restart",
+      "status": "PASS"
+    },
+    {
+      "name": "P3-WIN: corrupt user-profile database fails closed without reset while the P1 interface opens",
+      "status": "PASS"
+    },
+    {
+      "name": "P3-WIN: isolated Main-only T1-T6 fixture, C01 read projection and native WAL backup/restore; no Renderer fixture records",
+      "status": "PASS"
+    },
+    {
+      "name": "P4-WIN01: real Electron Main Node-API/Job/Discussion bridge, Renderer reload keeps the same owned session and has no process authority",
+      "status": "PASS"
+    },
+    {
+      "name": "P4-WIN02: missing Python configuration leaves actual local preferences and interface available; no simulator in production history",
+      "status": "PASS"
+    },
+    {
+      "name": "P4-WIN03: forced real Main death closes its Job, stops child/grandchild, and next Main recovers durable uncertainty without replay or lease release",
+      "status": "PASS"
+    }
+  ],
+  "engineRegression": {
+    "status": "PARTIAL_NATIVE_EXIT_OBSERVATION_REQUIRES_REVIEW",
+    "finalFullRun": [
+      {
+        "name": "test_independent_prechange_golden_oracle",
+        "status": "PASS"
+      },
+      {
+        "name": "test_f01_safe_task_id_full_string_verification",
+        "status": "PASS"
+      },
+      {
+        "name": "test_f02_unicode_separators_and_sanitization",
+        "status": "PASS"
+      },
+      {
+        "name": "test_h01_defensive_collection_cap_enforcement",
+        "status": "PASS"
+      },
+      {
+        "name": "test_h02_contradictory_prior_outcomes",
+        "status": "PASS"
+      },
+      {
+        "name": "test_h03_workspace_root_metadata_bounds",
+        "status": "PASS"
+      },
+      {
+        "name": "test_two_task_agent_os_execution_and_gate3_rollback",
+        "status": "PASS"
+      },
+      {
+        "name": "test_manual_checkpointer_rollback_supplementary",
+        "status": "PASS"
+      },
+      {
+        "name": "test_failed_historical_status_in_prompt_and_no_fact_seeding",
+        "status": "PASS"
+      },
+      {
+        "name": "test_full_record_preservation_with_explicit_parsing",
+        "status": "PASS"
+      },
+      {
+        "name": "test_strengthened_playbook_immunity_spied",
+        "status": "PASS"
+      },
+      {
+        "name": "test_r02_f02_boundary_revalidation_and_post_instantiation_mutations",
+        "status": "PASS"
+      },
+      {
+        "name": "test_real_lifecycle_outcome_and_old_call[False]",
+        "status": "PASS"
+      },
+      {
+        "name": "test_real_lifecycle_outcome_and_old_call[True]",
+        "status": "PASS"
+      },
+      {
+        "name": "test_actual_failed_outcome_and_late_cancel[ABORT_TASK]",
+        "status": "PASS"
+      },
+      {
+        "name": "test_actual_failed_outcome_and_late_cancel[COMPLETE_TASK]",
+        "status": "PASS"
+      },
+      {
+        "name": "test_precancel_does_not_start_or_write",
+        "status": "PASS"
+      },
+      {
+        "name": "test_gateway_and_worker_cancel_drains_before_confirmation[False]",
+        "status": "PASS"
+      },
+      {
+        "name": "test_gateway_and_worker_cancel_drains_before_confirmation[True]",
+        "status": "PASS"
+      },
+      {
+        "name": "test_exception_has_no_invented_task_outcome",
+        "status": "PASS"
+      },
+      {
+        "name": "test_blocking_tool_is_drained_and_no_next_tool_starts",
+        "status": "PASS"
+      },
+      {
+        "name": "test_shell_cancel_stops_owned_child_and_descendant",
+        "status": "PASS"
+      },
+      {
+        "name": "test_cleanup_failure_cannot_be_cooperative_confirmation",
+        "status": "PASS"
+      },
+      {
+        "name": "test_real_coding_patch_verification_context_and_terminal_race",
+        "status": "PASS"
+      },
+      {
+        "name": "test_tool_failure_does_not_invent_success",
+        "status": "PASS"
+      },
+      {
+        "name": "test_cancellation_preserves_already_written_files",
+        "status": "PASS"
+      },
+      {
+        "name": "test_path_escape_and_symlink_jail",
+        "status": "PASS"
+      },
+      {
+        "name": "test_rbac_enforcement",
+        "status": "PASS"
+      },
+      {
+        "name": "test_syntax_gated_patching",
+        "status": "PASS"
+      },
+      {
+        "name": "test_shadow_checkpointing_and_dirty_tree_rollback",
+        "status": "PASS"
+      },
+      {
+        "name": "test_process_group_timeout_and_truncation",
+        "status": "PASS"
+      },
+      {
+        "name": "test_model_gateway_and_structured_validation",
+        "status": "PASS"
+      },
+      {
+        "name": "test_live_deepseek_api_integration",
+        "status": "NOT_RUN"
+      },
+      {
+        "name": "test_filesystem_edge_cases",
+        "status": "PASS"
+      },
+      {
+        "name": "test_search_tools",
+        "status": "PASS"
+      },
+      {
+        "name": "test_tool_registry",
+        "status": "PASS"
+      },
+      {
+        "name": "test_agent_os_security_and_rollback_immunity",
+        "status": "PASS"
+      },
+      {
+        "name": "test_ast_parsing_and_dependency_resolution",
+        "status": "PASS"
+      },
+      {
+        "name": "test_incremental_caching_performance",
+        "status": "PASS"
+      },
+      {
+        "name": "test_impact_radius_calculation",
+        "status": "PASS"
+      },
+      {
+        "name": "test_blackboard_persistence_recovery_and_graveyard",
+        "status": "PASS"
+      },
+      {
+        "name": "test_playbook_seeding_persistence_and_matching",
+        "status": "PASS"
+      },
+      {
+        "name": "test_rename_rollback_cleanup_polish",
+        "status": "PASS"
+      },
+      {
+        "name": "test_happy_path_orchestration_cycle",
+        "status": "PASS"
+      },
+      {
+        "name": "test_gate_4_premature_completion_blocked",
+        "status": "PASS"
+      },
+      {
+        "name": "test_gate_3_surgeon_failure_auto_rollback",
+        "status": "PASS"
+      },
+      {
+        "name": "test_gate_3_inquisitor_rejection_auto_rollback",
+        "status": "PASS"
+      },
+      {
+        "name": "test_gate_1_and_max_rollbacks_abort",
+        "status": "PASS"
+      },
+      {
+        "name": "test_live_deepseek_architect_reasoning",
+        "status": "NOT_RUN"
+      },
+      {
+        "name": "test_chassis_physical_tool_whitelist_enforcement",
+        "status": "PASS"
+      },
+      {
+        "name": "test_sliding_window_memory_compression_and_ephemeral_destruction",
+        "status": "PASS"
+      },
+      {
+        "name": "test_mandatory_test_execution_hook_and_truthful_modified_files_ledger",
+        "status": "PASS"
+      },
+      {
+        "name": "test_step_budget_exhaustion_handling",
+        "status": "PASS"
+      },
+      {
+        "name": "test_end_to_end_autonomous_bugfix_cycle",
+        "status": "PASS"
+      },
+      {
+        "name": "test_live_deepseek_ephemeral_worker_execution",
+        "status": "NOT_RUN"
+      },
+      {
+        "name": "test_chassis_tool_signature_alignment",
+        "status": "PASS"
+      }
+    ],
+    "finalFullTotals": {
+      "PASS": 53,
+      "NOT_RUN": 3
+    },
+    "earlierRuns": [
+      "52 PASS /one bare-python pytest-resolution FAIL /three paid skips",
+      "51 PASS /one interpreter-resolution FAIL +one native cleanup assertion FAIL /three paid skips"
+    ],
+    "environmentCorrection": "Only child env normalized; explicit local venv Scripts/PYTHONPATH for nested bare python. No global config/install or engine edit.",
+    "isolatedCleanupRepeats": [
+      "PASS",
+      "PASS",
+      "FAIL"
+    ],
+    "independentNativeHandleProbe": [
+      {
+        "case": 1,
+        "heldHandleWaitAtCancellation": [
+          258,
+          0
+        ],
+        "psutilIsRunningAtCancellation": [
+          false,
+          false
+        ],
+        "heldHandleWaitAfter100ms": [
+          0,
+          0
+        ],
+        "forcedProbeCleanup": false
+      },
+      {
+        "case": 2,
+        "heldHandleWaitAtCancellation": [
+          0,
+          0
+        ],
+        "psutilIsRunningAtCancellation": [
+          false,
+          false
+        ],
+        "heldHandleWaitAfter100ms": [
+          0,
+          0
+        ],
+        "forcedProbeCleanup": false
+      },
+      {
+        "case": 3,
+        "heldHandleWaitAtCancellation": [
+          0,
+          0
+        ],
+        "psutilIsRunningAtCancellation": [
+          false,
+          false
+        ],
+        "heldHandleWaitAfter100ms": [
+          0,
+          0
+        ],
+        "forcedProbeCleanup": false
+      },
+      {
+        "case": 4,
+        "heldHandleWaitAtCancellation": [
+          258,
+          0
+        ],
+        "psutilIsRunningAtCancellation": [
+          true,
+          false
+        ],
+        "heldHandleWaitAfter100ms": [
+          0,
+          0
+        ],
+        "forcedProbeCleanup": false
+      }
+    ],
+    "disposition": "Immediate native exit-signal lag reproduced; all probed processes signaled by 100ms without force. No persistent orphan observed, root fix NOT_VERIFIED; no engine patch authorized. A final full PASS does not erase repeat failures."
+  },
+  "actualEventSources": {
+    "task.started": "Original LeadArchitectLoop observer",
+    "task.completed": "Actual successful seven-field TaskOutcome",
+    "task.failed": "Actual unsuccessful TaskOutcome, not exception/EOF",
+    "task.cancelled": "Original cooperative cancellation observer after unwind, not OS proof",
+    "file.changed": "Supported registered actual patch tool: before/after digest effect in explicit writable scope",
+    "test.result": "Actual registered pinned verification command and integer returncode; no captured output published"
+  },
+  "unavailableActualEvents": [
+    "task.progress",
+    "worker.started",
+    "worker.completed"
+  ],
+  "workerReports": "BLOCKED: internal actual WorkerReport inspected, no supported observation API; Inspector positive tests are explicitly synthetic.",
+  "E05": [
+    {
+      "id": "E05-01",
+      "status": "PASS",
+      "reason": "Actual original AgentOS started/committed; wrong-role/pre-READY rejection in closed protocol regressions.",
+      "evidence": [
+        "tests/unit/mission-ingestion.test.ts",
+        "tests/unit/jsonl.test.ts"
+      ]
+    },
+    {
+      "id": "E05-02",
+      "status": "PASS",
+      "reason": "All nine closed schemas; duplicate JSON keys/NaN/types/enums/limits rejected by inherited parser fixtures.",
+      "evidence": [
+        "tests/unit/mission-ingestion.test.ts",
+        "tests/unit/jsonl.test.ts"
+      ]
+    },
+    {
+      "id": "E05-03",
+      "status": "PASS",
+      "reason": "ACK/admission are not actual running or worker evidence.",
+      "evidence": [
+        "tests/unit/jsonl.test.ts",
+        "tests/ui/coding.test.tsx"
+      ]
+    },
+    {
+      "id": "E05-04",
+      "status": "PARTIAL",
+      "reason": "Distinct repeated/interleaved worker keys and Inspector verified with synthetic projection rows; actual engine worker callbacks unavailable.",
+      "evidence": [
+        "tests/unit/mission-replay.test.ts",
+        "tests/ui/mission.test.tsx",
+        "ENGINE-INSTRUMENTATION-REQUEST.md"
+      ]
+    },
+    {
+      "id": "E05-05",
+      "status": "BLOCKED",
+      "reason": "Actual WorkerReport exists internally, but no supported callback returns it to Desktop; no worker completion invented.",
+      "evidence": [
+        "ENGINE-INSTRUMENTATION-REQUEST.md"
+      ]
+    },
+    {
+      "id": "E05-06",
+      "status": "PASS",
+      "reason": "Actual original registered patch/test tools emit confirmed task-level effects; no worker attribution.",
+      "evidence": [
+        "tests/unit/mission-ingestion.test.ts",
+        "tests/python/test_coding_events.py",
+        "P8-WIN01"
+      ]
+    },
+    {
+      "id": "E05-07",
+      "status": "PASS",
+      "reason": "Synthetic orphan-completion projection retains missing start/no duration; not a real WorkerReport claim.",
+      "evidence": [
+        "tests/unit/mission-replay.test.ts"
+      ]
+    },
+    {
+      "id": "E05-08",
+      "status": "PASS",
+      "reason": "T4 idempotent row; duplicate hints merge; historical/repeated Chat start never reopens Dock.",
+      "evidence": [
+        "tests/unit/mission-ingestion.test.ts",
+        "tests/unit/mission-replay.test.ts",
+        "tests/ui/coding.test.tsx"
+      ]
+    },
+    {
+      "id": "E05-09",
+      "status": "PASS",
+      "reason": "Actual supervised identity collision commits sticky incident before fault; original event immutable.",
+      "evidence": [
+        "tests/unit/mission-ingestion.test.ts"
+      ]
+    },
+    {
+      "id": "E05-10",
+      "status": "PASS",
+      "reason": "1,2,4 -> late 3 uses numeric rewind; contiguous metadata advances; separate sticky conflict preserved.",
+      "evidence": [
+        "tests/unit/mission-ingestion.test.ts",
+        "tests/unit/mission-replay.test.ts"
+      ]
+    },
+    {
+      "id": "E05-11",
+      "status": "PASS",
+      "reason": "Real T4 terminal with gap is incomplete; UI outcome/cleanup/history stay separate.",
+      "evidence": [
+        "tests/unit/mission-ingestion.test.ts",
+        "tests/ui/mission.test.tsx"
+      ]
+    },
+    {
+      "id": "E05-12",
+      "status": "PARTIAL",
+      "reason": "Existing Desktop native/Job/T3 guard regressions pass; independent native signal lag makes unconditional immediate Engine cleanup proof unaccepted.",
+      "evidence": [
+        "tests/unit/coding-integration.test.ts",
+        "tests/unit/supervisor.test.ts",
+        "native cleanup probe"
+      ]
+    },
+    {
+      "id": "E05-13",
+      "status": "PASS",
+      "reason": "Actual original engine cooperative cancellation remains distinct from cancel ACK and forced kill/OS cleanup.",
+      "evidence": [
+        "tests/unit/coding-integration.test.ts",
+        "tests/unit/supervisor.test.ts",
+        "P7-WIN03"
+      ]
+    },
+    {
+      "id": "E05-14",
+      "status": "PASS",
+      "reason": "Actual coding survives Agents navigation; read-only history selection never controls task lifetime.",
+      "evidence": [
+        "P7-WIN03",
+        "tests/ui/mission.test.tsx"
+      ]
+    },
+    {
+      "id": "E05-15",
+      "status": "PASS",
+      "reason": "Actual event replay after Renderer reload preserves one task, no extra execute/child.",
+      "evidence": [
+        "P8-WIN01"
+      ]
+    },
+    {
+      "id": "E05-16",
+      "status": "PASS",
+      "reason": "Over 128 hints coalesced/rescanned; finite cache and existing reserved-cancel-under-load peer tests.",
+      "evidence": [
+        "tests/unit/mission-replay.test.ts",
+        "tests/unit/supervisor.test.ts P4-C01"
+      ]
+    },
+    {
+      "id": "E05-17",
+      "status": "PASS",
+      "reason": "Actual synthetic Python producer/stalled persistence and injected 30s clock verify finite 256/8MiB pressure/fault; not a 30s real-time soak.",
+      "evidence": [
+        "tests/unit/supervisor.test.ts P4-Q01/P4-Q02",
+        "tests/unit/jsonl.test.ts"
+      ]
+    },
+    {
+      "id": "E05-18",
+      "status": "PASS",
+      "reason": "Actual SQLite T4 rollback creates no row/push; successful notification follows COMMIT.",
+      "evidence": [
+        "tests/unit/mission-ingestion.test.ts",
+        "tests/unit/storage.test.ts"
+      ]
+    },
+    {
+      "id": "E05-19",
+      "status": "PASS",
+      "reason": "Old task/session, wrong role and native identity proofs reject stale scope; uncertain lease retained.",
+      "evidence": [
+        "tests/unit/mission-ingestion.test.ts",
+        "tests/unit/supervisor.test.ts",
+        "tests/unit/coding-integration.test.ts"
+      ]
+    },
+    {
+      "id": "E05-20",
+      "status": "PASS",
+      "reason": "Started-only synthetic worker is always historical/unverified; actual task Main-death replay also stays unknown. No actual worker hook claim.",
+      "evidence": [
+        "tests/ui/mission.test.tsx",
+        "P7-WIN04"
+      ]
+    },
+    {
+      "id": "E05-21",
+      "status": "PASS",
+      "reason": "Subscribe-first, identical hints and authoritative range re-read produce one row.",
+      "evidence": [
+        "tests/unit/mission-replay.test.ts"
+      ]
+    },
+    {
+      "id": "E05-22",
+      "status": "PASS",
+      "reason": "Disposed route/pending callback ignored; cross-task page never published.",
+      "evidence": [
+        "tests/unit/mission-replay.test.ts"
+      ]
+    },
+    {
+      "id": "E05-23",
+      "status": "PASS",
+      "reason": "Historical replay never opens Agents Dock; unknown persisted Chat Dock neither auto-opens nor overwrites saved state.",
+      "evidence": [
+        "P8-WIN01",
+        "tests/ui/discussion.test.tsx",
+        "tests/ui/coding.test.tsx"
+      ]
+    },
+    {
+      "id": "E05-24",
+      "status": "PASS",
+      "reason": "Actual available original AgentOS stream produces honest empty workers/Inspector.",
+      "evidence": [
+        "tests/unit/mission-ingestion.test.ts",
+        "P8-WIN01"
+      ]
+    },
+    {
+      "id": "E05-25",
+      "status": "PASS",
+      "reason": "PASSED prose without actual pinned-command return code never becomes test evidence; stderr remains diagnostic only.",
+      "evidence": [
+        "tests/python/test_coding_events.py",
+        "tests/unit/jsonl.test.ts"
+      ]
+    },
+    {
+      "id": "E05-26",
+      "status": "PASS",
+      "reason": "Discussion inspection/consent remains separate; wrong-role Coding events rejected.",
+      "evidence": [
+        "tests/unit/jsonl.test.ts",
+        "tests/unit/broker-service.test.ts",
+        "tests/electron/broker.spec.ts"
+      ]
+    },
+    {
+      "id": "E05-27",
+      "status": "PASS",
+      "reason": "Metadata privacy rejection before insert; cross-session/page/project and escaped XSS projection.",
+      "evidence": [
+        "tests/unit/mission-ingestion.test.ts",
+        "tests/unit/mission-replay.test.ts",
+        "tests/ui/mission.test.tsx"
+      ]
+    },
+    {
+      "id": "E05-28",
+      "status": "PASS",
+      "reason": "Actual Main kill/reopen retains unknown/blocked SQLite task and separate historical timeline/cleanup.",
+      "evidence": [
+        "P7-WIN04/P7-WIN06"
+      ]
+    },
+    {
+      "id": "E05-29",
+      "status": "PASS",
+      "reason": "New valid outer identity can reach idempotent T4; reused connection outer identity rejected earlier.",
+      "evidence": [
+        "tests/unit/mission-ingestion.test.ts",
+        "tests/unit/jsonl.test.ts"
+      ]
+    },
+    {
+      "id": "E05-30",
+      "status": "PASS",
+      "reason": "Only standard six page fields; generic uncertainty, no invented private conflict reason/DTO.",
+      "evidence": [
+        "tests/unit/mission-ingestion.test.ts",
+        "tests/ui/mission.test.tsx"
+      ]
+    },
+    {
+      "id": "E05-31",
+      "status": "PASS",
+      "reason": "Terminal shown while cleanup remains explicitly unexposed, even after actual successful task.",
+      "evidence": [
+        "P8-WIN01",
+        "tests/ui/mission.test.tsx"
+      ]
+    },
+    {
+      "id": "E05-32",
+      "status": "PASS",
+      "reason": "Four initial 40-row pages; scheduling yield; <=400 cached events, <=100 mounted rows, bounded task-history window can page onward.",
+      "evidence": [
+        "tests/unit/mission-replay.test.ts",
+        "tests/ui/mission.test.tsx"
+      ]
+    },
+    {
+      "id": "E05-33",
+      "status": "PASS",
+      "reason": "Real supervised earlier row after terminal validly fills hole; no outcome rewrite, no cleanup by terminal alone.",
+      "evidence": [
+        "tests/unit/mission-ingestion.test.ts",
+        "tests/unit/mission-replay.test.ts"
+      ]
+    },
+    {
+      "id": "E05-34",
+      "status": "PASS",
+      "reason": "Semantic double-start/completion keeps first role/report and derives local uncertainty without DB incident invention.",
+      "evidence": [
+        "tests/unit/mission-replay.test.ts"
+      ]
+    },
+    {
+      "id": "E05-35",
+      "status": "PARTIAL",
+      "reason": "Live-only one-shot and remount/stale/hide guards tested; persisted Chat Dock absent from frozen read projection, so unknown reopened chats conservatively skip auto-open.",
+      "evidence": [
+        "tests/ui/coding.test.tsx",
+        "tests/ui/discussion.test.tsx",
+        "CP-001"
+      ]
+    },
+    {
+      "id": "E05-36",
+      "status": "PASS",
+      "reason": "No current-session worker-liveness DTO: started workers always shown as live status unverified.",
+      "evidence": [
+        "tests/ui/mission.test.tsx",
+        "tests/unit/mission-replay.test.ts"
+      ]
+    }
+  ],
+  "E05Totals": {
+    "PASS": 32,
+    "PARTIAL": 3,
+    "BLOCKED": 1
+  },
+  "I08": [
+    {
+      "id": "I08-T49",
+      "status": "BLOCKED",
+      "reason": "Real phase/worker callbacks unavailable; six actual subtype names proved, nine schemas accepted, no fabricated source."
+    },
+    {
+      "id": "I08-T50",
+      "status": "PASS",
+      "reason": "Actual T4 COMMIT failure rejects authoritative push."
+    },
+    {
+      "id": "I08-T51",
+      "status": "PASS",
+      "reason": "Actual Windows Renderer reload catches committed history without replay."
+    },
+    {
+      "id": "I08-T52",
+      "status": "PASS",
+      "reason": "Duplicate scoped hints /rows rendered once."
+    },
+    {
+      "id": "I08-T53",
+      "status": "PASS",
+      "reason": "Numeric late-hole replay and sticky conflict verified."
+    },
+    {
+      "id": "I08-T54",
+      "status": "PARTIAL",
+      "reason": "Repeated roles verified in synthetic selectors only; actual worker hook missing."
+    },
+    {
+      "id": "I08-T55",
+      "status": "PASS",
+      "reason": "Public UI separates outcome from unexposed/unknown OS cleanup; native finding separately recorded."
+    },
+    {
+      "id": "I08-T56",
+      "status": "PASS",
+      "reason": "Navigation and historical replay never issue execute or automatically open Agents Dock."
+    }
+  ],
+  "I08Totals": {
+    "BLOCKED": 1,
+    "PASS": 6,
+    "PARTIAL": 1
+  },
+  "limits": {
+    "pageDefault": 40,
+    "pageMax": 100,
+    "initialPagesPerTurn": 4,
+    "hintKeys": 128,
+    "eventCache": 400,
+    "mountedEventRows": 100,
+    "taskHistoryWindow": 200,
+    "knownChatDocks": 64,
+    "approvedGoalCache": 64,
+    "liveDockGuards": 128,
+    "wireBytes": 262144,
+    "queueRecordsPerDirection": 256,
+    "queueBytesPerDirection": 8388608
+  },
+  "publicBoundary": "23 Promise methods /3 subscriptions /5 JSONL actions /5 outer types /9 event subtypes /22 tables unchanged. Only contracts/jsonl.ts runtime correctness changed, not any frozen schema or document.",
+  "checks": {
+    "build": "PASS",
+    "typecheck": "PASS",
+    "format": "PASS",
+    "frozenWorkingGitZip": "PASS 42/41/18",
+    "dependencies": "UNCHANGED package and lock",
+    "paidCallsThisPhase": 0,
+    "P7BudgetSha256": "06fcb97499f258eb5a8d1ea1d96928ad39e3ba74d0f3068800eca349fb973d7e",
+    "P5BudgetSha256": "edd0244f1ad016c2aa77c75deacb8e07bbd30815e7299a0e0921f6841c1de200"
+  },
+  "frozenSchemaAndEnginePins": {
+    "agent_os.py": "084f891d2135c1c53ecca30df4a4a25a4e927bcf48d18fbc807a63ae3509c47d",
+    "architect/__init__.py": "2eb0dbb94badc20332e578790856314353b30793722d9ae9f78503a6c8f15451",
+    "architect/contracts.py": "1783b61b0112d7310aa74bcc940b4e6832f4daf8432881958e95d0219f26ca81",
+    "architect/dispatcher.py": "c13fac8b94fc78485a1cc698cccd63a75b35b96a7d03c32574132bfb4339ad04",
+    "architect/lead_loop.py": "c376eb276d6fbaf20c4ef588e6898f9d0a6f2b075ac0d1ceafecc06cb076809d",
+    "architect/prompts.py": "92b11a972355cbff85eea71bc5c18e65cdf183e87f660ddd4b296f36c2e15800",
+    "brain/__init__.py": "84b6b072d03a2cace959e8afaeaabe4eaccdb248c5c276dd76b38101d66ff44f",
+    "brain/blackboard.py": "90f79a29f9a97d55c9dd135fcb7030a6e6078fd4b774ab06a20d3d94dc6e23a7",
+    "brain/playbooks.py": "97aee4c5ba7bdda3628e3c587acf26e38a1ed4b35c12fb13d7a0db53a9984f96",
+    "brain/repo_graph.py": "f737b12e7e87a524f12374947fdbd517e86360b7207f10b8d28ac3190f199ffe",
+    "brain/schemas.py": "777de62cf0eac4c652120fde74236cf7b8b14f691a38caa0237ba989aeb064bc",
+    "kernel/__init__.py": "41c2987e91cf81dc932c71413405330ca5d5af4038d2accf42dfd65ef30c1529",
+    "kernel/checkpoint.py": "e5073b2c3e9703e3f9833603541eb5b89b0ae3b0c18ed4258afee69f56813f8a",
+    "kernel/config.py": "f37add09a4320bab48de75b388a3a59626b037cd957e3e82cf1a3e2bf8e43056",
+    "kernel/exceptions.py": "1147151615e83cd9ff4dcbfc9cca71173f20cee1c9a2377c067ec65a534be691",
+    "kernel/execution.py": "801f3cdb4c73d014c189d13dcd9efdd70127a939b27f65dfba05953233d7ffd5",
+    "kernel/gateway/__init__.py": "12c16a6f07b471f34660620d372308cce6fdf4b802989c1d589262c239c95796",
+    "kernel/gateway/base.py": "91981ac78fbbfabf1f81223048d1297290474d29d14426a6758741e6875f6b5d",
+    "kernel/gateway/ledger.py": "b63b36d27b0443d6a4e4adcf5967f15ee3063db64e625cd307b55d1812fc33eb",
+    "kernel/gateway/openai_compat.py": "dd6848b1d869fb6719db1ccd7f6a5e50673b4335ad576c9592e944ce2d28f1e0",
+    "kernel/gateway/router.py": "df0cd166b20cab15734f48945248edda936e367eab6a409b5441b32db39b80ae",
+    "kernel/guard.py": "90d4772c9846c0783f9f3852d0c72135a7928edb67cc3f652247cba6c5ad2db7",
+    "kernel/owned_process.py": "bfae87e1df5bc0bd284050d6cc3e455afe324766f8c2c71e8662e733cfcd9166",
+    "kernel/schemas.py": "37977befae5a74d56fe08aa5df39d456fa071ad90db2908fd2c71d4a07bc7fbe",
+    "kernel/tools/__init__.py": "732f1e06516fc25a500430c281b3633e1deeb76ccaedd7aba4900a1d471bab2b",
+    "kernel/tools/filesystem.py": "4132169b23a0830cd2a479834a8e0030b1527f815b8fdc6184c108c4e4eef6ee",
+    "kernel/tools/registry.py": "24f2e7106bcbc43d73e3b79328b0f3fffb6e04411913cb03748679ce85489b7b",
+    "kernel/tools/search.py": "60403ea919770cdb954f7417bde0ca484b05962d6f34e382ae6ba2174c4c2284",
+    "kernel/tools/shell.py": "2a5ae91831e37d17baf559998c6e3c1a5fa8c39b27aa0812e851558ce2abf215",
+    "run.py": "a3cd2f6902173974b96827f6844c73d28bb66f9815754f8daa72634a094d8250",
+    "squad/__init__.py": "d9437e5724ec03d4ac25830bf9b167be8a72e5c315fc24779c2831162460aedb",
+    "squad/chassis.py": "05c05bf7256b5aa1b7c009b86f0c3a557766ab44ce3c664804c57897acee50bd",
+    "squad/dispatcher.py": "aca5c9e9eae1fb0cf29f017b85d3b1a103789842216c0f1514d835aaa54d5b4d",
+    "squad/memory.py": "ebb2954573f5a13871af0cbffd7e2a6aec87ef733d6a0e013af8bc2cac2afeb4",
+    "squad/role_cards.py": "fca60e63c40769cc1c492da55af0fb4a713a91d3bbc8fe01f60949cae152b2c5",
+    "squad/schemas.py": "8e1aaadd2b7da5c3e53bccc400ee9ed820c5bebcd0a4fff4c4cf5291f345d1e8"
+  },
+  "failuresAndCorrections": [
+    "First P8 scoped run: 15 PASS /two FAIL. Fixed server-watermark vs fetched-window cursor bug; corrected over-specific BAD_INPUT/NOT_AUTHORIZED negative expectation. Corrected scoped 17 PASS.",
+    "Post-review task-history cap prevented accessing further pages; replaced by bounded 200-task sliding window and one selected record, added explicit >200 paging test.",
+    "Unknown saved Chat Dock had no read projection; suppress automatic save/open until known new T1 or explicit user Panels choice; no mutation masquerades as read.",
+    "Engine interpreter setup failures and intermittent native exit-observation assertions retained separately; no source/test weakening or false green overall Engine disposition."
+  ],
+  "remaining": [
+    "Actual phase/worker instrumentation and real WorkerReport delivery await separate engine approval.",
+    "CP-001 exact historical approved goal and persisted Chat Dock projection amendments are DRAFT, not adopted.",
+    "Native exit-signal timing requires owner review; E05-12 PARTIAL, no TaskCancelled->safe cleanup inference.",
+    "Full IIS-08 system gates/P6 G6 remain PARTIAL; P1 visual signoff deferred; packaging NOT_RUN."
+  ],
+  "rawArtifacts": [
+    {
+      "path": ".cache/p8-full-unit.json",
+      "sha256": "a3367d4a8186e3aa10225fee49db08c145a374a744e213f343c20fb94f40d920"
+    },
+    {
+      "path": ".cache/p8-final-ui-all.json",
+      "sha256": "714448802fda2097831776c798fe48af600002011c293894185d03d7dc98caa8"
+    },
+    {
+      "path": ".cache/p8-electron-final.json",
+      "sha256": "c2f713ec1c0115d3683334e7817fb96535ca65538072b9a25ec470798089f729"
+    },
+    {
+      "path": ".cache/p8-python-summary.json",
+      "sha256": "e9f257dbb061877f0cfdf8610f2798064bac938dff416f9424e46d1f2ec17d9c"
+    },
+    {
+      "path": ".cache/p8-engine.xml",
+      "sha256": "e6a2728b2b9f729072c415aad41346281034be2c167260c7469f1a392aa2eff7"
+    },
+    {
+      "path": ".cache/p8-engine-initial-failure.xml",
+      "sha256": "5d023a5c60a70f05a1eaf1ac5ea613caf24064d3aa00f36d346234eee721cc09"
+    },
+    {
+      "path": ".cache/p8-engine-second-failure.xml",
+      "sha256": "ba844bb62a01d49cefc73ca0bfb1d85373de236d9a9a131bbab3bd9f6130d8e5"
+    },
+    {
+      "path": ".cache/p8-cleanup-native-probe.json",
+      "sha256": "dfc94e6c1d511e7436d2f878e56586061cb1c571799ffe38be04f29af4e62ee7"
+    },
+    {
+      "path": ".cache/p8-cleanup-isolated-1.xml",
+      "sha256": "0433ec73e462cbdb3294ad2fe955d42c9f92bf73a9e2ca64d0566f4700c3eda1"
+    },
+    {
+      "path": ".cache/p8-cleanup-isolated-2.xml",
+      "sha256": "4d2ac4e93dc5d1a1033304d09246652f2a47549b0ffca55ac7270e92c2b6903b"
+    },
+    {
+      "path": ".cache/p8-cleanup-isolated-3.xml",
+      "sha256": "dbb135c598996c812e8665ba22fa5e067808a417bc304171867adc447492a127"
+    }
+  ],
+  "stop": "Stop at P8 owner review. No engine edit, paid API/budget reset, main merge, real-user project, P9 or packaging."
+}

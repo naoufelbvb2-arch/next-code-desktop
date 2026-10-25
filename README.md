@@ -19,7 +19,8 @@ before network issue; validated replies commit before display. Conversation
 history survives restart. P6 adds native Windows read-only file browsing/preview,
 scoped Discussion discovery/read, explicit source-sharing consent and durable
 inspection evidence. P6 implemented seventeen methods; its remaining six failed
-closed. P7 adds the scoped task workflow described below.
+closed. P7 adds the scoped task workflow described below. P8 activates the
+existing Agents page with committed event replay and truthful mission views.
 
 Run locally on Windows with Node.js 24+ (tested host: 25.9.0 / npm 11.12.1):
 
@@ -129,9 +130,38 @@ Windows filesystem sandbox or permission to code in real-user projects.
 
 **P1–P5 are accepted; P6 is conditionally accepted with G6 PARTIAL (P1 visual
 signoff deferred). P7's minimum real-engine G4 evidence is verified offline and
-with one real paid task on Windows; owner P7 acceptance remains pending. Full
-system gates are not self-certified. Engine is read-only again. No further paid
-call, main merge, P8/P9 or installer is authorized.**
+with one real paid task on Windows and is now accepted within that proved scope.
+Full system gates are not self-certified. Engine remains read-only. No further
+paid call, main merge, P9 or installer is authorized.**
+
+P8 **Agents / Mission Control** reads scoped task history, a Mission Header,
+sequence-ordered Timeline and selectable Worker Inspector through the existing
+closed API. It subscribes before reading, uses four 40-event pages per iteration,
+rewinds for late gaps, bounds hint/cache/display memory, and reconstructs history
+after reload without execution. Actual supported tool registration observes
+confirmed patch effects and real pinned-test return codes; diagnostics and model
+claims never become verified events. Outcome, event integrity and unexposed
+Windows cleanup/liveness remain distinct. Agents Dock stays hidden on entry.
+
+The existing engine has **no supported phase/worker observer hooks**. No worker
+is invented: genuine task/tool events can appear, while the worker panel is empty
+when no trusted worker events exist. Full P8/G5 acceptance is **blocked pending
+separate engine instrumentation approval**. The existing TaskView also omits the
+exact historical approved goal; only an in-session Main proposal/admission can
+provide it today, otherwise the UI explicitly says unavailable. CP-001 proposes
+a narrow future projection change without implementing it. Neither P8 nor its
+offline fixtures reset or spend the consumed paid mission allowance.
+The same draft records that persisted per-conversation Dock state has no read
+projection: reopened chats with unknown policy never auto-open or overwrite it.
+An independently observed native exit-signal timing issue and its preserved
+engine regression failures are documented for owner review; safe cleanup is not
+inferred from cooperative cancellation or displayed as verified.
+
+- [P7 scoped owner acceptance](docs/implementation/P7/OWNER-ACCEPTANCE.md)
+- [P8 implementation and limits](docs/implementation/P8/IMPLEMENTATION-REPORT.md)
+- [P8 engine instrumentation request](docs/implementation/P8/ENGINE-INSTRUMENTATION-REQUEST.md)
+- [P8 verification register](docs/implementation/P8/VERIFICATION-RESULTS.json)
+- [CP-001 historical goal projection — DRAFT](docs/changes/proposed/CP-001-P8-TASK-GOAL-PROJECTION.md)
 
 - [P7 implementation and actual disposition](docs/implementation/P7/IMPLEMENTATION-REPORT.md)
 - [P7 engine compatibility gate](docs/implementation/P7/ENGINE-COMPATIBILITY-REPORT.md)

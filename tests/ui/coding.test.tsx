@@ -2,6 +2,52 @@ import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { test, expect, vi } from 'vitest'
 import { TaskControls } from '../../renderer/components/TaskControls'
 import type { Output } from '../../contracts/ipc'
+import { missionApi, missionEvent } from '../fixtures/mission'
+
+test('E05-08/23/35 only a new live committed Chat start triggers once; replay/remount and stale callbacks do not open Dock', async () => {
+  const value = conversation()
+  value.availableProposals = []
+  value.tasks = [
+    { taskId: 'task', conversationId: 'conversation', projectId: 'project', state: 'starting' }
+  ]
+  const f = missionApi([]),
+    open = vi.fn()
+  vi.stubGlobal('nextCode', { tasks: f.api })
+  let view = render(<TaskControls conversation={value} onLiveStart={open} />)
+  await waitFor(() => expect(f.api.readEvents).toHaveBeenCalled())
+  f.setEvents([missionEvent(1, 'task.started')])
+  await act(async () => {
+    f.hint(1)
+    f.hint(1)
+  })
+  await waitFor(() => expect(open).toHaveBeenCalledTimes(1))
+  view.unmount()
+  view = render(<TaskControls conversation={value} onLiveStart={open} />)
+  await waitFor(() => expect(f.api.readEvents.mock.calls.length).toBeGreaterThan(2))
+  await act(async () => {
+    f.hint(1)
+    f.listeners[0]({ type: 'TaskEventCommitted', taskId: 'task', sequence: 1 })
+  })
+  expect(open).toHaveBeenCalledTimes(1)
+  view.unmount()
+})
+
+test('E05-35 initial snapshot containing historical start is never a live start even with repeated later hints', async () => {
+  const value = conversation()
+  value.availableProposals = []
+  value.tasks = [
+    { taskId: 'task', conversationId: 'conversation', projectId: 'project', state: 'running' }
+  ]
+  const f = missionApi([missionEvent(1, 'task.started')]),
+    open = vi.fn()
+  vi.stubGlobal('nextCode', { tasks: f.api })
+  render(<TaskControls conversation={value} onLiveStart={open} />)
+  await waitFor(() => expect(f.api.readEvents).toHaveBeenCalled())
+  await act(async () => {
+    f.hint(1)
+  })
+  expect(open).not.toHaveBeenCalled()
+})
 
 function conversation() {
   return {

@@ -323,6 +323,7 @@ export class ProtocolConnection {
   private terminal = false
   private incomplete = false
   private conflict = false
+  private terminalSequence: number | null = null
   constructor(private readonly options: ConnectionOptions) {}
   observe(
     direction: Direction,
@@ -479,7 +480,14 @@ export class ProtocolConnection {
         this.conflict = true
         return fail('INVALID_STATE')
       }
-      if (this.terminal) return fail('INVALID_STATE')
+      // A genuinely earlier emitted row may fill a durable hole after receipt
+      // of a terminal. New post-terminal lifecycle facts remain forbidden.
+      if (
+        this.terminal &&
+        (p.data.sequence > this.terminalSequence! ||
+          ['task.completed', 'task.failed', 'task.cancelled'].includes(p.name))
+      )
+        return fail('INVALID_STATE')
       if (p.name === 'task.started') {
         if (this.started || p.data.sequence !== 1) return fail('INVALID_STATE')
         this.started = true
@@ -489,6 +497,7 @@ export class ProtocolConnection {
       this.eventIds.set(p.data.event_id, p.data.sequence)
       if (['task.completed', 'task.failed', 'task.cancelled'].includes(p.name)) {
         this.terminal = true
+        this.terminalSequence = p.data.sequence
         request.terminalObserved = true
         // Retain a bounded transport receipt. No DB commit, terminal task state,
         // writer release or cancellation cleanup is claimed by this class.

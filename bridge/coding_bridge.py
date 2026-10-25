@@ -78,6 +78,7 @@ def serve(settings, gateway_factory=None):
 def _serve(settings, gateway_factory):
     AgentOS, Context, Outcome, Control, Cancelled = load_verified_engine({k: settings[k] for k in ("engineRoot", "sitePackages")})
     incoming, lock, seen = Input(), threading.RLock(), set()
+    wire_lock, event_lock = threading.Lock(), threading.RLock()
     wire = sys.stdout.buffer
     active, thread, control = None, None, None
     terminal = False
@@ -92,6 +93,9 @@ def _serve(settings, gateway_factory):
                 correlation_id=correlation, payload=payload), ensure_ascii=False,
                 separators=(",", ":")).encode("utf-8") + b"\n"
             require(len(record) <= 262144)
+        # Pipe backpressure must not hold the state/identity lock: the independent
+        # input reader can validate and register cancellation while stdout waits.
+        with wire_lock:
             watchdog = threading.Timer(30, lambda: os._exit(74))
             watchdog.daemon = True
             watchdog.start()
@@ -110,9 +114,11 @@ def _serve(settings, gateway_factory):
 
         def event(name, extra):
             nonlocal sequence
-            sequence += 1
-            emit("event", {"name": name, "data": dict(task_id=identity,
-                event_id=secrets.token_hex(24), sequence=sequence, source="agent_os", **extra)})
+            with event_lock:
+                require(started and not ended or name in ("task.completed", "task.failed", "task.cancelled"))
+                sequence += 1
+                emit("event", {"name": name, "data": dict(task_id=identity,
+                    event_id=secrets.token_hex(24), sequence=sequence, source="agent_os", **extra)})
 
         class Observer:
             def started(self, tid, root):
@@ -157,7 +163,9 @@ def _serve(settings, gateway_factory):
                         engine = AgentOS(workspace, gateway=gateway, verbose=False)
                         if "route" in settings:
                             from coding_policy import install_policy
+                            from coding_events import install_tool_events
                             install_policy(engine, settings["route"])
+                            install_tool_events(engine, settings["route"], event)
                         return await engine.execute_task(value["task_goal"], identity,
                             conversation_context=context, observer=Observer(), cancellation=task_control)
                     finally:

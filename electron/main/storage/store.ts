@@ -14,6 +14,7 @@ import * as dto from '../../../contracts/ipc-dtos'
 import { canonicalJson, validateWire, newMessageId } from '../../../contracts/jsonl'
 import { ContextV1, responseResults, ConversationContext } from '../../../contracts/wire-schema'
 import { DatabaseCore, refuse, sha256, type DatabaseOptions, type Row } from './database'
+import { eventDisplaySafe } from '../coding/event-privacy'
 
 export type Scope = { projectId: string; workspaceKey: string }
 export interface StorePolicy {
@@ -745,6 +746,7 @@ export class DurableStore extends DatabaseCore {
       }
       if (!this.get('SELECT task_id FROM workspace_writer_leases WHERE task_id=?', taskId))
         refuse('TASK_UNKNOWN')
+      if (!eventDisplaySafe(frame)) refuse('NOT_AUTHORIZED')
       this.run(
         'INSERT INTO task_events VALUES(?,?,?,?,?,?,?,?)',
         taskId,
@@ -808,7 +810,10 @@ export class DurableStore extends DatabaseCore {
         )
       return { inserted: true, conflict: false }
     })
-    if (result.conflict) refuse('TASK_UNKNOWN')
+    if (result.conflict) {
+      this.hint('task', taskId, { type: 'TaskStateChanged', task: this.readTask(scope, taskId) })
+      refuse('TASK_UNKNOWN')
+    }
     if (result.inserted) {
       this.hint('task', taskId, { type: 'TaskEventCommitted', taskId, sequence: data.sequence })
       this.hint('task', taskId, { type: 'TaskStateChanged', task: this.readTask(scope, taskId) })
@@ -1558,6 +1563,7 @@ export class DurableStore extends DatabaseCore {
         const event = validateWire(JSON.parse(r.wire_payload_json))
         if (
           event.type !== 'event' ||
+          !eventDisplaySafe(event) ||
           event.payload.data.task_id !== v.taskId ||
           event.payload.data.sequence !== r.sequence ||
           sha256(canonicalJson(event.payload)) !== r.payload_sha256

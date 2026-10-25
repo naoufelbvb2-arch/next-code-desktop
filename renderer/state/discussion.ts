@@ -117,7 +117,11 @@ export function useDiscussion() {
       setError('')
     } else setError(result.error.message)
   }
-  const send = async (text: string, draftId: number, onAccepted: () => void) => {
+  const send = async (
+    text: string,
+    draftId: number,
+    onAccepted: (conversationId: string) => void
+  ) => {
     if (!api || accepting.current || !ready || !project || !text.trim()) return
     const signature = JSON.stringify([conversationId, draftId, text, model, project.projectId])
     if (mutation.current?.signature !== signature)
@@ -137,7 +141,7 @@ export function useDiscussion() {
         setError(result.error.message)
         return
       }
-      onAccepted()
+      onAccepted(result.data.conversationId)
       mutation.current = null
       if (navigation.current === sentFrom) {
         current.current = result.data.conversationId

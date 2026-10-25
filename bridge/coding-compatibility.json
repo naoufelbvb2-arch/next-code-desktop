@@ -41,12 +41,13 @@
     "squad/schemas.py": "8e1aaadd2b7da5c3e53bccc400ee9ed820c5bebcd0a4fff4c4cf5291f345d1e8"
   },
   "bridgeFiles": {
-    "coding_bridge.py": "e808158f6a29f7e17225271f416c1e8e8655306ac25e940d19b9c4f1f6e7d211",
+    "coding_bridge.py": "6c477f03982fa2bb8d48a021601591d433be1cf66c4295b87a867e35ff37c51f",
     "engine_compatibility.py": "df35b8a2152e8c8cf4e378167d67670b131b0776b174b4cafaff8f1323c94741",
     "desktop_bridge.py": "9d612e05c8a38733dc1cf2fa81cc72ff21391937590afa430ab22bc82e54933e",
     "broker_client.py": "d59c9bd91ba704461f4cae22d3837280f8a846939fbf41a44ebf1698b36eb13a",
     "coding_gateway.py": "ecfd1742c458277c81cdf3ee02bf4690eec54727595a9b691e37ad13ab40f83c",
-    "coding_policy.py": "7db460e314e4875e611d617c782407f84c75fa6e1a1a601e812c077645fbef14"
+    "coding_policy.py": "7db460e314e4875e611d617c782407f84c75fa6e1a1a601e812c077645fbef14",
+    "coding_events.py": "6ec3361b5424092003c20e944dbb5f0ce77c761552237fb6302d21985acaaa4d"
   },
   "gitExecutableSha256": "81ef35ae005ca9318018d18e3327578ce939fb99feaad6b2d7c8ab15f3de8db5"
 }

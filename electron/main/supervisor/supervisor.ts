@@ -163,6 +163,20 @@ export class PythonSupervisor {
       authorizeExecute: (input) =>
         input.task_goal === admission.taskGoal &&
         store.supervisionAdmission(scope, taskId, admissionProof).taskId === taskId,
+      onEventConflict: (frame, sessionId) => {
+        // Protocol identity collision was established only after role/READY/task
+        // checks. T4 records sticky conflict then rejects, preserving the row.
+        store.commitEvent(
+          scope,
+          frame,
+          proof('event', {
+            taskId,
+            workspaceKey: scope.workspaceKey,
+            processSessionRef: sessionId,
+            role: 'coding_task'
+          })
+        )
+      },
       onFrame: (frame, sessionId) => {
         if (frame.type === 'error') {
           store.markProcessUncertain(scope, taskId, admissionProof)
@@ -179,7 +193,7 @@ export class PythonSupervisor {
               role: 'coding_task'
             })
           )
-          if (['task.completed', 'task.failed', 'task.cancelled'].includes(frame.payload.name))
+          if (store.terminalForCleanup(scope, taskId))
             this.options.onCodingTerminal?.(scope, taskId)
         }
       },

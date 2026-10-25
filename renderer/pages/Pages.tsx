@@ -99,50 +99,6 @@ export function ProjectsPage({
     </div>
   )
 }
-export function AgentsPage() {
-  return (
-    <div className="page-content agents-page">
-      <div className="page-intro">
-        <p className="eyebrow">MISSION CONTROL</p>
-        <h1>Agents</h1>
-        <p>A clear view of real work, as it happens.</p>
-      </div>
-      <section className="surface-card mission-header" aria-label="Mission Header">
-        <div>
-          <span className="section-label">CURRENT MISSION</span>
-          <h2>No active task</h2>
-          <p>Start a conversation when the engine is connected.</p>
-        </div>
-        <span className="neutral-tag">
-          <span className="status-dot" />
-          Not connected
-        </span>
-      </section>
-      <div className="mission-grid">
-        <section className="surface-card timeline" aria-label="Execution Timeline">
-          <div className="card-heading">
-            <h2>Execution Timeline</h2>
-            <span className="small-muted">No events</span>
-          </div>
-          <EmptyState icon="agents" title="No recorded activity">
-            <p>
-              Real worker activity will appear in the order it happens. Live activity is not
-              available yet.
-            </p>
-          </EmptyState>
-        </section>
-        <section className="surface-card inspector" aria-label="Agent Inspector">
-          <div className="card-heading">
-            <h2>Agent Inspector</h2>
-          </div>
-          <EmptyState compact icon="file" title="Nothing to inspect">
-            <p>Select a recorded worker to see its assignment, status and report.</p>
-          </EmptyState>
-        </section>
-      </div>
-    </div>
-  )
-}
 export function SettingsPage({
   reduced,
   ambient,

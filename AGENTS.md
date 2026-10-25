@@ -2,6 +2,31 @@
 
 ## Current authority
 
+The owner's **P8 IMPLEMENTATION AUTHORIZATION — Verified Events & Mission
+Control** accepts P7 at `3f205b036a5e074803d9e58580987a2aeb96d873` within its
+proved scope. Acceptance was published first at
+`c6f36fc8ead214284e26dc7738a4e65aed73eefd`; P8 starts there on
+`feature/p8-mission-control`. Implement grounded event ingestion/T4/post-COMMIT
+hints, bounded subscribe-before-snapshot replay, Mission Header/Timeline/Inspector,
+and E05-01–36 /I08-T49–56 evidence with isolated actual offline AgentOS/Windows
+tests. Original engine is read-only at `5e7179b9d528e7ef97e18f91ec284e4da514ca0b`.
+Missing phase/worker hooks require ENGINE-INSTRUMENTATION-REQUEST and separate
+approval; do not monkey-patch engine internals to bypass that gate. Existing
+supported tool registration may observe actual effects, never model claims.
+No paid calls, reset/renewal of the consumed P7 budget, real-user project tasks,
+frozen/public/schema expansion, aesthetic redesign, main merge, P9 or packaging.
+Full system gates/P6 G6 remain PARTIAL and P1 visual signoff is deferred.
+Complete independent P8 work and normal reviewed commits/pushes, then stop at
+owner review with unavailable actual worker evidence clearly BLOCKED.
+CP-001 records missing historical approved-goal and persisted Chat Dock read
+projections; never add those fields without separate contract approval or use a
+mutation to imitate a read. Unknown saved Dock policy denies automatic opening
+and automatic overwrite. Preserve the P8 native exit-observation timing finding:
+TaskCancelled is not a signaled Windows process handle; no engine cleanup/test
+patch is implied by P8 or the proposed phase/worker instrumentation request.
+
+### Prior P7 production authority (historical; paid allowance consumed)
+
 The owner's **P7 FINAL INTEGRATION — Production DeepSeek Coding Route & Real Run
 Task Verification** (2026-10-25) supersedes the older no-paid/provider restriction
 only for this continuation. Desktop starts at verified `b07dffc9cd0444a516f1106ea846983b85b3a802`

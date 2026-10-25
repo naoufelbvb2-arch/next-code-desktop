@@ -101,6 +101,10 @@ test('P7-WIN03 real worker task survives navigation/reload; Renderer cancellatio
     await expect(page.getByText(/Task .+: running/)).toBeVisible()
     await page.getByRole('button', { name: 'Agents', exact: true }).click()
     await expect(page.getByRole('heading', { name: 'Agents', exact: true })).toBeVisible()
+    await expect(page.getByRole('region', { name: 'Mission Header' })).toContainText('running')
+    await expect(
+      page.getByText('No verified worker events. Detailed worker activity unavailable.')
+    ).toBeVisible()
     expect((await call(app, 'actualCodingSnapshot')).status.active).toBeTruthy()
     await page.reload()
     await page.locator('.sidebar-history button').first().click()
@@ -188,10 +192,68 @@ test('P7-WIN04 actual AgentOS Main crash stops owned descendants and reopens act
     await expect(current.page.getByText(/Task .+: needs_reconciliation/)).toBeVisible()
     expect((await call(current.app, 'actualCodingSnapshot')).tasks).toHaveLength(1)
     expect((await call(current.app, 'actualCodingSnapshot')).status.active).toBeNull()
+    await current.page.getByRole('button', { name: 'Agents', exact: true }).click()
+    await expect(current.page.getByRole('region', { name: 'Mission Header' })).toContainText(
+      'needs_reconciliation'
+    )
+    await expect(
+      current.page.getByText(
+        'Windows cleanup / Writer Lease: not verified or not exposed by this view.'
+      )
+    ).toBeVisible()
+    await expect(current.page.getByRole('list', { name: 'Committed events' })).toContainText(
+      'task.started'
+    )
   } finally {
     for (const watch of watches) watch.close()
     await call(current.app, 'stopActualCodingFixture').catch(() => {})
     await current.app.close().catch(() => {})
+  }
+})
+
+test('P8-WIN01 actual offline AgentOS tools -> T4 -> closed IPC -> Mission Control survives Renderer reload without execute replay', async () => {
+  const { app, page } = await launch()
+  try {
+    await call(app, 'startActualCodingFixture', ['production_mock'])
+    await propose(page)
+    await page.getByRole('button', { name: 'Run Task', exact: true }).click()
+    await expect(page.getByText(/Task .+: completed/)).toBeVisible({ timeout: 20000 })
+    await expect(page.getByText('Main reports reconciled task evidence.')).toBeVisible()
+    await page.getByRole('button', { name: 'Agents', exact: true }).click()
+    await expect(page.getByRole('button', { name: 'Open Right Dock' })).toHaveAttribute(
+      'aria-expanded',
+      'false'
+    )
+    await expect(page.getByRole('list', { name: 'Committed events' }).locator('li')).toHaveCount(5)
+    await expect(page.getByRole('list', { name: 'Committed events' })).toContainText(
+      'file.changed: modified sample.py (task-level)'
+    )
+    await expect(page.getByRole('list', { name: 'Committed events' })).toContainText(
+      'test.result: passed'
+    )
+    await expect(page.getByRole('region', { name: 'Mission Header' })).toContainText(
+      'complete through 5'
+    )
+    await expect(page.getByRole('region', { name: 'Mission Header' })).toContainText(
+      'Last verified phase: COMPLETED'
+    )
+    await expect(
+      page.getByText('No verified worker events. Detailed worker activity unavailable.')
+    ).toBeVisible()
+    await page.screenshot({ path: '.cache/p8-mission-control.png' })
+    await page.reload()
+    await page.getByRole('button', { name: 'Agents', exact: true }).click()
+    await expect(page.getByRole('list', { name: 'Committed events' }).locator('li')).toHaveCount(5)
+    expect((await call(app, 'actualCodingSnapshot')).tasks).toHaveLength(1)
+    expect((await call(app, 'actualCodingSnapshot')).leases).toBe(0)
+    expect((await call(app, 'actualCodingSnapshot')).status.active).toBeNull()
+    await expect(page.getByRole('button', { name: 'Open Right Dock' })).toHaveAttribute(
+      'aria-expanded',
+      'false'
+    )
+  } finally {
+    await call(app, 'stopActualCodingFixture').catch(() => {})
+    await app.close()
   }
 })
 

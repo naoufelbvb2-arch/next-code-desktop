@@ -30,6 +30,9 @@ export interface ChildOptions extends Omit<ConnectionOptions, 'openedAt'> {
   runId: string
   launch: LaunchSpec
   onFrame?: (frame: WireMessage, sessionId: string) => Promise<void> | void
+  // Only a newly detected, schema/session-authorized event identity collision.
+  // Persist the T4 incident before faulting, without publishing the rejected row.
+  onEventConflict?: (frame: WireMessage, sessionId: string) => void
   onFault?: (sessionId: string) => void
   now?: () => number
 }
@@ -152,7 +155,15 @@ export class SupervisedChild extends EventEmitter {
       let record: Buffer | undefined
       while (!this.stopped && !this.lastError && (record = this.incoming.take())) {
         const frame = decodeLine(record)
-        const observed = this.connection.observe('child-to-main', frame, this.now())
+        let observed
+        const hadConflict = this.connection.state.integrityConflict
+        try {
+          observed = this.connection.observe('child-to-main', frame, this.now())
+        } catch (error) {
+          if (frame.type === 'event' && !hadConflict && this.connection.state.integrityConflict)
+            this.options.onEventConflict?.(frame, this.sessionId)
+          throw error
+        }
         if (frame.type === 'ready') {
           this.transition('READY')
           this.readyResolve()

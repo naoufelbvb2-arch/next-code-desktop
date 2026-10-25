@@ -3,7 +3,8 @@ import type { CSSProperties } from 'react'
 import { Sidebar } from './components/Sidebar'
 import { RightDock } from './components/RightDock'
 import { Icon } from './components/Icon'
-import { ChatPage, ProjectsPage, AgentsPage, SettingsPage } from './pages/Pages'
+import { ChatPage, ProjectsPage, SettingsPage } from './pages/Pages'
+import { MissionControl } from './components/MissionControl'
 import {
   activeDraft,
   currentDock,
@@ -30,9 +31,20 @@ export function App() {
   const [state, dispatch] = useReducer(sessionReducer, initialState)
   const discussion = useDiscussion()
   const conversationDocks = useRef(new Map<string, DockState>())
+  const knownDocks = useRef(new Set<string>())
+  const rememberDock = (id: string) => {
+    knownDocks.current.add(id)
+    if (knownDocks.current.size > 64) {
+      const oldest = knownDocks.current.values().next().value!
+      knownDocks.current.delete(oldest)
+      conversationDocks.current.delete(oldest)
+    }
+  }
   const [viewport, setViewport] = useState(viewportWidth)
   const heading = useRef<HTMLHeadingElement>(null)
   const previousRoute = useRef(state.page)
+  const liveStarts = useRef(new Set<string>())
+  const [approvedGoals, setApprovedGoals] = useState<Record<string, string>>({})
   useEffect(() => {
     const resize = () => setViewport(viewportWidth())
     window.addEventListener('resize', resize)
@@ -57,13 +69,20 @@ export function App() {
       void discussion.chooseModel(id)
     },
     send: () => {
-      void discussion.send(draft.text, draft.id, () =>
+      void discussion.send(draft.text, draft.id, (id) => {
+        if (!discussion.conversationId) rememberDock(id) // New T1 conversation: known default.
         dispatch({ type: 'acceptDraft', id: draft.id, text: draft.text })
-      )
+      })
     }
   }
   useEffect(() => {
-    if (!discussion.conversationId || state.page !== 'chat' || !window.nextCode) return
+    if (
+      !discussion.conversationId ||
+      state.page !== 'chat' ||
+      !window.nextCode ||
+      !knownDocks.current.has(discussion.conversationId)
+    )
+      return
     conversationDocks.current.set(discussion.conversationId, { ...dock })
     const timer = setTimeout(() => {
       void window.nextCode.conversations.saveDockState({
@@ -147,7 +166,11 @@ export function App() {
               aria-label={layout.dockVisible ? 'Hide Right Dock' : 'Open Right Dock'}
               aria-expanded={layout.dockVisible}
               title={layout.dockVisible ? 'Hide Right Dock' : 'Open Right Dock'}
-              onClick={() => dispatch({ type: 'dock', open: !layout.dockVisible })}
+              onClick={() => {
+                if (state.page === 'chat' && discussion.conversationId)
+                  rememberDock(discussion.conversationId)
+                dispatch({ type: 'dock', open: !layout.dockVisible })
+              }}
             >
               <Icon name="panels" size={18} />
               <span>Panels</span>
@@ -190,6 +213,18 @@ export function App() {
                 <TaskControls
                   key={discussion.conversation.conversation.conversationId}
                   conversation={discussion.conversation}
+                  onAdmission={(taskId, goal) =>
+                    setApprovedGoals((old) =>
+                      Object.fromEntries([...Object.entries(old), [taskId, goal]].slice(-64))
+                    )
+                  }
+                  onLiveStart={(key) => {
+                    if (liveStarts.current.has(key)) return
+                    if (liveStarts.current.size >= 128) return
+                    liveStarts.current.add(key)
+                    if (knownDocks.current.has(discussion.conversationId!) && !dock.manuallyHidden)
+                      dispatch({ type: 'dock', open: true })
+                  }}
                 />
                 {discussion.conversation.discussionTurns.some((turn) =>
                   ['pending', 'issued'].includes(turn.status)
@@ -227,7 +262,13 @@ export function App() {
                 }}
               />
             )}
-            {state.page === 'agents' && <AgentsPage />}
+            {state.page === 'agents' && (
+              <MissionControl
+                key={discussion.project?.projectId ?? 'none'}
+                projectId={discussion.project?.projectId}
+                goals={approvedGoals}
+              />
+            )}
             {state.page === 'settings' && (
               <SettingsPage
                 reduced={state.reduceMotion}

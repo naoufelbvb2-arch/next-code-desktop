@@ -1,0 +1,168 @@
+{
+  "phase": "P8",
+  "startingCommit": "c6f36fc8ead214284e26dc7738a4e65aed73eefd",
+  "acceptedP7": "3f205b036a5e074803d9e58580987a2aeb96d873",
+  "branch": "feature/p8-mission-control",
+  "engineCommit": "5e7179b9d528e7ef97e18f91ec284e4da514ca0b",
+  "exclusions": [
+    "This manifest cannot authenticate itself",
+    "Later COMMIT-RECEIPT.md references independent implementation SHA"
+  ],
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 11688,
+      "sha256": "07728f922517eae1e074feb731eddd591dfe44cf8b78e8b9ce82e8d135d66c3f"
+    },
+    {
+      "path": "README.md",
+      "bytes": 13244,
+      "sha256": "cb860c27a332788611f934534a0dc260b319e0b3235946fd8829ac5fc8d85b6d"
+    },
+    {
+      "path": "bridge/coding-compatibility.json",
+      "bytes": 4343,
+      "sha256": "dd2c78eb89a2068fb26c8f9be1276e0c8b6b249ae5eb1a1d3a9377d6e490dcf7"
+    },
+    {
+      "path": "bridge/coding_bridge.py",
+      "bytes": 12990,
+      "sha256": "6c477f03982fa2bb8d48a021601591d433be1cf66c4295b87a867e35ff37c51f"
+    },
+    {
+      "path": "bridge/coding_events.py",
+      "bytes": 2220,
+      "sha256": "6ec3361b5424092003c20e944dbb5f0ce77c761552237fb6302d21985acaaa4d"
+    },
+    {
+      "path": "contracts/jsonl.ts",
+      "bytes": 18781,
+      "sha256": "7e9c1e76758c87117dbca307b5041103d49353679104a71bcd5ba933c6cbc33e"
+    },
+    {
+      "path": "docs/changes/proposed/CP-001-P8-TASK-GOAL-PROJECTION.md",
+      "bytes": 3343,
+      "sha256": "0cb41c37a3c28c191c9187f044a9d77beb8f0c95dc8f363f4011f71521a5ad92"
+    },
+    {
+      "path": "docs/implementation/P8/ENGINE-INSTRUMENTATION-REQUEST.md",
+      "bytes": 5993,
+      "sha256": "e68348bf4abccf49e364e43526b4fe0a6a36103265637c1249c55db13ea93a63"
+    },
+    {
+      "path": "docs/implementation/P8/IMPLEMENTATION-REPORT.md",
+      "bytes": 10685,
+      "sha256": "2b978fe515be86061bec9e99e3ce46e7fd54f8694a625771c64852a63a1c79c2"
+    },
+    {
+      "path": "docs/implementation/P8/VERIFICATION-RESULTS.json",
+      "bytes": 150049,
+      "sha256": "4ac32594a91a89df244033120355d3d5d682cdbb8057e83aaf8b6464cf182af2"
+    },
+    {
+      "path": "docs/implementation/P8/screenshots/mission-control.png",
+      "bytes": 270905,
+      "sha256": "2fa1d20dec4c3bc88aeb0404cfe537eebf19800204368fffec349edf456e58b9"
+    },
+    {
+      "path": "electron/main/coding/event-privacy.ts",
+      "bytes": 789,
+      "sha256": "cf1293dd8dfaabb1a0b40849cefc9f6ece83565954ccd0e62f46130cd4313bf5"
+    },
+    {
+      "path": "electron/main/storage/store.ts",
+      "bytes": 71623,
+      "sha256": "9bd2d0b3ff05f42d5cd4daf6fc70e38840704ecce27ce0506a9bb4578450086c"
+    },
+    {
+      "path": "electron/main/supervisor/child.ts",
+      "bytes": 14535,
+      "sha256": "292ff8e19cb85f78001471abfde734c2a32d37f675431cab2e67d3c22899a177"
+    },
+    {
+      "path": "electron/main/supervisor/supervisor.ts",
+      "bytes": 12544,
+      "sha256": "b45b87267e586990cf01e92efd5967a07c04e1ab3608050bf0e4e674c912b767"
+    },
+    {
+      "path": "renderer/App.tsx",
+      "bytes": 11391,
+      "sha256": "dd76904a1335f9c87ac750ee087634c2b44dc2ed381acfc05c93f4452981198a"
+    },
+    {
+      "path": "renderer/components/MissionControl.tsx",
+      "bytes": 12079,
+      "sha256": "7ec5cd2c12565d6ed863288bba4cd9a46a3c6b54387d45be286e7dd47a4e0909"
+    },
+    {
+      "path": "renderer/components/TaskControls.tsx",
+      "bytes": 7449,
+      "sha256": "bb839e60b89c4ba968545f077e839733a5f567ad6b70b9f99cd0218cc6e90a71"
+    },
+    {
+      "path": "renderer/pages/Pages.tsx",
+      "bytes": 5440,
+      "sha256": "e6b238c872918a5654211d6a2842e379355ec5e09f4c1f742cf1bbe499e3e14b"
+    },
+    {
+      "path": "renderer/state/discussion.ts",
+      "bytes": 6145,
+      "sha256": "eff63ea6daf6ffcaca493c71ec6342c96da91d3e591fe95bbc861854e918af30"
+    },
+    {
+      "path": "renderer/state/mission.ts",
+      "bytes": 7744,
+      "sha256": "36d8dde7d271e6183aecc0aa9f9e4b77e35416be1837cb1eaeb2ec6822f2cd3f"
+    },
+    {
+      "path": "renderer/styles/workspace.css",
+      "bytes": 8994,
+      "sha256": "8f6c28c21363ff03bdbb1309594787a7437195e196055ec683ed80a67ad7384b"
+    },
+    {
+      "path": "tests/electron/coding-engine.spec.ts",
+      "bytes": 14470,
+      "sha256": "4cbac6c0a4b02fe96ad6bebd4b6ef45ed86d23b6b29416571fe1ae31fda05892"
+    },
+    {
+      "path": "tests/fixtures/mission.ts",
+      "bytes": 3512,
+      "sha256": "67e7baa384bf8e96be6aade6005acfd2c07f639dc085e5402476cd30a22b9cde"
+    },
+    {
+      "path": "tests/fixtures/supervisor_peer.py",
+      "bytes": 6208,
+      "sha256": "0c23a76c006814526ba3a7d7c74708e30a51620a8d2d5354c13c43ef38a1a8a6"
+    },
+    {
+      "path": "tests/python/test_coding_events.py",
+      "bytes": 4095,
+      "sha256": "5da26eb1e2923e5ef647b11b68ae6739c2964209b86a1e435ab5511a7e91389e"
+    },
+    {
+      "path": "tests/ui/coding.test.tsx",
+      "bytes": 6345,
+      "sha256": "bfa577759eb4ef25b5ce10d0e9c0220907b829290466577b0cc5a95a76af4ba0"
+    },
+    {
+      "path": "tests/ui/discussion.test.tsx",
+      "bytes": 8760,
+      "sha256": "13e3d933b368e9f525bd72bd0ac2ce8aab4c959de1e7f843f6f1a2446de38646"
+    },
+    {
+      "path": "tests/ui/mission.test.tsx",
+      "bytes": 4111,
+      "sha256": "24ffbe2d9ea390fbdc05382e97ea028b480d508ee901eddb76065cb8b2502e59"
+    },
+    {
+      "path": "tests/unit/mission-ingestion.test.ts",
+      "bytes": 9121,
+      "sha256": "0af646d4031a11346ac7a1c985e2ccd99e816bc1605f1cefa3bb9313a26da6d4"
+    },
+    {
+      "path": "tests/unit/mission-replay.test.ts",
+      "bytes": 5473,
+      "sha256": "05f4d471c560db54697dd6fcd186b719996a88cd2f5ed8d7b3f16dd6fe6ba89f"
+    }
+  ]
+}

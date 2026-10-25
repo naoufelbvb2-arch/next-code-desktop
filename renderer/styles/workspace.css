@@ -176,6 +176,42 @@
 .timeline .empty-state {
   padding: 40px 25px;
 }
+.mission-selection,
+.mission-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0;
+}
+.mission-selection select {
+  max-width: 100%;
+}
+.mission-facts {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.event-list,
+.worker-list {
+  padding: 12px 24px;
+  font-size: 12px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.mission-note,
+.worker-report {
+  padding: 12px 20px;
+  font-size: 12px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.worker-report dd {
+  margin: 0 0 10px;
+  white-space: pre-wrap;
+}
+.worker-report dt {
+  font-weight: 600;
+}
 .settings-page {
   max-width: 880px;
 }

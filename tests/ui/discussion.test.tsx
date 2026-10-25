@@ -2,15 +2,16 @@ import { act, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { test, expect, vi } from 'vitest'
 import { App } from '../../renderer/App'
+import { missionApi, missionEvent } from '../fixtures/mission'
 
-function apiFixture(fail = false) {
+function apiFixture(fail = false, saved = false) {
   const project = {
     projectId: 'project',
     displayName: 'Synthetic project',
     canonicalPathLabel: 'Synthetic workspace',
     available: true
   }
-  let persisted = false,
+  let persisted = saved,
     answered = false,
     listener = () => {}
   const send = vi.fn(async () => {
@@ -155,6 +156,32 @@ function apiFixture(fail = false) {
     }
   }
 }
+test('E05-23/35 unknown persisted Dock never auto-opens or overwrites state; explicit user Panels remains available', async () => {
+  apiFixture(false, true)
+  const api = window.nextCode!,
+    f = missionApi([])
+  api.tasks = f.api
+  const read = api.conversations.read
+  api.conversations.read = async (...args) => {
+    const result = await read(...args)
+    if (result.ok) result.data.tasks = [{ ...f.task, state: 'starting' }]
+    return result
+  }
+  const savedDock = vi.spyOn(api.conversations, 'saveDockState')
+  const user = userEvent.setup()
+  render(<App />)
+  await user.click(await screen.findByRole('button', { name: 'Synthetic saved conversation' }))
+  await waitFor(() => expect(f.api.readEvents).toHaveBeenCalled())
+  await act(async () => {
+    f.setEvents([missionEvent(1, 'task.started')])
+    f.hint(1)
+  })
+  expect(screen.queryByRole('complementary', { name: 'Right Dock' })).not.toBeInTheDocument()
+  expect(savedDock).not.toHaveBeenCalled()
+  await user.click(screen.getByRole('button', { name: 'Open Right Dock' }))
+  await waitFor(() => expect(savedDock).toHaveBeenCalled())
+})
+
 test('P5-UI01 explicit model choice, one acceptance on double click, waiting and only committed assistant rendering', async () => {
   const fixture = apiFixture(),
     user = userEvent.setup()
