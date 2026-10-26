@@ -110,6 +110,7 @@ def _serve(settings, gateway_factory):
         value = frame["payload"]["input"]
         identity = value["task_id"]
         sequence, started, ended = 0, False, False
+        invocations = {}
         evidence, observed_outcome = None, None
 
         def event(name, extra):
@@ -126,6 +127,32 @@ def _serve(settings, gateway_factory):
                 require(not started and not ended and tid == identity and root == workspace)
                 started = True
                 event("task.started", {"phase": "INITIALIZING"})
+
+            def phase_changed(self, tid, phase):
+                from brain.schemas import TaskPhase
+                require(started and not ended and tid == identity and isinstance(phase, TaskPhase))
+                event("task.progress", {"phase": phase.value,
+                    "detail": "Engine recorded an accepted phase transition."})
+
+            def worker_started(self, tid, worker_ref, role):
+                from kernel.schemas import AgentRole
+                require(started and not ended and tid == identity and isinstance(role, AgentRole))
+                ident(worker_ref)
+                require(role.value in ("SCOUT", "SURGEON", "INQUISITOR"))
+                require(worker_ref not in invocations and len(invocations) < 1024)
+                invocations[worker_ref] = role.value
+                event("worker.started", {"worker_ref": worker_ref, "role": role.value})
+
+            def worker_completed(self, tid, worker_ref, report):
+                from architect.contracts import WorkerReport
+                require(started and not ended and tid == identity and isinstance(report, WorkerReport))
+                ident(worker_ref)
+                require(worker_ref in invocations and invocations[worker_ref] == report.worker_role)
+                require(report.status.value in ("SUCCESS", "FAILED", "BLOCKED"))
+                text(report.summary, 2048)
+                event("worker.completed", {"worker_ref": worker_ref, "role": report.worker_role,
+                    "status": report.status.value, "summary": report.summary})
+                invocations[worker_ref] = None  # Retain bounded identity tombstone; no reuse.
 
             def outcome(self, outcome):
                 nonlocal ended, evidence, observed_outcome
@@ -242,7 +269,7 @@ def main():
         settings = json.loads(os.environ["NCD_CODING_CONFIG"])
         load_verified_engine({k: settings[k] for k in ("engineRoot", "sitePackages")})
         if args.describe:
-            print(json.dumps({"protocol": 1, "roles": ["coding_task"], "provider": False, "engine": True, "executionControl": 1}, separators=(",", ":")))
+            print(json.dumps({"protocol": 1, "roles": ["coding_task"], "provider": False, "engine": True, "executionControl": 1, "verifiedObserver": 1}, separators=(",", ":")))
             return 0
         require(args.role == "coding_task")
         factory = None

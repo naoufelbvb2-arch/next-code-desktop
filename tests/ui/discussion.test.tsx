@@ -99,6 +99,7 @@ function apiFixture(fail = false, saved = false) {
             lastMessageAt: null,
             taskStatusSummary: null
           },
+          dockState: null,
           messages: [
             {
               messageId: 'user',
@@ -181,6 +182,125 @@ test('E05-23/35 unknown persisted Dock never auto-opens or overwrites state; exp
   await user.click(screen.getByRole('button', { name: 'Open Right Dock' }))
   await waitFor(() => expect(savedDock).toHaveBeenCalled())
 })
+
+test.each([false, true])(
+  'CP-001 saved visible=%s Dock restores on remount without writes or historical auto-open',
+  async (visible) => {
+    apiFixture(false, true)
+    const api = window.nextCode!
+    const read = api.conversations.read
+    api.conversations.read = async (...args) => {
+      const result = await read(...args)
+      if (result.ok)
+        result.data.dockState = {
+          conversationId: 'conversation',
+          visible,
+          primaryTab: 'Files',
+          terminalSubtab: 'Agent Logs',
+          explicitlyHidden: !visible
+        }
+      return result
+    }
+    const save = vi.spyOn(api.conversations, 'saveDockState')
+    const user = userEvent.setup()
+    for (let n = 0; n < 2; n++) {
+      const view = render(<App />)
+      await user.click(await screen.findByRole('button', { name: 'Synthetic saved conversation' }))
+      await waitFor(() =>
+        expect(
+          screen.getByRole('button', { name: visible ? 'Hide Right Dock' : 'Open Right Dock' })
+        ).toHaveAttribute('aria-expanded', String(visible))
+      )
+      if (visible)
+        expect(screen.getByRole('tab', { name: 'Files' })).toHaveAttribute('aria-selected', 'true')
+      await act(async () => {
+        await new Promise((resolve) => setTimeout(resolve, 300))
+      })
+      expect(save).not.toHaveBeenCalled()
+      view.unmount()
+    }
+  }
+)
+
+test('CP-001 explicit Dock choice wins over an older delayed read', async () => {
+  apiFixture(false, true)
+  const api = window.nextCode!,
+    read = api.conversations.read
+  let release!: () => void
+  const barrier = new Promise<void>((resolve) => {
+    release = resolve
+  })
+  api.conversations.read = async (...args) => {
+    await barrier
+    return read(...args)
+  }
+  const save = vi.spyOn(api.conversations, 'saveDockState')
+  const user = userEvent.setup()
+  render(<App />)
+  await user.click(await screen.findByRole('button', { name: 'Synthetic saved conversation' }))
+  await user.click(screen.getByRole('button', { name: 'Open Right Dock' }))
+  await user.click(screen.getByRole('tab', { name: 'Files' }))
+  await act(async () => {
+    release()
+  })
+  await screen.findByText('Synthetic question')
+  expect(screen.getByRole('tab', { name: 'Files' })).toHaveAttribute('aria-selected', 'true')
+  await waitFor(() =>
+    expect(save).toHaveBeenCalledWith(
+      expect.objectContaining({
+        dockState: expect.objectContaining({ visible: true, primaryTab: 'Files' })
+      })
+    )
+  )
+})
+
+test.each([false, true])(
+  'E05-35 restored explicitlyHidden=%s controls only a new eligible live start, never replay',
+  async (explicitlyHidden) => {
+    apiFixture(false, true)
+    const api = window.nextCode!,
+      f = missionApi([]),
+      read = api.conversations.read
+    api.tasks = f.api
+    api.conversations.read = async (...args) => {
+      const result = await read(...args)
+      if (result.ok) {
+        result.data.tasks = [{ ...f.task, state: 'starting' }]
+        result.data.dockState = {
+          conversationId: 'conversation',
+          visible: false,
+          primaryTab: 'Terminal',
+          terminalSubtab: 'Agent Logs',
+          explicitlyHidden
+        }
+      }
+      return result
+    }
+    const user = userEvent.setup()
+    const view = render(<App />)
+    await user.click(await screen.findByRole('button', { name: 'Synthetic saved conversation' }))
+    await waitFor(() => expect(f.api.readEvents).toHaveBeenCalled())
+    await act(async () => {
+      f.setEvents([missionEvent(1, 'task.started')])
+      f.hint(1)
+    })
+    await waitFor(() =>
+      expect(
+        screen.getByRole('button', {
+          name: explicitlyHidden ? 'Open Right Dock' : 'Hide Right Dock'
+        })
+      ).toHaveAttribute('aria-expanded', String(!explicitlyHidden))
+    )
+    view.unmount()
+    render(<App />)
+    await user.click(await screen.findByRole('button', { name: 'Synthetic saved conversation' }))
+    await act(async () => {
+      f.hint(1)
+      f.hint(1)
+    })
+    expect(screen.queryByRole('complementary', { name: 'Right Dock' })).not.toBeInTheDocument()
+  }
+)
 
 test('P5-UI01 explicit model choice, one acceptance on double click, waiting and only committed assistant rendering', async () => {
   const fixture = apiFixture(),

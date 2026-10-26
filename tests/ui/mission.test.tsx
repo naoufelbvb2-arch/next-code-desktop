@@ -48,7 +48,7 @@ test('E05-07/24/30/31/36 real DTO limits show honest unknown cleanup/goal/livene
   render(<MissionControl projectId="project" />)
   await screen.findByText('Task task')
   expect(screen.getByText(/Windows cleanup/)).toHaveTextContent('not verified or not exposed')
-  expect(screen.getByText(/Approved goal:/)).toHaveTextContent('Not exposed')
+  expect(screen.getByText(/Approved goal:/)).toHaveTextContent('Exact persisted synthetic goal')
   expect(screen.getByText(/No verified worker events/)).toBeVisible()
   expect(screen.queryByText('SCOUT')).not.toBeInTheDocument()
   expect(screen.queryByText(/Verified Safe Cleanup/)).not.toBeInTheDocument()
@@ -72,6 +72,19 @@ test('E05-04/05/06/27/34 synthetic repeated-role selectors and Inspector escape 
   ).toBeVisible()
   expect(screen.getByText(/Admission \/ durable state/)).toHaveTextContent('running')
   expect(screen.getByText(/Engine outcome:/)).toHaveTextContent('unknown')
+})
+
+test('CP-001 historical exact goal is escaped text after remount and does not execute markup', async () => {
+  const f = missionApi([])
+  f.task.exactGoal = '<img src=x onerror=alert(1)> Exact original goal'
+  vi.stubGlobal('nextCode', { tasks: f.api })
+  const view = render(<MissionControl projectId="project" />)
+  await screen.findByText(/Exact original goal/)
+  expect(view.container.querySelector('img')).toBeNull()
+  view.unmount()
+  const restored = render(<MissionControl projectId="project" />)
+  await screen.findByText(/Exact original goal/)
+  expect(restored.container.querySelector('img')).toBeNull()
 })
 test('E05-11/16/32 I08-T55 mounted timeline stays at 100 rows and gap/partial states remain visible', async () => {
   const f = missionApi(Array.from({ length: 240 }, (_, i) => missionEvent(i + 1)))

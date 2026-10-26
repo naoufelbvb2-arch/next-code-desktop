@@ -52,5 +52,5 @@ class CodingGateTests(unittest.TestCase):
         env["NCD_CODING_CONFIG"] = json.dumps({"engineRoot": str(ROOT.parent / "next code"),
             "sitePackages": str(ROOT.parent / "next code/.venv/Lib/site-packages")})
         result = subprocess.run([sys.executable, "-I", "-S", str(ROOT / "bridge/coding_bridge.py"), "--describe"], env=env, capture_output=True, check=True, timeout=5)
-        self.assertEqual(json.loads(result.stdout), {"protocol": 1, "roles": ["coding_task"], "provider": False, "engine": True, "executionControl": 1})
+        self.assertEqual(json.loads(result.stdout), {"protocol": 1, "roles": ["coding_task"], "provider": False, "engine": True, "executionControl": 1, "verifiedObserver": 1})
         self.assertFalse(result.stderr)

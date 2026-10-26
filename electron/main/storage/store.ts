@@ -1459,6 +1459,7 @@ export class DurableStore extends DatabaseCore {
       )
       return dto.ConversationViewPage.parse({
         conversation: this.summary(c),
+        dockState: this.readDock(scope, conversationId),
         messages,
         tasks: this.all(
           'SELECT * FROM tasks WHERE conversation_id=? ORDER BY admission_order LIMIT 100',
@@ -1515,6 +1516,7 @@ export class DurableStore extends DatabaseCore {
     const t = this.task(scope, taskId)
     return dto.TaskView.parse({
       ...this.taskSummary(t),
+      exactGoal: t.exact_goal,
       outcome: t.engine_outcome_json === null ? null : JSON.parse(t.engine_outcome_json)
     })
   }

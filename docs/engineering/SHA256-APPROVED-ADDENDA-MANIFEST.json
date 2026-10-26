@@ -1,0 +1,15 @@
+{
+  "authority": "Owner P8 FINAL CORRECTIONS, Part C, 2026-10-25",
+  "originalDeliveryFiles": 42,
+  "originalPayloadFiles": 41,
+  "originalNormativeFiles": 18,
+  "approvedAdditionalNormativeFiles": 1,
+  "totalNormativeFiles": 19,
+  "files": [
+    {
+      "path": "01-normative/NCD-03-IIS-02-C02-P8-READ-PROJECTIONS-ADDENDUM.md",
+      "bytes": 3362,
+      "sha256": "2f419446ae5eae628464b5a68e6ccbbf8d8f69961f30276c70ed919e247d5bd2"
+    }
+  ]
+}

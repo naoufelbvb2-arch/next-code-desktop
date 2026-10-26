@@ -1,3 +1,129 @@
+# P8 final corrections — execution and verification, 2026-10-25
+
+**P8 STAGE_EXIT_PASS / P8-scoped G5 evidence PASS; owner acceptance pending.**
+All 36 E05 cases and eight I08-T49–56 cases now have passing executed evidence.
+Full-system IIS-08 gates/P6 G6 remain PARTIAL; P1 visual signoff is deferred.
+No P9, packaging, main merge or paid task was performed or authorized here.
+
+## Authority and repositories
+
+The owner's P8 FINAL CORRECTIONS authorizes the previously requested three Engine
+hooks, a proved narrow Windows exit fix, and formal adoption of CP-001. Desktop
+continues from verified `decf6390b05191c29a3627ca318b935b6073922d` on
+`feature/p8-mission-control`; P7 acceptance and the original P8 baseline remain
+below. Engine branched from `5e7179b9d528e7ef97e18f91ec284e4da514ca0b` and was
+reviewed/committed/pushed first as **`99e00e13f8a39fa6730f3d3de773ac937b5ac915`**
+on [feature/p8-verified-worker-observers](https://github.com/naoufelbvb2-arch/next-code/tree/feature/p8-verified-worker-observers).
+Its [short report](https://github.com/naoufelbvb2-arch/next-code/blob/99e00e13f8a39fa6730f3d3de773ac937b5ac915/docs/implementation/P8/IMPLEMENTATION-REPORT.md)
+records the precise source/test envelope. No Engine source was copied into Desktop.
+
+## Real evidence and final behavior
+
+All nine frozen event names now have actual execution sources. Engine accepted
+Blackboard phase transitions map to task.progress. Actual dispatcher boundaries
+create opaque UUIDs per invocation; returned typed WorkerReports publish only
+after chassis termination and memory wipe. Callback, setup, cancellation and
+cleanup faults never fabricate a report or terminal result. Old observers and
+observer=None still work; AgentOS signatures, TaskOutcome, TaskPhase and
+WorkerReport are unchanged. Desktop verifies the exact Engine commit, complete
+source hashes and VERIFIED_OBSERVER_VERSION=1 before enablement and launch.
+No private monkey-patching, new event/action/type or public method was added.
+
+Original observer → private Coding Bridge → validated JSONL session/role/task →
+SQLite T4 COMMIT → notification → scoped authoritative read → Mission Control
+was executed offline with actual AgentOS. A second independent SQLite reader
+observes each committed row before its notification. Timeline/Inspector show
+actual reports, including two Scouts separated by an Inquisitor with independent
+refs. File/test effects remain task-level; report prose is escaped untrusted text.
+There is no inferred role order, wall-clock duration, progress percentage or
+current worker liveness. Start-only history remains unverified after process loss.
+
+CP-001 is adopted only through approved IIS-02-C02. TaskView.exactGoal reads the
+original scoped tasks.exact_goal (1–16,384 Unicode points). Conversations.read
+returns saved ChatDockStateView or null through dockState without writes. Goals
+and hidden/visible/tab policy survive Renderer reload and actual Main crash.
+An explicit user choice wins over a delayed read; only a new eligible live start
+may open Chat Dock, never historical replay. Agents Dock stays closed on entry.
+The ephemeral approved-goal fallback is removed. Colors/background/logo and the
+unavailable Interactive Shell are unchanged. There is no new dependency/schema.
+
+## Windows exit proof
+
+The earlier native Job active-zero/WAIT_TIMEOUT finding was real and is retained
+below. The narrow Engine correction holds native process handles for the suspended
+root and observed Job members, waits for their exit under one shared five-second
+deadline, and reconciles total assigned membership with retained handles plus
+active-zero. A missed/unknown member or failed wait raises CleanupUnverified;
+no PID disappearance, psutil result, cancellation ACK or fixed delay substitutes
+for proof. Desktop's independent outer Job/identity/T3 lease checks remain intact.
+Main crash still produces blocked/reconciliation history, not a false clean lease.
+The UI never claims Verified Safe Cleanup because its public view exposes no such
+proof. Test-owned native handles prove parent and descendant already signaled at
+controlled-tool return across cancellation, timeout, failure and forced termination.
+
+## Actual results (unique cases, diagnostic repeats excluded)
+
+- Desktop **522 PASS / 0 FAIL / 1 NOT_RUN**: 454 unit/UI/native,
+  34 Python, 34 actual Windows Electron. The skip is the inherited unprivileged
+  file-symlink case. The register lists each current case and evidence kind.
+- Engine **69 PASS / 0 FAIL / 3 paid NOT_RUN**: 53 prior plus 16 new cases.
+  Five additional native cases passed independently; they are not added again.
+- **E05-01–36: 36 PASS. I08-T49–56: 8 PASS** within the P8 scope. Negative,
+  pressure, XSS and protocol-fault fixtures are labeled separately from actual
+  worker-source, SQLite, native Windows and Electron evidence.
+- Build/TypeScript/format and Python checks pass. Original frozen working/index/
+  Git/ZIP bytes are checked before publication. Original delivery stays 42 files,
+  41 authenticated payloads, 18 normative originals; one separately approved
+  normative addendum makes 19 normative files and 44 engineering inventory files
+  including both manifests. Original manifest and hashes are unchanged.
+
+The complete current matrix, unique test identities, artifact SHA-256s, source
+pins and history are in VERIFICATION-RESULTS.json. CHANGE-MANIFEST.json lists exact
+phase paths/bytes. A later COMMIT-RECEIPT.md records independent publication SHAs.
+Actual Windows screenshot: screenshots/mission-control-workers.png. Prior
+screenshots/mission-control.png and prior failures remain historical evidence.
+
+During this correction, newly added test harness defects (fault recapture and
+non-atomic readiness JSON) were found and corrected. First Desktop integration
+expectations still counted the old two/five-event streams and injected a fault
+at event two; they now assert the actual eight/eleven-event streams and fault the
+real pending terminal row. The Unicode budget test now specifically isolates
+byte-size rejection. Full Desktop Regression exposed an existing Broker race:
+native worker exit could free the parent/global slot before its awaited Main
+handler drained. The narrow fix retains capacity until both have finished; the
+original 30-second and 90-second assertions remain unchanged. A new regression
+checks forbidden handler overlap, and the complete affected Broker suites rerun.
+These failed raw runs remain in ignored evidence; no old
+native assertion was removed or relaxed and no failed run is relabeled PASS.
+
+## Operation, limits and recovery
+
+Run locally: `npm run dev`, or `npm run build` then `npm start`. Select a registered
+project, open Agents and choose a recorded mission. Replay does not execute work.
+The consumed P7 paid task allowance remains closed; no local start renews it.
+All executed coding projects were external disposable synthetic Git fixtures,
+using actual original Gateway HTTP mocks/offline routes and no paid network.
+The P7 and P5 budget journal SHA-256s remain exactly unchanged. Credentials, raw
+provider/source content and local machine paths are absent from publication.
+
+Commands: `npm test -- --reporter=json`, final affected Dock/read test runs,
+`python -X utf8 -m unittest discover -s tests/python -v` with actual exit receipt,
+`npm run build`, `npm run format:check`, full `npm run test:electron`, Engine
+`tests/run_offline.py -q -p no:cacheprovider` under its existing pinned local venv,
+and delivery verifier against staged Git bytes and the retained original ZIP.
+No live paid test, global install, admin setting, destructive cleanup, force push
+or main merge occurred. API/subscription/action/type/table counts stay 23/3/5/5/22.
+
+Retain SQLite/WAL, immutable event/conflict rows, source checkpoints, receipts and
+budget journals. Roll back through reviewed feature-branch reverts, never by
+replaying uncertain work or removing evidence. P9 may only receive its separately
+authorized scope later; full-system acceptance, P6 G6, visual signoff and packaging
+are not silently accepted by this P8 result. **Stop for owner P8 review.**
+
+---
+
+## Historical P8 delivery at decf6390 — retained verbatim, superseded where corrected above
+
 # P8 Verified Events & Mission Control — 2026-10-25
 
 **Independent P8 functionality is implemented and tested. Full P8/G5 acceptance

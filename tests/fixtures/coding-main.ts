@@ -143,6 +143,14 @@ export async function stopActualCodingFixture() {
 export function actualCodingDatabasePath() {
   return actual ? join(actual.directory, 'state.sqlite3') : null
 }
+export function actualDockSnapshot() {
+  if (!actual) throw new Error('No actual fixture')
+  return (
+    actual.db
+      .prepare('SELECT visible,primary_tab,explicitly_hidden FROM conversation_dock_state LIMIT 1')
+      .get() ?? null
+  )
+}
 export function actualCrashEvidence() {
   if (!actual) throw new Error('No actual fixture')
   let descendants: number[] = []

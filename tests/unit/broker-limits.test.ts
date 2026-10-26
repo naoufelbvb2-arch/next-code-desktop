@@ -289,6 +289,51 @@ test('P6-L08 real wall-clock queued work expires within the 30 second operation 
   }
 }, 45000)
 
+test('P8-B01 timed-out native worker does not release its parent or global capacity before the Main handler drains', async () => {
+  const f = await brokerFixture(),
+    pool = new BrokerPool(await workerFixture()),
+    hold = gate(),
+    entered = gate()
+  let nextExecuted = false
+  const job = { action: 'register' as const, root: f.workspace, path: '.' }
+  const first = pool
+    .run(
+      'parent',
+      job,
+      async () => {
+        entered.release()
+        await hold.wait
+      },
+      undefined,
+      1500
+    )
+    .catch((error) => error.code)
+  try {
+    await entered.wait
+    const next = pool.run(
+      'parent',
+      job,
+      () => {
+        nextExecuted = true
+        return 'next'
+      },
+      undefined,
+      5000
+    )
+    expect(await first).toBe('RESOURCE_LIMIT')
+    await pause(100) // Observe the forbidden overlap after native release, not an exit certificate.
+    expect(nextExecuted).toBe(false)
+    expect(pool.counts).toEqual({ active: 1, queued: 1 })
+    hold.release()
+    expect(await next).toBe('next')
+  } finally {
+    hold.release()
+    await first
+    pool.close()
+    await f.close()
+  }
+}, 15000)
+
 test('P6-L09 actual 90 second parent window expires independently of the 30 second per-operation deadline', async () => {
   const f = await brokerFixture()
   try {

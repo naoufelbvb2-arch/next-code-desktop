@@ -81,11 +81,11 @@ export function useDiscussion() {
       setConversation(null)
       return
     }
-    void read(conversationId)
     const unsubscribe = api.conversations.subscribeConversation(conversationId, () => {
       void read(conversationId)
       void loadHistory()
     })
+    void read(conversationId)
     // Durable snapshots also recover a lost/coalesced subscription hint. This
     // never invokes a model or retries the accepted turn.
     const timer = setInterval(() => {

@@ -1,5 +1,18 @@
 # CP-001 — P8 read projections: approved goal and persisted Chat Dock
 
+## Current disposition — APPROVED AND ADOPTED, 2026-10-25
+
+The owner's P8 FINAL CORRECTIONS, Part C, approves this narrow correction.
+Normative implementation authority is now
+[IIS-02-C02](../../engineering/01-normative/NCD-03-IIS-02-C02-P8-READ-PROJECTIONS-ADDENDUM.md).
+TaskView.exactGoal reads the existing `tasks.exact_goal` (the original draft below
+mistakenly called it `tasks.task_goal`; no column is renamed). ConversationViewPage
+returns scoped existing ChatDockStateView or null through read-only dockState.
+The method/subscription, SQLite and JSONL counts remain unchanged. The current
+P8 implementation report and verification register record actual tests.
+
+## Original proposal — historical, superseded disposition retained
+
 **DRAFT / NOT ADOPTED / OWNER APPROVAL REQUIRED.** No frozen document, public DTO
 or SQLite schema is modified by this proposal.
 

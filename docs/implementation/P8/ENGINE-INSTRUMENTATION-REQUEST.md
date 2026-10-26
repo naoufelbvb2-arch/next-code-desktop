@@ -1,4 +1,17 @@
-# P8 engine instrumentation request — DRAFT / OWNER APPROVAL REQUIRED
+# P8 engine instrumentation request — APPROVED AND IMPLEMENTED
+
+The owner's P8 FINAL CORRECTIONS (2026-10-25), Parts A/B, explicitly approves
+the three optional task-local callbacks and a separately proved narrow native
+Windows exit-observation fix. Engine implementation was reviewed and published
+first on `feature/p8-verified-worker-observers` at
+`99e00e13f8a39fa6730f3d3de773ac937b5ac915`. The full isolated offline suite is
+69 PASS / 0 FAIL / 3 paid NOT_RUN; an additional five native parent/descendant
+cases passed without relaxed assertions. Desktop pins the exact published
+commit, complete source inventory and VERIFIED_OBSERVER_VERSION=1. AgentOS
+signatures, TaskOutcome, TaskPhase, WorkerReport and wire schemas are unchanged.
+See the Engine's short P8 implementation report and current Desktop P8 report.
+
+## Original read-only request and findings — retained historical evidence
 
 Read-only engine audit: `5e7179b9d528e7ef97e18f91ec284e4da514ca0b`, separate
 `feature/p7-desktop-lifecycle-control`. No engine edit is made or authorized here.

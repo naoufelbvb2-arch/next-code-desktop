@@ -221,7 +221,7 @@ test('E05-33 actual supervised late earlier event after terminal is valid backfi
   }
 }, 20000)
 
-test('E05-01/06/24/25 actual original AgentOS production factory with offline HTTP emits real patch/test effects but no invented workers', async () => {
+test('E05-01/05/06/25 actual original AgentOS production factory with offline HTTP emits real workers and independent patch/test effects', async () => {
   const f = await codingEngineFixture('production_mock')
   try {
     const { task } = await f.run()
@@ -233,14 +233,20 @@ test('E05-01/06/24/25 actual original AgentOS production factory with offline HT
     })
     expect(page.events.map((e) => e.type === 'event' && e.payload.name)).toEqual([
       'task.started',
+      'task.progress',
+      'worker.started',
       'file.changed',
       'test.result',
+      'worker.completed',
+      'worker.started',
       'test.result',
+      'worker.completed',
+      'task.progress',
       'task.completed'
     ])
-    expect(page).toMatchObject({ completeThrough: 5, hasGap: false, stateIsCertain: true })
+    expect(page).toMatchObject({ completeThrough: 11, hasGap: false, stateIsCertain: true })
     expect(f.source()).toBe('def value(): return 2\n')
-    const file = page.events[1]
+    const file = page.events[3]
     expect(file.type === 'event' && file.payload.data).toMatchObject({
       path: 'sample.py',
       change_kind: 'modified'
@@ -251,7 +257,9 @@ test('E05-01/06/24/25 actual original AgentOS production factory with offline HT
           status: 'passed',
           summary: 'Pinned verification command exited with code 0.'
         })
-    expect(JSON.stringify(page)).not.toContain('worker_ref')
+    for (const frame of page.events)
+      if (frame.type === 'event' && ['file.changed', 'test.result'].includes(frame.payload.name))
+        expect(frame.payload.data).not.toHaveProperty('worker_ref')
   } finally {
     await f.close()
   }

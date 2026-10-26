@@ -9,13 +9,7 @@ import {
   type MissionSnapshot
 } from '../state/mission'
 
-export function MissionControl({
-  projectId,
-  goals = {}
-}: {
-  projectId?: string
-  goals?: Record<string, string>
-}) {
+export function MissionControl({ projectId }: { projectId?: string }) {
   const api = window.nextCode?.tasks
   const [tasks, setTasks] = useState<Output<'tasks.list'>['tasks']>([])
   const [selected, select] = useState('')
@@ -132,11 +126,7 @@ export function MissionControl({
             <p>
               Project: {task.projectId} · Conversation: {task.conversationId}
             </p>
-            <p>
-              Approved goal:{' '}
-              {goals[task.taskId] ??
-                'Not exposed by the current task projection; no goal is inferred.'}
-            </p>
+            <p>Approved goal: {task.exactGoal}</p>
             <p>
               Admission / durable state: {task.state}
               {task.state === 'queued' ? ' — not started' : ''}

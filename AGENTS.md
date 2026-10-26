@@ -2,6 +2,27 @@
 
 ## Current authority
 
+The owner's **P8 FINAL CORRECTIONS** authorization (2026-10-25) supersedes
+the prior P8 engine-read-only and CP-001 approval gates below. Desktop continues
+from `decf6390b05191c29a3627ca318b935b6073922d`; Engine branches from
+`5e7179b9d528e7ef97e18f91ec284e4da514ca0b` on
+`feature/p8-verified-worker-observers`. Scope: three optional task-local observer
+hooks, accepted real phase/worker evidence, narrowly proved native Windows
+cleanup correction, approved CP-001 read-projection addendum and final Mission
+Control integration. Publish tested Engine first, then pin its actual commit
+and sources in Desktop. Keep old frozen originals byte-identical; add only the
+approved IIS-02-C02 addendum and its separately authenticated baseline. Preserve
+historical failures and uncertainty; native handles and Job reconciliation are
+required, never a fixed delay or relaxed assertions. No paid calls, budget/key
+changes, real-user projects, new methods/tables/wire fields, main merge, P9 or
+packaging. Complete tests and reviewed branch commits/pushes, then stop for P8
+owner review. Earlier P8 restrictions below are historical where superseded.
+Published Engine P8 source: `99e00e13f8a39fa6730f3d3de773ac937b5ac915`.
+IIS-02-C02 is the approved CP-001 addendum: 18 delivered normative originals
+plus one separately authenticated addendum, 19 normative files total. A local
+Broker regression correction retains capacity until native exit AND awaited
+Main handler drain; original safety/time-limit assertions remain unchanged.
+
 The owner's **P8 IMPLEMENTATION AUTHORIZATION — Verified Events & Mission
 Control** accepts P7 at `3f205b036a5e074803d9e58580987a2aeb96d873` within its
 proved scope. Acceptance was published first at

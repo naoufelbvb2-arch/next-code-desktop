@@ -131,7 +131,8 @@ Windows filesystem sandbox or permission to code in real-user projects.
 **P1–P5 are accepted; P6 is conditionally accepted with G6 PARTIAL (P1 visual
 signoff deferred). P7's minimum real-engine G4 evidence is verified offline and
 with one real paid task on Windows and is now accepted within that proved scope.
-Full system gates are not self-certified. Engine remains read-only. No further
+Full system gates are not self-certified. The owner's P8 final corrections
+authorize the narrowly scoped optional Engine observers and native exit fix. No further
 paid call, main merge, P9 or installer is authorized.**
 
 P8 **Agents / Mission Control** reads scoped task history, a Mission Header,
@@ -143,25 +144,28 @@ confirmed patch effects and real pinned-test return codes; diagnostics and model
 claims never become verified events. Outcome, event integrity and unexposed
 Windows cleanup/liveness remain distinct. Agents Dock stays hidden on entry.
 
-The existing engine has **no supported phase/worker observer hooks**. No worker
-is invented: genuine task/tool events can appear, while the worker panel is empty
-when no trusted worker events exist. Full P8/G5 acceptance is **blocked pending
-separate engine instrumentation approval**. The existing TaskView also omits the
-exact historical approved goal; only an in-session Main proposal/admission can
-provide it today, otherwise the UI explicitly says unavailable. CP-001 proposes
-a narrow future projection change without implementing it. Neither P8 nor its
-offline fixtures reset or spend the consumed paid mission allowance.
-The same draft records that persisted per-conversation Dock state has no read
-projection: reopened chats with unknown policy never auto-open or overwrite it.
-An independently observed native exit-signal timing issue and its preserved
-engine regression failures are documented for owner review; safe cleanup is not
-inferred from cooperative cancellation or displayed as verified.
+The approved Engine P8 observers now expose actual accepted phase transitions,
+independent worker invocation identities and returned typed WorkerReports after
+chassis cleanup. Desktop pins the exact published Engine commit and source
+capability; an older or changed runtime cannot enable event integration. All nine
+frozen event names have real execution sources. Legacy history without worker
+events still shows an honest empty inspector. File/test effects stay task-level.
+
+The approved [IIS-02-C02 addendum](docs/engineering/01-normative/NCD-03-IIS-02-C02-P8-READ-PROJECTIONS-ADDENDUM.md)
+adds only the durable exactGoal on TaskView and nullable persisted dockState on
+ConversationViewPage. Historical goals survive reload; Chat Dock restores its
+saved visibility/tab/hide policy through read-only snapshots. Historical replay
+never opens Agents Dock or executes a task. Neither P8 nor its offline fixtures
+reset or spend the consumed paid mission allowance. The narrow Windows fix waits
+on actual retained process handles and reconciles the whole Job inventory;
+missing evidence still fails closed. Mission Control continues to show native
+cleanup as unverified where the public read projection exposes no proof.
 
 - [P7 scoped owner acceptance](docs/implementation/P7/OWNER-ACCEPTANCE.md)
 - [P8 implementation and limits](docs/implementation/P8/IMPLEMENTATION-REPORT.md)
 - [P8 engine instrumentation request](docs/implementation/P8/ENGINE-INSTRUMENTATION-REQUEST.md)
 - [P8 verification register](docs/implementation/P8/VERIFICATION-RESULTS.json)
-- [CP-001 historical goal projection — DRAFT](docs/changes/proposed/CP-001-P8-TASK-GOAL-PROJECTION.md)
+- [CP-001 approved read projections](docs/changes/proposed/CP-001-P8-TASK-GOAL-PROJECTION.md)
 
 - [P7 implementation and actual disposition](docs/implementation/P7/IMPLEMENTATION-REPORT.md)
 - [P7 engine compatibility gate](docs/implementation/P7/ENGINE-COMPATIBILITY-REPORT.md)

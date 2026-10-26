@@ -60,3 +60,17 @@ test('P7-G03 wrong Git identity and a fabricated source-only capability cannot e
     })
   ).rejects.toThrow()
 }, 10000)
+
+test('P8-G01 missing verified observer capability denies event integration before launch', async () => {
+  mkdirSync('.test-profiles', { recursive: true })
+  const directory = mkdtempSync(resolve('.test-profiles', 'p8-no-observer-'))
+  const manifest = JSON.parse(readFileSync('bridge/coding-compatibility.json', 'utf8'))
+  delete manifest.verifiedObserver
+  writeFileSync(join(directory, 'coding-compatibility.json'), JSON.stringify(manifest))
+  await expect(
+    verifyCodingRuntime(await runtimeFixture(), directory, {
+      engineRoot: resolve('../next code'),
+      sitePackages: resolve('../next code/.venv/Lib/site-packages')
+    })
+  ).rejects.toThrow('RUNTIME_NOT_READY')
+}, 10000)

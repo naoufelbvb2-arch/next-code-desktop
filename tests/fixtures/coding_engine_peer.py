@@ -70,6 +70,13 @@ def offline_backend(settings, workspace):
             tool("run_command", {"command":command}), finish(),
             architect("DISPATCH_INQUISITOR", "INQUISITOR"), tool("run_command", {"command":command}),
             finish("APPROVED"), architect("COMPLETE_TASK")]
+        if mode == "repeated_workers":
+            # Same role/contract ID, independent real Engine invocations. The
+            # Inquisitor is intentionally between two Scouts, never a UI order.
+            replies[4:4] = [architect("DISPATCH_SCOUT", "SCOUT"),
+                tool("read_file", {"path":"sample.py"}), finish()]
+            replies[-1:-1] = [architect("DISPATCH_SCOUT", "SCOUT"),
+                tool("read_file", {"path":"sample.py"}), finish()]
     calls = 0
 
     async def respond(request):

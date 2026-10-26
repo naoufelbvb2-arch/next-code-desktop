@@ -1,13 +1,13 @@
 {
   "protocol": 1,
-  "engineCommit": "5e7179b9d528e7ef97e18f91ec284e4da514ca0b",
+  "engineCommit": "99e00e13f8a39fa6730f3d3de773ac937b5ac915",
   "executionControl": 1,
   "engineFiles": {
     "agent_os.py": "084f891d2135c1c53ecca30df4a4a25a4e927bcf48d18fbc807a63ae3509c47d",
     "architect/__init__.py": "2eb0dbb94badc20332e578790856314353b30793722d9ae9f78503a6c8f15451",
     "architect/contracts.py": "1783b61b0112d7310aa74bcc940b4e6832f4daf8432881958e95d0219f26ca81",
     "architect/dispatcher.py": "c13fac8b94fc78485a1cc698cccd63a75b35b96a7d03c32574132bfb4339ad04",
-    "architect/lead_loop.py": "c376eb276d6fbaf20c4ef588e6898f9d0a6f2b075ac0d1ceafecc06cb076809d",
+    "architect/lead_loop.py": "cc07149a61adc3071ea84b9aa68b55953552e0b91e77acc55b3162fcbbf59467",
     "architect/prompts.py": "92b11a972355cbff85eea71bc5c18e65cdf183e87f660ddd4b296f36c2e15800",
     "brain/__init__.py": "84b6b072d03a2cace959e8afaeaabe4eaccdb248c5c276dd76b38101d66ff44f",
     "brain/blackboard.py": "90f79a29f9a97d55c9dd135fcb7030a6e6078fd4b774ab06a20d3d94dc6e23a7",
@@ -18,14 +18,14 @@
     "kernel/checkpoint.py": "e5073b2c3e9703e3f9833603541eb5b89b0ae3b0c18ed4258afee69f56813f8a",
     "kernel/config.py": "f37add09a4320bab48de75b388a3a59626b037cd957e3e82cf1a3e2bf8e43056",
     "kernel/exceptions.py": "1147151615e83cd9ff4dcbfc9cca71173f20cee1c9a2377c067ec65a534be691",
-    "kernel/execution.py": "801f3cdb4c73d014c189d13dcd9efdd70127a939b27f65dfba05953233d7ffd5",
+    "kernel/execution.py": "a2abf3aaa3cdcb254c4c8ccdbc3ee51d003e310223dd707f2319e44dd4f43098",
     "kernel/gateway/__init__.py": "12c16a6f07b471f34660620d372308cce6fdf4b802989c1d589262c239c95796",
     "kernel/gateway/base.py": "91981ac78fbbfabf1f81223048d1297290474d29d14426a6758741e6875f6b5d",
     "kernel/gateway/ledger.py": "b63b36d27b0443d6a4e4adcf5967f15ee3063db64e625cd307b55d1812fc33eb",
     "kernel/gateway/openai_compat.py": "dd6848b1d869fb6719db1ccd7f6a5e50673b4335ad576c9592e944ce2d28f1e0",
     "kernel/gateway/router.py": "df0cd166b20cab15734f48945248edda936e367eab6a409b5441b32db39b80ae",
     "kernel/guard.py": "90d4772c9846c0783f9f3852d0c72135a7928edb67cc3f652247cba6c5ad2db7",
-    "kernel/owned_process.py": "bfae87e1df5bc0bd284050d6cc3e455afe324766f8c2c71e8662e733cfcd9166",
+    "kernel/owned_process.py": "bef8ee201b37ae0b18f27253391006abc8c075c52c22bc223428489ee4193a9c",
     "kernel/schemas.py": "37977befae5a74d56fe08aa5df39d456fa071ad90db2908fd2c71d4a07bc7fbe",
     "kernel/tools/__init__.py": "732f1e06516fc25a500430c281b3633e1deeb76ccaedd7aba4900a1d471bab2b",
     "kernel/tools/filesystem.py": "4132169b23a0830cd2a479834a8e0030b1527f815b8fdc6184c108c4e4eef6ee",
@@ -35,19 +35,20 @@
     "run.py": "a3cd2f6902173974b96827f6844c73d28bb66f9815754f8daa72634a094d8250",
     "squad/__init__.py": "d9437e5724ec03d4ac25830bf9b167be8a72e5c315fc24779c2831162460aedb",
     "squad/chassis.py": "05c05bf7256b5aa1b7c009b86f0c3a557766ab44ce3c664804c57897acee50bd",
-    "squad/dispatcher.py": "aca5c9e9eae1fb0cf29f017b85d3b1a103789842216c0f1514d835aaa54d5b4d",
+    "squad/dispatcher.py": "d2d6b45929e11772156f22a3d66de04d923daa1616720687a3e6eb8466ccee38",
     "squad/memory.py": "ebb2954573f5a13871af0cbffd7e2a6aec87ef733d6a0e013af8bc2cac2afeb4",
     "squad/role_cards.py": "fca60e63c40769cc1c492da55af0fb4a713a91d3bbc8fe01f60949cae152b2c5",
     "squad/schemas.py": "8e1aaadd2b7da5c3e53bccc400ee9ed820c5bebcd0a4fff4c4cf5291f345d1e8"
   },
   "bridgeFiles": {
-    "coding_bridge.py": "6c477f03982fa2bb8d48a021601591d433be1cf66c4295b87a867e35ff37c51f",
-    "engine_compatibility.py": "df35b8a2152e8c8cf4e378167d67670b131b0776b174b4cafaff8f1323c94741",
+    "coding_bridge.py": "8af83724ad0bf373584ee710e93361ca058425fe124e6dd87440025886999302",
+    "engine_compatibility.py": "2e60f59e9437baadbcb8e1cd9eb7e15eda92de5d459c803a098fda7909a13cba",
     "desktop_bridge.py": "9d612e05c8a38733dc1cf2fa81cc72ff21391937590afa430ab22bc82e54933e",
     "broker_client.py": "d59c9bd91ba704461f4cae22d3837280f8a846939fbf41a44ebf1698b36eb13a",
     "coding_gateway.py": "ecfd1742c458277c81cdf3ee02bf4690eec54727595a9b691e37ad13ab40f83c",
     "coding_policy.py": "7db460e314e4875e611d617c782407f84c75fa6e1a1a601e812c077645fbef14",
     "coding_events.py": "6ec3361b5424092003c20e944dbb5f0ce77c761552237fb6302d21985acaaa4d"
   },
-  "gitExecutableSha256": "81ef35ae005ca9318018d18e3327578ce939fb99feaad6b2d7c8ab15f3de8db5"
+  "gitExecutableSha256": "81ef35ae005ca9318018d18e3327578ce939fb99feaad6b2d7c8ab15f3de8db5",
+  "verifiedObserver": 1
 }

@@ -32,19 +32,22 @@ export function App() {
   const discussion = useDiscussion()
   const conversationDocks = useRef(new Map<string, DockState>())
   const knownDocks = useRef(new Set<string>())
+  const hydratedDock = useRef<string | null>(null)
+  const [hydratedDockId, setHydratedDockId] = useState<string | null>(null)
+  const savedDock = useRef(new Map<string, string>())
   const rememberDock = (id: string) => {
     knownDocks.current.add(id)
     if (knownDocks.current.size > 64) {
       const oldest = knownDocks.current.values().next().value!
       knownDocks.current.delete(oldest)
       conversationDocks.current.delete(oldest)
+      savedDock.current.delete(oldest)
     }
   }
   const [viewport, setViewport] = useState(viewportWidth)
   const heading = useRef<HTMLHeadingElement>(null)
   const previousRoute = useRef(state.page)
   const liveStarts = useRef(new Set<string>())
-  const [approvedGoals, setApprovedGoals] = useState<Record<string, string>>({})
   useEffect(() => {
     const resize = () => setViewport(viewportWidth())
     window.addEventListener('resize', resize)
@@ -57,6 +60,17 @@ export function App() {
     }
   }, [state.page])
   const dock = currentDock(state)
+  const changeDock = (choice: { open?: boolean; tab?: DockState['tab'] }) => {
+    if (state.page === 'chat' && discussion.conversationId) {
+      rememberDock(discussion.conversationId)
+      conversationDocks.current.set(discussion.conversationId, {
+        ...dock,
+        ...choice,
+        ...('open' in choice ? { manuallyHidden: !choice.open } : {})
+      })
+    }
+    dispatch({ type: 'dock', ...choice })
+  }
   const layout = fitLayout(viewport, state.collapsed, dock.open, state.dockWidth)
   const draft = activeDraft(state)
   const composer = {
@@ -76,28 +90,68 @@ export function App() {
     }
   }
   useEffect(() => {
+    const page = discussion.conversation
+    const id = discussion.conversationId
+    if (!id || !page || page.conversation.conversationId !== id || hydratedDock.current === id)
+      return
+    const saved = page.dockState
+    const persisted: DockState = {
+      open: saved?.visible ?? false,
+      tab: saved?.primaryTab === 'Files' ? 'files' : 'terminal',
+      manuallyHidden: saved?.explicitlyHidden ?? false
+    }
+    const restored = conversationDocks.current.get(id) ?? persisted
+    if (saved || knownDocks.current.has(id)) rememberDock(id)
+    conversationDocks.current.set(id, restored)
+    savedDock.current.set(id, JSON.stringify(persisted))
+    if (conversationDocks.current.size > 64) {
+      const oldest = conversationDocks.current.keys().next().value!
+      conversationDocks.current.delete(oldest)
+      knownDocks.current.delete(oldest)
+      savedDock.current.delete(oldest)
+    }
+    hydratedDock.current = id
+    setHydratedDockId(id)
+    dispatch({ type: 'restoreChatDock', dock: restored })
+  }, [discussion.conversationId, discussion.conversation])
+  useEffect(() => {
     if (
       !discussion.conversationId ||
       state.page !== 'chat' ||
       !window.nextCode ||
+      hydratedDockId !== discussion.conversationId ||
       !knownDocks.current.has(discussion.conversationId)
     )
       return
     conversationDocks.current.set(discussion.conversationId, { ...dock })
+    const signature = JSON.stringify(dock)
+    if (savedDock.current.get(discussion.conversationId) === signature) return
     const timer = setTimeout(() => {
-      void window.nextCode.conversations.saveDockState({
-        conversationId: discussion.conversationId!,
-        dockState: {
-          visible: dock.open,
-          primaryTab: dock.tab === 'files' ? 'Files' : 'Terminal',
-          terminalSubtab: 'Agent Logs',
-          explicitlyHidden: dock.manuallyHidden
-        },
-        clientMutationId: crypto.randomUUID()
-      })
+      const id = discussion.conversationId!
+      void window.nextCode.conversations
+        .saveDockState({
+          conversationId: discussion.conversationId!,
+          dockState: {
+            visible: dock.open,
+            primaryTab: dock.tab === 'files' ? 'Files' : 'Terminal',
+            terminalSubtab: 'Agent Logs',
+            explicitlyHidden: dock.manuallyHidden
+          },
+          clientMutationId: crypto.randomUUID()
+        })
+        .then((result) => {
+          if (result.ok) savedDock.current.set(id, signature)
+        })
     }, 250)
     return () => clearTimeout(timer)
-  }, [discussion.conversationId, dock.open, dock.tab, dock.manuallyHidden, state.page])
+  }, [
+    discussion.conversationId,
+    dock.open,
+    dock.tab,
+    dock.manuallyHidden,
+    state.page,
+    hydratedDockId
+  ])
   const toggleSidebar = () => {
     const expanding = layout.compact
     const expanded = fitLayout(viewport, false, dock.open, state.dockWidth)
@@ -133,6 +187,8 @@ export function App() {
           onToggle={toggleSidebar}
           history={discussion.history}
           onConversation={(id) => {
+            hydratedDock.current = null
+            setHydratedDockId(null)
             discussion.open(id)
             dispatch({ type: 'navigate', page: 'chat' })
             dispatch({
@@ -166,11 +222,7 @@ export function App() {
               aria-label={layout.dockVisible ? 'Hide Right Dock' : 'Open Right Dock'}
               aria-expanded={layout.dockVisible}
               title={layout.dockVisible ? 'Hide Right Dock' : 'Open Right Dock'}
-              onClick={() => {
-                if (state.page === 'chat' && discussion.conversationId)
-                  rememberDock(discussion.conversationId)
-                dispatch({ type: 'dock', open: !layout.dockVisible })
-              }}
+              onClick={() => changeDock({ open: !layout.dockVisible })}
             >
               <Icon name="panels" size={18} />
               <span>Panels</span>
@@ -213,11 +265,6 @@ export function App() {
                 <TaskControls
                   key={discussion.conversation.conversation.conversationId}
                   conversation={discussion.conversation}
-                  onAdmission={(taskId, goal) =>
-                    setApprovedGoals((old) =>
-                      Object.fromEntries([...Object.entries(old), [taskId, goal]].slice(-64))
-                    )
-                  }
                   onLiveStart={(key) => {
                     if (liveStarts.current.has(key)) return
                     if (liveStarts.current.size >= 128) return
@@ -266,7 +313,6 @@ export function App() {
               <MissionControl
                 key={discussion.project?.projectId ?? 'none'}
                 projectId={discussion.project?.projectId}
-                goals={approvedGoals}
               />
             )}
             {state.page === 'settings' && (
@@ -284,8 +330,8 @@ export function App() {
             project={discussion.project}
             tab={dock.tab}
             width={layout.dock}
-            onTab={(tab) => dispatch({ type: 'dock', tab })}
-            onClose={() => dispatch({ type: 'dock', open: false })}
+            onTab={(tab) => changeDock({ tab })}
+            onClose={() => changeDock({ open: false })}
             onWidth={(width) => dispatch({ type: 'width', width })}
           />
         )}

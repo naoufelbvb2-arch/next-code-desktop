@@ -64,6 +64,7 @@ export function missionApi(initial: MissionEvent[] = []) {
     conversationId: 'conversation',
     projectId: 'project',
     state: 'running' as const,
+    exactGoal: 'Exact persisted synthetic goal',
     outcome: null
   }
   const unsubscribe = vi.fn()

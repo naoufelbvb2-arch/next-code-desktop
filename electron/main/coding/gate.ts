@@ -16,7 +16,7 @@ export function requireCodingEngine(): never {
   throw new CodingUnavailable()
 }
 
-export const TESTED_ENGINE_COMMIT = '5e7179b9d528e7ef97e18f91ec284e4da514ca0b'
+export const TESTED_ENGINE_COMMIT = '99e00e13f8a39fa6730f3d3de773ac937b5ac915'
 export interface VerifiedCodingRuntime {
   readonly engineRoot: string
   readonly engineCommit: typeof TESTED_ENGINE_COMMIT
@@ -45,6 +45,7 @@ export async function verifyCodingRuntime(
       protocol: number
       engineCommit: string
       executionControl: number
+      verifiedObserver: number
       engineFiles: Record<string, string>
       bridgeFiles: Record<string, string>
       gitExecutableSha256: string
@@ -52,7 +53,8 @@ export async function verifyCodingRuntime(
   if (
     manifest.protocol !== 1 ||
     manifest.engineCommit !== TESTED_ENGINE_COMMIT ||
-    manifest.executionControl !== 1
+    manifest.executionControl !== 1 ||
+    manifest.verifiedObserver !== 1
   )
     throw new CodingUnavailable()
   const gitExecutable = realpathSync(settings.gitPath ?? 'C:/Program Files/Git/cmd/git.exe')
@@ -164,7 +166,8 @@ export async function verifyCodingRuntime(
       roles: ['coding_task'],
       provider: false,
       engine: true,
-      executionControl: 1
+      executionControl: 1,
+      verifiedObserver: 1
     })
   )
     throw new CodingUnavailable()

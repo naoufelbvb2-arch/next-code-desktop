@@ -11,6 +11,16 @@ import { join, resolve } from 'node:path'
 import koffi from 'koffi'
 
 const module = resolve('.cache/p7-engine-main.cjs')
+const successEvents = [
+  'task.started',
+  'task.progress',
+  'worker.started',
+  'worker.completed',
+  'worker.started',
+  'worker.completed',
+  'task.progress',
+  'task.completed'
+].map((name) => ({ name }))
 test.beforeAll(async () => {
   await build({
     entryPoints: ['tests/fixtures/coding-main.ts'],
@@ -68,7 +78,7 @@ test('P7-WIN02 actual Windows Electron explicit Run Task reaches real AgentOS, c
   const { app, page } = await launch()
   try {
     expect(await call(app, 'startActualCodingFixture')).toMatchObject({
-      engineCommit: '5e7179b9d528e7ef97e18f91ec284e4da514ca0b',
+      engineCommit: '99e00e13f8a39fa6730f3d3de773ac937b5ac915',
       outsideProductionRepos: true
     })
     await propose(page)
@@ -79,7 +89,7 @@ test('P7-WIN02 actual Windows Electron explicit Run Task reaches real AgentOS, c
     expect(await call(app, 'actualCodingSnapshot')).toMatchObject({
       leases: 0,
       source: 'def value(): return 2\n',
-      events: [{ name: 'task.started' }, { name: 'task.completed' }]
+      events: successEvents
     })
     await page.screenshot({ path: '.cache/p7-actual-success.png' })
     await page.reload()
@@ -103,7 +113,7 @@ test('P7-WIN03 real worker task survives navigation/reload; Renderer cancellatio
     await expect(page.getByRole('heading', { name: 'Agents', exact: true })).toBeVisible()
     await expect(page.getByRole('region', { name: 'Mission Header' })).toContainText('running')
     await expect(
-      page.getByText('No verified worker events. Detailed worker activity unavailable.')
+      page.getByRole('button', { name: /SURGEON \/ .+ — started; live status unverified/ })
     ).toBeVisible()
     expect((await call(app, 'actualCodingSnapshot')).status.active).toBeTruthy()
     await page.reload()
@@ -114,7 +124,9 @@ test('P7-WIN03 real worker task survives navigation/reload; Renderer cancellatio
     await expect(page.getByText('Main reports reconciled task evidence.')).toBeVisible()
     expect(await call(app, 'actualCodingSnapshot')).toMatchObject({
       leases: 0,
-      events: [{ name: 'task.started' }, { name: 'task.cancelled' }]
+      events: ['task.started', 'task.progress', 'worker.started', 'task.cancelled'].map((name) => ({
+        name
+      }))
     })
     await page.screenshot({ path: '.cache/p7-actual-cancelled.png' })
   } finally {
@@ -224,7 +236,7 @@ test('P8-WIN01 actual offline AgentOS tools -> T4 -> closed IPC -> Mission Contr
       'aria-expanded',
       'false'
     )
-    await expect(page.getByRole('list', { name: 'Committed events' }).locator('li')).toHaveCount(5)
+    await expect(page.getByRole('list', { name: 'Committed events' }).locator('li')).toHaveCount(11)
     await expect(page.getByRole('list', { name: 'Committed events' })).toContainText(
       'file.changed: modified sample.py (task-level)'
     )
@@ -232,18 +244,26 @@ test('P8-WIN01 actual offline AgentOS tools -> T4 -> closed IPC -> Mission Contr
       'test.result: passed'
     )
     await expect(page.getByRole('region', { name: 'Mission Header' })).toContainText(
-      'complete through 5'
+      'complete through 11'
     )
     await expect(page.getByRole('region', { name: 'Mission Header' })).toContainText(
       'Last verified phase: COMPLETED'
     )
-    await expect(
-      page.getByText('No verified worker events. Detailed worker activity unavailable.')
-    ).toBeVisible()
-    await page.screenshot({ path: '.cache/p8-mission-control.png' })
+    await expect(page.getByRole('button', { name: /SURGEON \/ .+ — SUCCESS/ })).toBeVisible()
+    await page.getByRole('button', { name: /SURGEON \/ .+ — SUCCESS/ }).click()
+    await expect(page.getByRole('region', { name: 'Agent Inspector' })).toContainText(
+      'Synthetic worker completed'
+    )
+    await expect(page.getByRole('region', { name: 'Mission Header' })).toContainText(
+      'Change only sample.py so value() returns 2 and verify with check.py.'
+    )
+    await page.screenshot({ path: '.cache/p8-corrections-mission-control.png' })
     await page.reload()
     await page.getByRole('button', { name: 'Agents', exact: true }).click()
-    await expect(page.getByRole('list', { name: 'Committed events' }).locator('li')).toHaveCount(5)
+    await expect(page.getByRole('list', { name: 'Committed events' }).locator('li')).toHaveCount(11)
+    await expect(page.getByRole('region', { name: 'Mission Header' })).toContainText(
+      'Change only sample.py so value() returns 2 and verify with check.py.'
+    )
     expect((await call(app, 'actualCodingSnapshot')).tasks).toHaveLength(1)
     expect((await call(app, 'actualCodingSnapshot')).leases).toBe(0)
     expect((await call(app, 'actualCodingSnapshot')).status.active).toBeNull()
@@ -275,7 +295,7 @@ test('P7-WIN05 actual GUI opens an ASCII case alias, preserves canonical project
     expect(await call(app, 'actualCodingSnapshot')).toMatchObject({
       leases: 0,
       source: 'def value(): return 2\n',
-      events: [{ name: 'task.started' }, { name: 'task.completed' }]
+      events: successEvents
     })
     expect(await call(app, 'actualAliasEvidence')).toEqual({
       projects: 1,
@@ -336,3 +356,117 @@ test('P7-WIN06 actual Main crash before AgentOS start stops the real Coding chil
     await current.app.close().catch(() => {})
   }
 })
+
+test('P8-WIN02 real repeated worker roles retain separate Inspector reports after reload', async () => {
+  const { app, page } = await launch()
+  try {
+    await call(app, 'startActualCodingFixture', ['repeated_workers'])
+    await propose(page)
+    await page.getByRole('button', { name: 'Run Task', exact: true }).click()
+    await expect(page.getByText(/Task .+: completed/)).toBeVisible({ timeout: 20000 })
+    await page.getByRole('button', { name: 'Agents', exact: true }).click()
+    const scouts = page.getByRole('button', { name: /SCOUT \/ .+ — SUCCESS/ })
+    await expect(scouts).toHaveCount(2)
+    const labels = await scouts.allTextContents()
+    expect(labels[0]).not.toBe(labels[1])
+    await expect(page.getByRole('button', { name: /INQUISITOR \/ .+ — SUCCESS/ })).toHaveCount(1)
+    await scouts.first().click()
+    await expect(page.getByRole('region', { name: 'Agent Inspector' })).toContainText(
+      'Synthetic worker completed'
+    )
+    await expect(
+      page.getByRole('region', { name: 'Agent Inspector' }).locator('dd').nth(3)
+    ).toHaveText(/^sequence \d+$/)
+    await page.reload()
+    await page.getByRole('button', { name: 'Agents', exact: true }).click()
+    await expect(page.getByRole('button', { name: /SCOUT \/ .+ — SUCCESS/ })).toHaveCount(2)
+    expect((await call(app, 'actualCodingSnapshot')).tasks).toHaveLength(1)
+    expect((await call(app, 'actualCodingSnapshot')).status.active).toBeNull()
+  } finally {
+    await call(app, 'stopActualCodingFixture').catch(() => {})
+    await app.close()
+  }
+})
+
+for (const visible of [false, true])
+  test(`P8-WIN03 CP-001 saved Dock visible=${visible} survives Renderer reload and actual Main crash without Coding replay`, async () => {
+    let current = await launch()
+    const watches: ReturnType<typeof observeOwned>[] = []
+    try {
+      await call(current.app, 'startActualCodingFixture', ['shell'])
+      await propose(current.page)
+      await current.page.getByRole('button', { name: 'Open Right Dock' }).click()
+      await current.page.getByRole('tab', { name: 'Files', exact: true }).click()
+      if (!visible) await current.page.getByRole('button', { name: 'Close Right Dock' }).click()
+      await expect
+        .poll(() => call(current.app, 'actualDockSnapshot'))
+        .toMatchObject({
+          visible: Number(visible),
+          primary_tab: 'Files',
+          explicitly_hidden: Number(!visible)
+        })
+      await current.page.reload()
+      await current.page.locator('.sidebar-history button').first().click()
+      await expect(
+        current.page.getByRole('button', { name: visible ? 'Hide Right Dock' : 'Open Right Dock' })
+      ).toHaveAttribute('aria-expanded', String(visible))
+      await current.page.getByRole('button', { name: 'Run Task', exact: true }).click()
+      let evidence: any
+      await expect
+        .poll(
+          async () => {
+            evidence = await call(current.app, 'actualCrashEvidence')
+            return evidence.descendants.length
+          },
+          { timeout: 15000 }
+        )
+        .toBe(2)
+      for (const pid of evidence.descendants) watches.push(observeOwned(pid))
+      const main = observeOwned(evidence.main.pid, evidence.main.creation)
+      watches.push(main)
+      expect(main.terminateMain()).toBe(1)
+      for (const watch of watches) await expect.poll(watch.exited, { timeout: 8000 }).toBe(true)
+      current = await launch()
+      await call(current.app, 'recoverActualCodingFixture', [
+        { directory: evidence.directory, workspace: evidence.workspace }
+      ])
+      await current.page.reload()
+      await current.page.locator('.sidebar-history button').first().click()
+      await expect(
+        current.page.getByRole('button', { name: visible ? 'Hide Right Dock' : 'Open Right Dock' })
+      ).toHaveAttribute('aria-expanded', String(visible))
+      if (visible)
+        await expect(current.page.getByRole('tab', { name: 'Files', exact: true })).toHaveAttribute(
+          'aria-selected',
+          'true'
+        )
+      expect(await call(current.app, 'actualDockSnapshot')).toMatchObject({
+        visible: Number(visible),
+        primary_tab: 'Files',
+        explicitly_hidden: Number(!visible)
+      })
+      expect((await call(current.app, 'actualCodingSnapshot')).tasks).toHaveLength(1)
+      expect((await call(current.app, 'actualCodingSnapshot')).leases).toBe(1)
+      expect((await call(current.app, 'actualCodingSnapshot')).status.active).toBeNull()
+      await current.page.getByRole('button', { name: 'Agents', exact: true }).click()
+      await expect(current.page.getByRole('region', { name: 'Mission Header' })).toContainText(
+        'Change only sample.py so value() returns 2 and verify with check.py.'
+      )
+      await expect(current.page.getByRole('region', { name: 'Mission Header' })).toContainText(
+        'not verified or not exposed'
+      )
+      await expect(
+        current.page.getByRole('button', {
+          name: /SURGEON \/ .+ — started; live status unverified/
+        })
+      ).toBeVisible()
+      await expect(current.page.getByRole('button', { name: 'Open Right Dock' })).toHaveAttribute(
+        'aria-expanded',
+        'false'
+      )
+    } finally {
+      for (const watch of watches) watch.close()
+      await call(current.app, 'stopActualCodingFixture').catch(() => {})
+      await current.app.close().catch(() => {})
+    }
+  })

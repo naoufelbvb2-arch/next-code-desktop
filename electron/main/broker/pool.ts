@@ -90,11 +90,21 @@ export class BrokerPool {
             stackSizeMb: 4
           }
         }))
-        let received = false
+        let received = false,
+          handlerRunning = false,
+          workerExited = false
+        const releaseCapacity = () => {
+          // Native exit alone does not drain an awaited Main handler. Keep
+          // both the global slot and per-parent exclusion until both finish.
+          if (!workerExited || handlerRunning) return
+          this.active.delete(item)
+          this.pump()
+        }
         worker.once(
           'message',
           async (reply: { ok: boolean; data: WorkResult; code?: string; scannedBytes: number }) => {
             received = true
+            handlerRunning = true
             item.onScanned(reply.scannedBytes)
             try {
               if (item.settled) return
@@ -124,7 +134,9 @@ export class BrokerPool {
             } finally {
               clearTimeout(item.timer)
               Atomics.store(item.cancel, 0, 1)
-              worker.postMessage('release')
+              handlerRunning = false
+              if (!workerExited) worker.postMessage('release')
+              releaseCapacity()
             }
           }
         )
@@ -148,8 +160,8 @@ export class BrokerPool {
             item.settled = true
             item.reject(new BrokerError('BROKER_IO_ERROR'))
           }
-          this.active.delete(item)
-          this.pump()
+          workerExited = true
+          releaseCapacity()
         })
       } catch (error) {
         clearTimeout(item.timer)

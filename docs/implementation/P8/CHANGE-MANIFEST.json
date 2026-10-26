@@ -1,38 +1,48 @@
 {
   "phase": "P8",
   "startingCommit": "c6f36fc8ead214284e26dc7738a4e65aed73eefd",
-  "acceptedP7": "3f205b036a5e074803d9e58580987a2aeb96d873",
+  "continuationStartingCommit": "decf6390b05191c29a3627ca318b935b6073922d",
   "branch": "feature/p8-mission-control",
-  "engineCommit": "5e7179b9d528e7ef97e18f91ec284e4da514ca0b",
+  "engineCommit": "99e00e13f8a39fa6730f3d3de773ac937b5ac915",
   "exclusions": [
     "This manifest cannot authenticate itself",
-    "Later COMMIT-RECEIPT.md references independent implementation SHA"
+    "Later COMMIT-RECEIPT.md cites independently published implementation SHAs"
   ],
   "files": [
     {
       "path": "AGENTS.md",
-      "bytes": 11688,
-      "sha256": "07728f922517eae1e074feb731eddd591dfe44cf8b78e8b9ce82e8d135d66c3f"
+      "bytes": 13206,
+      "sha256": "21a876277a6d1f415f83985bed5b34b13a04aeceb8adc387345cbb47730ae510"
     },
     {
       "path": "README.md",
-      "bytes": 13244,
-      "sha256": "cb860c27a332788611f934534a0dc260b319e0b3235946fd8829ac5fc8d85b6d"
+      "bytes": 13526,
+      "sha256": "065a6bb8bda410df4b1def385ef24cf9e9eb0febef185b54c60044ed4dadf8d8"
     },
     {
       "path": "bridge/coding-compatibility.json",
-      "bytes": 4343,
-      "sha256": "dd2c78eb89a2068fb26c8f9be1276e0c8b6b249ae5eb1a1d3a9377d6e490dcf7"
+      "bytes": 4368,
+      "sha256": "e594c2f657c3ac78a389678a97e1e943f6e09a69bc0abe40d11d777075893814"
     },
     {
       "path": "bridge/coding_bridge.py",
-      "bytes": 12990,
-      "sha256": "6c477f03982fa2bb8d48a021601591d433be1cf66c4295b87a867e35ff37c51f"
+      "bytes": 14689,
+      "sha256": "8af83724ad0bf373584ee710e93361ca058425fe124e6dd87440025886999302"
     },
     {
       "path": "bridge/coding_events.py",
       "bytes": 2220,
       "sha256": "6ec3361b5424092003c20e944dbb5f0ce77c761552237fb6302d21985acaaa4d"
+    },
+    {
+      "path": "bridge/engine_compatibility.py",
+      "bytes": 6540,
+      "sha256": "2e60f59e9437baadbcb8e1cd9eb7e15eda92de5d459c803a098fda7909a13cba"
+    },
+    {
+      "path": "contracts/ipc-dtos.ts",
+      "bytes": 8093,
+      "sha256": "d17adb968cae2eeae4fbf2f35ae8bbd8af7a73940466e127e37e375978947d9f"
     },
     {
       "path": "contracts/jsonl.ts",
@@ -41,23 +51,43 @@
     },
     {
       "path": "docs/changes/proposed/CP-001-P8-TASK-GOAL-PROJECTION.md",
-      "bytes": 3343,
-      "sha256": "0cb41c37a3c28c191c9187f044a9d77beb8f0c95dc8f363f4011f71521a5ad92"
+      "bytes": 4085,
+      "sha256": "e54030a8954b8a6c4955f7213ddd10cdb2e5030495bea74e974310e83f76fe12"
+    },
+    {
+      "path": "docs/engineering/01-normative/NCD-03-IIS-02-C02-P8-READ-PROJECTIONS-ADDENDUM.md",
+      "bytes": 3362,
+      "sha256": "2f419446ae5eae628464b5a68e6ccbbf8d8f69961f30276c70ed919e247d5bd2"
+    },
+    {
+      "path": "docs/engineering/SHA256-APPROVED-ADDENDA-MANIFEST.json",
+      "bytes": 445,
+      "sha256": "105d751eb4b5d6f31cdf4104aed03d33b329c690cb6b7a52d0c23616e2ef9ed5"
+    },
+    {
+      "path": "docs/implementation/P0/verify_delivery.py",
+      "bytes": 4624,
+      "sha256": "b7bbf714e9ffabba9d8741b9a9fe7623ae08f1c3e50ada16d765239b43a02f88"
     },
     {
       "path": "docs/implementation/P8/ENGINE-INSTRUMENTATION-REQUEST.md",
-      "bytes": 5993,
-      "sha256": "e68348bf4abccf49e364e43526b4fe0a6a36103265637c1249c55db13ea93a63"
+      "bytes": 6817,
+      "sha256": "bd53c4036cd853000c25d03af50e71080da58930a1eb5c17f568f9c0cd93ce7c"
     },
     {
       "path": "docs/implementation/P8/IMPLEMENTATION-REPORT.md",
-      "bytes": 10685,
-      "sha256": "2b978fe515be86061bec9e99e3ce46e7fd54f8694a625771c64852a63a1c79c2"
+      "bytes": 18938,
+      "sha256": "83b6660c054a6bf010a677a015bc6fffd5ab79c1bc6d002460c0f03f7dfed49e"
     },
     {
       "path": "docs/implementation/P8/VERIFICATION-RESULTS.json",
-      "bytes": 150049,
-      "sha256": "4ac32594a91a89df244033120355d3d5d682cdbb8057e83aaf8b6464cf182af2"
+      "bytes": 217107,
+      "sha256": "3b40ed82718aa67454e2a2e9deae2f5a52d1594dcf1376b5c71067062faab5b0"
+    },
+    {
+      "path": "docs/implementation/P8/screenshots/mission-control-workers.png",
+      "bytes": 293765,
+      "sha256": "faf23d14e9cbac462bdf38f0ca6a9b947ed089ded65f07a0b057ac23fb43fa00"
     },
     {
       "path": "docs/implementation/P8/screenshots/mission-control.png",
@@ -65,14 +95,24 @@
       "sha256": "2fa1d20dec4c3bc88aeb0404cfe537eebf19800204368fffec349edf456e58b9"
     },
     {
+      "path": "electron/main/broker/pool.ts",
+      "bytes": 6890,
+      "sha256": "75c0ff275e1901ecf6507ef40ab35fe2f3aa43264509f1e4144ef04fec949c11"
+    },
+    {
       "path": "electron/main/coding/event-privacy.ts",
       "bytes": 789,
       "sha256": "cf1293dd8dfaabb1a0b40849cefc9f6ece83565954ccd0e62f46130cd4313bf5"
     },
     {
+      "path": "electron/main/coding/gate.ts",
+      "bytes": 7698,
+      "sha256": "24c9cd1f982d303327e46efd48371b4a78402bcf6985bb660cd61ea704211455"
+    },
+    {
       "path": "electron/main/storage/store.ts",
-      "bytes": 71623,
-      "sha256": "9bd2d0b3ff05f42d5cd4daf6fc70e38840704ecce27ce0506a9bb4578450086c"
+      "bytes": 71711,
+      "sha256": "dc4393dd08f22297197ed84a77d80c4551861a5ab93a178e6787c33e27f2eae5"
     },
     {
       "path": "electron/main/supervisor/child.ts",
@@ -86,13 +126,13 @@
     },
     {
       "path": "renderer/App.tsx",
-      "bytes": 11391,
-      "sha256": "dd76904a1335f9c87ac750ee087634c2b44dc2ed381acfc05c93f4452981198a"
+      "bytes": 13045,
+      "sha256": "e32c26bbc8331b3cc05f4ac11ea7a435d5f7d028f64dfe8d7dd3166e0f2e7646"
     },
     {
       "path": "renderer/components/MissionControl.tsx",
-      "bytes": 12079,
-      "sha256": "7ec5cd2c12565d6ed863288bba4cd9a46a3c6b54387d45be286e7dd47a4e0909"
+      "bytes": 11891,
+      "sha256": "e17a28153bd12a052e45f5b9f735dfcd4254c71a5958e7aa8cb4074a29d440e2"
     },
     {
       "path": "renderer/components/TaskControls.tsx",
@@ -107,7 +147,7 @@
     {
       "path": "renderer/state/discussion.ts",
       "bytes": 6145,
-      "sha256": "eff63ea6daf6ffcaca493c71ec6342c96da91d3e591fe95bbc861854e918af30"
+      "sha256": "7796319cfd7f0255799f733f918bbf0d950a0d0ec028a1587dbf1ca57d219599"
     },
     {
       "path": "renderer/state/mission.ts",
@@ -121,13 +161,28 @@
     },
     {
       "path": "tests/electron/coding-engine.spec.ts",
-      "bytes": 14470,
-      "sha256": "4cbac6c0a4b02fe96ad6bebd4b6ef45ed86d23b6b29416571fe1ae31fda05892"
+      "bytes": 20581,
+      "sha256": "2f26d0d54ff731a367e5a32936dbede26630eafb91cfb8f07f1389d50c3ed1a3"
+    },
+    {
+      "path": "tests/fixtures/coding-main.ts",
+      "bytes": 7673,
+      "sha256": "d89a3e045ac97f0f6f25011477b9ff36e86f860e2b2f6bce87ec06bfced1abbf"
+    },
+    {
+      "path": "tests/fixtures/coding_engine_peer.py",
+      "bytes": 7558,
+      "sha256": "93e4540dd56559b181277911a75628f49706f365f2f8cceb581023b66392c6e3"
+    },
+    {
+      "path": "tests/fixtures/ipc.ts",
+      "bytes": 2660,
+      "sha256": "0033690e546a70dc84dd5eb32422e4eae8d4f80cc5a5d5831482f5c88d3eb405"
     },
     {
       "path": "tests/fixtures/mission.ts",
-      "bytes": 3512,
-      "sha256": "67e7baa384bf8e96be6aade6005acfd2c07f639dc085e5402476cd30a22b9cde"
+      "bytes": 3561,
+      "sha256": "6728ede46e2a9c65534be1dc8eb2a7e2a9b01f1c35593bc6f98bd72a568c49b8"
     },
     {
       "path": "tests/fixtures/supervisor_peer.py",
@@ -140,29 +195,59 @@
       "sha256": "5da26eb1e2923e5ef647b11b68ae6739c2964209b86a1e435ab5511a7e91389e"
     },
     {
+      "path": "tests/python/test_coding_gate.py",
+      "bytes": 3585,
+      "sha256": "db141e7a15dd5f418c631c8f1a1f49068b5b1044bfa1db23e2281f13b606609f"
+    },
+    {
       "path": "tests/ui/coding.test.tsx",
       "bytes": 6345,
       "sha256": "bfa577759eb4ef25b5ce10d0e9c0220907b829290466577b0cc5a95a76af4ba0"
     },
     {
       "path": "tests/ui/discussion.test.tsx",
-      "bytes": 8760,
-      "sha256": "13e3d933b368e9f525bd72bd0ac2ce8aab4c959de1e7f843f6f1a2446de38646"
+      "bytes": 12860,
+      "sha256": "8bd72549d2012fa477ec57e9352f517e74893d8b61d6435cba8f02f015088e1b"
     },
     {
       "path": "tests/ui/mission.test.tsx",
-      "bytes": 4111,
-      "sha256": "24ffbe2d9ea390fbdc05382e97ea028b480d508ee901eddb76065cb8b2502e59"
+      "bytes": 4749,
+      "sha256": "14c542ee2f80430f20515cd0e4613e90f04726add7121cf3aa49c7e565c267ae"
+    },
+    {
+      "path": "tests/unit/broker-limits.test.ts",
+      "bytes": 11893,
+      "sha256": "d87a01f876b03cf42d36004b32896591af2dccc7ad6c483c961cb0df2bb633e2"
+    },
+    {
+      "path": "tests/unit/coding-integration.test.ts",
+      "bytes": 15108,
+      "sha256": "73e5ec50817c1813b3a1909bc4bc048bb69028e9f286089a16dbca8dd0c0ce39"
+    },
+    {
+      "path": "tests/unit/coding-runtime.test.ts",
+      "bytes": 3316,
+      "sha256": "ab9ada9ae6382dcc199544bcbcf95fc37ce155bb6f0a626d31aed90145ad6f52"
     },
     {
       "path": "tests/unit/mission-ingestion.test.ts",
-      "bytes": 9121,
-      "sha256": "0af646d4031a11346ac7a1c985e2ccd99e816bc1605f1cefa3bb9313a26da6d4"
+      "bytes": 9410,
+      "sha256": "f89ed811065a20c49c154e2bde69bd0b55857eed2ffaed0c8424f4c355f3be72"
     },
     {
       "path": "tests/unit/mission-replay.test.ts",
       "bytes": 5473,
       "sha256": "05f4d471c560db54697dd6fcd186b719996a88cd2f5ed8d7b3f16dd6fe6ba89f"
+    },
+    {
+      "path": "tests/unit/p8-read-projections.test.ts",
+      "bytes": 3338,
+      "sha256": "3a5a74acd93f5554b59aae8aeebe215447aaa54cf18df00f063ed4ee0ab1fa09"
+    },
+    {
+      "path": "tests/unit/p8-real-workers.test.ts",
+      "bytes": 2612,
+      "sha256": "35cf0356b33dd74d4fe1a06c273240758208f1ab80ed504deb8e615df8c93244"
     }
   ]
 }

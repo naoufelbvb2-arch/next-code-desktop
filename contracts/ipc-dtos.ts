@@ -56,7 +56,11 @@ export const TaskSummary = object({
   projectId: ID,
   state: TaskState
 })
-export const TaskView = TaskSummary.extend({ outcome: TaskOutcomeV1.nullable() }).strict()
+// Owner-approved IIS-02-C02: read-only durable admission goal.
+export const TaskView = TaskSummary.extend({
+  outcome: TaskOutcomeV1.nullable(),
+  exactGoal: text(16384, 1)
+}).strict()
 export const ChatDockState = object({
   visible: z.boolean(),
   primaryTab: z.enum(['Terminal', 'Files']),
@@ -172,6 +176,7 @@ export const DiscussionTurnReadV1 = object({
 })
 export const ConversationViewPage = object({
   conversation: ConversationSummary,
+  dockState: ChatDockStateView.nullable(),
   messages: z.array(MessageView).max(100),
   tasks: z.array(TaskSummary).max(100),
   nextCursor: Cursor.nullable(),
@@ -184,6 +189,7 @@ export const ConversationViewPage = object({
   const cid = page.conversation.conversationId
   const users = page.messages.filter((m) => m.role === 'user').map((m) => m.messageId)
   if (
+    (page.dockState !== null && page.dockState.conversationId !== cid) ||
     page.availableProposals.some(
       (p) => p.conversationId !== cid || p.projectId !== page.conversation.projectId
     ) ||

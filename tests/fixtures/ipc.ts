@@ -48,6 +48,7 @@ export const ipcInputs: Record<Method, unknown> = {
   'preferences.update': { savedDockWidth: 360 }
 }
 export const conversationPage = {
+  dockState: null,
   conversation: {
     conversationId: 'conversation_fixture',
     projectId: 'project_fixture',

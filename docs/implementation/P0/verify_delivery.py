@@ -11,6 +11,8 @@ import zipfile
 MANIFEST_SHA256 = "16aadd64d5a256330df0b1cf05106c300df394835e40037c5925073247c1c4c5"
 
 
+ADDENDA_MANIFEST_SHA256 = "105d751eb4b5d6f31cdf4104aed03d33b329c690cb6b7a52d0c23616e2ef9ed5"
+
 def require(condition: bool, message: str) -> None:
     if not condition:
         raise ValueError(message)
@@ -40,17 +42,29 @@ def main() -> None:
                 "Unsafe manifest path")
         require((delivery / name).resolve().is_relative_to(delivery.resolve()),
                 "Manifest path escapes delivery")
+    addenda_name = "SHA256-APPROVED-ADDENDA-MANIFEST.json"
+    addenda_bytes = (delivery / addenda_name).read_bytes()
+    require(hashlib.sha256(addenda_bytes).hexdigest() == ADDENDA_MANIFEST_SHA256,
+            "Approved addenda baseline mismatch")
+    addenda = json.loads(addenda_bytes)
+    added_records = addenda["files"]
+    added = {record["path"] for record in added_records}
+    require(added == {"01-normative/NCD-03-IIS-02-C02-P8-READ-PROJECTIONS-ADDENDUM.md"}
+            and len(added_records) == 1 and not (added & expected),
+            "Unexpected approved addendum inventory")
     actual = {p.relative_to(delivery).as_posix() for p in delivery.rglob("*") if p.is_file()}
-    require(actual == expected | {manifest_name}, "Delivery file inventory mismatch")
+    require(actual == expected | added | {manifest_name, addenda_name}, "Delivery file inventory mismatch")
 
     def git_blob(name: str) -> bytes:
+        target = f"docs/engineering/{name}"
+        revision = f":{target}" if args.git_ref == ":" else f"{args.git_ref}:{target}"
         return subprocess.run(
             ["git", "-c", f"safe.directory={root.as_posix()}", "show",
-             f"{args.git_ref}:docs/engineering/{name}"],
+             revision],
             cwd=root, check=True, capture_output=True,
         ).stdout
 
-    for record in records:
+    for record in records + added_records:
         name = record["path"]
         content = (delivery / name).read_bytes()
         require(len(content) == record["bytes"] and
@@ -59,17 +73,20 @@ def main() -> None:
             require(git_blob(name) == content, f"Git blob mismatch: {name}")
     if args.git_ref:
         require(git_blob(manifest_name) == manifest_bytes, "Git manifest mismatch")
+        require(git_blob(addenda_name) == addenda_bytes, "Git addenda manifest mismatch")
     if args.archive:
         with zipfile.ZipFile(args.archive) as archive:
             require(archive.testzip() is None, "Archive CRC failure")
             require(len(archive.infolist()) == 42 and
-                    set(archive.namelist()) == actual, "Archive inventory mismatch")
-            for name in actual:
+                    set(archive.namelist()) == expected | {manifest_name}, "Archive inventory mismatch")
+            for name in expected | {manifest_name}:
                 require(archive.read(name) == (delivery / name).read_bytes(),
                         f"Archive byte mismatch: {name}")
     print(json.dumps({
         "status": "PASS", "delivery_files": 42, "manifest_payload_files": 41,
-        "normative_files": 18, "manifest_sha256": MANIFEST_SHA256,
+        "original_normative_files": 18, "approved_normative_addenda": 1,
+        "normative_files": 19, "engineering_files": 44,
+        "addenda_manifest_sha256": ADDENDA_MANIFEST_SHA256, "manifest_sha256": MANIFEST_SHA256,
         "git_blobs": "PASS" if args.git_ref else "NOT_RUN",
         "archive_comparison": "PASS" if args.archive else "NOT_RUN",
     }, indent=2))

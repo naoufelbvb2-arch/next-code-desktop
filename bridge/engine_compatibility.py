@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 sys.dont_write_bytecode = True
-ENGINE_COMMIT = "5e7179b9d528e7ef97e18f91ec284e4da514ca0b"
+ENGINE_COMMIT = "99e00e13f8a39fa6730f3d3de773ac937b5ac915"
 SOURCES = ("agent_os.py", "architect/contracts.py", "architect/lead_loop.py", "architect/prompts.py",
            "architect/dispatcher.py", "squad/dispatcher.py", "squad/chassis.py",
            "kernel/tools/registry.py", "kernel/tools/shell.py", "kernel/guard.py",
@@ -19,7 +19,7 @@ SOURCES = ("agent_os.py", "architect/contracts.py", "architect/lead_loop.py", "a
 def verify_engine(directory):
     root = Path(directory).resolve(strict=True)
     manifest = json.loads((Path(__file__).parent / "coding-compatibility.json").read_text("utf-8"))
-    if manifest["engineCommit"] != ENGINE_COMMIT or manifest["executionControl"] != 1:
+    if manifest["engineCommit"] != ENGINE_COMMIT or manifest["executionControl"] != 1 or manifest.get("verifiedObserver") != 1:
         raise ValueError("Unsupported capability manifest")
     head = (root / ".git/HEAD").read_text("ascii").strip()
     if head.startswith("ref: "):
@@ -57,10 +57,10 @@ def load_verified_engine(settings):
     import httpx
     if pydantic.__version__ != "2.12.5" or httpx.__version__ != "0.28.1":
         raise ValueError("Untested coding dependencies")
-    from kernel.execution import CancellationControl, TaskCancelled, EXECUTION_CONTROL_VERSION
+    from kernel.execution import CancellationControl, TaskCancelled, EXECUTION_CONTROL_VERSION, VERIFIED_OBSERVER_VERSION
     from agent_os import AgentOS
     from architect.contracts import ConversationContext, TaskOutcome
-    if EXECUTION_CONTROL_VERSION != 1 or len(TaskOutcome.model_fields) != 7:
+    if EXECUTION_CONTROL_VERSION != 1 or VERIFIED_OBSERVER_VERSION != 1 or len(TaskOutcome.model_fields) != 7:
         raise ValueError("Unsupported execution contract")
     return AgentOS, ConversationContext, TaskOutcome, CancellationControl, TaskCancelled
 
@@ -101,7 +101,7 @@ def inspect_engine(directory):
             "signatures": signatures, "taskOutcomeFields": outcome,
             "codingReady": False, "engineCapabilityVerified": True, "g4": "REQUIRES_DESKTOP_EXECUTION_EVIDENCE",
             "missing": [],
-            "terminal": "Engine offline lifecycle/control suite: 53 PASS, three paid tests NOT_RUN. Desktop integration is separate evidence.",
+            "terminal": "Engine offline suite: 69 PASS, three paid tests NOT_RUN. Desktop integration is separate evidence.",
             "enablement": "Exact tested commit and complete source inventory required. Source inspection alone does not authorize a model route or certify G4."}
 
 

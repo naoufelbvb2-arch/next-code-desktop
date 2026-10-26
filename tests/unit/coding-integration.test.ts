@@ -32,13 +32,22 @@ test('P7-E01 actual AgentOS patch, C01, TaskOutcome, Main T4 and native/outer-Jo
       afterSequence: 0,
       limit: 100
     })
-    expect(events).toMatchObject({ completeThrough: 2, hasGap: false, stateIsCertain: true })
+    expect(events).toMatchObject({ completeThrough: 8, hasGap: false, stateIsCertain: true })
     expect(
       f.db
         .prepare('SELECT name FROM task_events ORDER BY sequence')
         .all()
         .map((r) => r.name)
-    ).toEqual(['task.started', 'task.completed'])
+    ).toEqual([
+      'task.started',
+      'task.progress',
+      'worker.started',
+      'worker.completed',
+      'worker.started',
+      'worker.completed',
+      'task.progress',
+      'task.completed'
+    ])
     const audit = JSON.parse(readFileSync(join(f.workspace, 'gateway-audit.json'), 'utf8')) as {
       prompt: string
     }[]
@@ -180,9 +189,12 @@ test('P7-E06 real FIFO queue: queued cancellation never spawns, next committed w
 }, 30000)
 
 test('P7-E07 terminal SQLite COMMIT fault preserves actual changed file, unknown outcome and blocked lease', async () => {
-  let commits = 0
   const f = await codingEngineFixture('success', (op) => {
-    if (op === 'T4' && ++commits === 2) throw new Error('Synthetic terminal COMMIT fault')
+    if (
+      op === 'T4' &&
+      f.db.prepare("SELECT count(*) n FROM task_events WHERE name='task.completed'").get()!.n
+    )
+      throw new Error('Synthetic terminal COMMIT fault')
   })
   try {
     const { task } = await f.run()
