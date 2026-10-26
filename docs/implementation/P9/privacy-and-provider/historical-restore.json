@@ -1,0 +1,19 @@
+{
+  "messages": [
+    {
+      "role": "assistant",
+      "n": 2
+    },
+    {
+      "role": "user",
+      "n": 2
+    }
+  ],
+  "tasks": 0,
+  "source": "Accepted P5 isolated live test ledger, WAL-consistent backup, never a user database",
+  "freshPaidRequests": 0,
+  "historicalProviderEvidence": "P5-LIVE, 2026-10-22, 2 accepted requests",
+  "budgetBefore": "edd0244f1ad016c2aa77c75deacb8e07bbd30815e7299a0e0921f6841c1de200",
+  "budgetAfter": "edd0244f1ad016c2aa77c75deacb8e07bbd30815e7299a0e0921f6841c1de200",
+  "modelReadinessClaim": false
+}

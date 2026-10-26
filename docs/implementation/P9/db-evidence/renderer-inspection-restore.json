@@ -1,0 +1,15 @@
+{
+  "source": "Most recent isolated P6-E03 native Main termination marker and WAL ledger",
+  "nativeMainExit": 86,
+  "boundary": "Actual local stdio handoff before inspection observation COMMIT",
+  "originalReadObservations": 0,
+  "restoredRendererState": "partial",
+  "restoredRendererHandedToDiscussion": 0,
+  "userMessages": 2,
+  "assistantMessages": 0,
+  "rendererReload": true,
+  "sourceDatabaseUnmodified": true,
+  "sourceDatabaseSha256": "6652dac52adc20ddb71d06ade4f613981f1bfe3956f0bb0d3b746e0e52c486f2",
+  "providerRequests": 0,
+  "inference": "Possible local handoff undercount; no claim of Python/provider receipt or full scan"
+}

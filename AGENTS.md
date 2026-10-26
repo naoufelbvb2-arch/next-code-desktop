@@ -2,6 +2,24 @@
 
 ## Current authority
 
+The owner's **P9 FULL WINDOWS INTEGRATION & ACCEPTANCE (2026-10-26)** officially
+accepts P8 at `b527a44bb5da47e63c835e71d902c3c6bc1ab1ac` and Engine at
+`99e00e13f8a39fa6730f3d3de773ac937b5ac915`. P8 acceptance was committed/pushed
+first at `ca59509dfcce66c7680dddfe80554570dce516bd`; P9 starts there on
+`feature/p9-windows-integrated-acceptance`. Execute Windows development-integrated
+acceptance, all inherited/I08/E2E applicability/evidence, actual G6 reassessment,
+resource/crash/recovery and UI/accessibility tests. Fix demonstrated Desktop or
+test-fixture defects inside existing contracts; preserve every failed run.
+Engine is read-only for audit/testing: a source defect needs a separate Engine
+Change Request and owner approval. No frozen changes, new public API/table,
+paid calls, budget/key edits, real-user projects, global/admin settings, main
+merge, P10, packaging or installer. G8-package and E2E-08 are NOT_RUN — FUTURE
+DISTRIBUTION. Missing mandatory Windows proof keeps G6/G9 blocked/inconclusive;
+never replace a privileged OS test with strings or waive P0/P1 automatically.
+Use final I06-T36 wording (no same-turn retry UI/API). Produce the seven required
+P9 evidence/decision/receipt files, reviewed commits/pushes, and stop at
+P9 FINAL OWNER REVIEW. Earlier phase instructions below are historical.
+
 The owner's **P8 FINAL CORRECTIONS** authorization (2026-10-25) supersedes
 the prior P8 engine-read-only and CP-001 approval gates below. Desktop continues
 from `decf6390b05191c29a3627ca318b935b6073922d`; Engine branches from

@@ -1,0 +1,56 @@
+{
+  "paidCallsInP9": 0,
+  "paidJournalSHA256": {
+    ".cache/p5-live-budget.json": "edd0244f1ad016c2aa77c75deacb8e07bbd30815e7299a0e0921f6841c1de200",
+    ".cache/p7-final-live-budget.json": "06fcb97499f258eb5a8d1ea1d96928ad39e3ba74d0f3068800eca349fb973d7e"
+  },
+  "originalGatewayUnchangedSinceAcceptedP5": [
+    {
+      "path": "kernel/gateway/__init__.py",
+      "originalGitBlob": "9a3bb49019267c52b98324f15941188ed290119a",
+      "currentGitBlob": "9a3bb49019267c52b98324f15941188ed290119a",
+      "unchanged": true
+    },
+    {
+      "path": "kernel/gateway/base.py",
+      "originalGitBlob": "cdec5199f18f872e5b5e560c79456572a651ca19",
+      "currentGitBlob": "cdec5199f18f872e5b5e560c79456572a651ca19",
+      "unchanged": true
+    },
+    {
+      "path": "kernel/gateway/ledger.py",
+      "originalGitBlob": "4446ee68b9b55ebb2ba85c0e391758eeaab7f96a",
+      "currentGitBlob": "4446ee68b9b55ebb2ba85c0e391758eeaab7f96a",
+      "unchanged": true
+    },
+    {
+      "path": "kernel/gateway/openai_compat.py",
+      "originalGitBlob": "954c35d2b2194fd1608174fdd775dc44351a9507",
+      "currentGitBlob": "954c35d2b2194fd1608174fdd775dc44351a9507",
+      "unchanged": true
+    },
+    {
+      "path": "kernel/gateway/router.py",
+      "originalGitBlob": "fc719bd8e1d97361a48f94669c5a621723b70bdd",
+      "currentGitBlob": "fc719bd8e1d97361a48f94669c5a621723b70bdd",
+      "unchanged": true
+    }
+  ],
+  "carriedEvidence": [
+    {
+      "path": "docs/implementation/P5/VERIFICATION-RESULTS.json",
+      "sha256": "c5489fc7e57e328ca7b0ae75c08858d693b6e1a6d2f7b43cd38232616fb91173"
+    },
+    {
+      "path": "docs/implementation/P5/COMMIT-RECEIPT.md",
+      "sha256": "91850c12af28b1aebd63d3a2b4e835f4ba45718777712ea0f1fc7b4e7f2dfa33"
+    }
+  ],
+  "limitations": [
+    "Only DeepSeek Flash is an implemented Discussion route.",
+    "No genuinely local inference or second provider switch executed.",
+    "No new real-provider invalid-key or pressure-summary trial.",
+    "Main release is not remote receipt or recall. Discussion application separation is not arbitrary hostile-Python OS sandboxing.",
+    "Synthetic MockTransport credentials/budgets are not a paid route or replacement key."
+  ]
+}

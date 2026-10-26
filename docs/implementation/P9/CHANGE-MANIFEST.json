@@ -1,0 +1,144 @@
+{
+  "phase": "P9",
+  "baseline": "ca59509dfcce66c7680dddfe80554570dce516bd",
+  "authority": "P9 FULL WINDOWS INTEGRATION & ACCEPTANCE, 2026-10-26",
+  "envelope": "Only P9 tests/evidence/authority; no product, dependency, Engine or frozen changes",
+  "exclusions": [
+    "CHANGE-MANIFEST.json (self)",
+    "COMMIT-RECEIPT.md (later publication receipt)"
+  ],
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 14529,
+      "sha256": "cbc85341d3feebdf953ebd6ac76460f0dd420b92230659de86d1d7badd8fbd2b",
+      "change": "MODIFIED"
+    },
+    {
+      "path": "docs/implementation/P9/IMPLEMENTATION-REPORT.md",
+      "bytes": 12268,
+      "sha256": "85e2e567bfdc13776cf35a8055fa76533d22e385aa5450a167524259d713e7f6",
+      "change": "ADDED"
+    },
+    {
+      "path": "docs/implementation/P9/VERIFICATION-RESULTS.json",
+      "bytes": 6280,
+      "sha256": "1be21cd73bf0c6f600c2cd7eab92c7508aae594d0d286a65bd1303a69925d727",
+      "change": "ADDED"
+    },
+    {
+      "path": "docs/implementation/P9/collect-evidence.py",
+      "bytes": 44100,
+      "sha256": "90477920712a04e53d4af1ab9e43dcd5e8f67d250f947afe017b9516c9af1aeb",
+      "change": "ADDED"
+    },
+    {
+      "path": "docs/implementation/P9/coverage-matrix.csv",
+      "bytes": 263477,
+      "sha256": "3f89bf354f1014e843bba1733bf851487a7104b731e81f4ec578ada05ecf1585",
+      "change": "ADDED"
+    },
+    {
+      "path": "docs/implementation/P9/db-evidence/fault-boundaries.json",
+      "bytes": 1667,
+      "sha256": "94ad6246fd8c2f31a91be171c6686edbca450f44c2ded689dbe053efa4f3c19e",
+      "change": "ADDED"
+    },
+    {
+      "path": "docs/implementation/P9/db-evidence/renderer-inspection-restore.json",
+      "bytes": 641,
+      "sha256": "dbc28ae72223a9f5f375f0dd781e7f9fd3a20118a17643d5666fa7e5f12064cb",
+      "change": "ADDED"
+    },
+    {
+      "path": "docs/implementation/P9/executable-results.json",
+      "bytes": 303134,
+      "sha256": "440413d7dc49110c45381178165e1923b054ae60c433e9fd1787560f908f7892",
+      "change": "ADDED"
+    },
+    {
+      "path": "docs/implementation/P9/privacy-and-provider/boundaries.json",
+      "bytes": 2196,
+      "sha256": "56506be6bf91fb6eb9ec532bcffa39442d03da3bb26e17088f7663578ccb5bdf",
+      "change": "ADDED"
+    },
+    {
+      "path": "docs/implementation/P9/privacy-and-provider/historical-restore.json",
+      "bytes": 542,
+      "sha256": "2c220ee21db7674bb83307cf789975334d8ad80e1e9e0cf81474af5060a0e2a5",
+      "change": "ADDED"
+    },
+    {
+      "path": "docs/implementation/P9/protocol-fixtures/contract-summary.json",
+      "bytes": 523,
+      "sha256": "abd9e52b8d72854d05c52e950f92f98da9eb8df7f689a73d209957bbc6201f60",
+      "change": "ADDED"
+    },
+    {
+      "path": "docs/implementation/P9/release-decision.md",
+      "bytes": 4794,
+      "sha256": "1689f71c927ded6108ce57ac1a728afd0a9f44a7d17f803813fc82cfd1bd315e",
+      "change": "ADDED"
+    },
+    {
+      "path": "docs/implementation/P9/run-manifest.json",
+      "bytes": 27391,
+      "sha256": "0b8f62c0228a9cad49f642cb0cc338a5b48182d78ccbf16a1439d396e8adf9dc",
+      "change": "ADDED"
+    },
+    {
+      "path": "docs/implementation/P9/ui-evidence/mission-running.png",
+      "bytes": 267762,
+      "sha256": "77bdba73de22b3671cf685758cfb98af59b84256d67b57e100f83c876a8ac7a7",
+      "change": "ADDED"
+    },
+    {
+      "path": "docs/implementation/P9/ui-evidence/partial-inspection.png",
+      "bytes": 292198,
+      "sha256": "17eda2990600d89fff31f520140dcd7dad1d652e747eecb307259f6a0580ce91",
+      "change": "ADDED"
+    },
+    {
+      "path": "docs/implementation/P9/ui-evidence/runtime.json",
+      "bytes": 228,
+      "sha256": "2300efce69f320d252216749cf4296a449f53f53b84f079983c105dc1cd9d5f0",
+      "change": "ADDED"
+    },
+    {
+      "path": "docs/implementation/P9/windows-evidence/native-probes.json",
+      "bytes": 859,
+      "sha256": "3045985a200fb12cf69017adf6d62e2557292e7deff8240034e91c8bd5606561",
+      "change": "ADDED"
+    },
+    {
+      "path": "docs/implementation/P9/windows-evidence/resources.json",
+      "bytes": 5165,
+      "sha256": "aa6c51013ab9b433ae86eca1643885c7baaf16c4335c2129886acb4c1570c166",
+      "change": "ADDED"
+    },
+    {
+      "path": "tests/electron/coding-engine.spec.ts",
+      "bytes": 24797,
+      "sha256": "139a408f821a45b023984d9379785b31b62faa60863ec3b5715d467d67a10c4d",
+      "change": "MODIFIED"
+    },
+    {
+      "path": "tests/electron/p9-history.spec.ts",
+      "bytes": 7469,
+      "sha256": "8233dab8d73f6be9708b1684e12db75cbbc0cef11bfdb7dd988eb550e4cacc67",
+      "change": "ADDED"
+    },
+    {
+      "path": "tests/unit/p9-replay-stability.test.ts",
+      "bytes": 3882,
+      "sha256": "f976661cbd391daed08eefad3aaed55a41935f96c2e782041977e1e8873433bb",
+      "change": "ADDED"
+    },
+    {
+      "path": "tests/unit/p9-windows-acceptance.test.ts",
+      "bytes": 4809,
+      "sha256": "c43c6e88494b01013e5e1dd62049ead4d223292f04d18d5a022ef70c3c0ad17a",
+      "change": "ADDED"
+    }
+  ]
+}

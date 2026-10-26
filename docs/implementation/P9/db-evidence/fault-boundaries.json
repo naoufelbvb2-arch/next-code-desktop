@@ -1,0 +1,34 @@
+{
+  "evidenceKind": "Actual isolated SQLite, native online backup and controlled process exits; assertions named below",
+  "cases": [
+    {
+      "id": "X0392",
+      "name": "P3 T1 original receipts, faults and P2 readiness real SQLITE_FULL rolls back first-send with no receipt or notification"
+    },
+    {
+      "id": "X0374",
+      "name": "P3 real competing SQLite connections and transaction interruption real SQLITE_BUSY waits the bounded 5000ms then fails without an accepted mutation"
+    },
+    {
+      "id": "X0376",
+      "name": "P3 real competing SQLite connections and transaction interruption actual isolated Node process exits before/after COMMIT preserve rollback versus original durable acceptance"
+    },
+    {
+      "id": "X0385",
+      "name": "P3 schema, migration and actual WAL backup/restore native online backup includes uncheckpointed WAL data and restore verifies schema and contents"
+    },
+    {
+      "id": "X0152",
+      "name": "P7-E07 terminal SQLite COMMIT fault preserves actual changed file, unknown outcome and blocked lease"
+    },
+    {
+      "id": "X0463",
+      "name": "P6-E03 actual Electron Main exits after successful pipe callback before evidence COMMIT; reopen preserves partial undercount and never replays"
+    },
+    {
+      "id": "X0338",
+      "name": "E05-18 I08-T50 real SQLite rollback never publishes an uncommitted event, successful push reads committed row"
+    }
+  ],
+  "interpretation": "Before-COMMIT rollback is distinct from committed receipt; post-source-write/pre-evidence-COMMIT is partial undercount. No raw user DB or content attached. Exact event-COMMIT-before-push Main kill is not claimed."
+}

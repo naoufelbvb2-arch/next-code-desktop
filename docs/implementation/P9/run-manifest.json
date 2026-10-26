@@ -1,0 +1,690 @@
+{
+  "artifactType": "iis08_test_run_manifest",
+  "runId": "P9-WIN-2026-10-26",
+  "tier": "WINDOWS DEVELOPMENT-INTEGRATED ACCEPTANCE",
+  "collectedAtUTC": "2026-10-26T12:38:55.059239+00:00",
+  "desktopBaseline": "ca59509dfcce66c7680dddfe80554570dce516bd",
+  "engineCommit": "99e00e13f8a39fa6730f3d3de773ac937b5ac915",
+  "desktopMain": "af682b74375a0b5827aa1fca0ff0815434803650",
+  "engineMain": "834d0ca62cc9b2c03e530bafe4090024d98f31d3",
+  "environment": {
+    "windowsBuild": "10.0.26200",
+    "architecture": "AMD64",
+    "hostPython": "3.14.4",
+    "logicalProcessors": 14,
+    "hostNode": "v25.9.0",
+    "hostSQLite": "3.51.3",
+    "totalPhysicalMemoryBytes": 16664707072,
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+    "electron": "45.0.0",
+    "chromium": "156.0.8078.48",
+    "embeddedNode": "24.22.0",
+    "platform": "win32",
+    "arch": "x64",
+    "displays": [
+      {
+        "width": 1536,
+        "height": 864,
+        "scaleFactor": 1.25
+      }
+    ],
+    "windowsUBR": 9711,
+    "windowsDisplayVersion": "25H2",
+    "profile": "ISOLATED_SYNTHETIC_ONLY",
+    "configuration": "Existing pinned local development runtime; no Administrator/global changes"
+  },
+  "commands": [
+    "npm test -- --reporter=json --outputFile=.cache/p9-unit-full-01.json (NCD_P9_RUN_ID=full-01)",
+    "python -X utf8 -m unittest discover -s tests/python -v (credential variables removed; native stdout/stderr runner)",
+    "Engine .venv/Scripts/python.exe tests/run_offline.py -q -p no:cacheprovider --junitxml <isolated-report> (credential-free allowlist; no bytecode; source read-only)",
+    "npm run test:electron",
+    "npx playwright test tests/electron/coding-engine.spec.ts tests/electron/p9-history.spec.ts --grep P9-E2E (two corrected identities only, runs02/03)",
+    "npm run build",
+    "npm run format:check",
+    "python -X utf8 docs/implementation/P0/verify_delivery.py --git-ref HEAD --archive <original-delivery-zip>",
+    "python -X utf8 docs/implementation/P9/collect-evidence.py"
+  ],
+  "runs": [
+    {
+      "run": "unit-full01",
+      "artifact": ".cache/p9-unit-full-01.json",
+      "environment": "WINDOWS_UNIT_UI_NATIVE",
+      "passed": 457,
+      "failed": 0,
+      "notRun": 3,
+      "startedAtUTC": "2026-10-26T12:06:52.239000+00:00"
+    },
+    {
+      "run": "electron-01",
+      "artifact": ".cache/p9-electron-01.json",
+      "environment": "ACTUAL_WINDOWS_ELECTRON",
+      "stats": {
+        "startTime": "2026-10-26T12:14:18.730Z",
+        "duration": 176046.79499999998,
+        "expected": 35,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "run": "electron-02",
+      "artifact": ".cache/p9-electron-02.json",
+      "environment": "ACTUAL_WINDOWS_ELECTRON",
+      "stats": {
+        "startTime": "2026-10-26T12:17:54.250Z",
+        "duration": 16804.958000000002,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "run": "electron-03",
+      "artifact": ".cache/p9-electron-03.json",
+      "environment": "ACTUAL_WINDOWS_ELECTRON",
+      "stats": {
+        "startTime": "2026-10-26T12:18:46.986Z",
+        "duration": 13139.593,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "run": "electron-04",
+      "artifact": ".cache/p9-electron-04.json",
+      "environment": "ACTUAL_WINDOWS_ELECTRON",
+      "stats": {
+        "startTime": "2026-10-26T12:23:56.972Z",
+        "duration": 141663.045,
+        "expected": 36,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "run": "electron-05",
+      "artifact": ".cache/p9-electron-05.json",
+      "environment": "ACTUAL_WINDOWS_ELECTRON",
+      "stats": {
+        "startTime": "2026-10-26T12:28:12.711Z",
+        "duration": 2407.04,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "run": "electron-06",
+      "artifact": ".cache/p9-electron-06.json",
+      "environment": "ACTUAL_WINDOWS_ELECTRON",
+      "stats": {
+        "startTime": "2026-10-26T12:28:44.273Z",
+        "duration": 2362.993,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "run": "python01",
+      "artifact": ".cache/p9-python-01.txt",
+      "environment": "PYTHON_ORIGINAL_GATEWAY_OFFLINE",
+      "passed": 34,
+      "failed": 0,
+      "seconds": 3.841
+    },
+    {
+      "run": "engine-full01",
+      "artifact": ".cache/p9-engine-full-01.xml",
+      "environment": "ACTUAL_ENGINE_OFFLINE_WINDOWS",
+      "passed": 69,
+      "failed": 0,
+      "notRun": 3,
+      "seconds": 38.27
+    }
+  ],
+  "rawArtifacts": [
+    {
+      "path": ".cache/p9-build-01.txt",
+      "sha256": "7f91a5d42aa531520b6d85a0a7e003c68ebd813de668d788eac616b5afcb15b5",
+      "bytes": 1414,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-build-02.txt",
+      "sha256": "daadd2a504c8d302391e7d5ce271a9131c16396bf4927d3b19b69b3a9b11c660",
+      "bytes": 4394,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-build-03.txt",
+      "sha256": "bf16cc8890f05f84ba8b9662a272b8d527bbc0f67ff46f70c19f2884682efec6",
+      "bytes": 4394,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-build-04.txt",
+      "sha256": "112564981b6de4deb90da28e26d590705e2614f853b0fa7dbce34ffd7634d146",
+      "bytes": 4394,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-electron-01-console.txt",
+      "sha256": "12637dd62fdf87da0325b1e48252fcb8aa0123942a5b926519588b02c54c85b9",
+      "bytes": 17058,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-electron-01.json",
+      "sha256": "5d464fc95ee93ad6bdb38a89069900a3dceda8dbe81146d56ae340e93e91cad7",
+      "bytes": 46529,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-electron-02-console.txt",
+      "sha256": "c1d866ebaa35c00051a7fa36e2e5855bfcf7409f0bb959a8d9b9aaac263cf57e",
+      "bytes": 6022,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-electron-02.json",
+      "sha256": "ae264b07930de3fd204dbccb57255074761d12e3bb5fc80bf10c60dff3801dbe",
+      "bytes": 9450,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-electron-03-console.txt",
+      "sha256": "9cbb44287729f143938807fa1b8d7b724d99a6687f75c74b7c9dc98cb34b8ea5",
+      "bytes": 1892,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-electron-03.json",
+      "sha256": "01d64b12d66df86e6351296e9be9838fdebe53e66598450e44454761031d89b8",
+      "bytes": 5195,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-electron-04-console.txt",
+      "sha256": "578971bac1168b1e0ed56a08e3842a3f2c8c8be5481bcf82b235ea9c7393776c",
+      "bytes": 13240,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-electron-04.json",
+      "sha256": "facd56b5cc20fbdecaf54a822d4cf42ba1a8a37f60b1662dfcd867afc7b40f6e",
+      "bytes": 43236,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-electron-05-console.txt",
+      "sha256": "35641deadec78b7a960c207cfd494961686dab4b0cdc42f6dfb8c4351fb937be",
+      "bytes": 1498,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-electron-05.json",
+      "sha256": "cd13777d5803a05234ca17a539f0a1a712eec008580e7f12fee910b14a4145ad",
+      "bytes": 3872,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-electron-06-console.txt",
+      "sha256": "ff997a6aed5fb525ddacef59304cf8ec46da9280dfbd79684edf396bf7635702",
+      "bytes": 1498,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-electron-06.json",
+      "sha256": "1c83004d98c56fdb37ad2e3d022c6b8b8e67285e29a26520204f196345735567",
+      "bytes": 3873,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-electron-resources-01.json",
+      "sha256": "523a20cde487dd1bb3312b32a9c74acd27ac3e1cce7384e9df05760cac4d6d79",
+      "bytes": 3832,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-electron-resources-02.json",
+      "sha256": "e8ad4831e029cb6890078f51e9eb708a999a092edee5c034811d532adb37492a",
+      "bytes": 3832,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-engine-full-01.txt",
+      "sha256": "2e55e968efd80687711d81f1b6bcbef895d26044d9698e4c9d0c1b76dc493653",
+      "bytes": 113,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-engine-full-01.xml",
+      "sha256": "e950598138fe05a582766fe2ee89940dbae39a43849b348ca488eb49dbbaca6c",
+      "bytes": 9501,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-fix-test-scope.py",
+      "sha256": "b776fc54f3d8e1fe211dd923d67c0a1912b1fa51208368b0daa295a412074d5a",
+      "bytes": 324,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-format-01.txt",
+      "sha256": "01896c5b9d0430020cf5138c934c5466e0820cff3ded1bb87054faef7cdd75a6",
+      "bytes": 446,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-format-02.txt",
+      "sha256": "01896c5b9d0430020cf5138c934c5466e0820cff3ded1bb87054faef7cdd75a6",
+      "bytes": 446,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-format-03.txt",
+      "sha256": "01896c5b9d0430020cf5138c934c5466e0820cff3ded1bb87054faef7cdd75a6",
+      "bytes": 446,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-frozen-01.json",
+      "sha256": "b1582563955362850ce3f398fd2250650149409dd4c72104ca72eec50f8e3757",
+      "bytes": 910,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-historical-provider-restore-01.json",
+      "sha256": "2c220ee21db7674bb83307cf789975334d8ad80e1e9e0cf81474af5060a0e2a5",
+      "bytes": 542,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-host-environment.json",
+      "sha256": "70e93a3f27e8a3473956d1ca1979272c9931fe8d10627109f30c3e9bcbd49f84",
+      "bytes": 257,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-inspection-restore-05.json",
+      "sha256": "dbc28ae72223a9f5f375f0dd781e7f9fd3a20118a17643d5666fa7e5f12064cb",
+      "bytes": 641,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-native-01-results.json",
+      "sha256": "79ee9b296c240561c812cd0706be23cbceff8bb27564fe6cf30b8cf2b7cb6586",
+      "bytes": 1952,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-native-full-01.json",
+      "sha256": "3045985a200fb12cf69017adf6d62e2557292e7deff8240034e91c8bd5606561",
+      "bytes": 859,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-native-native-01.json",
+      "sha256": "24bfea1950fb36788671d9b44fa0b64c462fb3a690a585d4c642f3ad30b5e704",
+      "bytes": 870,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-python-01.txt",
+      "sha256": "0aea9010b653ef4869ed5522815b8213fdba9c6f37d35bce362a327931c74586",
+      "bytes": 6611,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-replay-01-results.json",
+      "sha256": "97f1fe618aa7fa9874e030b3700a296c4b25fa293cb3c60b3e543795488d6a0c",
+      "bytes": 1032,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-replay-metrics-01.json",
+      "sha256": "9c960070a28c0decd03541d08af13c08553ef4fdd6eedf17ba3af6963f41bfe1",
+      "bytes": 732,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-replay-metrics-full-01.json",
+      "sha256": "af455e554347b6f9555f13892b33f57fbca1fdd1a1e5cc04edce067029387483",
+      "bytes": 724,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-run-engine.py",
+      "sha256": "0af80d2a4a48f953fb6599c339459be94ef06127ba427d78b5ef34a475bd7d06",
+      "bytes": 918,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-run-python.py",
+      "sha256": "50e96625a1d64f4815280d296b0aab283b6da9f73973106e23f20bd867befb47",
+      "bytes": 539,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-runtime-observed-04.json",
+      "sha256": "55b855ce1acb9c6d94607ab626fd99db4d9195babdf43be90c85ae5b332c6b54",
+      "bytes": 227,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-seal.py",
+      "sha256": "f870785bd64d399a2cb054a45b37c512fe45833275b2e970dc09811e677d43be",
+      "bytes": 3373,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-selected03-history.json",
+      "sha256": "2c220ee21db7674bb83307cf789975334d8ad80e1e9e0cf81474af5060a0e2a5",
+      "bytes": 542,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-selected03-resources.json",
+      "sha256": "6ec75917903d0aa09d9f3330a7536418fab7adb3d4f41de2923dfd5ae24b1728",
+      "bytes": 3833,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    },
+    {
+      "path": ".cache/p9-unit-full-01.json",
+      "sha256": "2b1ad2bd922159d671585c0259207069ebbfcf68b8cba9922a63abb8ac18adf0",
+      "bytes": 161097,
+      "publication": "LOCAL_IGNORED_RAW; sanitized counterpart attached"
+    }
+  ],
+  "contracts": [
+    {
+      "path": "docs/engineering/01-normative/NCD-00-C01-SIDEBAR-NAVIGATION-CLARIFICATION-OWNER-RATIFIED-REPRODUCTION.md",
+      "sha256": "f2eba660724aa03fa6192b0d82ebfe4f2a73c7b6afc899b67a6de12c1c889c78"
+    },
+    {
+      "path": "docs/engineering/01-normative/NCD-00-PROJECT-SCOPE-OWNER-RATIFIED-REPRODUCTION.md",
+      "sha256": "dae00159f3b03381a42ceb95b97b4f7486ec67d8ed9c72535582db65813d0328"
+    },
+    {
+      "path": "docs/engineering/01-normative/NCD-01-UI-UX-SPEC-OWNER-RATIFIED-REPRODUCTION.md",
+      "sha256": "5935c30bcd05337aab3a5f594a25f79f05abee547a0c55b408d4e563164df592"
+    },
+    {
+      "path": "docs/engineering/01-normative/NCD-02-DESKTOP-ARCHITECTURE-OWNER-RATIFIED-REPRODUCTION.md",
+      "sha256": "33ba1b578814e69f0d119504d5911c4432828973b447eb34c970869a6714169a"
+    },
+    {
+      "path": "docs/engineering/01-normative/NCD-03-C01-CONVERSATION-CONTEXT-CONTRACT-OWNER-RATIFIED-REPRODUCTION.md",
+      "sha256": "705cb2b4b63bc81e83a1328d130640f3a0783fc1265d4ad9bb89b216bbf85686"
+    },
+    {
+      "path": "docs/engineering/01-normative/NCD-03-C02-C01-D7-CANDIDATE-PERSISTENCE-V1-DEFERRAL.md",
+      "sha256": "36ac863b426ea59b2e5fc8301291fcc75f499f6a016da685e9c9370f549f97fa"
+    },
+    {
+      "path": "docs/engineering/01-normative/NCD-03-C02-DISCUSSION-ONLY-CONTRACT-OWNER-RATIFIED-REPRODUCTION.md",
+      "sha256": "5474cf3d196e5b4c4c0d6a1ff6cb21b6cc9e72a21e8b725734f30cafeac26812"
+    },
+    {
+      "path": "docs/engineering/01-normative/NCD-03-C03-ELECTRON-PYTHON-INTEGRATION-CONTRACT-OWNER-RATIFIED-REPRODUCTION.md",
+      "sha256": "dc48f1bf3612c0ec2c3f9e50660f504df9fcdd42401b0c9cd0204524a70356f2"
+    },
+    {
+      "path": "docs/engineering/01-normative/NCD-03-IIS-01-JSONL-PROTOCOL-SPECIFICATION-OWNER-RATIFIED-REPRODUCTION.md",
+      "sha256": "0b00943a3531f75c1addea106c5771a92fa45964bb1a53e93d3365b33247ff1f"
+    },
+    {
+      "path": "docs/engineering/01-normative/NCD-03-IIS-02-C01-CONVERSATION-READ-PROJECTIONS-ADDENDUM.md",
+      "sha256": "946cb7869ef90b95d615099e70ddbe036fe4d21249ba12fc8d2eb0fab56e0c62"
+    },
+    {
+      "path": "docs/engineering/01-normative/NCD-03-IIS-02-C02-P8-READ-PROJECTIONS-ADDENDUM.md",
+      "sha256": "2f419446ae5eae628464b5a68e6ccbbf8d8f69961f30276c70ed919e247d5bd2"
+    },
+    {
+      "path": "docs/engineering/01-normative/NCD-03-IIS-02-ELECTRON-IPC-INTERFACE-SPECIFICATION-OWNER-RATIFIED-REPRODUCTION.md",
+      "sha256": "b2d487d77993d4c476bc507c7cf873838b1c0d57f29f5aa3aab389c71edc7a5e"
+    },
+    {
+      "path": "docs/engineering/01-normative/NCD-03-IIS-03-PYTHON-PROCESS-SUPERVISOR-SPECIFICATION-v1.0-REISSUE-FROZEN.md",
+      "sha256": "d79d0f5a0960b64c7c806047407c7632d564c1cf4331ae7c5f185c0df129df48"
+    },
+    {
+      "path": "docs/engineering/01-normative/NCD-03-IIS-04-SQLITE-DURABLE-STATE-SPECIFICATION.md",
+      "sha256": "870a5fbeaf96d3fbbede79408d02e539bef71411e1d40bfe3148ec0d7117e255"
+    },
+    {
+      "path": "docs/engineering/01-normative/NCD-03-IIS-05-REAL-TIME-EVENTS-MISSION-CONTROL-SPECIFICATION.md",
+      "sha256": "9fb706925b205c842e90120930a8c8bc4c2d63789461f08478dbd1fff600c03e"
+    },
+    {
+      "path": "docs/engineering/01-normative/NCD-03-IIS-06-DISCUSSION-MODEL-INTEGRATION-SPECIFICATION.md",
+      "sha256": "5103f735c785d2b8a4fd98e79feafa4525991b171ba9f18e9c11642a082d4440"
+    },
+    {
+      "path": "docs/engineering/01-normative/NCD-03-IIS-07-PROJECT-FILE-BROKER-SPECIFICATION.md",
+      "sha256": "2fcf404d22e026a57fd95c70f73b741068834dc83883119f5182d77e988418e3"
+    },
+    {
+      "path": "docs/engineering/01-normative/NCD-03-IIS-08-INTEGRATION-TESTING-ACCEPTANCE-SPECIFICATION.md",
+      "sha256": "99fd8f5f8b25d24d42518aa5d9183189f43e1ef09610389583d91917fb04e0fc"
+    },
+    {
+      "path": "docs/engineering/01-normative/NCD-04-IMPLEMENTATION-AND-VERIFICATION-PLAN-v1.0-FROZEN.md",
+      "sha256": "f6fdb3819b40d32a63200265691494a7fbee4f1d2f8cfda45f8ef45e1ddbd9a9"
+    },
+    {
+      "path": "docs/engineering/02-authority-records/NCD-01-FREEZE-RECORD.txt",
+      "sha256": "61010601b22e3a10105c68ea566f9aa9a6b32fb5628ade858c9e193caab7c647"
+    },
+    {
+      "path": "docs/engineering/02-authority-records/NCD-02-FREEZE-RECORD.txt",
+      "sha256": "0ac322e9abee0c127bd0d1faef88848b62a68a12083a0da0df5c913dc4f7a9de"
+    },
+    {
+      "path": "docs/engineering/02-authority-records/NCD-03-C01-FREEZE-RECORD.txt",
+      "sha256": "18abb38d9cc9ea2044c41fd6705a1b28ecbf7bde321fe9f1751ff82e9339dd41"
+    },
+    {
+      "path": "docs/engineering/02-authority-records/NCD-03-C02-FINAL-FREEZE-RECORD.txt",
+      "sha256": "78000c491d3e00f18aa0ed6bdea0699a297a362e4e4366c3c0da5dd1b4d6c6d0"
+    },
+    {
+      "path": "docs/engineering/02-authority-records/NCD-03-C03-FINAL-FREEZE-RECORD.txt",
+      "sha256": "e26801ba365aeb05612972336a3be2dd92a28c1453e4f48714a9ad37e521dd51"
+    },
+    {
+      "path": "docs/engineering/02-authority-records/NCD-03-IIS-01-FINAL-FREEZE-RECORD.txt",
+      "sha256": "8fb9a6c4176c70e788282ac957306c685e904e0bab4058834a872351bc5f0b9c"
+    },
+    {
+      "path": "docs/engineering/02-authority-records/NCD-03-IIS-02-FINAL-FREEZE-RECORD.txt",
+      "sha256": "c36bac5cc2873caddd25bd624f5b2c15610f6e314e83bdfb869ad1461545ca01"
+    },
+    {
+      "path": "docs/engineering/02-authority-records/NCD-03-IIS-03-REISSUE-FINAL-FREEZE-RECORD.md",
+      "sha256": "d651c74d200323a0cf54d5036948c7009885257053813345128505a08622f219"
+    },
+    {
+      "path": "docs/engineering/02-authority-records/NCD-03-IIS-04-FINAL-FREEZE-RECORD.md",
+      "sha256": "9b7f9d3b1c3267421e2cfda9d64cbbbe36f2be4b1b1e41238aca6f0394b6c4f4"
+    },
+    {
+      "path": "docs/engineering/02-authority-records/NCD-03-IIS-05-FINAL-FREEZE-RECORD.md",
+      "sha256": "f04ad17522638dbd4e940d7616db2a45038fe8d30cf3047175f15b15a13e6ff7"
+    },
+    {
+      "path": "docs/engineering/02-authority-records/NCD-03-IIS-06-FINAL-FREEZE-RECORD.md",
+      "sha256": "5a76db02cfe481b7f7357837e7251949a52c8c4aacecff0270eb1793cb2ffb5d"
+    },
+    {
+      "path": "docs/engineering/02-authority-records/NCD-03-IIS-07-FINAL-FREEZE-RECORD.md",
+      "sha256": "e3d5ca50af928d062017d40ded9d4aaad5a401c8a617660ba2fe7e3461977b60"
+    },
+    {
+      "path": "docs/engineering/02-authority-records/NCD-03-IIS-08-FINAL-FREEZE-RECORD.md",
+      "sha256": "443e796c1987f480041493c29c7531c9a0a4304d77d91d05fd2fc1594b602f32"
+    },
+    {
+      "path": "docs/engineering/02-authority-records/NCD-04-FINAL-FREEZE-RECORD.md",
+      "sha256": "2c06a6fb1f35fcd5cb2628271a78b0ce6d2e2d7be322f848498a9df136574cd3"
+    },
+    {
+      "path": "docs/engineering/02-authority-records/NCD-04-P0-H01-C01-OWNER-RATIFICATION-RECORD.md",
+      "sha256": "9d1923c7dca92abc46db5ccf4db77dd1ace85c27524b9fc00c4dbf7d4e65c16a"
+    },
+    {
+      "path": "docs/engineering/02-authority-records/NCD-FCCR-01-C01-IIS03-REISSUE-CLOSURE.md",
+      "sha256": "79f6fab3915e5530af24fda7c40244c76209b4b995f678d854de91fc9dd51ef2"
+    },
+    {
+      "path": "docs/engineering/03-status-and-audit/NCD-04-FFR-01-CONSOLIDATED-REVIEW.md",
+      "sha256": "06f307c3b12051fbf2ebdbcd947f420fb69348a70385eb65cd60eaf25a42d8ba"
+    },
+    {
+      "path": "docs/engineering/03-status-and-audit/NCD-04-P0-BASELINE-AND-SOURCE-AUDIT-REPORT.md",
+      "sha256": "978c696959a0e16c9e63bc24cb4f10e2ca1ee5802096353ecbe328a869018e8e"
+    },
+    {
+      "path": "docs/engineering/03-status-and-audit/NCD-04-P0-C01-POST-RATIFICATION-STATUS.md",
+      "sha256": "f85f2130e842275dfcda48e70e61918f37eae036b23efa889d7837a6f1a533fc"
+    },
+    {
+      "path": "docs/engineering/03-status-and-audit/NCD-04-P0-H01-C01-APPROVED-BASELINE-MANIFEST.json",
+      "sha256": "e7ebbc26b4fa4742edd34cf6199d91461951792c7d5be270da7b2d52e811afa5"
+    },
+    {
+      "path": "docs/engineering/03-status-and-audit/NCD-FCCR-01-FINAL-CROSS-CONTRACT-REVIEW.md",
+      "sha256": "522035c48641baaf826e12a2efe49ac0363865f5170ffc5b8a44a9d1fd604de7"
+    },
+    {
+      "path": "docs/engineering/README-CODEX-HANDOFF.md",
+      "sha256": "5748ac3ab7392173fadd51e6ae3cb1caa2f36f7b1d7d480af7464020c947c725"
+    },
+    {
+      "path": "docs/engineering/SHA256-APPROVED-ADDENDA-MANIFEST.json",
+      "sha256": "105d751eb4b5d6f31cdf4104aed03d33b329c690cb6b7a52d0c23616e2ef9ed5"
+    },
+    {
+      "path": "docs/engineering/SHA256-DELIVERY-MANIFEST.json",
+      "sha256": "16aadd64d5a256330df0b1cf05106c300df394835e40037c5925073247c1c4c5"
+    },
+    {
+      "path": "docs/engineering/START-CODEX-P0-H02.md",
+      "sha256": "eb77f1b33c5c075e57cea125659a040cbf0bf7cd34d1a671b2ee3078d028c266"
+    }
+  ],
+  "frozenVerification": {
+    "status": "PASS",
+    "delivery_files": 42,
+    "manifest_payload_files": 41,
+    "original_normative_files": 18,
+    "approved_normative_addenda": 1,
+    "normative_files": 19,
+    "engineering_files": 44,
+    "addenda_manifest_sha256": "105d751eb4b5d6f31cdf4104aed03d33b329c690cb6b7a52d0c23616e2ef9ed5",
+    "manifest_sha256": "16aadd64d5a256330df0b1cf05106c300df394835e40037c5925073247c1c4c5",
+    "git_blobs": "PASS",
+    "archive_comparison": "PASS"
+  },
+  "paidJournals": {
+    ".cache/p5-live-budget.json": "edd0244f1ad016c2aa77c75deacb8e07bbd30815e7299a0e0921f6841c1de200",
+    ".cache/p7-final-live-budget.json": "06fcb97499f258eb5a8d1ea1d96928ad39e3ba74d0f3068800eca349fb973d7e"
+  },
+  "provenance": {
+    "iis03ReissueSha256": "d79d0f5a0960b64c7c806047407c7632d564c1cf4331ae7c5f185c0df129df48",
+    "closure": "FCCR-01-C01 controlled reissue / N04-H01 prospective owner adoption CLOSED",
+    "historicalLostIIS03Original": "NOT_VERIFIED; not recovered; never substituted by new prospective hash"
+  },
+  "reproducibility": "Run the existing pinned development install against a separate accepted read-only Engine checkout, isolated synthetic profiles/projects and Offline Gateway only. Native symlink execution needs a separately approved suitable test environment, not an automatic OS setting change. Historical restore requires the accepted isolated P5 live test ledger; absent ledger is unavailable evidence, never a reason to run paid tests.",
+  "evidence": [
+    {
+      "path": "collect-evidence.py",
+      "sha256": "90477920712a04e53d4af1ab9e43dcd5e8f67d250f947afe017b9516c9af1aeb",
+      "bytes": 44100
+    },
+    {
+      "path": "coverage-matrix.csv",
+      "sha256": "3f89bf354f1014e843bba1733bf851487a7104b731e81f4ec578ada05ecf1585",
+      "bytes": 263477
+    },
+    {
+      "path": "db-evidence/fault-boundaries.json",
+      "sha256": "94ad6246fd8c2f31a91be171c6686edbca450f44c2ded689dbe053efa4f3c19e",
+      "bytes": 1667
+    },
+    {
+      "path": "db-evidence/renderer-inspection-restore.json",
+      "sha256": "dbc28ae72223a9f5f375f0dd781e7f9fd3a20118a17643d5666fa7e5f12064cb",
+      "bytes": 641
+    },
+    {
+      "path": "executable-results.json",
+      "sha256": "440413d7dc49110c45381178165e1923b054ae60c433e9fd1787560f908f7892",
+      "bytes": 303134
+    },
+    {
+      "path": "IMPLEMENTATION-REPORT.md",
+      "sha256": "85e2e567bfdc13776cf35a8055fa76533d22e385aa5450a167524259d713e7f6",
+      "bytes": 12268
+    },
+    {
+      "path": "privacy-and-provider/boundaries.json",
+      "sha256": "56506be6bf91fb6eb9ec532bcffa39442d03da3bb26e17088f7663578ccb5bdf",
+      "bytes": 2196
+    },
+    {
+      "path": "privacy-and-provider/historical-restore.json",
+      "sha256": "2c220ee21db7674bb83307cf789975334d8ad80e1e9e0cf81474af5060a0e2a5",
+      "bytes": 542
+    },
+    {
+      "path": "protocol-fixtures/contract-summary.json",
+      "sha256": "abd9e52b8d72854d05c52e950f92f98da9eb8df7f689a73d209957bbc6201f60",
+      "bytes": 523
+    },
+    {
+      "path": "release-decision.md",
+      "sha256": "1689f71c927ded6108ce57ac1a728afd0a9f44a7d17f803813fc82cfd1bd315e",
+      "bytes": 4794
+    },
+    {
+      "path": "ui-evidence/mission-running.png",
+      "sha256": "77bdba73de22b3671cf685758cfb98af59b84256d67b57e100f83c876a8ac7a7",
+      "bytes": 267762
+    },
+    {
+      "path": "ui-evidence/partial-inspection.png",
+      "sha256": "17eda2990600d89fff31f520140dcd7dad1d652e747eecb307259f6a0580ce91",
+      "bytes": 292198
+    },
+    {
+      "path": "ui-evidence/runtime.json",
+      "sha256": "2300efce69f320d252216749cf4296a449f53f53b84f079983c105dc1cd9d5f0",
+      "bytes": 228
+    },
+    {
+      "path": "VERIFICATION-RESULTS.json",
+      "sha256": "1be21cd73bf0c6f600c2cd7eab92c7508aae594d0d286a65bd1303a69925d727",
+      "bytes": 6280
+    },
+    {
+      "path": "windows-evidence/native-probes.json",
+      "sha256": "3045985a200fb12cf69017adf6d62e2557292e7deff8240034e91c8bd5606561",
+      "bytes": 859
+    },
+    {
+      "path": "windows-evidence/resources.json",
+      "sha256": "aa6c51013ab9b433ae86eca1643885c7baaf16c4335c2129886acb4c1570c166",
+      "bytes": 5165
+    }
+  ]
+}

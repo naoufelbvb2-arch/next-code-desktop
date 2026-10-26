@@ -1,0 +1,36 @@
+{
+  "run": "full-01",
+  "evidence": [
+    {
+      "case": "symlink",
+      "kind": "file",
+      "created": false,
+      "windowsError": 1314,
+      "verdict": "NOT_RUN",
+      "reason": "Actual link fixture unavailable; no Developer Mode/user-right/admin change made"
+    },
+    {
+      "case": "symlink",
+      "kind": "directory",
+      "created": false,
+      "windowsError": 1314,
+      "verdict": "NOT_RUN",
+      "reason": "Actual link fixture unavailable; no Developer Mode/user-right/admin change made"
+    },
+    {
+      "case": "ADS",
+      "actualStreamCreated": true,
+      "verdict": "PASS",
+      "forbiddenBytesReleased": 0
+    },
+    {
+      "case": "concurrent-writer-root-swap",
+      "verdict": "PASS",
+      "attempts": 400,
+      "writeAccepted": 0,
+      "swapAccepted": 0,
+      "denied": 400,
+      "elapsedMs": 2695.1795
+    }
+  ]
+}

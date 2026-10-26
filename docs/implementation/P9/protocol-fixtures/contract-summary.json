@@ -1,0 +1,25 @@
+{
+  "publicMethods": 23,
+  "subscriptions": 3,
+  "requestActions": 5,
+  "outerMessageTypes": 5,
+  "eventSubtypes": 9,
+  "sqliteTables": 22,
+  "cases": [
+    "X0306",
+    "X0190",
+    "X0377",
+    "X0358"
+  ],
+  "fixtureFiles": [
+    {
+      "path": "contracts/ipc.ts",
+      "sha256": "fcac894c28a429024c754f6f4ea3e11196c55963200612d71cedbc8391d1fa9e"
+    },
+    {
+      "path": "contracts/jsonl.ts",
+      "sha256": "7e9c1e76758c87117dbca307b5041103d49353679104a71bcd5ba933c6cbc33e"
+    }
+  ],
+  "noPublicChanges": true
+}

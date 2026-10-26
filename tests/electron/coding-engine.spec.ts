@@ -470,3 +470,91 @@ for (const visible of [false, true])
       await current.app.close().catch(() => {})
     }
   })
+
+test('P9-E2E03 actual busy Worker survives all routes, Files and five reloads; metrics never imply an invented SLA', async () => {
+  test.setTimeout(90000)
+  const { app, page } = await launch()
+  const observations: unknown[] = []
+  try {
+    await call(app, 'startActualCodingFixture', ['worker'])
+    await propose(page)
+    await page.getByRole('button', { name: 'Run Task', exact: true }).dblclick()
+    await expect(page.getByText(/Task .+: running/)).toBeVisible()
+    const initial = await call(app, 'actualCodingSnapshot')
+    for (let cycle = 0; cycle < 5; cycle++) {
+      const started = performance.now()
+      await page.getByRole('button', { name: 'Agents', exact: true }).click()
+      await expect(page.getByRole('region', { name: 'Mission Header' })).toContainText('running')
+      await page.getByRole('button', { name: 'Projects', exact: true }).click()
+      await page.getByRole('button', { name: 'Open Files panel' }).click()
+      await expect(page.getByRole('complementary', { name: 'Right Dock' })).toBeVisible()
+      await page.getByRole('button', { name: 'Settings', exact: true }).click()
+      await expect(page.getByRole('heading', { name: 'Settings', exact: true })).toBeVisible()
+      await page.reload()
+      await page.locator('.sidebar-history button').first().click()
+      await expect(page.getByText(/Task .+: running/)).toBeVisible()
+      const snapshot = await call(app, 'actualCodingSnapshot')
+      expect(snapshot.tasks).toEqual(initial.tasks)
+      expect(snapshot.status.active).toBe(initial.status.active)
+      expect(
+        snapshot.events.some((row: { name: string }) =>
+          ['task.completed', 'task.failed', 'task.cancelled'].includes(row.name)
+        )
+      ).toBe(false)
+      const resources = await app.evaluate(({ app }) =>
+        app.getAppMetrics().map((metric) => ({
+          type: metric.type,
+          cpuPercent: metric.cpu.percentCPUUsage,
+          workingSetKiB: metric.memory.workingSetSize,
+          peakWorkingSetKiB: metric.memory.peakWorkingSetSize
+        }))
+      )
+      observations.push({ cycle, elapsedMs: performance.now() - started, resources })
+    }
+    // A separate real Discussion turn must remain usable while Coding owns its
+    // original workspace lease. Its advisory proposal is never auto-approved.
+    await page.getByRole('button', { name: 'New Conversation', exact: true }).click()
+    await page.getByRole('combobox', { name: 'Discussion model' }).selectOption('deepseek-flash')
+    await page
+      .getByRole('textbox', { name: 'Message' })
+      .fill('Discuss only while the existing task runs; do not start another task.')
+    await page.getByRole('button', { name: 'Send message' }).click()
+    await expect(page.locator('.conversation-message.assistant')).toHaveCount(1)
+    expect((await call(app, 'actualCodingSnapshot')).tasks).toEqual(initial.tasks)
+    await expect(page.locator('.sidebar-history button')).toHaveCount(2)
+    await page
+      .getByRole('button', {
+        name: 'Propose only the synthetic sample.py change and await my approval.',
+        exact: true
+      })
+      .click()
+    await expect(page.getByText(/Task .+: running/)).toBeVisible()
+    await page.getByRole('button', { name: 'Agents', exact: true }).click()
+    await expect(page.getByRole('region', { name: 'Mission Header' })).toContainText('running')
+    await page.screenshot({ path: '.cache/p9-mission-running-02.png' })
+    await page
+      .getByRole('button', {
+        name: 'Propose only the synthetic sample.py change and await my approval.',
+        exact: true
+      })
+      .click()
+    await page.getByRole('button', { name: 'Request cancellation' }).click()
+    await expect(page.getByText(/Task .+: cancelled/)).toBeVisible()
+    expect((await call(app, 'actualCodingSnapshot')).leases).toBe(0)
+    writeFileSync(
+      '.cache/p9-electron-resources-02.json',
+      JSON.stringify(
+        {
+          environment:
+            'Actual Windows Electron and AgentOS Offline Gateway; observations, no new SLA',
+          observations
+        },
+        null,
+        2
+      ) + '\n'
+    )
+  } finally {
+    await call(app, 'stopActualCodingFixture').catch(() => {})
+    await app.close()
+  }
+})

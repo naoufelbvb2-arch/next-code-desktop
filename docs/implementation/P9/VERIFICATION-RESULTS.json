@@ -1,0 +1,194 @@
+{
+  "phase": "P9",
+  "tier": "WINDOWS DEVELOPMENT-INTEGRATED ACCEPTANCE",
+  "date": "2026-10-26",
+  "status": "P9 FINAL OWNER REVIEW — NO-GO FOR FULL DEV ACCEPTANCE",
+  "branch": "feature/p9-windows-integrated-acceptance",
+  "startingCommit": "ca59509dfcce66c7680dddfe80554570dce516bd",
+  "acceptedP8": "b527a44bb5da47e63c835e71d902c3c6bc1ab1ac",
+  "enginePinnedCommit": "99e00e13f8a39fa6730f3d3de773ac937b5ac915",
+  "desktopUniqueExecutableTotals": {
+    "PASS": 528,
+    "NOT_RUN": 3,
+    "FAIL": 0
+  },
+  "desktopComponents": {
+    "unitUIAndNative": {
+      "PASS": 457,
+      "FAIL": 0,
+      "NOT_RUN": 3
+    },
+    "python": {
+      "PASS": 34,
+      "FAIL": 0,
+      "NOT_RUN": 0
+    },
+    "windowsElectron": {
+      "PASS": 37,
+      "FAIL": 0,
+      "NOT_RUN": 0
+    }
+  },
+  "engineRegression": {
+    "PASS": 69,
+    "NOT_RUN": 3,
+    "FAIL": 0
+  },
+  "counting": "Latest executed result per (file,name), not a sum of diagnostic reruns. 304 normative rows counted separately. Historical paid P5 evidence is carried, never added to current executable totals.",
+  "conformance": {
+    "I08": {
+      "PASS": 76,
+      "INCONCLUSIVE": 8,
+      "BLOCKED": 3,
+      "NOT_RUN": 1
+    },
+    "E2E": {
+      "PASS": 6,
+      "INCONCLUSIVE": 1,
+      "NOT_RUN": 1
+    },
+    "E05": {
+      "PASS": 36
+    },
+    "I06": {
+      "PASS": 42,
+      "NOT_RUN": 2,
+      "INCONCLUSIVE": 7,
+      "BLOCKED": 1
+    },
+    "I07": {
+      "PASS": 45,
+      "INCONCLUSIVE": 8,
+      "BLOCKED": 1,
+      "NOT_RUN": 2
+    },
+    "IIS01": {
+      "PASS": 13,
+      "BLOCKED": 1
+    },
+    "IIS02": {
+      "PASS": 13,
+      "INCONCLUSIVE": 1,
+      "BLOCKED": 1
+    },
+    "IIS03": {
+      "PASS": 15,
+      "INCONCLUSIVE": 1,
+      "NOT_RUN": 1
+    },
+    "IIS04": {
+      "PASS": 16,
+      "BLOCKED": 1,
+      "INCONCLUSIVE": 1
+    }
+  },
+  "gates": {
+    "G0": "PASS",
+    "G1": "INCONCLUSIVE",
+    "G2": "PASS",
+    "G3": "INCONCLUSIVE",
+    "G4": "INCONCLUSIVE",
+    "G5": "INCONCLUSIVE",
+    "G6": "BLOCKED",
+    "G7": "INCONCLUSIVE",
+    "G8-dev": "PASS",
+    "G8-package": "NOT_RUN — FUTURE DISTRIBUTION",
+    "G9-dev": "BLOCKED"
+  },
+  "paidCallsThisPhase": 0,
+  "checks": {
+    "buildTypeScript": "PASS (.cache/p9-build-04.txt)",
+    "formatting": "PASS (.cache/p9-format-03.txt)",
+    "frozenWorkingGitZIP": "PASS (.cache/p9-frozen-01.json)",
+    "dependencies": "UNCHANGED",
+    "engineSource": "UNCHANGED"
+  },
+  "preservedFailures": [
+    {
+      "run": "p9-build-01",
+      "status": "FAIL",
+      "cause": "New harness TypeScript: Playwright timeout signature and optional replay query limit; fixed harness types only, build02/03/04 pass."
+    },
+    {
+      "run": "p9-electron-01",
+      "passed": 35,
+      "failed": 1,
+      "cause": "New historical-profile fixture omitted fileBroker:true; isolated profiles disable services, unlike default real launch. Enabled only local history/Broker, never model configuration."
+    },
+    {
+      "run": "p9-electron-02",
+      "passed": 1,
+      "failed": 1,
+      "cause": "New independent Discussion exercise selected history index 1, which was the new conversation. Corrected to exact original conversation identity; unchanged running-state assertion."
+    },
+    {
+      "run": "p9-electron-03",
+      "passed": 2,
+      "failed": 0,
+      "cause": "Both corrected P9 journeys pass."
+    },
+    {
+      "run": "p9-electron-04",
+      "passed": 36,
+      "failed": 0,
+      "cause": "Full final suite of 36 identities passes; only new inspection-recovery case added afterwards."
+    },
+    {
+      "run": "p9-electron-05/06",
+      "passed": 1,
+      "failed": 0,
+      "cause": "Additional exact inspection Renderer recovery passes; repeated with source-hash preservation assertion, counted once."
+    }
+  ],
+  "findings": [
+    {
+      "id": "P9-F01",
+      "severity": "P0",
+      "kind": "MISSING_MANDATORY_SECURITY_PROOF",
+      "status": "BLOCKED",
+      "detail": "Native symlinks lack privilege (1314); mount/case-sensitive/Unicode/special-native variants incomplete. No demonstrated escape; G6/G9 cannot pass."
+    },
+    {
+      "id": "P9-F02",
+      "severity": "P0",
+      "kind": "MISSING_ROUTE_AND_CONSENT_INTEGRATION_PROOF",
+      "status": "INCONCLUSIVE",
+      "detail": "Second provider/model and genuine local inference unavailable; provider-switch/full handoff races not executed. No feature added by implication."
+    },
+    {
+      "id": "P9-F03",
+      "severity": "P1",
+      "kind": "PROVIDER_EVIDENCE_LIMIT",
+      "status": "INCONCLUSIVE",
+      "detail": "Current offline binding and restored accepted real answers proven; fresh post-restart inference/invalid remote key/pressure summary not run. No new API spend authorized."
+    },
+    {
+      "id": "P9-F04",
+      "severity": "P1",
+      "kind": "SOAK_EVIDENCE_LIMIT",
+      "status": "INCONCLUSIVE",
+      "detail": "2001-event real DB replay and five actual worker/UI reload cycles measured; not a long-duration combined high-rate GUI soak."
+    },
+    {
+      "id": "P9-F05",
+      "severity": "P2",
+      "kind": "HUMAN_REVIEW_PENDING",
+      "status": "INCONCLUSIVE",
+      "detail": "Automated functional accessibility passes on actual 125% display; human readability/accessibility approval pending. Visual redesign separately deferred; no waiver invented."
+    },
+    {
+      "id": "P9-F06",
+      "severity": "P1",
+      "kind": "SPECIFIC_FAULT_AND_TOPOLOGY_EVIDENCE_LIMIT",
+      "status": "INCONCLUSIVE",
+      "detail": "Complete OS service/socket inventory, exact T4-after-COMMIT/Main-kill-before-push, every intentional quit choice, actual broken-stdio at prepared boundary and huge-size native metadata remain incomplete; see per-row register. Exact inspection Renderer reopen is now PASS in P9-E2E05."
+    }
+  ],
+  "engineChangeRequestRequired": false,
+  "productionCodeChanges": false,
+  "publicationPreflight": {
+    "initial": "FAIL: Windows Python default CRLF differed from the Git LF-normalized index; caught by byte review before any P9 commit",
+    "correction": "Generated P9 UTF-8 JSON explicitly writes LF; regenerate all dependent hashes and repeat exact index verification. Frozen/raw evidence bytes untouched."
+  },
+  "stop": "P9 FINAL OWNER REVIEW; no P10, packaging, paid smoke, Engine edits or main merge."
+}

@@ -1,0 +1,186 @@
+{
+  "replay": {
+    "environment": "Windows host Node, real disposable SQLite, production replay controller, synthetic events",
+    "events": 2001,
+    "committedMs": 3213.4995,
+    "totalMs": 3321.2439,
+    "readPages": 51,
+    "maxCache": 400,
+    "publishes": 13,
+    "before": {
+      "rss": 93134848,
+      "heapTotal": 37969920,
+      "heapUsed": 22753928,
+      "external": 2562776,
+      "arrayBuffers": 32375
+    },
+    "after": {
+      "rss": 179970048,
+      "heapTotal": 115441664,
+      "heapUsed": 69691480,
+      "external": 2946462,
+      "arrayBuffers": 416185
+    },
+    "eventLoopDelayMs": {
+      "mean": 58.45364363636363,
+      "max": 84.869119
+    },
+    "thresholds": "Only existing 40/page, four pages/turn, 400 cache are asserted; CPU/RAM/time are observations"
+  },
+  "actualElectron": {
+    "environment": "Actual Windows Electron and AgentOS Offline Gateway; observations, no new SLA",
+    "observations": [
+      {
+        "cycle": 0,
+        "elapsedMs": 454.2676000000065,
+        "resources": [
+          {
+            "type": "Browser",
+            "cpuPercent": 0,
+            "workingSetKiB": 184936,
+            "peakWorkingSetKiB": 193228
+          },
+          {
+            "type": "GPU",
+            "cpuPercent": 0,
+            "workingSetKiB": 351136,
+            "peakWorkingSetKiB": 351136
+          },
+          {
+            "type": "Utility",
+            "cpuPercent": 0,
+            "workingSetKiB": 96564,
+            "peakWorkingSetKiB": 96564
+          },
+          {
+            "type": "Tab",
+            "cpuPercent": 0,
+            "workingSetKiB": 156964,
+            "peakWorkingSetKiB": 156964
+          }
+        ]
+      },
+      {
+        "cycle": 1,
+        "elapsedMs": 477.6719000000012,
+        "resources": [
+          {
+            "type": "Browser",
+            "cpuPercent": 3.629326594528167,
+            "workingSetKiB": 186840,
+            "peakWorkingSetKiB": 195888
+          },
+          {
+            "type": "GPU",
+            "cpuPercent": 2.3677724847838926,
+            "workingSetKiB": 381864,
+            "peakWorkingSetKiB": 381864
+          },
+          {
+            "type": "Utility",
+            "cpuPercent": 0.01229004124922683,
+            "workingSetKiB": 96564,
+            "peakWorkingSetKiB": 96564
+          },
+          {
+            "type": "Tab",
+            "cpuPercent": 3.2642053221720553,
+            "workingSetKiB": 166092,
+            "peakWorkingSetKiB": 167168
+          }
+        ]
+      },
+      {
+        "cycle": 2,
+        "elapsedMs": 455.63189999999304,
+        "resources": [
+          {
+            "type": "Browser",
+            "cpuPercent": 4.15425741349477,
+            "workingSetKiB": 185968,
+            "peakWorkingSetKiB": 195888
+          },
+          {
+            "type": "GPU",
+            "cpuPercent": 2.7503412238552216,
+            "workingSetKiB": 413468,
+            "peakWorkingSetKiB": 413468
+          },
+          {
+            "type": "Utility",
+            "cpuPercent": 0.014772559917140878,
+            "workingSetKiB": 96564,
+            "peakWorkingSetKiB": 96564
+          },
+          {
+            "type": "Tab",
+            "cpuPercent": 3.8886095524607893,
+            "workingSetKiB": 175604,
+            "peakWorkingSetKiB": 176448
+          }
+        ]
+      },
+      {
+        "cycle": 3,
+        "elapsedMs": 423.5920000000042,
+        "resources": [
+          {
+            "type": "Browser",
+            "cpuPercent": 4.301211895513804,
+            "workingSetKiB": 186500,
+            "peakWorkingSetKiB": 196936
+          },
+          {
+            "type": "GPU",
+            "cpuPercent": 2.6365654790202973,
+            "workingSetKiB": 419888,
+            "peakWorkingSetKiB": 419888
+          },
+          {
+            "type": "Utility",
+            "cpuPercent": 0.019256171265062884,
+            "workingSetKiB": 96564,
+            "peakWorkingSetKiB": 96564
+          },
+          {
+            "type": "Tab",
+            "cpuPercent": 5.3850665506248285,
+            "workingSetKiB": 175196,
+            "peakWorkingSetKiB": 185656
+          }
+        ]
+      },
+      {
+        "cycle": 4,
+        "elapsedMs": 433.0188999999955,
+        "resources": [
+          {
+            "type": "Browser",
+            "cpuPercent": 4.288287396704439,
+            "workingSetKiB": 187760,
+            "peakWorkingSetKiB": 197560
+          },
+          {
+            "type": "GPU",
+            "cpuPercent": 2.65416461558156,
+            "workingSetKiB": 424400,
+            "peakWorkingSetKiB": 424400
+          },
+          {
+            "type": "Utility",
+            "cpuPercent": 0.016401433161849804,
+            "workingSetKiB": 96564,
+            "peakWorkingSetKiB": 96564
+          },
+          {
+            "type": "Tab",
+            "cpuPercent": 3.910302663186619,
+            "workingSetKiB": 177216,
+            "peakWorkingSetKiB": 185656
+          }
+        ]
+      }
+    ]
+  },
+  "interpretation": "Finite observations, not a long-duration soak or new CPU/RAM/latency SLA. Node replay metrics are not Electron Main metrics. RSS includes test/runtime caches; no leak guarantee inferred."
+}
