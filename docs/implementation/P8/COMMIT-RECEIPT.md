@@ -1,3 +1,43 @@
+# P8 final corrections publication receipt — 2026-10-25
+
+Owner authority: P8 FINAL CORRECTIONS. Both feature branches are published;
+no main merge, force push, paid API call, P9 or packaging action occurred.
+
+- Engine implementation and short report: **`99e00e13f8a39fa6730f3d3de773ac937b5ac915`**, branch
+  [feature/p8-verified-worker-observers](https://github.com/naoufelbvb2-arch/next-code/tree/feature/p8-verified-worker-observers).
+  Reviewed 4 source files, 1 test file and the short report; 69 PASS /0 FAIL
+  /3 paid NOT_RUN. Independent native repeat: 5 PASS, not counted twice.
+  AgentOS/public contracts unchanged. Engine published first; Desktop pins this
+  exact commit, complete source inventory and VERIFIED_OBSERVER_VERSION=1.
+- Desktop implementation and verification: **`2e62f08e86a72e657e528045ca153826b2065dcc`**, branch
+  [feature/p8-mission-control](https://github.com/naoufelbvb2-arch/next-code-desktop/tree/feature/p8-mission-control).
+  Unique Desktop results: **522 PASS /0 FAIL /1 NOT_RUN**,
+  including 34 Python and 34 Windows Electron cases. E05 36 PASS; I08-T49–56
+  8 PASS. Raw repeats and historical paid proofs are not added to these counts.
+- Source baseline: Desktop decf6390; Engine 5e7179b. P7 owner acceptance and
+  historical native/fixture/Regression failures remain preserved in P8 records.
+- Original delivery 42 files /41 payload /18 normative hashes unchanged;
+  approved IIS-02-C02 adds 1 normative file, total 19. Both staged Git and
+  committed Git blobs match working bytes; the retained original ZIP still
+  matches its original 42-file inventory. No SQLite, JSONL or method-count change.
+- Exact staged paths/bytes, manifest, credential-shape/privacy scan, budgets,
+  branch/origin, build/typecheck/format and actual test evidence were reviewed.
+  Both consumed real paid journal SHA-256s remain unchanged.
+
+This later receipt cites independently published implementation commits. It
+cannot authenticate its own future commit SHA; the final owner-facing response
+and branch reference report that SHA after committing and pushing this receipt.
+P8 STAGE_EXIT_PASS /P8-scoped G5 evidence PASS are submitted for owner review,
+not owner acceptance or full-system acceptance. Full IIS-08/P6 G6 stay PARTIAL;
+P1 visual signoff and any later phase require their separate disposition.
+
+Current verification JSON SHA-256:
+`3b40ed82718aa67454e2a2e9deae2f5a52d1594dcf1376b5c71067062faab5b0`.
+
+---
+
+## Previous receipt — retained historical evidence, superseded current disposition above
+
 # P8 implementation publication receipt — 2026-10-25
 
 Implementation commit **`540a9f0ac689a1a2afec66aae8c4ff3383fd034a`** is published to the official
