@@ -58,7 +58,14 @@ def offline_backend(settings, workspace):
         return dict(thought="Observed fixture tool result", action_type="FINISH_TASK",
             final_report=dict(status="SUCCESS",summary="Synthetic worker completed",inquisitor_verdict=verdict))
 
-    if mode == "failed":
+    if mode == "soak":
+        # Existing original AgentOS 15-tick limit; genuine Dispatcher/Chassis
+        # invocations and bounded read tools, never injected worker events.
+        replies = []
+        for _ in range(15):
+            replies.extend([architect("DISPATCH_SCOUT", "SCOUT"),
+                *[tool("read_file", {"path":"sample.py"}) for _ in range(8)], finish()])
+    elif mode == "failed":
         replies = [architect("ABORT_TASK")]
     elif mode in ("shell", "stubborn"):
         replies = [architect("DISPATCH_SURGEON", "SURGEON"),
@@ -82,12 +89,18 @@ def offline_backend(settings, workspace):
     async def respond(request):
         nonlocal calls
         calls += 1
+        if os.environ.get("NCD_R01_LOOP_AUDIT"):
+            loop = asyncio.get_running_loop()
+            ports = [getattr(loop, name).getsockname()[1] for name in ("_ssock", "_csock")]
+            Path(os.environ["NCD_R01_LOOP_AUDIT"]).write_text(json.dumps({"ports":ports,"source":"Actual CPython ProactorEventLoop socketpair"}))
         payload = json.loads(request.content)
         # Evidence remains in the external synthetic fixture, never a normal DB.
-        audit = workspace / "gateway-audit.json"
+        audit = Path(os.environ["NCD_R01_SOAK_AUDIT"]) if mode == "soak" else workspace / "gateway-audit.json"
         entries = json.loads(audit.read_text()) if audit.exists() else []
         entries.append({"model":payload["model"],"prompt":payload["messages"][-1]["content"]})
         audit.write_text(json.dumps(entries))
+        if mode == "soak":
+            await asyncio.sleep(0.5)  # Real Gateway wait; cancellation remains observable.
         if mode == "exception":
             raise RuntimeError("Synthetic pre-outcome failure")
         if mode == "stubborn":

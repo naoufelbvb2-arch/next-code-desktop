@@ -5,6 +5,7 @@ import { BrokerPool } from './pool'
 import { BrokerError, deny, digest, POLICY, selector } from './policy'
 import type { WorkResult, Job, Entry } from './work'
 import type { DurableStore, Scope } from '../storage/store'
+import { StoreError } from '../storage/database'
 import type { SupervisedChild } from '../supervisor/child'
 import type { WireMessage } from '../../../contracts/wire-schema'
 
@@ -186,8 +187,9 @@ export class FileBroker {
       p.child.sessionId !== p.session
     )
       deny('NOT_AUTHORIZED')
-    if (
-      !this.options.store.activeDiscussionBinding(
+    let bound: boolean
+    try {
+      bound = this.options.store.activeDiscussionBinding(
         p.scope,
         p.attempt,
         p.conversation,
@@ -195,8 +197,13 @@ export class FileBroker {
         p.model,
         p.provider
       )
-    )
-      deny('NOT_AUTHORIZED')
+    } catch (error) {
+      // A foreign conversation is an authorization refusal, not a disk fault.
+      // Preserve actual store/database failures for the existing safe IO path.
+      if (error instanceof StoreError && error.code === 'NOT_AUTHORIZED') deny('NOT_AUTHORIZED')
+      throw error
+    }
+    if (!bound) deny('NOT_AUTHORIZED')
     if (!p.scope.workspaceKey.startsWith('win32-v1_')) deny('WORKSPACE_MISMATCH')
     if (!this.options.store.workspaceAvailable(p.scope)) deny('WORKSPACE_MISMATCH')
     if (p.firstOperation !== null && performance.now() - p.firstOperation >= 90000)

@@ -1,0 +1,108 @@
+{
+  "scope": "P9-R01 WINDOWS DEVELOPMENT-INTEGRATED; owner review required",
+  "clientCompletionDate": "2026-10-27",
+  "baselineDesktop": {
+    "PASS": 528,
+    "FAIL": 0,
+    "NOT_RUN": 3
+  },
+  "baselineEngine": {
+    "PASS": 69,
+    "FAIL": 0,
+    "NOT_RUN": 3
+  },
+  "currentDesktop": {
+    "PASS": 547,
+    "NOT_RUN": 5,
+    "FAIL": 0
+  },
+  "currentEngineCarried": {
+    "PASS": 69,
+    "NOT_RUN": 3,
+    "FAIL": 0
+  },
+  "newUniqueCases": {
+    "PASS": 19,
+    "NOT_RUN": 2,
+    "FAIL": 0
+  },
+  "executedR01UniqueCases": {
+    "PASS": 69,
+    "NOT_RUN": 5,
+    "FAIL": 0
+  },
+  "carriedUniqueCases": {
+    "PASS": 547,
+    "NOT_RUN": 3,
+    "FAIL": 0
+  },
+  "byEnvironment": {
+    "ACTUAL_ENGINE_OFFLINE_WINDOWS": {
+      "PASS": 69,
+      "NOT_RUN": 3,
+      "FAIL": 0
+    },
+    "ACTUAL_WINDOWS_ELECTRON": {
+      "PASS": 43,
+      "FAIL": 0
+    },
+    "PYTHON_ORIGINAL_GATEWAY_OFFLINE": {
+      "PASS": 38,
+      "FAIL": 0
+    },
+    "WINDOWS_UNIT_UI_NATIVE": {
+      "PASS": 466,
+      "NOT_RUN": 5,
+      "FAIL": 0
+    }
+  },
+  "normative": {
+    "I08-": {
+      "PASS": 80,
+      "BLOCKED": 3,
+      "INCONCLUSIVE": 4,
+      "NOT_RUN": 1,
+      "FAIL": 0
+    },
+    "E2E-": {
+      "PASS": 6,
+      "INCONCLUSIVE": 1,
+      "NOT_RUN": 1,
+      "FAIL": 0
+    },
+    "E05-": {
+      "PASS": 36,
+      "FAIL": 0
+    },
+    "I06-": {
+      "PASS": 46,
+      "NOT_RUN": 2,
+      "INCONCLUSIVE": 3,
+      "BLOCKED": 1,
+      "FAIL": 0
+    },
+    "I07-": {
+      "PASS": 52,
+      "INCONCLUSIVE": 2,
+      "BLOCKED": 1,
+      "NOT_RUN": 1,
+      "FAIL": 0
+    }
+  },
+  "invariants": {
+    "noPaidCalls": true,
+    "engineUnchanged": true,
+    "frozenWorkingGitArchive": "PASS",
+    "noMainMerge": true,
+    "noPublicApiSchemaDependencyChange": true,
+    "historicalTrackedP9Bytes": "PASS"
+  },
+  "checks": {
+    "typecheck": "PASS",
+    "build": "PASS",
+    "formatting": "PASS",
+    "frozenWorkingGitArchive": "PASS"
+  },
+  "conclusion": "NO-GO full P9 acceptance; stop for P9 FINAL OWNER REVIEW",
+  "note": "Unique latest-executed identities plus explicitly carried historical results, not a complete fresh rerun. Failed earlier executions remain in run-manifest. Symlink setup attempted but containment NOT_RUN on Windows1314. Engine69 PASS/3 paid NOT_RUN carried, no new69-case Engine regression claim."
+}

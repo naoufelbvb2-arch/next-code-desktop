@@ -1,0 +1,186 @@
+{
+  "baseline": "b4ae63cd34d8d3c84dae68b5697ea53bccf515f4",
+  "exclusion": "This manifest and later commit receipt excluded to avoid self-reference. No frozen/Engine/schema/dependency changes.",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "action": "MODIFIED",
+      "sha256": "dcab73c6f05fa1e9eb2b54300015d624343cc875b26ec63a9633723fcb2918bf",
+      "bytes": 15820
+    },
+    {
+      "path": "docs/implementation/P9/R01/IMPLEMENTATION-REPORT.md",
+      "action": "NEW",
+      "sha256": "793f513617c06b69d92b7b7e81efe0b418ec6f9d30419ca35b26cedbec8598ee",
+      "bytes": 12116
+    },
+    {
+      "path": "docs/implementation/P9/R01/VERIFICATION-RESULTS.json",
+      "action": "NEW",
+      "sha256": "676e4649b6a2e4b211a1c7d7c16bb8f8d6fc426771fd18e2a63f5f2b6616ccf6",
+      "bytes": 2317
+    },
+    {
+      "path": "docs/implementation/P9/R01/collect-evidence.py",
+      "action": "NEW",
+      "sha256": "27832f5c30881a3ad5c2fcd2e6df8ae795f93a857b9b6d4f4ec2931be0fbb9bd",
+      "bytes": 24399
+    },
+    {
+      "path": "docs/implementation/P9/R01/coverage-matrix.csv",
+      "action": "NEW",
+      "sha256": "1114d720b6f291b5034c36b796150dac39caa53e7efe4d889e5a7a6769ce1021",
+      "bytes": 375776
+    },
+    {
+      "path": "docs/implementation/P9/R01/evidence/broken-pipe-01.json",
+      "action": "NEW",
+      "sha256": "3974ad1fc0c4db0cbe09f6b11a92de1ec920f203caeffb954e8f7de7b02fd7f3",
+      "bytes": 322
+    },
+    {
+      "path": "docs/implementation/P9/R01/evidence/consent-01.json",
+      "action": "NEW",
+      "sha256": "333c76161c317895e72a9efd6362a83cd149d76f27b1b8fd00d7421679fbb8c0",
+      "bytes": 534
+    },
+    {
+      "path": "docs/implementation/P9/R01/evidence/consent-01.png",
+      "action": "NEW",
+      "sha256": "9eb70a805d88f92c749e77e8af88e5881f739aa76d6108faef4e82b5ff3a5cce",
+      "bytes": 303919
+    },
+    {
+      "path": "docs/implementation/P9/R01/evidence/memory-01.json",
+      "action": "NEW",
+      "sha256": "4d523135ab6d72df7e8195e3cceb8480500fcd5d464e7348030e2bcb06663cca",
+      "bytes": 1766
+    },
+    {
+      "path": "docs/implementation/P9/R01/evidence/native-04.json",
+      "action": "NEW",
+      "sha256": "292525f99325bc67c42284ad2daf9176b7fbe797e3ef4db6f09466e918a9a641",
+      "bytes": 1590
+    },
+    {
+      "path": "docs/implementation/P9/R01/evidence/soak-03.json",
+      "action": "NEW",
+      "sha256": "bcaf985605fefdbf76f30ac99166a043847d55b901066c77974c6f59f7ed3e6c",
+      "bytes": 72668
+    },
+    {
+      "path": "docs/implementation/P9/R01/evidence/soak-03.png",
+      "action": "NEW",
+      "sha256": "7e947061321f1baab8be0c573c9cc58b630fee634eb47f7d0d4d2463d7e059e9",
+      "bytes": 284917
+    },
+    {
+      "path": "docs/implementation/P9/R01/evidence/soak-summary.json",
+      "action": "NEW",
+      "sha256": "aba5a9fb92f43b007861f6ad5c3c98b187057518bc6bd8b965ed18cb6b5bce7a",
+      "bytes": 601
+    },
+    {
+      "path": "docs/implementation/P9/R01/evidence/t4-crash-01.json",
+      "action": "NEW",
+      "sha256": "5b25e7411d257f2ed43a9794f639069f04253810c87194379da815b088450b67",
+      "bytes": 271
+    },
+    {
+      "path": "docs/implementation/P9/R01/evidence/topology-03.json",
+      "action": "NEW",
+      "sha256": "b87dcfd9cc3afc6133fbcc434c2bb84d46c02fc812d4723563c298f9e1863501",
+      "bytes": 1153
+    },
+    {
+      "path": "docs/implementation/P9/R01/executable-results.json",
+      "action": "NEW",
+      "sha256": "b8f2cd176f65abf0f6ec0dc2e3cfb401933c559c464b767366d7cf32f0447bbe",
+      "bytes": 347810
+    },
+    {
+      "path": "docs/implementation/P9/R01/release-decision.md",
+      "action": "NEW",
+      "sha256": "ebc20849ccf32903b527d99a95f6688470a18507c58fba3c6ec25cd1cba62d54",
+      "bytes": 4817
+    },
+    {
+      "path": "docs/implementation/P9/R01/run-manifest.json",
+      "action": "NEW",
+      "sha256": "829288cee08e2677601f61e1b3b336f3fecf2c1bd88eb68e41565d71323f7cde",
+      "bytes": 22493
+    },
+    {
+      "path": "electron/main/broker/service.ts",
+      "action": "MODIFIED",
+      "sha256": "d9e84c557b8cb41223e6d9d0c0279893deec2c5372dc056ff59f3a10373c79ca",
+      "bytes": 23525
+    },
+    {
+      "path": "tests/electron/p9r01-discussion.spec.ts",
+      "action": "NEW",
+      "sha256": "df59b79d18a7c6e37c8ed9a2de08f812609ef4512dff5ec227a5fd2ae5d3c835",
+      "bytes": 9157
+    },
+    {
+      "path": "tests/electron/p9r01-faults.spec.ts",
+      "action": "NEW",
+      "sha256": "c047f65562f7263692b7518e41aa5224b367cffaf29b2992d1965112b4471e0e",
+      "bytes": 9363
+    },
+    {
+      "path": "tests/electron/p9r01-soak.spec.ts",
+      "action": "NEW",
+      "sha256": "0f059fbe9d57274867ea85bb57392b9e8be99c151babc81d9660b503fe59fceb",
+      "bytes": 8099
+    },
+    {
+      "path": "tests/fixtures/broker-main.ts",
+      "action": "MODIFIED",
+      "sha256": "ecf50bf9c84eb599521081570bb9013ded184b3d53f811955ee04fd17eb9b4fc",
+      "bytes": 10463
+    },
+    {
+      "path": "tests/fixtures/coding-engine.ts",
+      "action": "MODIFIED",
+      "sha256": "a214422ed83308ef8c85edd960b0f66d6e5acbe56ec85c86851a789b0be51864",
+      "bytes": 9260
+    },
+    {
+      "path": "tests/fixtures/coding-main.ts",
+      "action": "MODIFIED",
+      "sha256": "fe341c2caf7c750e01be4860ba692b7bb48cb01b607c417c22786280269d3d58",
+      "bytes": 10883
+    },
+    {
+      "path": "tests/fixtures/coding_engine_peer.py",
+      "action": "MODIFIED",
+      "sha256": "99d7d3fd76b82628762b410ddc3cd0594fda8d35cb1f04382a2bd1fd4174bee0",
+      "bytes": 8455
+    },
+    {
+      "path": "tests/fixtures/discussion_broker_peer.py",
+      "action": "MODIFIED",
+      "sha256": "495420cded00eea14b81b5fb932f1234c9734363d063b927528fdb7c96e3a1e4",
+      "bytes": 3376
+    },
+    {
+      "path": "tests/python/test_p9r01_gateway.py",
+      "action": "NEW",
+      "sha256": "2f112f37e0354918adf608dd0cc9aa9ad0d06428b02ca88147ebd91e47992733",
+      "bytes": 5595
+    },
+    {
+      "path": "tests/unit/p9r01-consent.test.ts",
+      "action": "NEW",
+      "sha256": "ecd9be4dbd0f8a26a6d77f608a4ce57bb4a9ce08ab0c087792e0400421c85443",
+      "bytes": 3056
+    },
+    {
+      "path": "tests/unit/p9r01-windows.test.ts",
+      "action": "NEW",
+      "sha256": "e3a9aa227dcd135da43dfbff12289ff92603458e8c189c26bbcad857a1ebbea3",
+      "bytes": 11957
+    }
+  ]
+}

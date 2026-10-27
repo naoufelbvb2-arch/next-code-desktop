@@ -1,0 +1,70 @@
+{
+  "restored": {
+    "messages": 4,
+    "summaries": 0,
+    "referencesResolve": true,
+    "contextRevision": 4,
+    "statuses": [
+      "answered",
+      "answered"
+    ],
+    "lastAssistant": "Fixture provider remembered Atlas.",
+    "metrics": {
+      "mockProviderCalls": 2,
+      "approvedSources": 0,
+      "lowerTrustAndNoTools": true,
+      "contextRevision": 3,
+      "summaryMemoryCount": 0,
+      "historyCount": 2,
+      "currentInputOccurrences": 1,
+      "r01GatePassed": false
+    }
+  },
+  "pressured": {
+    "messages": 10,
+    "summaries": 2,
+    "referencesResolve": true,
+    "contextRevision": 10,
+    "statuses": [
+      "answered",
+      "answered",
+      "answered",
+      "answered",
+      "answered"
+    ],
+    "metrics": {
+      "mockProviderCalls": 5,
+      "approvedSources": 0,
+      "lowerTrustAndNoTools": true,
+      "contextRevision": 9,
+      "summaryMemoryCount": 2,
+      "historyCount": 3,
+      "currentInputOccurrences": 1,
+      "r01GatePassed": false
+    }
+  },
+  "isolated": {
+    "messages": 2,
+    "summaries": 0,
+    "referencesResolve": true,
+    "contextRevision": 2,
+    "statuses": [
+      "answered"
+    ],
+    "lastAssistant": "Fixture source projection failed.",
+    "metrics": {
+      "mockProviderCalls": 6,
+      "approvedSources": 0,
+      "lowerTrustAndNoTools": false,
+      "contextRevision": 1,
+      "summaryMemoryCount": 0,
+      "historyCount": 0,
+      "currentInputOccurrences": 1,
+      "r01GatePassed": false
+    }
+  },
+  "originalGateway": true,
+  "freshPaidCalls": 0,
+  "restart": "Actual Main and owned Python closed and recreated; no call on startup",
+  "summaryEvidence": "Actual original Gateway with captured HTTP candidate under bounded prompt pressure, not a real-provider live summary"
+}

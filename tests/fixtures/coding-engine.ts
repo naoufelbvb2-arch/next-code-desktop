@@ -145,7 +145,14 @@ export async function codingEngineFixture(
       ? undefined
       : () => ({
           ...coding.launch(),
-          env: { ...coding.launch().env, P7_FIXTURE_CASE: nextCase },
+          env: {
+            ...coding.launch().env,
+            P7_FIXTURE_CASE: nextCase,
+            NCD_R01_LOOP_AUDIT: join(directory, 'r01-loop-audit.json'),
+            ...(nextCase === 'soak'
+              ? { NCD_R01_SOAK_AUDIT: join(directory, 'r01-gateway-audit.json') }
+              : {})
+          },
           args: [
             '-I',
             '-S',
@@ -221,6 +228,12 @@ export async function codingEngineFixture(
       await discussion.stop()
       service.close()
     },
-    source: () => readFileSync(join(workspace, 'sample.py'), 'utf8')
+    source: () => readFileSync(join(workspace, 'sample.py'), 'utf8'),
+    processIds: () => ({
+      main: process.pid,
+      discussion: discussion.process?.pid,
+      coding: (supervisor as unknown as { coding?: { child: SupervisedChild } }).coding?.child
+        .process?.pid
+    })
   }
 }

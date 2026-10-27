@@ -2,6 +2,24 @@
 
 ## Current authority
 
+The owner's **P9-R01 Final Evidence Closure (2026-10-26)** authorizes remaining
+Windows native security, routing/consent, restart-memory and combined real
+AgentOS/Offline Gateway Windows soak evidence on the existing P9 branch, starting
+at verified `b4ae63cd34d8d3c84dae68b5697ea53bccf515f4`. Engine stays read-only at
+`99e00e13f8a39fa6730f3d3de773ac937b5ac915`. Preserve all historical P9 reports,
+matrices and raw outcomes; put new results/comparison under P9/R01. Re-run only
+remaining and affected tests. Test-only alternate captured providers are not
+production routes or proof of genuine local inference. No paid calls, key/budget
+changes, frozen/API/schema changes, real-user data, automatic Administrator,
+Developer Mode/Group Policy/global changes, main merge, P10 or packaging.
+Unavailable symlink privileges remain explicit while independent work continues.
+Never claim real-provider/OS evidence from a unit fixture or manufacture worker
+events. Review/commit/push bounded R01 changes and stop for owner review.
+The delivered authorization ends mid-sentence after Part D; the owner subsequently
+instructed continuation without supplying more text. Apply only the delivered
+explicit scope. Older P9 authority
+below remains applicable except where this continuation supersedes it.
+
 The owner's **P9 FULL WINDOWS INTEGRATION & ACCEPTANCE (2026-10-26)** officially
 accepts P8 at `b527a44bb5da47e63c835e71d902c3c6bc1ab1ac` and Engine at
 `99e00e13f8a39fa6730f3d3de773ac937b5ac915`. P8 acceptance was committed/pushed

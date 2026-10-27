@@ -1,0 +1,17 @@
+{
+  "durationMs": 61509.273700000005,
+  "configuredDurationMs": 60000,
+  "cycles": 50,
+  "reloads": 13,
+  "events": 25,
+  "workersStarted": 11,
+  "workerReports": 11,
+  "cancellationLatencyMs": 344.6768000000011,
+  "maxMainRSSBytes": 190341120,
+  "maxRendererHeapBytes": 20500000,
+  "maxRendererFrameLatencyMs": 16.900000035762787,
+  "maxMainAndMissionReadRoundTripMs": 212.10580000000118,
+  "maxObservedIncomingRecords": 0,
+  "maxObservedOutgoingRecords": 0,
+  "evidenceLimit": "Point samples, not continuous worst-case bounds or new CPU/RSS/latency SLA; 25-event stream not high-rate saturation."
+}

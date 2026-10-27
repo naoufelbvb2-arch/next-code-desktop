@@ -1,0 +1,13 @@
+{
+  "mainLocalHandoffBeforeRevoke": true,
+  "mainObservationCommittedBeforeProviderGate": 1,
+  "providerCallsBeforeGate": 0,
+  "capturedProviderCallsAfterMainRevoke": 1,
+  "laterMainReleaseDenied": true,
+  "remoteRecallClaim": false,
+  "originalGateway": true,
+  "transport": "Captured HTTP only; zero external network",
+  "nativeMainCrashExit": 86,
+  "recoveredRenderer": "partial, not complete disclosure audit",
+  "endpointSwitchScope": "Production registry remains one route; alternate test route rejection recorded separately"
+}

@@ -1,0 +1,46 @@
+{
+  "roles": [
+    {
+      "role": "main",
+      "tcpConnections": 4,
+      "states": [
+        5,
+        2,
+        5,
+        2
+      ],
+      "classifiedRuntimeSelfSockets": 0,
+      "unclassifiedConnections": 0,
+      "listeners": 2,
+      "unclassifiedListeners": 0,
+      "services": 0
+    },
+    {
+      "role": "discussion",
+      "tcpConnections": 0,
+      "states": [],
+      "classifiedRuntimeSelfSockets": 0,
+      "unclassifiedConnections": 0,
+      "listeners": 0,
+      "unclassifiedListeners": 0,
+      "services": 0
+    },
+    {
+      "role": "coding",
+      "tcpConnections": 3,
+      "states": [
+        100,
+        5,
+        5
+      ],
+      "classifiedRuntimeSelfSockets": 3,
+      "unclassifiedConnections": 0,
+      "listeners": 0,
+      "unclassifiedListeners": 0,
+      "services": 0
+    }
+  ],
+  "querySucceeded": true,
+  "scope": "Only actual app-owned Main/Discussion/Coding PIDs; no addresses, PIDs, service names or unrelated machine inventory published",
+  "debugging": "Playwright Node inspector/Chromium debug ports and actual CPython Proactor self-socketpair classified explicitly; not a production Python bridge"
+}

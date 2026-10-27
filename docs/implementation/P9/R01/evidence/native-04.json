@@ -1,0 +1,76 @@
+[
+  {
+    "case": "native-token-readonly",
+    "elevated": false,
+    "privileges": {
+      "SeCreateSymbolicLinkPrivilege": {
+        "present": false,
+        "enabled": false
+      },
+      "SeManageVolumePrivilege": {
+        "present": false,
+        "enabled": false
+      }
+    },
+    "changed": false
+  },
+  {
+    "case": "symlink",
+    "directory": false,
+    "created": false,
+    "windowsError": 1314,
+    "status": "NOT_RUN",
+    "osChanges": false
+  },
+  {
+    "case": "symlink",
+    "directory": true,
+    "created": false,
+    "windowsError": 1314,
+    "status": "NOT_RUN",
+    "osChanges": false
+  },
+  {
+    "case": "case-sensitive-directory",
+    "enabled": true,
+    "distinctNativeObjects": true,
+    "ambiguousEnumerationDenied": true,
+    "status": "PASS"
+  },
+  {
+    "case": "native-unicode-normalization",
+    "distinctNativeObjects": true,
+    "nfcRead": true,
+    "nfdDenied": true,
+    "wrongSubjectBytes": 0,
+    "status": "PASS"
+  },
+  {
+    "case": "native-pipe-device",
+    "pipeType": 3,
+    "deviceType": 2,
+    "selectorsDenied": true,
+    "bytesReleased": 0,
+    "status": "PASS"
+  },
+  {
+    "case": "native-af-unix",
+    "ownerAlive": true,
+    "status": "PASS",
+    "bytesReleased": 0
+  },
+  {
+    "case": "BigInt-size-boundary",
+    "status": "PASS",
+    "evidenceKind": "UNIT_INJECTED_METADATA_WITH_REAL_DISCOVER_LOGIC",
+    "hugeFileCreated": false,
+    "nativeSizeClaim": false
+  },
+  {
+    "case": "native-shell-link",
+    "actualBinaryHeader": 76,
+    "targetOutsideSyntheticRoot": true,
+    "targetBytesReleased": 0,
+    "status": "PASS"
+  }
+]

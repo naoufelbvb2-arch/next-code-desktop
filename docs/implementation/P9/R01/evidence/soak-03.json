@@ -1,0 +1,2891 @@
+{
+  "durationMs": 61509.273700000005,
+  "configuredDurationMs": 60000,
+  "cycles": 50,
+  "reloads": 13,
+  "samples": [
+    {
+      "elapsedMs": 599.2723000000005,
+      "mainRoundTripAndMissionReadMs": 170.85629999999946,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 182145024,
+          "heapTotal": 31232000,
+          "heapUsed": 16993184,
+          "external": 3521910,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 1640000,
+          "system": 1125000
+        },
+        "eventCount": 1,
+        "maxSequence": 1,
+        "workersStarted": 0,
+        "workersCompleted": 0,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 3,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 4.200000047683716,
+        "domElements": 115,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 0,
+          "workingSetKiB": 178000
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 0,
+          "workingSetKiB": 355480
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95336
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 0,
+          "workingSetKiB": 142896
+        }
+      ]
+    },
+    {
+      "elapsedMs": 1881.598,
+      "mainRoundTripAndMissionReadMs": 191.03729999999996,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 184848384,
+          "heapTotal": 31232000,
+          "heapUsed": 19543656,
+          "external": 3731784,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 2000000,
+          "system": 1343000
+        },
+        "eventCount": 3,
+        "maxSequence": 3,
+        "workersStarted": 1,
+        "workersCompleted": 0,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 8.599999964237213,
+        "domElements": 121,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 2.4433938567439037,
+          "workingSetKiB": 180528
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.6733174816283776,
+          "workingSetKiB": 355420
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0.04419780078505229,
+          "workingSetKiB": 95344
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 2.2917199075322907,
+          "workingSetKiB": 154672
+        }
+      ]
+    },
+    {
+      "elapsedMs": 3085.811600000001,
+      "mainRoundTripAndMissionReadMs": 162.64789999999994,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 186855424,
+          "heapTotal": 31232000,
+          "heapUsed": 20665328,
+          "external": 3927374,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 2156000,
+          "system": 1421000
+        },
+        "eventCount": 3,
+        "maxSequence": 3,
+        "workersStarted": 1,
+        "workersCompleted": 0,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 1.5,
+        "domElements": 121,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.9421860222270602,
+          "workingSetKiB": 182480
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.4625533310268013,
+          "workingSetKiB": 356320
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95344
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.7809690471560977,
+          "workingSetKiB": 158428
+        }
+      ]
+    },
+    {
+      "elapsedMs": 4266.1698,
+      "mainRoundTripAndMissionReadMs": 143.1315999999988,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 186630144,
+          "heapTotal": 31232000,
+          "heapUsed": 21610396,
+          "external": 4119864,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 2406000,
+          "system": 1453000
+        },
+        "eventCount": 3,
+        "maxSequence": 3,
+        "workersStarted": 1,
+        "workersCompleted": 0,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 5.699999988079071,
+        "domElements": 121,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.8863110789655149,
+          "workingSetKiB": 182260
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.5947101931997,
+          "workingSetKiB": 355088
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0.0009424856585098964,
+          "workingSetKiB": 95352
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.6760265943827384,
+          "workingSetKiB": 160836
+        }
+      ]
+    },
+    {
+      "elapsedMs": 5607.0043000000005,
+      "mainRoundTripAndMissionReadMs": 126.14710000000014,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 187453440,
+          "heapTotal": 31232000,
+          "heapUsed": 22554704,
+          "external": 4312354,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 2515000,
+          "system": 1593000
+        },
+        "eventCount": 3,
+        "maxSequence": 3,
+        "workersStarted": 1,
+        "workersCompleted": 0,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 7.699999988079071,
+        "domElements": 121,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.8626390909328,
+          "workingSetKiB": 183076
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.35215572687996,
+          "workingSetKiB": 355940
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95352
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.5827517554467487,
+          "workingSetKiB": 163092
+        }
+      ]
+    },
+    {
+      "elapsedMs": 6817.633500000002,
+      "mainRoundTripAndMissionReadMs": 160.8820999999989,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 187334656,
+          "heapTotal": 32018432,
+          "heapUsed": 18246624,
+          "external": 3529496,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 2734000,
+          "system": 1843000
+        },
+        "eventCount": 4,
+        "maxSequence": 4,
+        "workersStarted": 1,
+        "workersCompleted": 1,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 2.699999988079071,
+        "domElements": 123,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 2.2291403293912344,
+          "workingSetKiB": 182944
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.680922662968181,
+          "workingSetKiB": 355472
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0.007448545230167883,
+          "workingSetKiB": 95352
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 2.3271394191167003,
+          "workingSetKiB": 173260
+        }
+      ]
+    },
+    {
+      "elapsedMs": 8002.6044999999995,
+      "mainRoundTripAndMissionReadMs": 145.22780000000057,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 187416576,
+          "heapTotal": 32018432,
+          "heapUsed": 19674376,
+          "external": 3732406,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 3000000,
+          "system": 2031000
+        },
+        "eventCount": 5,
+        "maxSequence": 5,
+        "workersStarted": 2,
+        "workersCompleted": 1,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 5.800000011920929,
+        "domElements": 127,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.9194352789618496,
+          "workingSetKiB": 183028
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.554634796130714,
+          "workingSetKiB": 353640
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95352
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.7413002284857657,
+          "workingSetKiB": 174536
+        }
+      ]
+    },
+    {
+      "elapsedMs": 9179.454899999999,
+      "mainRoundTripAndMissionReadMs": 132.11709999999948,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 188973056,
+          "heapTotal": 32018432,
+          "heapUsed": 20622616,
+          "external": 3926404,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 3156000,
+          "system": 2171000
+        },
+        "eventCount": 5,
+        "maxSequence": 5,
+        "workersStarted": 2,
+        "workersCompleted": 1,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 14.300000011920929,
+        "domElements": 127,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.8736420685776047,
+          "workingSetKiB": 184548
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.361527991666106,
+          "workingSetKiB": 340396
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95352
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 2.33319513328298,
+          "workingSetKiB": 172368
+        }
+      ]
+    },
+    {
+      "elapsedMs": 10486.780100000002,
+      "mainRoundTripAndMissionReadMs": 137.04859999999826,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 189227008,
+          "heapTotal": 32018432,
+          "heapUsed": 21930396,
+          "external": 4120402,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 3265000,
+          "system": 2328000
+        },
+        "eventCount": 5,
+        "maxSequence": 5,
+        "workersStarted": 2,
+        "workersCompleted": 1,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 1,
+        "domElements": 127,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.844221075227322,
+          "workingSetKiB": 184804
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.3844595931743164,
+          "workingSetKiB": 340208
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95352
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.492666896741832,
+          "workingSetKiB": 172704
+        }
+      ]
+    },
+    {
+      "elapsedMs": 11730.890400000002,
+      "mainRoundTripAndMissionReadMs": 212.10580000000118,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 190263296,
+          "heapTotal": 32280576,
+          "heapUsed": 22931164,
+          "external": 4316450,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 3515000,
+          "system": 2468000
+        },
+        "eventCount": 5,
+        "maxSequence": 5,
+        "workersStarted": 2,
+        "workersCompleted": 1,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 6.300000011920929,
+        "domElements": 127,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 2.131242153429364,
+          "workingSetKiB": 185960
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.822389329784965,
+          "workingSetKiB": 342628
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0.005978133042473242,
+          "workingSetKiB": 95352
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 2.1928117342853097,
+          "workingSetKiB": 174500
+        }
+      ]
+    },
+    {
+      "elapsedMs": 12876.000900000001,
+      "mainRoundTripAndMissionReadMs": 137.79119999999966,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 188502016,
+          "heapTotal": 32280576,
+          "heapUsed": 18601148,
+          "external": 3527214,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 3765000,
+          "system": 2656000
+        },
+        "eventCount": 7,
+        "maxSequence": 7,
+        "workersStarted": 3,
+        "workersCompleted": 2,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 9.599999964237213,
+        "domElements": 133,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 2.061540093843197,
+          "workingSetKiB": 184104
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.1242453421183116,
+          "workingSetKiB": 341408
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95352
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.6945583908020347,
+          "workingSetKiB": 177480
+        }
+      ]
+    },
+    {
+      "elapsedMs": 14002.017399999999,
+      "mainRoundTripAndMissionReadMs": 104.90810000000056,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 188407808,
+          "heapTotal": 32280576,
+          "heapUsed": 19613244,
+          "external": 3722720,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 3937000,
+          "system": 2765000
+        },
+        "eventCount": 7,
+        "maxSequence": 7,
+        "workersStarted": 3,
+        "workersCompleted": 2,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 3.399999976158142,
+        "domElements": 133,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.9050841814439061,
+          "workingSetKiB": 184012
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 2.988989006675273,
+          "workingSetKiB": 340900
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95352
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.500504287822579,
+          "workingSetKiB": 178976
+        }
+      ]
+    },
+    {
+      "elapsedMs": 15300.2171,
+      "mainRoundTripAndMissionReadMs": 130.60269999999946,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 189415424,
+          "heapTotal": 32280576,
+          "heapUsed": 20575120,
+          "external": 3918078,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 4078000,
+          "system": 2812000
+        },
+        "eventCount": 7,
+        "maxSequence": 7,
+        "workersStarted": 3,
+        "workersCompleted": 2,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 7.199999988079071,
+        "domElements": 133,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.745206768306628,
+          "workingSetKiB": 184980
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.123302245914737,
+          "workingSetKiB": 341040
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95352
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.535900299560575,
+          "workingSetKiB": 180500
+        }
+      ]
+    },
+    {
+      "elapsedMs": 16527.8068,
+      "mainRoundTripAndMissionReadMs": 175.82840000000215,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 189304832,
+          "heapTotal": 32280576,
+          "heapUsed": 21858948,
+          "external": 4115782,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 4406000,
+          "system": 2968000
+        },
+        "eventCount": 7,
+        "maxSequence": 7,
+        "workersStarted": 3,
+        "workersCompleted": 2,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 1.199999988079071,
+        "domElements": 133,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 2.1272319839895344,
+          "workingSetKiB": 184872
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.6793917965741536,
+          "workingSetKiB": 346672
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0.006841386064816732,
+          "workingSetKiB": 95352
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 2.85964865457953,
+          "workingSetKiB": 184828
+        }
+      ]
+    },
+    {
+      "elapsedMs": 17673.886,
+      "mainRoundTripAndMissionReadMs": 112.6320999999989,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 190169088,
+          "heapTotal": 32280576,
+          "heapUsed": 23192288,
+          "external": 4317904,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 4578000,
+          "system": 3062000
+        },
+        "eventCount": 8,
+        "maxSequence": 8,
+        "workersStarted": 3,
+        "workersCompleted": 3,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 3.400000035762787,
+        "domElements": 135,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.8877705596213552,
+          "workingSetKiB": 185716
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.443150778884907,
+          "workingSetKiB": 344124
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95352
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.662891323296263,
+          "workingSetKiB": 184340
+        }
+      ]
+    },
+    {
+      "elapsedMs": 18839.6034,
+      "mainRoundTripAndMissionReadMs": 133.21130000000267,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 189239296,
+          "heapTotal": 32542720,
+          "heapUsed": 18371820,
+          "external": 4583888,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 4781000,
+          "system": 3203000
+        },
+        "eventCount": 9,
+        "maxSequence": 9,
+        "workersStarted": 4,
+        "workersCompleted": 3,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 9.799999952316284,
+        "domElements": 139,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 2.0081911909737467,
+          "workingSetKiB": 184804
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.295368001772254,
+          "workingSetKiB": 343240
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95352
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.651357958050775,
+          "workingSetKiB": 185392
+        }
+      ]
+    },
+    {
+      "elapsedMs": 20131.9551,
+      "mainRoundTripAndMissionReadMs": 132.29200000000128,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 188948480,
+          "heapTotal": 32804864,
+          "heapUsed": 19396392,
+          "external": 3777848,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 4937000,
+          "system": 3375000
+        },
+        "eventCount": 9,
+        "maxSequence": 9,
+        "workersStarted": 4,
+        "workersCompleted": 3,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 8,
+        "domElements": 139,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.8144617222505588,
+          "workingSetKiB": 184528
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.406965207297369,
+          "workingSetKiB": 343384
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95352
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.6010231489157902,
+          "workingSetKiB": 185660
+        }
+      ]
+    },
+    {
+      "elapsedMs": 21376.5135,
+      "mainRoundTripAndMissionReadMs": 197.75599999999758,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 190341120,
+          "heapTotal": 32804864,
+          "heapUsed": 20659532,
+          "external": 3976912,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 5093000,
+          "system": 3531000
+        },
+        "eventCount": 9,
+        "maxSequence": 9,
+        "workersStarted": 4,
+        "workersCompleted": 3,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 13.5,
+        "domElements": 139,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 2.2945628948226178,
+          "workingSetKiB": 186032
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.795382447641678,
+          "workingSetKiB": 345904
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0.010442472587453596,
+          "workingSetKiB": 95328
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 2.2089698077032525,
+          "workingSetKiB": 184476
+        }
+      ]
+    },
+    {
+      "elapsedMs": 22560.190799999997,
+      "mainRoundTripAndMissionReadMs": 130.18249999999534,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 170905600,
+          "heapTotal": 17076224,
+          "heapUsed": 15662116,
+          "external": 3526326,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 5421000,
+          "system": 3656000
+        },
+        "eventCount": 9,
+        "maxSequence": 9,
+        "workersStarted": 4,
+        "workersCompleted": 3,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 6.099999964237213,
+        "domElements": 139,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 2.6515893905452956,
+          "workingSetKiB": 166900
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.56418461343397,
+          "workingSetKiB": 344828
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95328
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.7798575809078139,
+          "workingSetKiB": 185616
+        }
+      ]
+    },
+    {
+      "elapsedMs": 23774.942799999997,
+      "mainRoundTripAndMissionReadMs": 189.5923000000039,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 174419968,
+          "heapTotal": 18649088,
+          "heapUsed": 16247288,
+          "external": 3714228,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 5609000,
+          "system": 3750000
+        },
+        "eventCount": 11,
+        "maxSequence": 11,
+        "workersStarted": 5,
+        "workersCompleted": 4,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 5.199999988079071,
+        "domElements": 145,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.9069239263842064,
+          "workingSetKiB": 170400
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.478680029609091,
+          "workingSetKiB": 343876
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95328
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.672764057618259,
+          "workingSetKiB": 183832
+        }
+      ]
+    },
+    {
+      "elapsedMs": 25065.9432,
+      "mainRoundTripAndMissionReadMs": 143.7462000000014,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 175837184,
+          "heapTotal": 19173376,
+          "heapUsed": 15858672,
+          "external": 3525675,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 5765000,
+          "system": 3843000
+        },
+        "eventCount": 11,
+        "maxSequence": 11,
+        "workersStarted": 5,
+        "workersCompleted": 4,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 7.599999964237213,
+        "domElements": 145,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.772287082927234,
+          "workingSetKiB": 171716
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.0834737375845456,
+          "workingSetKiB": 344028
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95328
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.8933227040162914,
+          "workingSetKiB": 183084
+        }
+      ]
+    },
+    {
+      "elapsedMs": 26284.202599999997,
+      "mainRoundTripAndMissionReadMs": 180.85899999999674,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 175144960,
+          "heapTotal": 20221952,
+          "heapUsed": 15404676,
+          "external": 3726254,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 5984000,
+          "system": 3968000
+        },
+        "eventCount": 11,
+        "maxSequence": 11,
+        "workersStarted": 5,
+        "workersCompleted": 4,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 8.199999988079071,
+        "domElements": 145,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 2.1684798896710498,
+          "workingSetKiB": 171052
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.7391266780826116,
+          "workingSetKiB": 348472
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0.007308012859953218,
+          "workingSetKiB": 95328
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 2.2086294693943267,
+          "workingSetKiB": 185040
+        }
+      ]
+    },
+    {
+      "elapsedMs": 27459.341099999998,
+      "mainRoundTripAndMissionReadMs": 145.43019999999524,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 176824320,
+          "heapTotal": 20221952,
+          "heapUsed": 16580852,
+          "external": 3713463,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 6125000,
+          "system": 4078000
+        },
+        "eventCount": 11,
+        "maxSequence": 11,
+        "workersStarted": 5,
+        "workersCompleted": 4,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 12,
+        "domElements": 145,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.813292832276435,
+          "workingSetKiB": 172684
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.658896896346005,
+          "workingSetKiB": 343872
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95328
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 2.1674960112379558,
+          "workingSetKiB": 183496
+        }
+      ]
+    },
+    {
+      "elapsedMs": 28639.293399999995,
+      "mainRoundTripAndMissionReadMs": 131.27659999999742,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 176394240,
+          "heapTotal": 17600512,
+          "heapUsed": 15516716,
+          "external": 3528801,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 6312000,
+          "system": 4218000
+        },
+        "eventCount": 12,
+        "maxSequence": 12,
+        "workersStarted": 5,
+        "workersCompleted": 5,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 8.5,
+        "domElements": 147,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.8852831959220335,
+          "workingSetKiB": 172324
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.386268327772506,
+          "workingSetKiB": 341952
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95328
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.6049035955889042,
+          "workingSetKiB": 183832
+        }
+      ]
+    },
+    {
+      "elapsedMs": 29928.6789,
+      "mainRoundTripAndMissionReadMs": 141.39519999999902,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 177270784,
+          "heapTotal": 18386944,
+          "heapUsed": 16073936,
+          "external": 3524791,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 6531000,
+          "system": 4375000
+        },
+        "eventCount": 13,
+        "maxSequence": 13,
+        "workersStarted": 6,
+        "workersCompleted": 5,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 7,
+        "domElements": 151,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.844412976841912,
+          "workingSetKiB": 173116
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.3965088920901834,
+          "workingSetKiB": 341744
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95328
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.6188915954723522,
+          "workingSetKiB": 184168
+        }
+      ]
+    },
+    {
+      "elapsedMs": 31147.369999999995,
+      "mainRoundTripAndMissionReadMs": 182.77629999999772,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 177586176,
+          "heapTotal": 18649088,
+          "heapUsed": 15677632,
+          "external": 3531465,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 6796000,
+          "system": 4531000
+        },
+        "eventCount": 13,
+        "maxSequence": 13,
+        "workersStarted": 6,
+        "workersCompleted": 5,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 12.5,
+        "domElements": 151,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 2.144085150418887,
+          "workingSetKiB": 173488
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.7352949895171936,
+          "workingSetKiB": 345668
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0.007004537591892416,
+          "workingSetKiB": 95328
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 2.5368286957685973,
+          "workingSetKiB": 185064
+        }
+      ]
+    },
+    {
+      "elapsedMs": 32414.987699999998,
+      "mainRoundTripAndMissionReadMs": 165.96310000000085,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 177315840,
+          "heapTotal": 18649088,
+          "heapUsed": 16137516,
+          "external": 3524130,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 6953000,
+          "system": 4656000
+        },
+        "eventCount": 13,
+        "maxSequence": 13,
+        "workersStarted": 6,
+        "workersCompleted": 5,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 1.5,
+        "domElements": 151,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.777260116911463,
+          "workingSetKiB": 173160
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.3086964917727637,
+          "workingSetKiB": 343976
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95328
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.7005118852525978,
+          "workingSetKiB": 184940
+        }
+      ]
+    },
+    {
+      "elapsedMs": 33592.7743,
+      "mainRoundTripAndMissionReadMs": 112.24549999999726,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 177283072,
+          "heapTotal": 19173376,
+          "heapUsed": 15770420,
+          "external": 3529353,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 7187000,
+          "system": 4750000
+        },
+        "eventCount": 13,
+        "maxSequence": 13,
+        "workersStarted": 6,
+        "workersCompleted": 5,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 0.7000000476837158,
+        "domElements": 151,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.6939237182893707,
+          "workingSetKiB": 173192
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.2204128552635427,
+          "workingSetKiB": 344040
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95328
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.4829876963494306,
+          "workingSetKiB": 185204
+        }
+      ]
+    },
+    {
+      "elapsedMs": 34899.2335,
+      "mainRoundTripAndMissionReadMs": 133.58860000000277,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 177577984,
+          "heapTotal": 19173376,
+          "heapUsed": 15903788,
+          "external": 3530045,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 7390000,
+          "system": 4875000
+        },
+        "eventCount": 15,
+        "maxSequence": 15,
+        "workersStarted": 7,
+        "workersCompleted": 6,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 11.100000023841858,
+        "domElements": 157,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.929684234893219,
+          "workingSetKiB": 173480
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.224545380214924,
+          "workingSetKiB": 344388
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95328
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.552870982439203,
+          "workingSetKiB": 185372
+        }
+      ]
+    },
+    {
+      "elapsedMs": 36096.656299999995,
+      "mainRoundTripAndMissionReadMs": 159.76600000000326,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 177762304,
+          "heapTotal": 19697664,
+          "heapUsed": 17362016,
+          "external": 3783109,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 7812000,
+          "system": 5000000
+        },
+        "eventCount": 15,
+        "maxSequence": 15,
+        "workersStarted": 7,
+        "workersCompleted": 6,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 4.699999988079071,
+        "domElements": 157,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 2.27405569559868,
+          "workingSetKiB": 173604
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.834517375502902,
+          "workingSetKiB": 345040
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0.007158982281223914,
+          "workingSetKiB": 95328
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 2.250050915956337,
+          "workingSetKiB": 185292
+        }
+      ]
+    },
+    {
+      "elapsedMs": 37259.5858,
+      "mainRoundTripAndMissionReadMs": 134.24260000000504,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 178126848,
+          "heapTotal": 20221952,
+          "heapUsed": 17115472,
+          "external": 3779347,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 8015000,
+          "system": 5109000
+        },
+        "eventCount": 15,
+        "maxSequence": 15,
+        "workersStarted": 7,
+        "workersCompleted": 6,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 1.699999988079071,
+        "domElements": 157,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.842329016169412,
+          "workingSetKiB": 173956
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.153866471680733,
+          "workingSetKiB": 343192
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95328
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.6563493790655837,
+          "workingSetKiB": 183452
+        }
+      ]
+    },
+    {
+      "elapsedMs": 38412.1529,
+      "mainRoundTripAndMissionReadMs": 124.88440000000264,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 177958912,
+          "heapTotal": 21008384,
+          "heapUsed": 16761920,
+          "external": 3593019,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 8234000,
+          "system": 5156000
+        },
+        "eventCount": 15,
+        "maxSequence": 15,
+        "workersStarted": 7,
+        "workersCompleted": 6,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 12.300000011920929,
+        "domElements": 157,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.795582873089128,
+          "workingSetKiB": 173788
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.1624997887860817,
+          "workingSetKiB": 342304
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95328
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 2.0340637168053632,
+          "workingSetKiB": 181860
+        }
+      ]
+    },
+    {
+      "elapsedMs": 39726.4696,
+      "mainRoundTripAndMissionReadMs": 133.18570000000182,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 178077696,
+          "heapTotal": 21270528,
+          "heapUsed": 16220788,
+          "external": 3799017,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 8515000,
+          "system": 5250000
+        },
+        "eventCount": 16,
+        "maxSequence": 16,
+        "workersStarted": 7,
+        "workersCompleted": 7,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 16.899999976158142,
+        "domElements": 159,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.8902954216930623,
+          "workingSetKiB": 173968
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.25652927380391,
+          "workingSetKiB": 342432
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95328
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.5348326030730086,
+          "workingSetKiB": 182108
+        }
+      ]
+    },
+    {
+      "elapsedMs": 40912.8911,
+      "mainRoundTripAndMissionReadMs": 150.40050000000338,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 177901568,
+          "heapTotal": 21270528,
+          "heapUsed": 16345844,
+          "external": 3579506,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 8781000,
+          "system": 5406000
+        },
+        "eventCount": 17,
+        "maxSequence": 17,
+        "workersStarted": 8,
+        "workersCompleted": 7,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 1.699999988079071,
+        "domElements": 163,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 2.262890768617616,
+          "workingSetKiB": 173740
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.5088773883130258,
+          "workingSetKiB": 348900
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0.00643491947663513,
+          "workingSetKiB": 95328
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 2.258977061082432,
+          "workingSetKiB": 184360
+        }
+      ]
+    },
+    {
+      "elapsedMs": 42124.3667,
+      "mainRoundTripAndMissionReadMs": 143.3116000000009,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 178688000,
+          "heapTotal": 21270528,
+          "heapUsed": 17660744,
+          "external": 3784603,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 9046000,
+          "system": 5437000
+        },
+        "eventCount": 17,
+        "maxSequence": 17,
+        "workersStarted": 8,
+        "workersCompleted": 7,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 8.300000011920929,
+        "domElements": 163,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.8680666743772367,
+          "workingSetKiB": 174512
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.185126526114023,
+          "workingSetKiB": 346684
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95328
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 2.1110027344482405,
+          "workingSetKiB": 183512
+        }
+      ]
+    },
+    {
+      "elapsedMs": 43289.0735,
+      "mainRoundTripAndMissionReadMs": 132.4702000000034,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 178905088,
+          "heapTotal": 21532672,
+          "heapUsed": 17346296,
+          "external": 3599129,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 9312000,
+          "system": 5500000
+        },
+        "eventCount": 17,
+        "maxSequence": 17,
+        "workersStarted": 8,
+        "workersCompleted": 7,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 11.399999976158142,
+        "domElements": 163,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.8186112142238466,
+          "workingSetKiB": 174716
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.3739298471586703,
+          "workingSetKiB": 346388
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95328
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.5664435839576463,
+          "workingSetKiB": 183996
+        }
+      ]
+    },
+    {
+      "elapsedMs": 44577.794,
+      "mainRoundTripAndMissionReadMs": 129.061099999999,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 179138560,
+          "heapTotal": 18649088,
+          "heapUsed": 16994868,
+          "external": 3591615,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 9515000,
+          "system": 5609000
+        },
+        "eventCount": 17,
+        "maxSequence": 17,
+        "workersStarted": 8,
+        "workersCompleted": 7,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 4.300000011920929,
+        "domElements": 163,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.8107719870232581,
+          "workingSetKiB": 174940
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.367478354225966,
+          "workingSetKiB": 345216
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95328
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.5414322668576634,
+          "workingSetKiB": 184164
+        }
+      ]
+    },
+    {
+      "elapsedMs": 45775.5957,
+      "mainRoundTripAndMissionReadMs": 165.56670000000304,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 178524160,
+          "heapTotal": 19697664,
+          "heapUsed": 16739816,
+          "external": 3598457,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 9828000,
+          "system": 5718000
+        },
+        "eventCount": 19,
+        "maxSequence": 19,
+        "workersStarted": 9,
+        "workersCompleted": 8,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 5.5,
+        "domElements": 169,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 2.292665461104883,
+          "workingSetKiB": 174448
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.2034213882189064,
+          "workingSetKiB": 345804
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0.0066259574696020136,
+          "workingSetKiB": 95328
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 2.534311825406468,
+          "workingSetKiB": 185284
+        }
+      ]
+    },
+    {
+      "elapsedMs": 46884.5538,
+      "mainRoundTripAndMissionReadMs": 114.81039999999484,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 179208192,
+          "heapTotal": 19697664,
+          "heapUsed": 17341396,
+          "external": 3595270,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 10062000,
+          "system": 5750000
+        },
+        "eventCount": 19,
+        "maxSequence": 19,
+        "workersStarted": 9,
+        "workersCompleted": 8,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 2,
+        "domElements": 169,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.79516417033898,
+          "workingSetKiB": 175008
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.3640956891919074,
+          "workingSetKiB": 343816
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95328
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.6260903150970838,
+          "workingSetKiB": 186304
+        }
+      ]
+    },
+    {
+      "elapsedMs": 48045.074,
+      "mainRoundTripAndMissionReadMs": 129.53409999999712,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 179363840,
+          "heapTotal": 21008384,
+          "heapUsed": 16859264,
+          "external": 3799847,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 10281000,
+          "system": 5875000
+        },
+        "eventCount": 19,
+        "maxSequence": 19,
+        "workersStarted": 9,
+        "workersCompleted": 8,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 9.900000035762787,
+        "domElements": 169,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.8324365408033987,
+          "workingSetKiB": 175224
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.4894902082248094,
+          "workingSetKiB": 346012
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95328
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.657897118099076,
+          "workingSetKiB": 185056
+        }
+      ]
+    },
+    {
+      "elapsedMs": 49329.6663,
+      "mainRoundTripAndMissionReadMs": 130.37709999999788,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 179355648,
+          "heapTotal": 21270528,
+          "heapUsed": 18037352,
+          "external": 3848403,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 10531000,
+          "system": 5921000
+        },
+        "eventCount": 19,
+        "maxSequence": 19,
+        "workersStarted": 9,
+        "workersCompleted": 8,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 8.199999988079071,
+        "domElements": 169,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.816621134969359,
+          "workingSetKiB": 175160
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.5479582067246724,
+          "workingSetKiB": 343636
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95328
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.6374647030628726,
+          "workingSetKiB": 185428
+        }
+      ]
+    },
+    {
+      "elapsedMs": 50528.508499999996,
+      "mainRoundTripAndMissionReadMs": 169.66410000000178,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 179486720,
+          "heapTotal": 22056960,
+          "heapUsed": 18437024,
+          "external": 3675172,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 10781000,
+          "system": 6109000
+        },
+        "eventCount": 20,
+        "maxSequence": 20,
+        "workersStarted": 9,
+        "workersCompleted": 9,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 7.600000023841858,
+        "domElements": 171,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 2.14943261789143,
+          "workingSetKiB": 175288
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.4785206746369144,
+          "workingSetKiB": 345432
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0.007027275807128174,
+          "workingSetKiB": 95328
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 2.5142451532858745,
+          "workingSetKiB": 185760
+        }
+      ]
+    },
+    {
+      "elapsedMs": 51723.6094,
+      "mainRoundTripAndMissionReadMs": 163.3868999999977,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 179429376,
+          "heapTotal": 22581248,
+          "heapUsed": 18486744,
+          "external": 3853196,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 10953000,
+          "system": 6203000
+        },
+        "eventCount": 21,
+        "maxSequence": 21,
+        "workersStarted": 10,
+        "workersCompleted": 9,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 1.5999999642372131,
+        "domElements": 175,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.904861592588087,
+          "workingSetKiB": 175228
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 2.9491882656550468,
+          "workingSetKiB": 344184
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0.008673417476602623,
+          "workingSetKiB": 95148
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.736763147617451,
+          "workingSetKiB": 181528
+        }
+      ]
+    },
+    {
+      "elapsedMs": 52895.4886,
+      "mainRoundTripAndMissionReadMs": 141.1921000000002,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 178921472,
+          "heapTotal": 22581248,
+          "heapUsed": 18339688,
+          "external": 3666669,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 11234000,
+          "system": 6281000
+        },
+        "eventCount": 21,
+        "maxSequence": 21,
+        "workersStarted": 10,
+        "workersCompleted": 9,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 5.100000023841858,
+        "domElements": 175,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.9690676121845414,
+          "workingSetKiB": 174736
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.037282168079931,
+          "workingSetKiB": 343164
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0.0015505820075857168,
+          "workingSetKiB": 95148
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.7212967980094818,
+          "workingSetKiB": 182604
+        }
+      ]
+    },
+    {
+      "elapsedMs": 54196.937099999996,
+      "mainRoundTripAndMissionReadMs": 131.95959999999468,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 180162560,
+          "heapTotal": 22581248,
+          "heapUsed": 18112200,
+          "external": 3664307,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 11453000,
+          "system": 6343000
+        },
+        "eventCount": 21,
+        "maxSequence": 21,
+        "workersStarted": 10,
+        "workersCompleted": 9,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 7.800000011920929,
+        "domElements": 175,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.9065532225288173,
+          "workingSetKiB": 175940
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.0622969241463163,
+          "workingSetKiB": 343260
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95148
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.5863680493900887,
+          "workingSetKiB": 182208
+        }
+      ]
+    },
+    {
+      "elapsedMs": 55409.914000000004,
+      "mainRoundTripAndMissionReadMs": 190.4326000000001,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 178642944,
+          "heapTotal": 22581248,
+          "heapUsed": 18157188,
+          "external": 3662979,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 11828000,
+          "system": 6468000
+        },
+        "eventCount": 21,
+        "maxSequence": 21,
+        "workersStarted": 10,
+        "workersCompleted": 9,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 12.399999976158142,
+        "domElements": 175,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 2.126815636739582,
+          "workingSetKiB": 174568
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.6297719119227816,
+          "workingSetKiB": 349192
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0.00955561283121425,
+          "workingSetKiB": 95164
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 2.4969267573512144,
+          "workingSetKiB": 181980
+        }
+      ]
+    },
+    {
+      "elapsedMs": 56576.21859999999,
+      "mainRoundTripAndMissionReadMs": 132.66189999999187,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 180314112,
+          "heapTotal": 22581248,
+          "heapUsed": 18417708,
+          "external": 3665953,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 12109000,
+          "system": 6515000
+        },
+        "eventCount": 23,
+        "maxSequence": 23,
+        "workersStarted": 11,
+        "workersCompleted": 10,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 3.700000047683716,
+        "domElements": 181,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.9228043004815498,
+          "workingSetKiB": 176088
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.0090381775839488,
+          "workingSetKiB": 347392
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0,
+          "workingSetKiB": 95164
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.6386110211314688,
+          "workingSetKiB": 181208
+        }
+      ]
+    },
+    {
+      "elapsedMs": 57748.4011,
+      "mainRoundTripAndMissionReadMs": 129.36070000000473,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 180330496,
+          "heapTotal": 22581248,
+          "heapUsed": 18229996,
+          "external": 3661687,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 12406000,
+          "system": 6656000
+        },
+        "eventCount": 23,
+        "maxSequence": 23,
+        "workersStarted": 11,
+        "workersCompleted": 10,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 3.800000011920929,
+        "domElements": 181,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 2.0354896271126637,
+          "workingSetKiB": 176104
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.1522499488522695,
+          "workingSetKiB": 345156
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0.0015005539187608681,
+          "workingSetKiB": 95164
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 2.1485081461536737,
+          "workingSetKiB": 181680
+        }
+      ]
+    },
+    {
+      "elapsedMs": 59053.2323,
+      "mainRoundTripAndMissionReadMs": 147.41849999999977,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 180195328,
+          "heapTotal": 22843392,
+          "heapUsed": 17713068,
+          "external": 3645042,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 12593000,
+          "system": 6734000
+        },
+        "eventCount": 23,
+        "maxSequence": 23,
+        "workersStarted": 11,
+        "workersCompleted": 10,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 8.199999988079071,
+        "domElements": 181,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 1.866411644003925,
+          "workingSetKiB": 175972
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.1063656974915177,
+          "workingSetKiB": 345164
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0.0006391629618329264,
+          "workingSetKiB": 95164
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 1.6437840379629607,
+          "workingSetKiB": 182084
+        }
+      ]
+    },
+    {
+      "elapsedMs": 60272.9963,
+      "mainRoundTripAndMissionReadMs": 195.8064999999915,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 179916800,
+          "heapTotal": 22843392,
+          "heapUsed": 19239612,
+          "external": 3920229,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 12859000,
+          "system": 6906000
+        },
+        "eventCount": 23,
+        "maxSequence": 23,
+        "workersStarted": 11,
+        "workersCompleted": 10,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameLatencyMs": 16.900000035762787,
+        "domElements": 181,
+        "heap": 20500000
+      },
+      "resources": [
+        {
+          "type": "Browser",
+          "cpuPercent": 2.152119315896715,
+          "workingSetKiB": 175716
+        },
+        {
+          "type": "GPU",
+          "cpuPercent": 3.5494863193262356,
+          "workingSetKiB": 350144
+        },
+        {
+          "type": "Utility",
+          "cpuPercent": 0.008442373597170396,
+          "workingSetKiB": 95164
+        },
+        {
+          "type": "Tab",
+          "cpuPercent": 2.778305953582368,
+          "workingSetKiB": 181708
+        }
+      ]
+    }
+  ],
+  "cancellationLatencyMs": 344.6768000000011,
+  "final": {
+    "cleanupState": "verified_cancelled",
+    "memory": {
+      "rss": 181035008,
+      "heapTotal": 23105536,
+      "heapUsed": 19490056,
+      "external": 3838142,
+      "arrayBuffers": 0
+    },
+    "cpu": {
+      "user": 13265000,
+      "system": 7062000
+    },
+    "eventCount": 25,
+    "maxSequence": 25,
+    "workersStarted": 11,
+    "workersCompleted": 11,
+    "incomingRecords": 0,
+    "incomingBytes": 0,
+    "outgoingRecords": 0,
+    "outgoingBytes": 0,
+    "partialFrameBytes": 0,
+    "activeProcesses": null,
+    "cleanupVerified": null
+  },
+  "nativeHeldProcessHandleSignaled": true,
+  "processCreationIdentityMatched": true,
+  "actualAgentOS": true,
+  "providerTransport": "httpx.MockTransport only; 0 external requests",
+  "eventsInjected": 0,
+  "limits": "Only existing queue/record limits asserted; CPU/RSS/latencies are observations, not new SLA",
+  "streamShape": "Original 15-tick AgentOS, repeated actual SCOUT reports with bounded read tools, 0.5s offline HTTP wait; no claim of arbitrary-rate saturation"
+}

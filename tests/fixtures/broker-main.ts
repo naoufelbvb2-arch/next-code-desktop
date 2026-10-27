@@ -14,7 +14,11 @@ let service: DiscussionService,
   directory: string,
   conversationId: string | null = null
 let crashBeforeEvidence = false
-export async function startBrokerPeer(profile: string) {
+let r01Pipe: { prepared: boolean; attempts: number; callbackError: string | null } | undefined
+export async function startBrokerPeer(
+  profile: string,
+  options: { resume?: boolean; gate?: boolean } = {}
+) {
   directory = profile
   const workspace = join(profile, 'Peer synthetic project')
   mkdirSync(workspace, { recursive: true })
@@ -61,7 +65,8 @@ export async function startBrokerPeer(profile: string) {
           sitePackages: resolve('.venv/Lib/site-packages'),
           budgetFile: 'unused_mock_budget'
         }),
-        NCD_FIXTURE_METRICS: join(profile, 'mock-provider-metrics.json')
+        NCD_FIXTURE_METRICS: join(profile, 'mock-provider-metrics.json'),
+        ...(options.gate ? { NCD_R01_PROVIDER_GATE: join(profile, 'r01-provider-gate') } : {})
       },
       args: [
         '-I',
@@ -79,6 +84,16 @@ export async function startBrokerPeer(profile: string) {
   await child.ready
   const selected = await service.dispatch('projects.choose', null)
   if (!selected.ok) throw new Error('Synthetic native project registration failed')
+  if (options.resume) {
+    const db = new DatabaseSync(join(profile, 'peer-state.sqlite3'), { readOnly: true })
+    try {
+      conversationId = db
+        .prepare('SELECT conversation_id FROM conversations ORDER BY created_at LIMIT 1')
+        .get()!.conversation_id as string
+    } finally {
+      db.close()
+    }
+  }
   return {
     ready: child.connection.state.ready,
     role: child.identity.role,
@@ -143,6 +158,78 @@ export async function closeBrokerPeer() {
 }
 export function armBrokerCrash() {
   crashBeforeEvidence = true
+}
+export async function revokeR01BrokerPeer() {
+  const page = await service.dispatch('conversations.read', { conversationId })
+  if (!page.ok) throw new Error('No R01 conversation')
+  const grants = await service.dispatch('disclosures.list', {
+    projectId: (page.data as import('../../contracts/ipc').Output<'conversations.read'>)
+      .conversation.projectId
+  })
+  if (!grants.ok) throw new Error('No R01 grants')
+  const consent = (grants.data as { consentId: string; status: string }[]).find(
+    (g) => g.status === 'granted'
+  )
+  if (!consent) throw new Error('No live grant')
+  return service.dispatch('disclosures.revoke', {
+    consentId: consent.consentId,
+    clientMutationId: randomBytes(16).toString('hex')
+  })
+}
+export async function r01BrokerGateState() {
+  return {
+    ready: existsSync(join(directory, 'r01-provider-gate.ready')),
+    snapshot: await snapshotBrokerPeer()
+  }
+}
+export function releaseR01BrokerGate() {
+  writeFileSync(join(directory, 'r01-provider-gate'), 'Explicit test release after Main revoke')
+}
+export function armR01BrokenSourcePipe() {
+  const stream = child.process!.stdin
+  const original = stream.write.bind(stream)
+  r01Pipe = { prepared: false, attempts: 0, callbackError: null }
+  // Fault injection after production replyBroker's authenticated prepare hook.
+  // Destroy the real anonymous-pipe writer, then call the real write/callback.
+  stream.write = ((data: Uint8Array, callback: (error?: Error | null) => void) => {
+    const frame = JSON.parse(Buffer.from(data).toString('utf8'))
+    if (frame.payload?.result?.content) {
+      r01Pipe!.prepared = true
+      r01Pipe!.attempts++
+      stream.destroy()
+      return original(data, (error) => {
+        r01Pipe!.callbackError = (error as NodeJS.ErrnoException | null)?.code ?? null
+        callback(error)
+      })
+    }
+    return original(data, callback)
+  }) as typeof stream.write
+}
+export function r01BrokenPipeEvidence() {
+  return r01Pipe
+}
+export function r01NewConversation() {
+  conversationId = null
+}
+export async function r01MemoryState() {
+  const page = await service.dispatch('conversations.read', { conversationId })
+  if (!page.ok) throw new Error('No current R01 memory')
+  const data = page.data as import('../../contracts/ipc').Output<'conversations.read'>
+  if (!data.conversation.projectId) throw new Error('No R01 project scope')
+  const scope = service.store.projectBinding(data.conversation.projectId).scope
+  const context = service.store.context(scope, conversationId!)
+  const ids = new Set(data.messages.map((m) => m.messageId))
+  return {
+    messages: data.messages.length,
+    summaries: context.summaries.length,
+    referencesResolve: context.summaries.every((s) =>
+      s.source_message_ids.every((id) => ids.has(id))
+    ),
+    contextRevision: context.context_revision,
+    statuses: data.discussionTurns.map((t) => t.status),
+    lastAssistant: data.messages.filter((m) => m.role === 'assistant').at(-1)?.text ?? null,
+    metrics: (await snapshotBrokerPeer()).metrics
+  }
 }
 export async function recoverBrokerPeer(profile: string) {
   const recovered = new DiscussionService({

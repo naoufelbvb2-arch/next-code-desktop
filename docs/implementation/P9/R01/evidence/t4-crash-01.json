@@ -1,0 +1,12 @@
+{
+  "nativeMainExit": 87,
+  "sequence": 1,
+  "name": "task.started",
+  "independentReader": true,
+  "ipcPublicationAttempted": false,
+  "restoredEvents": 1,
+  "duplicateExecutions": 0,
+  "leasesHeld": 1,
+  "state": "needs_reconciliation",
+  "nativeCleanupClaim": false
+}

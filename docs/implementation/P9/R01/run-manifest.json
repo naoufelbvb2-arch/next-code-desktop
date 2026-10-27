@@ -1,0 +1,586 @@
+{
+  "runId": "P9-R01-2026-10-26-27",
+  "desktopBaseline": "b4ae63cd34d8d3c84dae68b5697ea53bccf515f4",
+  "engineCommit": "99e00e13f8a39fa6730f3d3de773ac937b5ac915",
+  "branch": "feature/p9-windows-integrated-acceptance",
+  "clientCompletionDate": "2026-10-27",
+  "timestampPolicy": "Raw test report UTC timestamps retained as emitted; owner/client completion date used here.",
+  "engineState": "clean read-only, local and remote exact pinned SHA",
+  "mainRefs": {
+    "desktop": "af682b74375a0b5827aa1fca0ff0815434803650",
+    "engine": "834d0ca62cc9b2c03e530bafe4090024d98f31d3"
+  },
+  "environment": {
+    "windowsBuild": "10.0.26200",
+    "architecture": "AMD64",
+    "hostPython": "3.14.4",
+    "logicalProcessors": 14,
+    "hostNode": "v25.9.0",
+    "hostSQLite": "3.51.3",
+    "totalPhysicalMemoryBytes": 16664707072,
+    "cpuModel": "Intel(R) Core(TM) Ultra 7 155U",
+    "electron": "45.0.0",
+    "chromium": "156.0.8078.48",
+    "embeddedNode": "24.22.0",
+    "platform": "win32",
+    "arch": "x64",
+    "displays": [
+      {
+        "width": 1536,
+        "height": 864,
+        "scaleFactor": 1.25
+      }
+    ],
+    "windowsUBR": 9711,
+    "windowsDisplayVersion": "25H2",
+    "profile": "ISOLATED_SYNTHETIC_ONLY",
+    "configuration": "Existing pinned local development runtime; no Administrator/global changes"
+  },
+  "environmentPolicy": "Same pinned installed Windows development environment as P9; native token state newly measured. No dependency/admin/global changes.",
+  "historicalTrackedByteAudit": [
+    {
+      "path": "docs/implementation/P9/CHANGE-MANIFEST.json",
+      "sha256": "69a716d036d18844e2f34c93efa580a8b3c54c15f6f566cc79446fc5a7c0efe4"
+    },
+    {
+      "path": "docs/implementation/P9/COMMIT-RECEIPT.md",
+      "sha256": "74c8535cc01cc815d1d87cec96590df775d40eb0daa80a0a0e36bd835231e0a0"
+    },
+    {
+      "path": "docs/implementation/P9/IMPLEMENTATION-REPORT.md",
+      "sha256": "85e2e567bfdc13776cf35a8055fa76533d22e385aa5450a167524259d713e7f6"
+    },
+    {
+      "path": "docs/implementation/P9/VERIFICATION-RESULTS.json",
+      "sha256": "1be21cd73bf0c6f600c2cd7eab92c7508aae594d0d286a65bd1303a69925d727"
+    },
+    {
+      "path": "docs/implementation/P9/collect-evidence.py",
+      "sha256": "90477920712a04e53d4af1ab9e43dcd5e8f67d250f947afe017b9516c9af1aeb"
+    },
+    {
+      "path": "docs/implementation/P9/coverage-matrix.csv",
+      "sha256": "3f89bf354f1014e843bba1733bf851487a7104b731e81f4ec578ada05ecf1585"
+    },
+    {
+      "path": "docs/implementation/P9/db-evidence/fault-boundaries.json",
+      "sha256": "94ad6246fd8c2f31a91be171c6686edbca450f44c2ded689dbe053efa4f3c19e"
+    },
+    {
+      "path": "docs/implementation/P9/db-evidence/renderer-inspection-restore.json",
+      "sha256": "dbc28ae72223a9f5f375f0dd781e7f9fd3a20118a17643d5666fa7e5f12064cb"
+    },
+    {
+      "path": "docs/implementation/P9/executable-results.json",
+      "sha256": "440413d7dc49110c45381178165e1923b054ae60c433e9fd1787560f908f7892"
+    },
+    {
+      "path": "docs/implementation/P9/privacy-and-provider/boundaries.json",
+      "sha256": "56506be6bf91fb6eb9ec532bcffa39442d03da3bb26e17088f7663578ccb5bdf"
+    },
+    {
+      "path": "docs/implementation/P9/privacy-and-provider/historical-restore.json",
+      "sha256": "2c220ee21db7674bb83307cf789975334d8ad80e1e9e0cf81474af5060a0e2a5"
+    },
+    {
+      "path": "docs/implementation/P9/protocol-fixtures/contract-summary.json",
+      "sha256": "abd9e52b8d72854d05c52e950f92f98da9eb8df7f689a73d209957bbc6201f60"
+    },
+    {
+      "path": "docs/implementation/P9/release-decision.md",
+      "sha256": "1689f71c927ded6108ce57ac1a728afd0a9f44a7d17f803813fc82cfd1bd315e"
+    },
+    {
+      "path": "docs/implementation/P9/run-manifest.json",
+      "sha256": "0b8f62c0228a9cad49f642cb0cc338a5b48182d78ccbf16a1439d396e8adf9dc"
+    },
+    {
+      "path": "docs/implementation/P9/ui-evidence/mission-running.png",
+      "sha256": "77bdba73de22b3671cf685758cfb98af59b84256d67b57e100f83c876a8ac7a7"
+    },
+    {
+      "path": "docs/implementation/P9/ui-evidence/partial-inspection.png",
+      "sha256": "17eda2990600d89fff31f520140dcd7dad1d652e747eecb307259f6a0580ce91"
+    },
+    {
+      "path": "docs/implementation/P9/ui-evidence/runtime.json",
+      "sha256": "2300efce69f320d252216749cf4296a449f53f53b84f079983c105dc1cd9d5f0"
+    },
+    {
+      "path": "docs/implementation/P9/windows-evidence/native-probes.json",
+      "sha256": "3045985a200fb12cf69017adf6d62e2557292e7deff8240034e91c8bd5606561"
+    },
+    {
+      "path": "docs/implementation/P9/windows-evidence/resources.json",
+      "sha256": "aa6c51013ab9b433ae86eca1643885c7baaf16c4335c2129886acb4c1570c166"
+    }
+  ],
+  "retentionAudit": {
+    "status": "INCONCLUSIVE; P9-R01-F01",
+    "auditedHistoricalRawArtifacts": 42,
+    "secondaryRawMismatch": [
+      {
+        "path": ".cache/p9-native-native-01.json",
+        "expected": "24bfea1950fb36788671d9b44fa0b64c462fb3a690a585d4c642f3ad30b5e704",
+        "observed": "97a339203caf372efd700ec1c7d955f9b5b15c8d0e867256e5e2a430556eac95"
+      }
+    ],
+    "explanation": "Inherited test default run ID reused on first R01 targeted run. Old secondary passing diagnostic exact bytes unavailable. Historical reports/results hashes unchanged; primary .cache/p9-native-full-01.json and original unit report preserved. Disclosed to owner. Future inherited commands must set unique NCD_P9_RUN_ID."
+  },
+  "paidBudgetHashesUnchanged": {
+    ".cache/p5-live-budget.json": "edd0244f1ad016c2aa77c75deacb8e07bbd30815e7299a0e0921f6841c1de200",
+    ".cache/p7-final-live-budget.json": "06fcb97499f258eb5a8d1ea1d96928ad39e3ba74d0f3068800eca349fb973d7e"
+  },
+  "rawArtifacts": [
+    {
+      "path": ".cache/p9r01-affected-electron-console-04.txt",
+      "sha256": "d1946b42b7a28c0513e03a446890e25598fbe353a17be9de5e023eef07356a7b"
+    },
+    {
+      "path": ".cache/p9r01-affected-electron-results-04.json",
+      "sha256": "ba02825bd3839ce4ff3c9dd87e9cb6c1de36c6f9062ce444ac5df54ac59f730b"
+    },
+    {
+      "path": ".cache/p9r01-affected-unit-07.json",
+      "sha256": "f974dfabb80b1c05da6c741eaa048faa7a64a310a4ad1967639857caabe85424"
+    },
+    {
+      "path": ".cache/p9r01-broken-pipe-01.json",
+      "sha256": "3974ad1fc0c4db0cbe09f6b11a92de1ec920f203caeffb954e8f7de7b02fd7f3"
+    },
+    {
+      "path": ".cache/p9r01-build-01.txt",
+      "sha256": "61e45ed4b1f1494b546ed77b7c16b28f74fad32cdf7b9b07a24b3528ae760725"
+    },
+    {
+      "path": ".cache/p9r01-consent-01.json",
+      "sha256": "333c76161c317895e72a9efd6362a83cd149d76f27b1b8fd00d7421679fbb8c0"
+    },
+    {
+      "path": ".cache/p9r01-consent-01.png",
+      "sha256": "9eb70a805d88f92c749e77e8af88e5881f739aa76d6108faef4e82b5ff3a5cce"
+    },
+    {
+      "path": ".cache/p9r01-consent-broker-results-06.json",
+      "sha256": "4faaccfde96362ed1e4ac53f8c33e8758bd27dda7895114aa01ff71b358d7323"
+    },
+    {
+      "path": ".cache/p9r01-consent-initial-05.json",
+      "sha256": "7b020a74442539e1a3bde9e1b23f01c8d70d308e87827f7dfb5d424cb5a18610"
+    },
+    {
+      "path": ".cache/p9r01-discussion-console-01.txt",
+      "sha256": "8aa214acb9e0ff32240772eefa5b50bc2e77fc259a3d9fa973a7471d836aed00"
+    },
+    {
+      "path": ".cache/p9r01-discussion-main.cjs",
+      "sha256": "351f86c8a53f4a4ec7a19efaf3581825ff5acb3ae9982d293f706b7736a0af47"
+    },
+    {
+      "path": ".cache/p9r01-discussion-results-01.json",
+      "sha256": "215c2678a555b280ab05835781fdb291a0f1b1031b21cbced1d0c2787ef8cbd6"
+    },
+    {
+      "path": ".cache/p9r01-fault-main.cjs",
+      "sha256": "ec7dc0f93acddc779342985de0c9f81869b9cbe71913f2b420b8e9ae15cadb8b"
+    },
+    {
+      "path": ".cache/p9r01-faults-console-01.txt",
+      "sha256": "c5b72fad0daebd61c9319db58977cc11318db6b2673ea5ce133b43988de4b369"
+    },
+    {
+      "path": ".cache/p9r01-faults-results-01.json",
+      "sha256": "f0535e4fd97e6577b25a0fe72ee8521ba2710dbfa8161a64584102061ba53223"
+    },
+    {
+      "path": ".cache/p9r01-foreign-project-denial-final.json",
+      "sha256": "0cc255fea60b3ab39d4106fa8096f07a100ee252b6a4dc3b92220d41e50c567f"
+    },
+    {
+      "path": ".cache/p9r01-foreign-project-denial-initial.json",
+      "sha256": "9a1809841219855cd2ef9f5d096e96c1bb136cf0453c94b0fa779c5a352190fa"
+    },
+    {
+      "path": ".cache/p9r01-format-01.txt",
+      "sha256": "01896c5b9d0430020cf5138c934c5466e0820cff3ded1bb87054faef7cdd75a6"
+    },
+    {
+      "path": ".cache/p9r01-frozen-01.txt",
+      "sha256": "b1582563955362850ce3f398fd2250650149409dd4c72104ca72eec50f8e3757"
+    },
+    {
+      "path": ".cache/p9r01-historical-raw-audit.json",
+      "sha256": "c9466ad3fae6df4bc68ad99a934862eb43aa996ca05f32b7364b48f88a111703"
+    },
+    {
+      "path": ".cache/p9r01-memory-01.json",
+      "sha256": "4d523135ab6d72df7e8195e3cceb8480500fcd5d464e7348030e2bcb06663cca"
+    },
+    {
+      "path": ".cache/p9r01-native-01.json",
+      "sha256": "512f237656689b16c0b2aaa3b249fa8b74c26ca404395f794c0ed5c54d753c0d"
+    },
+    {
+      "path": ".cache/p9r01-native-02.json",
+      "sha256": "cb50d3afc8f5a184ce96dcbc0ba11f847907846670b8030be060d49508f48e16"
+    },
+    {
+      "path": ".cache/p9r01-native-03.json",
+      "sha256": "e6a9d4502c19ecdbfd74583229425fea36df824b6f6724c476520db9f77f9b1e"
+    },
+    {
+      "path": ".cache/p9r01-native-04.json",
+      "sha256": "292525f99325bc67c42284ad2daf9176b7fbe797e3ef4db6f09466e918a9a641"
+    },
+    {
+      "path": ".cache/p9r01-native-consent-results-04.json",
+      "sha256": "1c8a75bc72d8cbebeb28814eb6901f1f3a551fb453db8ca40d88af5d55f16c12"
+    },
+    {
+      "path": ".cache/p9r01-native-results-01.json",
+      "sha256": "c98f6697b642544663eeea6909695b4f20e6f20692cd389fc204181c107c7d6a"
+    },
+    {
+      "path": ".cache/p9r01-native-results-02.json",
+      "sha256": "4b61a8775c0a75f7071bf4a5c587e735cd5e0365c74f59297c9cec42425d6c19"
+    },
+    {
+      "path": ".cache/p9r01-native-results-03.json",
+      "sha256": "9cec18816342bb4072c9d6017d5bd8106c94bddc6901279401d0dc3b5be6eecf"
+    },
+    {
+      "path": ".cache/p9r01-pipe-console-01.txt",
+      "sha256": "8082a24570f799d44c7dd65e93cd3ad0544f813d5c52c992e32a2843c06b8ad0"
+    },
+    {
+      "path": ".cache/p9r01-pipe-results-01.json",
+      "sha256": "207e27edf584c52cf913b6aa90cf2f39eb13fd17284c8ea240a6840550cc3da6"
+    },
+    {
+      "path": ".cache/p9r01-python-console-01.txt",
+      "sha256": "eb2ad37116ee17fa179de2948c4c95b33e669637f0d79a9f31683ce705035318"
+    },
+    {
+      "path": ".cache/p9r01-python-results-01.json",
+      "sha256": "cb551ea6e28c016a59931d958f468a1dfc9033f8d2ae88e69190523956ab0be6"
+    },
+    {
+      "path": ".cache/p9r01-run-python.py",
+      "sha256": "6fc5478aa2ed77ff68b0c88f0093647157b43e70b630b59a7c8ebfbad627f33c"
+    },
+    {
+      "path": ".cache/p9r01-soak-03.json",
+      "sha256": "bcaf985605fefdbf76f30ac99166a043847d55b901066c77974c6f59f7ed3e6c"
+    },
+    {
+      "path": ".cache/p9r01-soak-03.png",
+      "sha256": "7e947061321f1baab8be0c573c9cc58b630fee634eb47f7d0d4d2463d7e059e9"
+    },
+    {
+      "path": ".cache/p9r01-soak-console-01.txt",
+      "sha256": "e3748198a3e5cd9b31912ed5284bc9a1e876bd2046c51288b75766097802d28a"
+    },
+    {
+      "path": ".cache/p9r01-soak-console-02.txt",
+      "sha256": "08a8ea509f1dc1544a71f8b7de44600c99d0f34a85bbe721310a6359095e4b74"
+    },
+    {
+      "path": ".cache/p9r01-soak-console-03.txt",
+      "sha256": "31ac39b37f0cd0937ca24f1c127fb73b8e0429eae03695b2ab7f46a77da403ac"
+    },
+    {
+      "path": ".cache/p9r01-soak-diagnostic-02.json",
+      "sha256": "ee4d150776e92808437d7140561f02f779917de1b1d2f5920edaa328143f27a1"
+    },
+    {
+      "path": ".cache/p9r01-soak-main.cjs",
+      "sha256": "24d65c070999796c6734f2d931f7afaf981fbf160f46a02e45170ca8308600a7"
+    },
+    {
+      "path": ".cache/p9r01-soak-results-01.json",
+      "sha256": "c17b9e96ce3289aa479b9eb3028a1e5f664eb20a23a84111b104d3afa51b1d2b"
+    },
+    {
+      "path": ".cache/p9r01-soak-results-02.json",
+      "sha256": "fa46b7afd18827382c4cce9e494824bc9e5e7aa8c103c41772506934b4b6ac31"
+    },
+    {
+      "path": ".cache/p9r01-soak-results-03.json",
+      "sha256": "9fc2be33293cbe5dcbe9a345ad536012a8fdff0d6ed1be95cdb41e64208b5f4f"
+    },
+    {
+      "path": ".cache/p9r01-t4-crash-01.json",
+      "sha256": "5b25e7411d257f2ed43a9794f639069f04253810c87194379da815b088450b67"
+    },
+    {
+      "path": ".cache/p9r01-topology-01.json",
+      "sha256": "2b589dfe77952d76f3370da4a14e1935ba27ae802d68db5c7fde93f722116f72"
+    },
+    {
+      "path": ".cache/p9r01-topology-02.json",
+      "sha256": "a5ee25980b3e916eb6bfa41c816667d876d9222d7229cc1d7d45881ac236b4d9"
+    },
+    {
+      "path": ".cache/p9r01-topology-03.json",
+      "sha256": "b87dcfd9cc3afc6133fbcc434c2bb84d46c02fc812d4723563c298f9e1863501"
+    },
+    {
+      "path": ".cache/p9r01-topology-console-02.txt",
+      "sha256": "5f167f83884ef346ff6cf8d4f66497511f0fbb3d1581f009966f3dbeb6382eef"
+    },
+    {
+      "path": ".cache/p9r01-topology-console-03.txt",
+      "sha256": "edb45897c8f62db31cde34ed7d150027669024e418fab5133cc3fb91602133d7"
+    },
+    {
+      "path": ".cache/p9r01-topology-results-02.json",
+      "sha256": "9c116cad7bcae3af203e6dc5770a55d414c1494b5e806030be429a403d13bc8d"
+    },
+    {
+      "path": ".cache/p9r01-topology-results-03.json",
+      "sha256": "b82399246ffa3e3cff72a15b0d9d22209e3224f5af3b2f4d58dee96973a7df6e"
+    },
+    {
+      "path": ".cache/p9r01-typecheck-01.txt",
+      "sha256": "2eef7f26a789c44dc1d3dd505331f6c955f7d9befd02a1cdd2be367987c4893d"
+    },
+    {
+      "path": ".cache/p9r01-typecheck-02.txt",
+      "sha256": "6ccd8dd222b3a17ac7ae793ec1bba8ef77dfa4c4c1eccd3fe365a62a2e0aec6b"
+    },
+    {
+      "path": ".cache/p9r01-typecheck-03.txt",
+      "sha256": "6ccd8dd222b3a17ac7ae793ec1bba8ef77dfa4c4c1eccd3fe365a62a2e0aec6b"
+    },
+    {
+      "path": ".cache/p9r01-typecheck-04.txt",
+      "sha256": "1000a9bccbfb1d8c5f17e956d07655b3eea9b6a7aed464326855b25d3816a13c"
+    },
+    {
+      "path": ".cache/p9r01-typecheck-05.txt",
+      "sha256": "6ccd8dd222b3a17ac7ae793ec1bba8ef77dfa4c4c1eccd3fe365a62a2e0aec6b"
+    },
+    {
+      "path": ".cache/p9r01-typecheck-06.txt",
+      "sha256": "6ccd8dd222b3a17ac7ae793ec1bba8ef77dfa4c4c1eccd3fe365a62a2e0aec6b"
+    },
+    {
+      "path": ".cache/p9r01-typecheck-07.txt",
+      "sha256": "6ccd8dd222b3a17ac7ae793ec1bba8ef77dfa4c4c1eccd3fe365a62a2e0aec6b"
+    }
+  ],
+  "runs": [
+    {
+      "path": ".cache/p9r01-affected-electron-results-04.json",
+      "runner": "playwright",
+      "stats": {
+        "startTime": "2026-10-27T12:59:34.222Z",
+        "duration": 9168.14,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "path": ".cache/p9r01-affected-unit-07.json",
+      "runner": "vitest",
+      "passed": 3,
+      "failed": 0,
+      "skippedIncludingFiltered": 13,
+      "startTime": 1793105951101
+    },
+    {
+      "path": ".cache/p9r01-consent-broker-results-06.json",
+      "runner": "vitest",
+      "passed": 15,
+      "failed": 0,
+      "skippedIncludingFiltered": 0,
+      "startTime": 1793046011649
+    },
+    {
+      "path": ".cache/p9r01-consent-initial-05.json",
+      "runner": "vitest",
+      "passed": 0,
+      "failed": 1,
+      "skippedIncludingFiltered": 1,
+      "startTime": 1793045970644
+    },
+    {
+      "path": ".cache/p9r01-discussion-results-01.json",
+      "runner": "playwright",
+      "stats": {
+        "startTime": "2026-10-26T20:16:33.724Z",
+        "duration": 22273.494000000002,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "path": ".cache/p9r01-faults-results-01.json",
+      "runner": "playwright",
+      "stats": {
+        "startTime": "2026-10-26T20:24:11.227Z",
+        "duration": 35877.949,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "path": ".cache/p9r01-native-consent-results-04.json",
+      "runner": "vitest",
+      "passed": 8,
+      "failed": 1,
+      "skippedIncludingFiltered": 2,
+      "startTime": 1793045840563
+    },
+    {
+      "path": ".cache/p9r01-native-results-01.json",
+      "runner": "vitest",
+      "passed": 17,
+      "failed": 1,
+      "skippedIncludingFiltered": 6,
+      "startTime": 1793045025334
+    },
+    {
+      "path": ".cache/p9r01-native-results-02.json",
+      "runner": "vitest",
+      "passed": 5,
+      "failed": 1,
+      "skippedIncludingFiltered": 2,
+      "startTime": 1793045131329
+    },
+    {
+      "path": ".cache/p9r01-native-results-03.json",
+      "runner": "vitest",
+      "passed": 6,
+      "failed": 0,
+      "skippedIncludingFiltered": 2,
+      "startTime": 1793045289297
+    },
+    {
+      "path": ".cache/p9r01-pipe-results-01.json",
+      "runner": "playwright",
+      "stats": {
+        "startTime": "2026-10-26T20:31:59.120Z",
+        "duration": 7395.242,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "path": ".cache/p9r01-python-results-01.json",
+      "runner": "unittest",
+      "outcomes": {
+        "PASS": 22,
+        "FAIL": 0
+      }
+    },
+    {
+      "path": ".cache/p9r01-soak-results-01.json",
+      "runner": "playwright",
+      "stats": {
+        "startTime": "2026-10-26T20:08:28.001Z",
+        "duration": 18506.283,
+        "expected": 0,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "path": ".cache/p9r01-soak-results-02.json",
+      "runner": "playwright",
+      "stats": {
+        "startTime": "2026-10-26T20:11:54.372Z",
+        "duration": 71677.476,
+        "expected": 0,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "path": ".cache/p9r01-soak-results-03.json",
+      "runner": "playwright",
+      "stats": {
+        "startTime": "2026-10-26T20:18:39.873Z",
+        "duration": 73234.412,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "path": ".cache/p9r01-topology-results-02.json",
+      "runner": "playwright",
+      "stats": {
+        "startTime": "2026-10-26T20:26:39.035Z",
+        "duration": 15657.874000000002,
+        "expected": 0,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "path": ".cache/p9r01-topology-results-03.json",
+      "runner": "playwright",
+      "stats": {
+        "startTime": "2026-10-26T20:28:24.205Z",
+        "duration": 16202.071999999998,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    }
+  ],
+  "metrics": {
+    "durationMs": 61509.273700000005,
+    "configuredDurationMs": 60000,
+    "cycles": 50,
+    "reloads": 13,
+    "events": 25,
+    "workersStarted": 11,
+    "workerReports": 11,
+    "cancellationLatencyMs": 344.6768000000011,
+    "maxMainRSSBytes": 190341120,
+    "maxRendererHeapBytes": 20500000,
+    "maxRendererFrameLatencyMs": 16.900000035762787,
+    "maxMainAndMissionReadRoundTripMs": 212.10580000000118,
+    "maxObservedIncomingRecords": 0,
+    "maxObservedOutgoingRecords": 0,
+    "evidenceLimit": "Point samples, not continuous worst-case bounds or new CPU/RSS/latency SLA; 25-event stream not high-rate saturation."
+  },
+  "corrections": [
+    "Native initial fixture used Python AF_UNIX unavailable in this CPython build; final fixture uses actual Winsock AF_UNIX. Initial per-directory case flag on nonempty root failed145; final isolated empty native root succeeds.",
+    "Consent scope test found denied foreign conversation misclassified BROKER_IO_ERROR. Narrow FileBroker maps only StoreError NOT_AUTHORIZED to proper auth refusal; real IO errors retain safe IO path. Initial/final denial retained.",
+    "First soak failed needs_reconciliation. Fixture audit initially lived in browsed workspace; moved outside. Exact initial engine exception not captured, so causal attribution remains unverified. Reproduction passes.",
+    "Second soak queried retired current-child Job metrics as zero; API correctly returns null when no current child. Final proof uses independent retained native HANDLE + creation identity + DB verified cancellation and zero writer lease.",
+    "Topology initial assertion zero Python TCP was overbroad: actual CPython ProactorEventLoop uses non-listening socketpair. Final classifier matches actual runtime ports plus native BOUND reservation; no Python server/unclassified connection accepted."
+  ],
+  "commands": [
+    "npx vitest run tests/unit/broker-windows.test.ts tests/unit/p9-windows-acceptance.test.ts tests/unit/p9r01-windows.test.ts --reporter=json --outputFile=.cache/p9r01-native-results-01.json (initial; inherited default diagnostic collision disclosed)",
+    "NCD_R01_RUN_ID=04 npx vitest run tests/unit/p9r01-windows.test.ts tests/unit/p9r01-consent.test.ts --reporter=json --outputFile=.cache/p9r01-native-consent-results-04.json (native final; consent later fixed)",
+    "npx vitest run tests/unit/broker-service.test.ts tests/unit/p9r01-consent.test.ts --reporter=json --outputFile=.cache/p9r01-consent-broker-results-06.json",
+    "NCD_P9_RUN_ID=r01-affected-07 npx vitest run tests/unit/coding-integration.test.ts tests/unit/p8-real-workers.test.ts --testNamePattern 'P7-E01|P7-E03-worker|E05-04/05' --reporter=json --outputFile=.cache/p9r01-affected-unit-07.json",
+    "python -X utf8 .cache/p9r01-run-python.py (credential-filtered native subprocess, test_p9r01_gateway + test_discussion + test_broker,22 cases)",
+    "npx playwright test tests/electron/p9r01-soak.spec.ts (final03)",
+    "npx playwright test tests/electron/p9r01-discussion.spec.ts (D01/C01 run01; C04 separately)",
+    "npx playwright test tests/electron/p9r01-faults.spec.ts (F01 run01; N01 final03 separately)",
+    "npx playwright test tests/electron/broker.spec.ts --grep 'P6-E0[234]' (affected04)",
+    "npm run build",
+    "npm run format:check",
+    "python -X utf8 docs/implementation/P0/verify_delivery.py --git-ref HEAD --archive <original-local-delivery-zip>",
+    "python -X utf8 docs/implementation/P9/R01/collect-evidence.py"
+  ],
+  "reproduction": "Use pinned local deps/Engine SHA, synthetic isolated profiles only; no test:live. Raw reports in .cache are local. Before repeating Electron R01 specs archive their fixed-named diagnostic outputs and use unique raw report copies; Playwright replaces test-results. Always unique NCD_P9_RUN_ID for inherited P9 native tests; NCD_R01_RUN_ID for new native test. Do not run historical P9 collector (would overwrite historical files)."
+}

@@ -1,0 +1,9 @@
+{
+  "prepared": true,
+  "attempts": 1,
+  "callbackError": "ERR_STREAM_DESTROYED",
+  "readObservations": 0,
+  "capturedProviderCalls": 0,
+  "evidenceKind": "Actual SupervisedChild prepare + real anonymous stdio stream destruction + original Node write callback; no fabricated callback error",
+  "doubleResponseWrites": 0
+}
