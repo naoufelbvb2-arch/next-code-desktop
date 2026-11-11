@@ -189,6 +189,7 @@ export async function codingEngineFixture(
     service,
     scope,
     supervisor,
+    discussion,
     runtime: coding,
     propose,
     setCase: (value: string) => {

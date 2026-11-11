@@ -1,0 +1,75 @@
+{
+  "baseline": "c49de4af558d72f88e8593e66da4f6d63f889b9e",
+  "clientDate": "2026-11-10",
+  "baselineCatalog": {
+    "path": "../R01/executable-results.json",
+    "sha256": "b8f2cd176f65abf0f6ec0dc2e3cfb401933c559c464b767366d7cf32f0447bbe"
+  },
+  "currentDesktop": {
+    "PASS": 552,
+    "NOT_RUN": 5,
+    "FAIL": 0
+  },
+  "engineCarried": {
+    "PASS": 69,
+    "NOT_RUN": 3,
+    "FAIL": 0
+  },
+  "executedR02": {
+    "PASS": 129,
+    "NOT_RUN": 2,
+    "FAIL": 0
+  },
+  "newCases": {
+    "PASS": 5,
+    "FAIL": 0
+  },
+  "normative": {
+    "I08-": {
+      "PASS": 82,
+      "BLOCKED": 2,
+      "INCONCLUSIVE": 3,
+      "NOT_RUN": 1,
+      "FAIL": 0
+    },
+    "E05-": {
+      "PASS": 36,
+      "FAIL": 0
+    },
+    "I06-": {
+      "PASS": 46,
+      "NOT_RUN": 2,
+      "INCONCLUSIVE": 3,
+      "BLOCKED": 1,
+      "FAIL": 0
+    },
+    "I07-": {
+      "PASS": 52,
+      "INCONCLUSIVE": 2,
+      "BLOCKED": 1,
+      "NOT_RUN": 1,
+      "FAIL": 0
+    },
+    "E2E-": {
+      "PASS": 6,
+      "INCONCLUSIVE": 1,
+      "NOT_RUN": 1,
+      "FAIL": 0
+    }
+  },
+  "intentionalQuit": "PASS tested wait/cooperative/forced/unknown/COMMIT-fault/queued scope; OS logoff/system shutdown NOT_RUN",
+  "highRate": "PASS bounded measured case, synthetic SQLite volume plus separate genuine AgentOS evidence",
+  "scopeProposal": "CP-002 PROPOSED NOT ADOPTED; no capability status automatically changed",
+  "humanSignoff": "NOT_SIGNED_OFF",
+  "checks": {
+    "build": "PASS",
+    "typescript": "PASS",
+    "format": "PASS",
+    "python": "38 PASS",
+    "frozen": "PASS",
+    "engineUnchanged": true,
+    "publicContractsSchemaDependenciesUnchanged": true
+  },
+  "conclusion": "NO-GO full P9; stop at P9-R02 FINAL OWNER REVIEW",
+  "note": "Current cumulative identity merge; only executed-results identities freshly run. Engine69/3paid carried. Earlier failing runs retained separately; no fresh paid call."
+}

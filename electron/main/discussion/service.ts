@@ -53,6 +53,7 @@ export class DiscussionService {
   private readonly codingProof = Object.freeze({ ref: randomBytes(24).toString('hex') })
   private codingSupervisor?: PythonSupervisor
   private readonly finishing = new Set<string>()
+  private readonly finalizing = new Set<Promise<void>>()
   private selectedProjectId: string | null = null
   private readonly queued = new Set<string>()
   private readonly lanes = new Map<string, Promise<void>>()
@@ -188,7 +189,7 @@ export class DiscussionService {
       onCodingTerminal: (scope, taskId) => {
         if (this.finishing.has(taskId)) return
         this.finishing.add(taskId)
-        void (async () => {
+        const work = (async () => {
           try {
             if (
               !(await supervisor.stopCodingChild(taskId)) ||
@@ -203,7 +204,19 @@ export class DiscussionService {
           } finally {
             this.finishing.delete(taskId)
           }
-        })().catch(() => {})
+        })()
+          .catch(() => {})
+          .finally(() => {
+            this.finalizing.delete(work)
+          })
+        this.finalizing.add(work)
+      },
+      beginAppQuit: () => {
+        this.closing = true
+        this.coding.close()
+      },
+      drainCodingFinalization: async () => {
+        await Promise.allSettled([...this.finalizing])
       }
     })
     this.coding.installBackend({

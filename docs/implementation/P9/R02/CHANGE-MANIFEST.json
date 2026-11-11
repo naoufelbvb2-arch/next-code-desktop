@@ -1,0 +1,168 @@
+{
+  "baseline": "c49de4af558d72f88e8593e66da4f6d63f889b9e",
+  "exclusion": "This manifest and later receipt excluded to avoid self-reference.",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "action": "MODIFIED",
+      "sha256": "2ba032398e2c624b85cfefddd4ca0d1abe4177fe0137566b930e413c35a0a386",
+      "bytes": 17068
+    },
+    {
+      "path": "docs/changes/proposed/CP-002-NCD-V1-DEEPSEEK-SCOPE.md",
+      "action": "NEW",
+      "sha256": "d26d57a8c2fd87d5e41d1bf0ca32ca77eb78914cd8d6a369e9a31a31a56cddde",
+      "bytes": 8797
+    },
+    {
+      "path": "docs/implementation/P9/R02/HUMAN-QA.md",
+      "action": "NEW",
+      "sha256": "7bc07a8eebc5e9e10a133fdf65ba9f68660d3129d287f8c4b022a60b6e274a7c",
+      "bytes": 2839
+    },
+    {
+      "path": "docs/implementation/P9/R02/IMPLEMENTATION-REPORT.md",
+      "action": "NEW",
+      "sha256": "cce44ece24402742ea7453859c530900fc9ec283849116f07a69df72e88a6421",
+      "bytes": 11847
+    },
+    {
+      "path": "docs/implementation/P9/R02/VERIFICATION-RESULTS.json",
+      "action": "NEW",
+      "sha256": "c39528868f6811d225cd399a6a843abadc9c8d2ed4d54edd53350d30ce1d8702",
+      "bytes": 1888
+    },
+    {
+      "path": "docs/implementation/P9/R02/WINDOWS-AND-RETENTION.md",
+      "action": "NEW",
+      "sha256": "065527e6840f6781bc588d8f2ddaae77e48ed6c189c8a1292b3f4a015069d874",
+      "bytes": 3266
+    },
+    {
+      "path": "docs/implementation/P9/R02/collect-evidence.py",
+      "action": "NEW",
+      "sha256": "785e4d1014d80180290607c3d7956878b867d90fe3511eb8aa54dcb86c24c160",
+      "bytes": 20207
+    },
+    {
+      "path": "docs/implementation/P9/R02/coverage-matrix.csv",
+      "action": "NEW",
+      "sha256": "2f26c49ef7d0f6277542e341125e77e3fac429784db89c58e38cd2fbd1aec00c",
+      "bytes": 448092
+    },
+    {
+      "path": "docs/implementation/P9/R02/evidence/high-rate-summary.json",
+      "action": "NEW",
+      "sha256": "b6ae457e6ebd8ec9ce79f2fbc4fd8fd0625d44d56eabb64a6ac4e6b202468af3",
+      "bytes": 756
+    },
+    {
+      "path": "docs/implementation/P9/R02/evidence/high-rate.json",
+      "action": "NEW",
+      "sha256": "81c78e009168f03f594819d41a7574982de4856f5708f36b43af71e60b39a7ec",
+      "bytes": 48893
+    },
+    {
+      "path": "docs/implementation/P9/R02/evidence/mission.png",
+      "action": "NEW",
+      "sha256": "7e1a4608b97b0fb16ffdadbcff86199bddaa66cfcccd48c4014f46b8930b13d1",
+      "bytes": 267838
+    },
+    {
+      "path": "docs/implementation/P9/R02/evidence/native.json",
+      "action": "NEW",
+      "sha256": "6a14c4798baee8a1f157231c959ccaf8a28e0a0f4ba264d45e6083da66abdc49",
+      "bytes": 618
+    },
+    {
+      "path": "docs/implementation/P9/R02/evidence/quit-stubborn.json",
+      "action": "NEW",
+      "sha256": "4f3b1e7954a955a5e79377e7991ce281bfd79efdb0b81d508f4bc1f0d4efd9a3",
+      "bytes": 766
+    },
+    {
+      "path": "docs/implementation/P9/R02/evidence/quit-worker.json",
+      "action": "NEW",
+      "sha256": "4880cabd93451f70342c5208929b87124c930e00013f7048c33386d46a333a2b",
+      "bytes": 841
+    },
+    {
+      "path": "docs/implementation/P9/R02/executed-results.json",
+      "action": "NEW",
+      "sha256": "52152aabb16ee9474908379d72fb5c2031086785d575b3879c459cc1b80c1de1",
+      "bytes": 95592
+    },
+    {
+      "path": "docs/implementation/P9/R02/release-decision.md",
+      "action": "NEW",
+      "sha256": "0668676000fbdbcee38fbaac96faf44d5b610c037bfa3e181577601c69c02d96",
+      "bytes": 4588
+    },
+    {
+      "path": "docs/implementation/P9/R02/run-manifest.json",
+      "action": "NEW",
+      "sha256": "df6a30bd3e39daaf26f87adea690943ad31bce0d867c3d554344783f7558a2fa",
+      "bytes": 26738
+    },
+    {
+      "path": "docs/implementation/P9/R02/run-python.py",
+      "action": "NEW",
+      "sha256": "e34ca004aa589ca433bfec7e1b42e0bdd99f5976496eb722cb5326dc02d301c2",
+      "bytes": 2010
+    },
+    {
+      "path": "electron/main/discussion/service.ts",
+      "action": "MODIFIED",
+      "sha256": "d3ca868fbf144ca9cd4d1d1ff42d9c824d1cee32261a0eb85b02bb1c93ecc10c",
+      "bytes": 22270
+    },
+    {
+      "path": "electron/main/index.ts",
+      "action": "MODIFIED",
+      "sha256": "364d78cb5ab1bfc2fe0487d727e2bb98e474e627cd17e3a6723a91e746265348",
+      "bytes": 6950
+    },
+    {
+      "path": "electron/main/supervisor/supervisor.ts",
+      "action": "MODIFIED",
+      "sha256": "ae72d2dd262aedb2e6d89d11e8480f459fd03aa7c422224ca9225263f9e73088",
+      "bytes": 13124
+    },
+    {
+      "path": "tests/electron/p9r02-acceptance.spec.ts",
+      "action": "NEW",
+      "sha256": "22adaeb147de1496492ffb4cf80046543cc04a863ebb3cf6401770116cc31c3f",
+      "bytes": 15637
+    },
+    {
+      "path": "tests/fixtures/coding-engine.ts",
+      "action": "MODIFIED",
+      "sha256": "bdae2f109a7733b2a1f918e605e12b5c91decd9c1206f4ef708e13e422467f45",
+      "bytes": 9276
+    },
+    {
+      "path": "tests/fixtures/coding-main.ts",
+      "action": "MODIFIED",
+      "sha256": "8b1d31ea522c3296a9ac5bbabdae2a03bb5dc07e0d8af58ee78edbf8fcfc690b",
+      "bytes": 11173
+    },
+    {
+      "path": "tests/fixtures/p9r02-history-worker.ts",
+      "action": "NEW",
+      "sha256": "e8eefb1761fabf271b92d690e51715a3c3e28c9168281cea2693c4c4603cba5b",
+      "bytes": 2347
+    },
+    {
+      "path": "tests/fixtures/p9r02-main.ts",
+      "action": "NEW",
+      "sha256": "c6fc88404a9d20480f3c551541112cb8a72af37d733b10ed67111392d5f881fd",
+      "bytes": 6915
+    },
+    {
+      "path": "tests/unit/p9r02-lifecycle.test.ts",
+      "action": "NEW",
+      "sha256": "dcedebb18a7282d02ca5617afc26ad971aa99fd248611d1f65e34c62b8217fe5",
+      "bytes": 2611
+    }
+  ]
+}

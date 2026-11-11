@@ -17,6 +17,8 @@ export interface SupervisorOptions {
   ) => import('zod').infer<typeof import('../../../contracts/wire-schema').ConversationContext>
   verifyCoding?: <T>(scope: Scope, operation: () => T) => Promise<T>
   onCodingTerminal?: (scope: Scope, taskId: string) => void
+  beginAppQuit?: () => void
+  drainCodingFinalization?: () => Promise<void>
   proof?: (
     kind: string,
     binding: {
@@ -69,6 +71,8 @@ export class PythonSupervisor {
       | 'proof'
       | 'workspaceSafe'
       | 'onCodingTerminal'
+      | 'beginAppQuit'
+      | 'drainCodingFinalization'
     >
   ): void {
     if (this.closing || this.coding || this.options.codingLaunch)
@@ -321,23 +325,30 @@ export class PythonSupervisor {
   async stopAllOnAppQuit(): Promise<boolean> {
     this.closing = true
     this.generation++
-    const children = [this.discussion, this.coding?.child].filter(
+    this.options.beginAppQuit?.()
+    // Terminal reconciliation may retire this.coding while graceful cleanup is
+    // awaited. Keep the actual owned child, never dereference a moving slot.
+    const active = this.coding
+    const children = [this.discussion, active?.child].filter(
       (child): child is SupervisedChild => !!child
     )
-    if (this.coding && this.coding.child.cleanupVerified === null) {
+    if (active && active.child.cleanupVerified === null) {
       try {
-        this.requestCancellation(this.coding.scope, this.coding.taskId)
+        this.requestCancellation(active.scope, active.taskId)
       } catch {}
       // Keep the complete frozen graceful window before forcing the Job.
       const until = performance.now() + 15000
       while (
         performance.now() < until &&
-        !this.coding.child.hasVerifiedCleanup() &&
-        this.coding.child.process?.activeProcesses() !== 0
+        !active.child.hasVerifiedCleanup() &&
+        active.child.process?.activeProcesses() !== 0
       )
         await new Promise((resolve) => setTimeout(resolve, 50))
     }
     const results = await Promise.all(children.map((child) => child.stop()))
-    return results.every(Boolean)
+    // A signaled child/empty Job does not finish the Main-owned native workspace
+    // verification and T3 lease COMMIT. Drain that existing operation before exit.
+    await this.options.drainCodingFinalization?.()
+    return results.every(Boolean) && (!active || this.coding === undefined)
   }
 }

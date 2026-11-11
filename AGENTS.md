@@ -2,6 +2,23 @@
 
 ## Current authority
 
+The owner's **P9-R02 V1 Scope Ratification Preparation & Final Acceptance
+Closure (received 2026-11-10)** authorizes continuation on the existing P9 branch
+from verified `c49de4af558d72f88e8593e66da4f6d63f889b9e`, Engine read-only at
+`99e00e13f8a39fa6730f3d3de773ac937b5ac915`. V1 product decision: Next Code AgentOS
+and DeepSeek only; additional providers/local inference deferred, multi-engine
+out of scope. Prepare a numbered PROPOSED scope addendum/change proposal; do not
+adopt it, alter frozen bytes, or automatically reclassify tests PASS/N/A.
+Complete independent actual Windows intentional-quit and bounded high-rate
+Mission Control tests, native privilege reassessment, fault/retention analysis,
+human QA checklist and appropriate affected regressions. Keep actual AgentOS
+evidence distinct from isolated synthetic SQLite pressure rows. Preserve all
+P9/R01 bytes and raw artifacts; write new R02 results only, using unique output
+names. Product fixes must stay inside existing contracts. No paid calls, key or
+budget changes, Engine edits, public/API/schema expansion, real-user projects,
+automatic elevation/global Windows changes, main merge, P10 or packaging.
+Commit/push reviewed changes on P9 and stop at P9-R02 FINAL OWNER REVIEW.
+
 The owner's **P9-R01 Final Evidence Closure (2026-10-26)** authorizes remaining
 Windows native security, routing/consent, restart-memory and combined real
 AgentOS/Offline Gateway Windows soak evidence on the existing P9 branch, starting

@@ -47,6 +47,14 @@ async function createWindow(): Promise<void> {
   })
   protectWindow(window, entry)
   allowIpcWindow(window, entry)
+  window.on('close', (event) => {
+    // Confirm before destroying the last usable task window. window-all-closed
+    // is too late for a user who chooses Wait in the application quit dialog.
+    if (!quitConfirmed && hasActiveCodingTask()) {
+      event.preventDefault()
+      app.quit()
+    }
+  })
   window.once('ready-to-show', () => {
     // The 1000×600 CSS floor passed P1 viewport QA. Measure native chrome rather
     // than assuming physical pixels equal CSS pixels at fractional Windows DPI.

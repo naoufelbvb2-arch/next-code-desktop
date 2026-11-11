@@ -1,0 +1,23 @@
+{
+  "committedRows": 40000,
+  "measuredWriterMs": 33969.710699999996,
+  "cycles": 35,
+  "reloads": 12,
+  "cancellationLatencyMs": 309.54089999999997,
+  "cancellationAtBatch": 77,
+  "cancelledWhileWriterActive": true,
+  "cleanupState": "verified_cancelled",
+  "leases": 0,
+  "integrity": {
+    "integrity_check": "ok"
+  },
+  "newRowsPerSecond": 883.1396965650345,
+  "actualWorkerStarts": 4,
+  "actualWorkerReports": 3,
+  "actualEvents": 10,
+  "maxMainRSSBytes": 223326208,
+  "maxRendererHeapBytes": 19300000,
+  "maxMainRoundTripMs": 49.298399999999674,
+  "maxRendererFrameMs": 16.90000009536743,
+  "limit": "Point samples, not continuous peak bounds or a new SLA. Synthetic SQL history is isolated from actual AgentOS ledger; not Engine wire throughput."
+}

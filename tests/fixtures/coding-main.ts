@@ -17,6 +17,14 @@ import koffi from 'koffi'
 let child: SupervisedChild, directory: string, service: DiscussionService
 let actual: Awaited<ReturnType<typeof codingEngineFixture>> | undefined
 let r01CrashAfterCommit = false
+export function r02ActualFixture() {
+  if (!actual) throw new Error('No actual isolated fixture')
+  return actual
+}
+export function r02UseBoundary(value: IpcBoundary) {
+  for (const window of BrowserWindow.getAllWindows()) boundary?.removeSender(window.webContents.id)
+  boundary = value
+}
 export async function startCodingFixture(profile: string) {
   directory = profile
   const workspace = join(profile, 'Synthetic P7 project')

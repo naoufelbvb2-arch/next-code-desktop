@@ -1,0 +1,31 @@
+{
+  "mode": "worker",
+  "originalHandler": true,
+  "testOnlySupervisorBinding": true,
+  "nativeDialogChoiceAutomated": true,
+  "humanSignoff": false,
+  "unverifiedWarningShown": false,
+  "waitPreservedTask": true,
+  "waitPreservedWindow": true,
+  "firstQuitViaWindowClose": true,
+  "elapsedMs": 500.5709000000006,
+  "descendantsObserved": 0,
+  "heldNativeProcessesSignaled": 1,
+  "retainedJobActiveProcesses": 0,
+  "cancellationRows": 1,
+  "integrity": {
+    "integrity_check": "ok"
+  },
+  "restoredTasks": [
+    {
+      "state": "cancelled"
+    }
+  ],
+  "leases": 0,
+  "eventNames": [
+    "task.started",
+    "task.cancelled"
+  ],
+  "noAutomaticRestart": true,
+  "duplicateJobNote": "Independent QUERY handle retained across app exit; extends handle lifetime, cleanup established before final handle close, not kill-on-close assumption."
+}

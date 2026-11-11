@@ -1,0 +1,2380 @@
+{
+  "synthetic": true,
+  "seedRows": 10000,
+  "newSyntheticRows": 30000,
+  "configuredIntervalMs": 200,
+  "batchSize": 200,
+  "measuredWriterMs": 33969.710699999996,
+  "committedRows": 40000,
+  "cycles": 35,
+  "reloads": 12,
+  "samples": [
+    {
+      "elapsedMs": 366.02960000000166,
+      "mainRoundTripMs": 29.678099999997357,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 210096128,
+          "heapTotal": 33599488,
+          "heapUsed": 21226444,
+          "external": 3611326,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 2328000,
+          "system": 953000
+        },
+        "eventCount": 3,
+        "maxSequence": 3,
+        "workersStarted": 1,
+        "workersCompleted": 0,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameMs": 8.699999809265137,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 1179.3523999999961,
+      "mainRoundTripMs": 36.54869999999937,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 210989056,
+          "heapTotal": 33599488,
+          "heapUsed": 18905232,
+          "external": 3564472,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 2734000,
+          "system": 1062000
+        },
+        "eventCount": 3,
+        "maxSequence": 3,
+        "workersStarted": 1,
+        "workersCompleted": 0,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameMs": 16,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 1829.1728000000003,
+      "mainRoundTripMs": 23.832900000001246,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 210489344,
+          "heapTotal": 33599488,
+          "heapUsed": 18131424,
+          "external": 3800443,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 3156000,
+          "system": 1156000
+        },
+        "eventCount": 3,
+        "maxSequence": 3,
+        "workersStarted": 1,
+        "workersCompleted": 0,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameMs": 0.5999999046325684,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 2561.035499999998,
+      "mainRoundTripMs": 11.47599999999511,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 212131840,
+          "heapTotal": 33599488,
+          "heapUsed": 17396664,
+          "external": 3835291,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 3609000,
+          "system": 1234000
+        },
+        "eventCount": 3,
+        "maxSequence": 3,
+        "workersStarted": 1,
+        "workersCompleted": 0,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameMs": 0.5,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 3279.1218999999983,
+      "mainRoundTripMs": 22.582399999999325,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 212455424,
+          "heapTotal": 33599488,
+          "heapUsed": 23858504,
+          "external": 3754366,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 4062000,
+          "system": 1265000
+        },
+        "eventCount": 3,
+        "maxSequence": 3,
+        "workersStarted": 1,
+        "workersCompleted": 0,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameMs": 4.700000047683716,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 3997.7715000000026,
+      "mainRoundTripMs": 27.161100000004808,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 212389888,
+          "heapTotal": 33599488,
+          "heapUsed": 22781384,
+          "external": 3793342,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 4500000,
+          "system": 1375000
+        },
+        "eventCount": 3,
+        "maxSequence": 3,
+        "workersStarted": 1,
+        "workersCompleted": 0,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameMs": 11.900000095367432,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 4877.908799999997,
+      "mainRoundTripMs": 9.699200000002747,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 211533824,
+          "heapTotal": 34123776,
+          "heapUsed": 19542992,
+          "external": 3764338,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 5203000,
+          "system": 1421000
+        },
+        "eventCount": 4,
+        "maxSequence": 4,
+        "workersStarted": 1,
+        "workersCompleted": 1,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameMs": 0.5999999046325684,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 5712.804199999999,
+      "mainRoundTripMs": 49.298399999999674,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 212410368,
+          "heapTotal": 34385920,
+          "heapUsed": 22186568,
+          "external": 3896984,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 5656000,
+          "system": 1484000
+        },
+        "eventCount": 5,
+        "maxSequence": 5,
+        "workersStarted": 2,
+        "workersCompleted": 1,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameMs": 12.399999856948853,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 6413.5717,
+      "mainRoundTripMs": 18.544600000001083,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 213241856,
+          "heapTotal": 34910208,
+          "heapUsed": 24100988,
+          "external": 3862767,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 6125000,
+          "system": 1500000
+        },
+        "eventCount": 5,
+        "maxSequence": 5,
+        "workersStarted": 2,
+        "workersCompleted": 1,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameMs": 3.700000047683716,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 7181.3655,
+      "mainRoundTripMs": 40.36800000000221,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 213020672,
+          "heapTotal": 34910208,
+          "heapUsed": 22704172,
+          "external": 3904850,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 6609000,
+          "system": 1531000
+        },
+        "eventCount": 5,
+        "maxSequence": 5,
+        "workersStarted": 2,
+        "workersCompleted": 1,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameMs": 7.3999998569488525,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 8011.699099999998,
+      "mainRoundTripMs": 19.58140000000276,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 214355968,
+          "heapTotal": 34910208,
+          "heapUsed": 19278672,
+          "external": 3803661,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 7078000,
+          "system": 1703000
+        },
+        "eventCount": 5,
+        "maxSequence": 5,
+        "workersStarted": 2,
+        "workersCompleted": 1,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameMs": 5,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 8744.3623,
+      "mainRoundTripMs": 13.306600000003527,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 214732800,
+          "heapTotal": 35172352,
+          "heapUsed": 18494276,
+          "external": 4040072,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 7656000,
+          "system": 1765000
+        },
+        "eventCount": 5,
+        "maxSequence": 5,
+        "workersStarted": 2,
+        "workersCompleted": 1,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameMs": 1.2000000476837158,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 9527.277999999998,
+      "mainRoundTripMs": 12.955499999996391,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 212877312,
+          "heapTotal": 35172352,
+          "heapUsed": 18587576,
+          "external": 3966790,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 8156000,
+          "system": 1906000
+        },
+        "eventCount": 5,
+        "maxSequence": 5,
+        "workersStarted": 2,
+        "workersCompleted": 1,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameMs": 1.5,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 10350.9994,
+      "mainRoundTripMs": 34.49829999999929,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 214630400,
+          "heapTotal": 35172352,
+          "heapUsed": 22159648,
+          "external": 3943586,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 8609000,
+          "system": 2031000
+        },
+        "eventCount": 6,
+        "maxSequence": 6,
+        "workersStarted": 2,
+        "workersCompleted": 2,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameMs": 16.90000009536743,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 11249.479299999999,
+      "mainRoundTripMs": 28.03899999999703,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 216387584,
+          "heapTotal": 35172352,
+          "heapUsed": 18931548,
+          "external": 3843114,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 9171000,
+          "system": 2187000
+        },
+        "eventCount": 7,
+        "maxSequence": 7,
+        "workersStarted": 3,
+        "workersCompleted": 2,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameMs": 13.099999904632568,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 12243.795099999996,
+      "mainRoundTripMs": 23.909700000003795,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 217182208,
+          "heapTotal": 35172352,
+          "heapUsed": 23390064,
+          "external": 4038716,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 9796000,
+          "system": 2281000
+        },
+        "eventCount": 7,
+        "maxSequence": 7,
+        "workersStarted": 3,
+        "workersCompleted": 2,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameMs": 13.200000047683716,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 13111.193099999997,
+      "mainRoundTripMs": 21.68029999999999,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 216207360,
+          "heapTotal": 35172352,
+          "heapUsed": 24190348,
+          "external": 4121804,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 10281000,
+          "system": 2468000
+        },
+        "eventCount": 7,
+        "maxSequence": 7,
+        "workersStarted": 3,
+        "workersCompleted": 2,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameMs": 5.3999998569488525,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 14054.6031,
+      "mainRoundTripMs": 37.36739999999554,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 216969216,
+          "heapTotal": 35172352,
+          "heapUsed": 20865284,
+          "external": 4019001,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 10906000,
+          "system": 2656000
+        },
+        "eventCount": 7,
+        "maxSequence": 7,
+        "workersStarted": 3,
+        "workersCompleted": 2,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameMs": 8.800000190734863,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 14980.2229,
+      "mainRoundTripMs": 29.904900000001362,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 217886720,
+          "heapTotal": 35172352,
+          "heapUsed": 24869340,
+          "external": 4124230,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 11515000,
+          "system": 2750000
+        },
+        "eventCount": 7,
+        "maxSequence": 7,
+        "workersStarted": 3,
+        "workersCompleted": 2,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameMs": 4.299999952316284,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 15944.929799999998,
+      "mainRoundTripMs": 29.166199999999662,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 217366528,
+          "heapTotal": 35696640,
+          "heapUsed": 22151424,
+          "external": 4114704,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 12031000,
+          "system": 2890000
+        },
+        "eventCount": 9,
+        "maxSequence": 9,
+        "workersStarted": 4,
+        "workersCompleted": 3,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameMs": 11.299999952316284,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 16865.588299999996,
+      "mainRoundTripMs": 28.96809999999823,
+      "metrics": {
+        "cleanupState": "unverified",
+        "memory": {
+          "rss": 218165248,
+          "heapTotal": 35958784,
+          "heapUsed": 23075916,
+          "external": 4205730,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 12578000,
+          "system": 3000000
+        },
+        "eventCount": 9,
+        "maxSequence": 9,
+        "workersStarted": 4,
+        "workersCompleted": 3,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": 2,
+        "cleanupVerified": false,
+        "state": "BUSY"
+      },
+      "renderer": {
+        "frameMs": 15.799999952316284,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 18310.6745,
+      "mainRoundTripMs": 23.051800000001094,
+      "metrics": {
+        "cleanupState": "verified_cancelled",
+        "memory": {
+          "rss": 219176960,
+          "heapTotal": 36483072,
+          "heapUsed": 24917308,
+          "external": 4303266,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 13531000,
+          "system": 3156000
+        },
+        "eventCount": 10,
+        "maxSequence": 10,
+        "workersStarted": 4,
+        "workersCompleted": 3,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": null,
+        "cleanupVerified": null
+      },
+      "renderer": {
+        "frameMs": 11.200000047683716,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 19228.834199999998,
+      "mainRoundTripMs": 32.19219999999768,
+      "metrics": {
+        "cleanupState": "verified_cancelled",
+        "memory": {
+          "rss": 219447296,
+          "heapTotal": 36483072,
+          "heapUsed": 26024992,
+          "external": 4386259,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 14093000,
+          "system": 3328000
+        },
+        "eventCount": 10,
+        "maxSequence": 10,
+        "workersStarted": 4,
+        "workersCompleted": 3,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": null,
+        "cleanupVerified": null
+      },
+      "renderer": {
+        "frameMs": 16,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 20027.8603,
+      "mainRoundTripMs": 20.89770000000135,
+      "metrics": {
+        "cleanupState": "verified_cancelled",
+        "memory": {
+          "rss": 220585984,
+          "heapTotal": 37007360,
+          "heapUsed": 26250684,
+          "external": 4324366,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 14687000,
+          "system": 3406000
+        },
+        "eventCount": 10,
+        "maxSequence": 10,
+        "workersStarted": 4,
+        "workersCompleted": 3,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": null,
+        "cleanupVerified": null
+      },
+      "renderer": {
+        "frameMs": 7.400000095367432,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 20885.7949,
+      "mainRoundTripMs": 29.6678000000029,
+      "metrics": {
+        "cleanupState": "verified_cancelled",
+        "memory": {
+          "rss": 220942336,
+          "heapTotal": 37007360,
+          "heapUsed": 23116564,
+          "external": 4311312,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 15296000,
+          "system": 3468000
+        },
+        "eventCount": 10,
+        "maxSequence": 10,
+        "workersStarted": 4,
+        "workersCompleted": 3,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": null,
+        "cleanupVerified": null
+      },
+      "renderer": {
+        "frameMs": 9.099999904632568,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 22064.445699999997,
+      "mainRoundTripMs": 21.297200000000885,
+      "metrics": {
+        "cleanupState": "verified_cancelled",
+        "memory": {
+          "rss": 220385280,
+          "heapTotal": 37007360,
+          "heapUsed": 22393556,
+          "external": 4281145,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 16093000,
+          "system": 3640000
+        },
+        "eventCount": 10,
+        "maxSequence": 10,
+        "workersStarted": 4,
+        "workersCompleted": 3,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": null,
+        "cleanupVerified": null
+      },
+      "renderer": {
+        "frameMs": 2,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 23145.786500000002,
+      "mainRoundTripMs": 21.54770000001008,
+      "metrics": {
+        "cleanupState": "verified_cancelled",
+        "memory": {
+          "rss": 221298688,
+          "heapTotal": 37007360,
+          "heapUsed": 26335076,
+          "external": 4518293,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 16781000,
+          "system": 3921000
+        },
+        "eventCount": 10,
+        "maxSequence": 10,
+        "workersStarted": 4,
+        "workersCompleted": 3,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": null,
+        "cleanupVerified": null
+      },
+      "renderer": {
+        "frameMs": 7.900000095367432,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 24313.4795,
+      "mainRoundTripMs": 17.299299999998766,
+      "metrics": {
+        "cleanupState": "verified_cancelled",
+        "memory": {
+          "rss": 221675520,
+          "heapTotal": 37007360,
+          "heapUsed": 24369816,
+          "external": 4470068,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 17546000,
+          "system": 4093000
+        },
+        "eventCount": 10,
+        "maxSequence": 10,
+        "workersStarted": 4,
+        "workersCompleted": 3,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": null,
+        "cleanupVerified": null
+      },
+      "renderer": {
+        "frameMs": 3.700000047683716,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 25611.636599999998,
+      "mainRoundTripMs": 25.650499999988824,
+      "metrics": {
+        "cleanupState": "verified_cancelled",
+        "memory": {
+          "rss": 222121984,
+          "heapTotal": 37269504,
+          "heapUsed": 23565372,
+          "external": 4507920,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 18312000,
+          "system": 4250000
+        },
+        "eventCount": 10,
+        "maxSequence": 10,
+        "workersStarted": 4,
+        "workersCompleted": 3,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": null,
+        "cleanupVerified": null
+      },
+      "renderer": {
+        "frameMs": 8.699999809265137,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 26796.657900000006,
+      "mainRoundTripMs": 26.389299999995274,
+      "metrics": {
+        "cleanupState": "verified_cancelled",
+        "memory": {
+          "rss": 222199808,
+          "heapTotal": 37531648,
+          "heapUsed": 24932212,
+          "external": 4546379,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 19062000,
+          "system": 4390000
+        },
+        "eventCount": 10,
+        "maxSequence": 10,
+        "workersStarted": 4,
+        "workersCompleted": 3,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": null,
+        "cleanupVerified": null
+      },
+      "renderer": {
+        "frameMs": 9.399999856948853,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 28045.926300000006,
+      "mainRoundTripMs": 26.742800000007264,
+      "metrics": {
+        "cleanupState": "verified_cancelled",
+        "memory": {
+          "rss": 222236672,
+          "heapTotal": 37793792,
+          "heapUsed": 23818784,
+          "external": 4507920,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 19953000,
+          "system": 4578000
+        },
+        "eventCount": 10,
+        "maxSequence": 10,
+        "workersStarted": 4,
+        "workersCompleted": 3,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": null,
+        "cleanupVerified": null
+      },
+      "renderer": {
+        "frameMs": 11.100000143051147,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 29395.151299999998,
+      "mainRoundTripMs": 42.43760000000475,
+      "metrics": {
+        "cleanupState": "verified_cancelled",
+        "memory": {
+          "rss": 223154176,
+          "heapTotal": 37793792,
+          "heapUsed": 26436688,
+          "external": 4643745,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 20906000,
+          "system": 4703000
+        },
+        "eventCount": 10,
+        "maxSequence": 10,
+        "workersStarted": 4,
+        "workersCompleted": 3,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": null,
+        "cleanupVerified": null
+      },
+      "renderer": {
+        "frameMs": 9.100000143051147,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 30711.529200000004,
+      "mainRoundTripMs": 20.99989999999525,
+      "metrics": {
+        "cleanupState": "verified_cancelled",
+        "memory": {
+          "rss": 223326208,
+          "heapTotal": 37793792,
+          "heapUsed": 24744764,
+          "external": 4593256,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 21656000,
+          "system": 5046000
+        },
+        "eventCount": 10,
+        "maxSequence": 10,
+        "workersStarted": 4,
+        "workersCompleted": 3,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": null,
+        "cleanupVerified": null
+      },
+      "renderer": {
+        "frameMs": 7.799999952316284,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 32080.304099999994,
+      "mainRoundTripMs": 20.23180000000866,
+      "metrics": {
+        "cleanupState": "verified_cancelled",
+        "memory": {
+          "rss": 222384128,
+          "heapTotal": 37793792,
+          "heapUsed": 23278484,
+          "external": 4543289,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 22515000,
+          "system": 5390000
+        },
+        "eventCount": 10,
+        "maxSequence": 10,
+        "workersStarted": 4,
+        "workersCompleted": 3,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": null,
+        "cleanupVerified": null
+      },
+      "renderer": {
+        "frameMs": 4.8999998569488525,
+        "dom": 317,
+        "heap": 19300000
+      }
+    },
+    {
+      "elapsedMs": 33478.7638,
+      "mainRoundTripMs": 33.20419999999285,
+      "metrics": {
+        "cleanupState": "verified_cancelled",
+        "memory": {
+          "rss": 222801920,
+          "heapTotal": 38055936,
+          "heapUsed": 22788908,
+          "external": 4591219,
+          "arrayBuffers": 0
+        },
+        "cpu": {
+          "user": 23375000,
+          "system": 5562000
+        },
+        "eventCount": 10,
+        "maxSequence": 10,
+        "workersStarted": 4,
+        "workersCompleted": 3,
+        "incomingRecords": 0,
+        "incomingBytes": 0,
+        "outgoingRecords": 0,
+        "outgoingBytes": 0,
+        "partialFrameBytes": 0,
+        "activeProcesses": null,
+        "cleanupVerified": null
+      },
+      "renderer": {
+        "frameMs": 4,
+        "dom": 317,
+        "heap": 19300000
+      }
+    }
+  ],
+  "cancellationLatencyMs": 309.54089999999997,
+  "cancellationAtBatch": 77,
+  "cancelledWhileWriterActive": true,
+  "pageReads": [
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 0,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 40,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 80,
+      "limit": 40,
+      "rows": 40
+    },
+    {
+      "afterSequence": 120,
+      "limit": 40,
+      "rows": 40
+    }
+  ],
+  "subscribers": 2,
+  "integrity": {
+    "integrity_check": "ok"
+  },
+  "actualEventNames": [
+    "task.started",
+    "task.progress",
+    "worker.started",
+    "worker.completed",
+    "worker.started",
+    "worker.completed",
+    "worker.started",
+    "worker.completed",
+    "worker.started",
+    "task.cancelled"
+  ],
+  "finalActualEventNames": [
+    "task.started",
+    "task.progress",
+    "worker.started",
+    "worker.completed",
+    "worker.started",
+    "worker.completed",
+    "worker.started",
+    "worker.completed",
+    "worker.started",
+    "task.cancelled"
+  ],
+  "leases": 0,
+  "cleanupState": "verified_cancelled",
+  "claim": "Synthetic history load through real SQLite/IPC/React, concurrent genuine AgentOS workers separately counted; bounded measured run, no infinite/peak/novel-SLA guarantee."
+}
