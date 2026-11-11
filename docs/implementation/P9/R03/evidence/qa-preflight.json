@@ -1,0 +1,8 @@
+{
+  "qaAuthorizationFilePresent": false,
+  "vmToolsOnPath": [],
+  "authorizedTargetProvided": false,
+  "hostSessionEndExecuted": false,
+  "settingsChanged": false,
+  "conclusion": "No verified authorized QA VM target supplied; logoff/shutdown and mount tests NOT_RUN"
+}

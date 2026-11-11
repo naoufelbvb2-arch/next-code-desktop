@@ -2,6 +2,25 @@
 
 ## Current authority
 
+The owner's **P9-R03 V1 Scope Ratification & Final Windows Acceptance
+Preparation (received 2026-11-10)** approves CP-002 including its precise
+capability applicability changes and the currently advertised deepseek-flash
+model. Ratify prospectively through a new authenticated normative addendum and
+authority record, preserving all existing frozen originals, prior manifests,
+CP-002 draft and P9/R01/R02 reports. Deferred capability variants remain NOT_RUN
+with DEFERRED_OUT_OF_V1_BY_APPROVED_NCD_V1; safety remains mandatory. Record the
+accepted limited P2 documentary exception P9-R01-F01 without inventing the lost
+artifact, retroactive PASS or any G6/P0/P1 waiver. Work on the existing P9 branch
+from verified `27fee8408065b34ae7a8b798b06daa5636ddff98`, Engine clean/read-only
+at `99e00e13f8a39fa6730f3d3de773ac937b5ac915`. Reassess G3 with actual evidence,
+verify affected contracts/tests, prepare exact native/session-end VM procedures
+and a short unsigned human review. No paid calls, key/budget change, Engine edit,
+public IPC/JSONL/schema change, main merge, P10, packaging or new product cycle.
+No automatic Windows setting/privilege change. Never log off or shut down the
+owner host; actual session-end trials need an explicitly authorized QA VM.
+Keep new R03 raw paths unique; publish reviewed feature-branch commits and stop
+at P9-R03 OWNER REVIEW.
+
 The owner's **P9-R02 V1 Scope Ratification Preparation & Final Acceptance
 Closure (received 2026-11-10)** authorizes continuation on the existing P9 branch
 from verified `c49de4af558d72f88e8593e66da4f6d63f889b9e`, Engine read-only at

@@ -12,6 +12,7 @@ MANIFEST_SHA256 = "16aadd64d5a256330df0b1cf05106c300df394835e40037c5925073247c1c
 
 
 ADDENDA_MANIFEST_SHA256 = "105d751eb4b5d6f31cdf4104aed03d33b329c690cb6b7a52d0c23616e2ef9ed5"
+R03_MANIFEST_SHA256 = "70421b9325665f2b50bf07453ad743196227722aea28ea313ca0bf5fb2f83a1f"
 
 def require(condition: bool, message: str) -> None:
     if not condition:
@@ -52,8 +53,23 @@ def main() -> None:
     require(added == {"01-normative/NCD-03-IIS-02-C02-P8-READ-PROJECTIONS-ADDENDUM.md"}
             and len(added_records) == 1 and not (added & expected),
             "Unexpected approved addendum inventory")
+    # P9-R03 prospectively adopts CP-002. Preserve the earlier authenticated
+    # manifest; pin a separate exact extension and its owner ratification record.
+    r03_name = "SHA256-APPROVED-ADDENDA-R03-MANIFEST.json"
+    r03_bytes = (delivery / r03_name).read_bytes()
+    require(hashlib.sha256(r03_bytes).hexdigest() == R03_MANIFEST_SHA256,
+            "R03 approved addendum baseline mismatch")
+    r03 = json.loads(r03_bytes)
+    r03_records = r03["files"]
+    r03_added = {record["path"] for record in r03_records}
+    require(r03["previousManifest"] == {"path": addenda_name, "sha256": ADDENDA_MANIFEST_SHA256}
+            and r03["totalNormativeFiles"] == 20
+            and len(r03_records) == 2 and r03_added == {
+                "01-normative/NCD-V1-DEEPSEEK-SINGLE-PROVIDER-SCOPE-v1.0-FROZEN.md",
+                "02-authority-records/NCD-V1-CP-002-OWNER-RATIFICATION-RECORD.md"}
+            and not r03_added & (expected | added), "Unexpected R03 approved inventory/chain")
     actual = {p.relative_to(delivery).as_posix() for p in delivery.rglob("*") if p.is_file()}
-    require(actual == expected | added | {manifest_name, addenda_name}, "Delivery file inventory mismatch")
+    require(actual == expected | added | r03_added | {manifest_name, addenda_name, r03_name}, "Delivery file inventory mismatch")
 
     def git_blob(name: str) -> bytes:
         target = f"docs/engineering/{name}"
@@ -64,7 +80,7 @@ def main() -> None:
             cwd=root, check=True, capture_output=True,
         ).stdout
 
-    for record in records + added_records:
+    for record in records + added_records + r03_records:
         name = record["path"]
         content = (delivery / name).read_bytes()
         require(len(content) == record["bytes"] and
@@ -74,6 +90,7 @@ def main() -> None:
     if args.git_ref:
         require(git_blob(manifest_name) == manifest_bytes, "Git manifest mismatch")
         require(git_blob(addenda_name) == addenda_bytes, "Git addenda manifest mismatch")
+        require(git_blob(r03_name) == r03_bytes, "Git R03 addenda manifest mismatch")
     if args.archive:
         with zipfile.ZipFile(args.archive) as archive:
             require(archive.testzip() is None, "Archive CRC failure")
@@ -84,9 +101,10 @@ def main() -> None:
                         f"Archive byte mismatch: {name}")
     print(json.dumps({
         "status": "PASS", "delivery_files": 42, "manifest_payload_files": 41,
-        "original_normative_files": 18, "approved_normative_addenda": 1,
-        "normative_files": 19, "engineering_files": 44,
+        "original_normative_files": 18, "approved_normative_addenda": 2,
+        "normative_files": 20, "engineering_files": 47,
         "addenda_manifest_sha256": ADDENDA_MANIFEST_SHA256, "manifest_sha256": MANIFEST_SHA256,
+        "r03_addenda_manifest_sha256": R03_MANIFEST_SHA256,
         "git_blobs": "PASS" if args.git_ref else "NOT_RUN",
         "archive_comparison": "PASS" if args.archive else "NOT_RUN",
     }, indent=2))

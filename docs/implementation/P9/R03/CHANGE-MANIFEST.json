@@ -1,0 +1,150 @@
+{
+  "baseline": "27fee8408065b34ae7a8b798b06daa5636ddff98",
+  "exclusion": "This manifest and later receipt excluded to avoid self-reference. Working bytes; staged Git equality verified before publication.",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "action": "MODIFIED",
+      "sha256": "242d9e9146471b2826c5c743d4f9328217a00e852b9d17e4beff892646c76036",
+      "bytes": 18432
+    },
+    {
+      "path": "docs/engineering/01-normative/NCD-V1-DEEPSEEK-SINGLE-PROVIDER-SCOPE-v1.0-FROZEN.md",
+      "action": "NEW",
+      "sha256": "8665187edb0bf9245efcd92c43ea89ddf8d1b6d01f8fd66f3c4e623d46548099",
+      "bytes": 6647
+    },
+    {
+      "path": "docs/engineering/02-authority-records/NCD-V1-CP-002-OWNER-RATIFICATION-RECORD.md",
+      "action": "NEW",
+      "sha256": "f751a10122817af692250d72fd3a8e1baf90e1964757f3c571c0555577d9b4c9",
+      "bytes": 2315
+    },
+    {
+      "path": "docs/engineering/SHA256-APPROVED-ADDENDA-R03-MANIFEST.json",
+      "action": "NEW",
+      "sha256": "70421b9325665f2b50bf07453ad743196227722aea28ea313ca0bf5fb2f83a1f",
+      "bytes": 872
+    },
+    {
+      "path": "docs/implementation/P0/verify_delivery.py",
+      "action": "MODIFIED",
+      "sha256": "2218b07cfc51757a19954024d2da5ddd0403035f61a52e17be6ea40b98aa1933",
+      "bytes": 5881
+    },
+    {
+      "path": "docs/implementation/P9/R03/APPLICABILITY-LEDGER.json",
+      "action": "NEW",
+      "sha256": "9bba5dc8e2a03cda00bfb551857e61490b8e127f03825b7a85f61a88040ad14b",
+      "bytes": 14827
+    },
+    {
+      "path": "docs/implementation/P9/R03/HUMAN-QA.md",
+      "action": "NEW",
+      "sha256": "2dbf29e7ab4e60449a2f87744e154902ea0315e01293aa7293d67dd690d37e82",
+      "bytes": 1542
+    },
+    {
+      "path": "docs/implementation/P9/R03/IMPLEMENTATION-REPORT.md",
+      "action": "NEW",
+      "sha256": "ff06647a08ecd7a7822064199db4f2136692bdecca71078aa6595372220bf860",
+      "bytes": 5587
+    },
+    {
+      "path": "docs/implementation/P9/R03/P2-EXCEPTION.md",
+      "action": "NEW",
+      "sha256": "d1b030a30f62ec7972e394efe44f3dcec89fd9172e7872be48e81e83f156eea5",
+      "bytes": 1838
+    },
+    {
+      "path": "docs/implementation/P9/R03/VERIFICATION-RESULTS.json",
+      "action": "NEW",
+      "sha256": "ca60c345e31df3e2876ed16de3bffa73c8cd1a8c01b0cb18b0082d63cc228bf4",
+      "bytes": 1922
+    },
+    {
+      "path": "docs/implementation/P9/R03/WINDOWS-QA.md",
+      "action": "NEW",
+      "sha256": "aef0126ca57603e5b7edd58f0b74cd7a89522c294e692c1c072326f196aca847",
+      "bytes": 9346
+    },
+    {
+      "path": "docs/implementation/P9/R03/collect-evidence.py",
+      "action": "NEW",
+      "sha256": "d24803c34898f1cb87ebe90b8edf7175f42becd52a4aab9f62e68c0522ba348c",
+      "bytes": 17770
+    },
+    {
+      "path": "docs/implementation/P9/R03/coverage-matrix.csv",
+      "action": "NEW",
+      "sha256": "e1d018bcbf6b96ce383e4dca4faf8255d584871a1e4713621b5c36d2423cd8f9",
+      "bytes": 510703
+    },
+    {
+      "path": "docs/implementation/P9/R03/evidence/native.json",
+      "action": "NEW",
+      "sha256": "6a14c4798baee8a1f157231c959ccaf8a28e0a0f4ba264d45e6083da66abdc49",
+      "bytes": 618
+    },
+    {
+      "path": "docs/implementation/P9/R03/evidence/qa-preflight.json",
+      "action": "NEW",
+      "sha256": "0eb08238eae46abb63f6ad7a5eb5c731c22e8f839fe99755c7808740f4206a93",
+      "bytes": 270
+    },
+    {
+      "path": "docs/implementation/P9/R03/evidence/v1-journey.json",
+      "action": "NEW",
+      "sha256": "cc4c8277a1d45bb2b35be658bc3621432fac4c8425b5b81d7c47ecf9ca7e1e2d",
+      "bytes": 714
+    },
+    {
+      "path": "docs/implementation/P9/R03/executed-results.json",
+      "action": "NEW",
+      "sha256": "5e6643c0a22c90fb8a45e06b4fd474d74cd246d7b4c9e4684ccb968aa73b2499",
+      "bytes": 37555
+    },
+    {
+      "path": "docs/implementation/P9/R03/release-decision.md",
+      "action": "NEW",
+      "sha256": "116339b52cad995604580722f3a16f19040a2a85c8073ad458e667cabc44f067",
+      "bytes": 3249
+    },
+    {
+      "path": "docs/implementation/P9/R03/run-manifest.json",
+      "action": "NEW",
+      "sha256": "0ad16535bd73f8b45021cbe5e5a3092c93c8e677614e93ec33f7ff4bd25515b7",
+      "bytes": 27347
+    },
+    {
+      "path": "tests/electron/p9r03-scope.spec.ts",
+      "action": "NEW",
+      "sha256": "b7b251906b779ff4743258e29fee2f4fff278293cb51f89bcff1ab44e6b82a29",
+      "bytes": 4657
+    },
+    {
+      "path": "tests/fixtures/discussion_broker_peer.py",
+      "action": "MODIFIED",
+      "sha256": "bd7c6ad25716109b14e9dca27ab3e069c017c29702b2749e3e5b66ddcb23cc8b",
+      "bytes": 3540
+    },
+    {
+      "path": "tests/fixtures/p9r02-main.ts",
+      "action": "MODIFIED",
+      "sha256": "74d87979d955cce123c26ce2fd5eaf0d015286180dcb4b68fba3f9537f12aee0",
+      "bytes": 7477
+    },
+    {
+      "path": "tests/ui/p9r03-scope.test.tsx",
+      "action": "NEW",
+      "sha256": "072fa64b090c332ff58d3f6e1f82f45a2b1d2356bc7a9f7c8e89dce0fef6d38f",
+      "bytes": 2170
+    },
+    {
+      "path": "tests/unit/p9r03-mount.test.ts",
+      "action": "NEW",
+      "sha256": "f3a89986682f08ebf2a9fa0b4eaa9c84ea62ce6ff7fcf41a005f476cab2ffd5f",
+      "bytes": 2861
+    }
+  ]
+}

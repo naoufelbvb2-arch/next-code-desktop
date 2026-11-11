@@ -1,0 +1,15 @@
+{
+  "originalGateway": true,
+  "transport": "Captured HTTP only, no external/provider-paid call",
+  "multiTurn": true,
+  "contextRevision": 4,
+  "capturedCalls": 4,
+  "providerHttp401": "Actual original Gateway; unknown turn conservatively retained, one captured call, no automatic retry or task",
+  "successfulMainReadObservations": 1,
+  "revocationStopsFutureRelease": true,
+  "realPipeFailure": "ERR_STREAM_DESTROYED",
+  "failedWriteAttempts": 1,
+  "taskAdmissions": 0,
+  "taskEvents": 0,
+  "limits": "Current V1 route, exact consent, captured HTTP401 and transport failure journey; timeout cases are separate Python evidence. No arbitrary future provider, native file-containment or external receipt claim."
+}

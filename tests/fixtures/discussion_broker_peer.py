@@ -38,6 +38,8 @@ async def offline_discuss(settings, key, value, resources=None, sources=None):
             "historyCount": len(value["context_snapshot"]["recent_messages"]), "currentInputOccurrences": sum(m.get("name")==value["user_message_id"] for m in payload["messages"]),
             "r01GatePassed": bool(sources and gate and Path(gate).exists())}), "utf-8")
         response = "Fixture provider saw Atlas in an approved excerpt." if sources and safe else "Fixture provider remembered Atlas." if safe else "Fixture source projection failed."
+        if value["text"] == "R03 synthetic HTTP401 failure":
+            return httpx.Response(401, json={"error": {"message": "Synthetic authorization failure"}})
         summaries = [{"text":"Synthetic pressure memory: Atlas.","source_message_ids":[value["user_message_id"]]}] if value["text"].startswith("R01 pressure Atlas") and len(value["text"])>12000 else []
         answer = {"answer": response, "task_proposal": None, "summary_candidates": summaries, "decision_candidates": []}
         return httpx.Response(200, json={"choices": [{"message": {"content": json.dumps(answer)}, "finish_reason": "stop"}], "usage": {"prompt_tokens": 20, "completion_tokens": 10, "total_tokens": 30}})

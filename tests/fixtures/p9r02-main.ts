@@ -20,6 +20,17 @@ export {
   stopActualCodingFixture
 } from './coding-main'
 
+// R03 manual QA attachment deliberately leaves native dialogs untouched.
+// Only the isolated test-built Main exposes this hook; never imported in production.
+export function attachSessionQa() {
+  const actual = coding.r02ActualFixture()
+  const attach = (globalThis as any).__r02AttachSupervisor
+  if (typeof attach !== 'function') throw new Error('No isolated Main injection hook')
+  actual.supervisor.discussion = actual.discussion
+  attach(actual.supervisor)
+  return { originalBeforeQuitHandlers: app.listenerCount('before-quit'), nativeDialogs: true }
+}
+
 export function attachQuit(choice: number) {
   const actual = coding.r02ActualFixture()
   // The test-built original application module exports only into this disposable

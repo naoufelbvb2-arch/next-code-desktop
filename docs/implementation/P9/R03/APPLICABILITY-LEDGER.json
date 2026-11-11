@@ -1,0 +1,285 @@
+{
+  "authority": "NCD-V1 v1.0 approved CP-002",
+  "historicalVerdictsUnchanged": true,
+  "variants": [
+    {
+      "testId": "I06-T03",
+      "frozenParentClause": "docs/engineering/01-normative/NCD-03-IIS-06-DISCUSSION-MODEL-INTEGRATION-SPECIFICATION.md:283 [IIS-06 §20; final §§24–25]",
+      "originalRequirement": "Two models under same display provider remain distinct routes, provider identity verified independently",
+      "r02CaseVerdict": "NOT_RUN",
+      "legacyWholeCaseVerdictRetained": "NOT_RUN",
+      "deferredVariant": {
+        "description": "Two genuine advertised production models",
+        "status": "NOT_RUN",
+        "applicability": "DEFERRED_OUT_OF_V1_BY_APPROVED_NCD_V1"
+      },
+      "mandatoryVariant": {
+        "description": "Stable IDs, unsupported/colliding labels and independent captured destination binding",
+        "status": "PASS",
+        "evidence": [
+          {
+            "id": "X0177",
+            "name": "P5-01 model registry, unsupported selection and preference is for future sends",
+            "status": "PASS",
+            "evidence": ".cache/p9r03-scope-native-results-01.json",
+            "sha256": "bfca7313dccb9c9d7fc0aa0d50d1a10cf1890efa8be1eca445cc12b59d979a0a",
+            "origin": "EXECUTED_R03"
+          },
+          {
+            "id": "R0010",
+            "name": "R01-C02 existing Main consent never authorizes a harness provider/model/destination change; original issued route stays bound",
+            "status": "PASS",
+            "evidence": ".cache/p9r03-scope-native-results-01.json",
+            "sha256": "bfca7313dccb9c9d7fc0aa0d50d1a10cf1890efa8be1eca445cc12b59d979a0a",
+            "origin": "EXECUTED_R03"
+          },
+          {
+            "id": "R0018",
+            "name": "test_p9r01_gateway.R01GatewayTests.test_R01_P01_two_independent_captured_routes_freeze_issued_choice_and_switch_only_future_calls",
+            "status": "PASS",
+            "evidence": ".cache/p9r02-python-r03-01.json",
+            "sha256": "f9c4cfed257fa0be2d74f8baffe60e8d0c1bf4845780f4b570f27219c29b37ee",
+            "origin": "EXECUTED_R03"
+          },
+          {
+            "id": "R0021",
+            "name": "test_p9r01_gateway.R01GatewayTests.test_R01_P04_wrong_effective_route_is_rejected_before_captured_source_can_reach_other_provider",
+            "status": "PASS",
+            "evidence": ".cache/p9r02-python-r03-01.json",
+            "sha256": "f9c4cfed257fa0be2d74f8baffe60e8d0c1bf4845780f4b570f27219c29b37ee",
+            "origin": "EXECUTED_R03"
+          }
+        ]
+      },
+      "limits": "Composite cited scope only; captured providers are not live/local inference. No G6 containment waiver."
+    },
+    {
+      "testId": "I06-T04",
+      "frozenParentClause": "docs/engineering/01-normative/NCD-03-IIS-06-DISCUSSION-MODEL-INTEGRATION-SPECIFICATION.md:284 [IIS-06 §20; final §§24–25]",
+      "originalRequirement": "Model preference changes future requests only; active issued request route frozen",
+      "r02CaseVerdict": "INCONCLUSIVE",
+      "legacyWholeCaseVerdictRetained": "INCONCLUSIVE",
+      "deferredVariant": {
+        "description": "Positive UI switching between two genuine available production models",
+        "status": "NOT_RUN",
+        "applicability": "DEFERRED_OUT_OF_V1_BY_APPROVED_NCD_V1"
+      },
+      "mandatoryVariant": {
+        "description": "Issued route immutable; unsupported preference rejected; future-only switching is fixture evidence",
+        "status": "PASS",
+        "evidence": [
+          {
+            "id": "X0177",
+            "name": "P5-01 model registry, unsupported selection and preference is for future sends",
+            "status": "PASS",
+            "evidence": ".cache/p9r03-scope-native-results-01.json",
+            "sha256": "bfca7313dccb9c9d7fc0aa0d50d1a10cf1890efa8be1eca445cc12b59d979a0a",
+            "origin": "EXECUTED_R03"
+          },
+          {
+            "id": "R0010",
+            "name": "R01-C02 existing Main consent never authorizes a harness provider/model/destination change; original issued route stays bound",
+            "status": "PASS",
+            "evidence": ".cache/p9r03-scope-native-results-01.json",
+            "sha256": "bfca7313dccb9c9d7fc0aa0d50d1a10cf1890efa8be1eca445cc12b59d979a0a",
+            "origin": "EXECUTED_R03"
+          },
+          {
+            "id": "R0018",
+            "name": "test_p9r01_gateway.R01GatewayTests.test_R01_P01_two_independent_captured_routes_freeze_issued_choice_and_switch_only_future_calls",
+            "status": "PASS",
+            "evidence": ".cache/p9r02-python-r03-01.json",
+            "sha256": "f9c4cfed257fa0be2d74f8baffe60e8d0c1bf4845780f4b570f27219c29b37ee",
+            "origin": "EXECUTED_R03"
+          },
+          {
+            "id": "R0021",
+            "name": "test_p9r01_gateway.R01GatewayTests.test_R01_P04_wrong_effective_route_is_rejected_before_captured_source_can_reach_other_provider",
+            "status": "PASS",
+            "evidence": ".cache/p9r02-python-r03-01.json",
+            "sha256": "f9c4cfed257fa0be2d74f8baffe60e8d0c1bf4845780f4b570f27219c29b37ee",
+            "origin": "EXECUTED_R03"
+          }
+        ]
+      },
+      "limits": "Composite cited scope only; captured providers are not live/local inference. No G6 containment waiver."
+    },
+    {
+      "testId": "I06-T32",
+      "frozenParentClause": "docs/engineering/01-normative/NCD-03-IIS-06-DISCUSSION-MODEL-INTEGRATION-SPECIFICATION.md:312 [IIS-06 §20; final §§24–25]",
+      "originalRequirement": "Provider switch and changed disclosure class require new challenge; local-model case correctly scoped",
+      "r02CaseVerdict": "NOT_RUN",
+      "legacyWholeCaseVerdictRetained": "NOT_RUN",
+      "deferredVariant": {
+        "description": "Positive second production provider and actual local-model capability",
+        "status": "NOT_RUN",
+        "applicability": "DEFERRED_OUT_OF_V1_BY_APPROVED_NCD_V1"
+      },
+      "mandatoryVariant": {
+        "description": "Exact project/provider/class grant, changed-class denial, revocation and wrong/unresolved destination rejection",
+        "status": "PASS",
+        "evidence": [
+          {
+            "id": "X0033",
+            "name": "P6-L02 revoke wins before the authenticated write scheduling; prepared content is never released",
+            "status": "PASS",
+            "evidence": ".cache/p9r03-scope-native-results-01.json",
+            "sha256": "bfca7313dccb9c9d7fc0aa0d50d1a10cf1890efa8be1eca445cc12b59d979a0a",
+            "origin": "EXECUTED_R03"
+          },
+          {
+            "id": "X0413",
+            "name": "P3 T6 consent, inspections, scoped paging and presentation grants exact scope, replays original consent snapshot after revoke, and blocks future source release",
+            "status": "PASS",
+            "evidence": ".cache/p9r03-security-results-02.json",
+            "sha256": "2d239d05df6bf57f1058b7036a0a12359b35dccebae9c56c163b8e8f01562b0f",
+            "origin": "EXECUTED_R03"
+          },
+          {
+            "id": "X0414",
+            "name": "P3 T6 consent, inspections, scoped paging and presentation denies forged, expired, wrong-provider/class/project challenges and leaves no synthetic grant",
+            "status": "PASS",
+            "evidence": ".cache/p9r03-security-results-02.json",
+            "sha256": "2d239d05df6bf57f1058b7036a0a12359b35dccebae9c56c163b8e8f01562b0f",
+            "origin": "EXECUTED_R03"
+          },
+          {
+            "id": "R0010",
+            "name": "R01-C02 existing Main consent never authorizes a harness provider/model/destination change; original issued route stays bound",
+            "status": "PASS",
+            "evidence": ".cache/p9r03-scope-native-results-01.json",
+            "sha256": "bfca7313dccb9c9d7fc0aa0d50d1a10cf1890efa8be1eca445cc12b59d979a0a",
+            "origin": "EXECUTED_R03"
+          },
+          {
+            "id": "R03X0003",
+            "name": "R03-V02 I06-T44 V1 actual Main/Python/original-Gateway multi-turn memory, exact consent/revoke and real source transport failure cannot admit a task",
+            "status": "PASS",
+            "evidence": ".cache/p9r03-electron-results-03.json",
+            "sha256": "30cd852e0fce7f7826e91e71f24afd1977fef783b0c2de9f8fa1c78cfaf4595d",
+            "origin": "EXECUTED_R03"
+          }
+        ]
+      },
+      "limits": "Composite cited scope only; captured providers are not live/local inference. No G6 containment waiver."
+    },
+    {
+      "testId": "I07-T42",
+      "frozenParentClause": "docs/engineering/01-normative/NCD-03-IIS-07-PROJECT-FILE-BROKER-SPECIFICATION.md:350 [IIS-07 §19]",
+      "originalRequirement": "Local-model source read with sensitive file | No external grant needed but sensitive deny remains",
+      "r02CaseVerdict": "NOT_RUN",
+      "legacyWholeCaseVerdictRetained": "NOT_RUN",
+      "deferredVariant": {
+        "description": "Actual local-model sensitive-file read",
+        "status": "NOT_RUN",
+        "applicability": "DEFERRED_OUT_OF_V1_BY_APPROVED_NCD_V1"
+      },
+      "mandatoryVariant": {
+        "description": "Sensitive-content denial for supported preview/discover/read/source handoff; native G6 remains separate",
+        "status": "PASS",
+        "evidence": [
+          {
+            "id": "X0123",
+            "name": "P6-B05 sensitive content outside requested line and across capture block is denied",
+            "status": "PASS",
+            "evidence": ".cache/p9r03-scope-native-results-01.json",
+            "sha256": "bfca7313dccb9c9d7fc0aa0d50d1a10cf1890efa8be1eca445cc12b59d979a0a",
+            "origin": "EXECUTED_R03"
+          },
+          {
+            "id": "X0126",
+            "name": "P6-B08 UI workspace switch never retargets the immutable active parent",
+            "status": "PASS",
+            "evidence": ".cache/p9r03-scope-native-results-01.json",
+            "sha256": "bfca7313dccb9c9d7fc0aa0d50d1a10cf1890efa8be1eca445cc12b59d979a0a",
+            "origin": "EXECUTED_R03"
+          },
+          {
+            "id": "X0127",
+            "name": "P6-B09 coding role, nonREADY connection and foreign session are denied before worker admission",
+            "status": "PASS",
+            "evidence": ".cache/p9r03-scope-native-results-01.json",
+            "sha256": "bfca7313dccb9c9d7fc0aa0d50d1a10cf1890efa8be1eca445cc12b59d979a0a",
+            "origin": "EXECUTED_R03"
+          },
+          {
+            "id": "X0130",
+            "name": "P6-B12 S5 repeats same-handle native freshness at the actual write hook after preparation; attribute-only timestamp change is denied",
+            "status": "PASS",
+            "evidence": ".cache/p9r03-scope-native-results-01.json",
+            "sha256": "bfca7313dccb9c9d7fc0aa0d50d1a10cf1890efa8be1eca445cc12b59d979a0a",
+            "origin": "EXECUTED_R03"
+          }
+        ]
+      },
+      "limits": "Composite cited scope only; captured providers are not live/local inference. No G6 containment waiver."
+    },
+    {
+      "testId": "E2E-05",
+      "frozenParentClause": "docs/engineering/01-normative/NCD-03-IIS-08-INTEGRATION-TESTING-ACCEPTANCE-SPECIFICATION.md:336 [IIS-08 §10 / FFR08-R04]",
+      "originalRequirement": "**E2E-05 — Safe project-aware discussion:** untrusted project with safe source and synthetic secrets → discover → authorized bounded read → verified observation counts → exact external provider consent challenge → grant/revoke and provider switch → capture what Main actually sends; sensitive source never leaks; restore partial inspection after crash honestly.",
+      "r02CaseVerdict": "INCONCLUSIVE",
+      "legacyWholeCaseVerdictRetained": "INCONCLUSIVE",
+      "deferredVariant": {
+        "description": "Positive second production destination",
+        "status": "NOT_RUN",
+        "applicability": "DEFERRED_OUT_OF_V1_BY_APPROVED_NCD_V1"
+      },
+      "mandatoryVariant": {
+        "description": "Composite V1 discover/read, exact grant/revoke, captured handoff, unsupported destination rejection and honest crash partial",
+        "status": "PASS",
+        "evidence": [
+          {
+            "id": "X0119",
+            "name": "P6-B01 real Windows worker discover, T6 grant and exact local handoff before one durable read count",
+            "status": "PASS",
+            "evidence": ".cache/p9r03-scope-native-results-01.json",
+            "sha256": "bfca7313dccb9c9d7fc0aa0d50d1a10cf1890efa8be1eca445cc12b59d979a0a",
+            "origin": "EXECUTED_R03"
+          },
+          {
+            "id": "X0123",
+            "name": "P6-B05 sensitive content outside requested line and across capture block is denied",
+            "status": "PASS",
+            "evidence": ".cache/p9r03-scope-native-results-01.json",
+            "sha256": "bfca7313dccb9c9d7fc0aa0d50d1a10cf1890efa8be1eca445cc12b59d979a0a",
+            "origin": "EXECUTED_R03"
+          },
+          {
+            "id": "X0463",
+            "name": "P6-E03 actual Electron Main exits after successful pipe callback before evidence COMMIT; reopen preserves partial undercount and never replays",
+            "status": "PASS",
+            "evidence": ".cache/p9r01-affected-electron-results-04.json",
+            "sha256": "ba02825bd3839ce4ff3c9dd87e9cb6c1de36c6f9062ce444ac5df54ac59f730b",
+            "origin": "CARRIED_R01_OR_EARLIER"
+          },
+          {
+            "id": "R0010",
+            "name": "R01-C02 existing Main consent never authorizes a harness provider/model/destination change; original issued route stays bound",
+            "status": "PASS",
+            "evidence": ".cache/p9r03-scope-native-results-01.json",
+            "sha256": "bfca7313dccb9c9d7fc0aa0d50d1a10cf1890efa8be1eca445cc12b59d979a0a",
+            "origin": "EXECUTED_R03"
+          },
+          {
+            "id": "R0011",
+            "name": "R01-C03 a second actually registered project and UI selection cannot retarget an issued source parent or inherit its grant",
+            "status": "PASS",
+            "evidence": ".cache/p9r01-consent-broker-results-06.json",
+            "sha256": "4faaccfde96362ed1e4ac53f8c33e8758bd27dda7895114aa01ff71b358d7323",
+            "origin": "CARRIED_R01_OR_EARLIER"
+          },
+          {
+            "id": "R03X0003",
+            "name": "R03-V02 I06-T44 V1 actual Main/Python/original-Gateway multi-turn memory, exact consent/revoke and real source transport failure cannot admit a task",
+            "status": "PASS",
+            "evidence": ".cache/p9r03-electron-results-03.json",
+            "sha256": "30cd852e0fce7f7826e91e71f24afd1977fef783b0c2de9f8fa1c78cfaf4595d",
+            "origin": "EXECUTED_R03"
+          }
+        ]
+      },
+      "limits": "Composite cited scope only; captured providers are not live/local inference. No G6 containment waiver."
+    }
+  ]
+}

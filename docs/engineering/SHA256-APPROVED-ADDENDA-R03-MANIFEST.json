@@ -1,0 +1,25 @@
+{
+  "authority": "Owner P9-R03 Decision A and section3, received 2026-11-10",
+  "previousManifest": {
+    "path": "SHA256-APPROVED-ADDENDA-MANIFEST.json",
+    "sha256": "105d751eb4b5d6f31cdf4104aed03d33b329c690cb6b7a52d0c23616e2ef9ed5"
+  },
+  "originalDeliveryFiles": 42,
+  "originalPayloadFiles": 41,
+  "originalNormativeFiles": 18,
+  "previousApprovedAdditionalNormativeFiles": 1,
+  "newApprovedAdditionalNormativeFiles": 1,
+  "totalNormativeFiles": 20,
+  "files": [
+    {
+      "path": "01-normative/NCD-V1-DEEPSEEK-SINGLE-PROVIDER-SCOPE-v1.0-FROZEN.md",
+      "bytes": 6647,
+      "sha256": "8665187edb0bf9245efcd92c43ea89ddf8d1b6d01f8fd66f3c4e623d46548099"
+    },
+    {
+      "path": "02-authority-records/NCD-V1-CP-002-OWNER-RATIFICATION-RECORD.md",
+      "bytes": 2315,
+      "sha256": "f751a10122817af692250d72fd3a8e1baf90e1964757f3c571c0555577d9b4c9"
+    }
+  ]
+}

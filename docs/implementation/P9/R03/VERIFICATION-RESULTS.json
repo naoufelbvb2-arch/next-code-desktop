@@ -1,0 +1,72 @@
+{
+  "baseline": "27fee8408065b34ae7a8b798b06daa5636ddff98",
+  "clientDate": "2026-11-11",
+  "currentDesktop": {
+    "PASS": 554,
+    "NOT_RUN": 6,
+    "FAIL": 0
+  },
+  "engineCarried": {
+    "PASS": 69,
+    "NOT_RUN": 3,
+    "FAIL": 0
+  },
+  "executedR03": {
+    "PASS": 60,
+    "NOT_RUN": 3,
+    "FAIL": 0
+  },
+  "newCases": {
+    "PASS": 2,
+    "NOT_RUN": 1,
+    "FAIL": 0
+  },
+  "normative": {
+    "I08-": {
+      "PASS": 82,
+      "BLOCKED": 2,
+      "INCONCLUSIVE": 3,
+      "NOT_RUN": 1,
+      "FAIL": 0
+    },
+    "E05-": {
+      "PASS": 36,
+      "FAIL": 0
+    },
+    "I06-": {
+      "PASS": 48,
+      "NOT_RUN": 2,
+      "INCONCLUSIVE": 1,
+      "BLOCKED": 1,
+      "FAIL": 0
+    },
+    "I07-": {
+      "PASS": 52,
+      "INCONCLUSIVE": 2,
+      "BLOCKED": 1,
+      "NOT_RUN": 1,
+      "FAIL": 0
+    },
+    "E2E-": {
+      "PASS": 6,
+      "INCONCLUSIVE": 1,
+      "NOT_RUN": 1,
+      "FAIL": 0
+    }
+  },
+  "scope": "CP-002 APPROVED AND PROSPECTIVELY RATIFIED; deferred variants NOT_RUN with approved applicability tag",
+  "g3": "PASS for ratified V1 supported-route scope using cited actual/captured/current and hash-verified carried evidence; not G6 or full P9",
+  "p2Exception": "ACCEPTED_EXCEPTION; I08-T87 INCONCLUSIVE retention evidence remains",
+  "humanSignoff": "NOT_SIGNED_OFF",
+  "nativeSetup": "Two actual Windows1314 results; native mount guard NOT_RUN",
+  "sessionEnd": "Logoff/shutdown NOT_RUN, manual authorized VM procedure prepared",
+  "checks": {
+    "build": "PASS run03",
+    "typescript": "PASS run03",
+    "format": "PASS run03",
+    "python": "38 PASS",
+    "frozen": "PASS working/archive; staged and HEAD publication evidence in COMMIT-RECEIPT.md"
+  },
+  "conclusion": "NO-GO full P9; P9-R03 OWNER REVIEW",
+  "limits": "Cumulative counts include carried results. Current per-case identities in executed-results only. Earlier failing attempts are preserved, not erased by final PASS."
+}
